@@ -1,0 +1,303 @@
+
+
+\chapter{Операции над тензорами} \label{Sec:Sem2TensorOper}
+
+
+
+
+
+\section{Теоретический материал}
+
+
+Операции над тензорами:
+
+\begin{enumerate}
+
+\item %Любой тензор можно умножить на скаляр, а тензоры одного ранга можно складывать:
+\textbf{Сложение тензоров одного типа и умножение тензора на скаляр}.\[ S, T \to S+T; \qquad \text{ и } \qquad T \to \alpha T, \quad \alpha \in \mathbb{K}.  \]
+Операции выполняются покомпонентно: \[ (\alpha S + \beta T)_{j_{1}\ldots j_{q}}^{i_{1}\ldots i_{p}} = \alpha S_{j_{1}\ldots j_{q}}^{i_{1}\ldots i_{p}}  + \beta T_{j_{1}\ldots j_{q}}^{i_{1}\ldots i_{p}}.  \] 
+  
+%   Линейные комбинации тензоров  \[ S, T \to \alpha S + \beta T, \qquad \alpha, \beta \in \mathbb{K} \]
+
+Иными словами, \textit{пространство $\mathcal{T}^p_q$ тензоров типа $(p, q)$ является линейным пространством.}
+
+
+
+\item \textbf{Тензорное произведение}. Тензору $S$ типа $(p, q)$ и тензору $T$ типа $(k,l)$ сопоставляется тензор $S \otimes T$ типа $(p+k, q + l)$: \begin{gather*}(S\otimes T)(\alpha^1, \dots \alpha^p, \,\, \beta^1, \dots \beta^k; \,\, u_1, \dots, u_q, \,\, v_1, \dots v_l) = \\ =S(\alpha^1, \dots \alpha^p, \,\, u_1, \dots, u_q) \,\, T(\beta^1, \dots \beta^k; \,\, v_1, \dots v_l ),\end{gather*} для любых ковекторов $\alpha^i, \beta^j$ и любых векторов $u_k, v_l$. Проще говоря, часть аргументов подставляется в $S$, оставшиеся аргументы --- в $T$, и получившиеся числа перемножаются.
+
+%\[(S\otimes T)(u_P, v_K; \alpha^Q, \beta^L)=S(u, \alpha )T(v, \beta),\]
+
+%\[(S\otimes T)(v_{1},\ldots ,v_{n},v_{n+1},\ldots ,v_{n+m})=S(v_{1},\ldots ,v_{n})T(v_{n+1},\ldots ,v_{n+m}),\]
+%which again produces a map that is linear in all its arguments. 
+
+
+%On components the effect similarly is to multiply the components of the two input tensors, i.e.
+
+Компоненты тензорного произведения суть произведения соответствующих компонент множителей: \[{\displaystyle (S\otimes T)_{j_{1}\ldots j_{q}j_{q+1}\ldots j_{q+l}}^{i_{1}\ldots i_{p}i_{p+1}\ldots i_{p+k}}=S_{j_{1}\ldots j_{q}}^{i_{1}\ldots i_{p}} \, \, T_{j_{q+1}\ldots j_{q+l}}^{i_{p+1}\ldots i_{p+k}}}. \] 
+\item \textbf{Перестановка нижних индексов}\footnote{Обозначение оправдано тем, что $\left(T^{\sigma}\right)^{\tau}= T^{\sigma \tau}$ для любых перестановок $\sigma, \tau$.}:
+\[ \left( T^\sigma\right)^{i_1 \dots i_p}_{j_1 \dots j_q} = T^{i_1 \dots i_p}_{j_{\sigma (1)} \dots j_{\sigma (q)}} , \qquad \sigma \in S_q. \]
+Аналогично определяется \textbf{перестановка верхних индексов}\footnote{Перестановка верхних индексов с нижними не является тензорной операцией, см. Задачу \ref{Prob:TranNotTens}.}.
+
+Наличие этих операций позволяет говорить о \textit{симметричных и кососимметричных тензорах} (см. Раздел \ref{S:SymSkewSymTens}).
+
+\item \textbf{Свёртка} тензора сопоставляет тензору типа $(p, q)$ тензор типа $(p-1, q-1)$. Компоненты свёртки получаются из компонент старого тензора суммированием по одному верхнему и одному нижнему индексу: \[ T^{i_1 \dots \underline{i_k} \dots i_p }_{j_1 \dots \underline{j_l} \dots j_q} \to T^{i_1 \dots \underline{s} \dots i_p }_{j_1 \dots \underline{s} \dots j_q}. \]
+
+
+\begin{enumerate}
+
+
+\item Значение вектора на ковекторе\footnote{Свёртка возникает именно благодаря наличию естественного отображения $V^* \times V \to \mathbb{K}$.} --- это свёртка их тензорного произведения \[ \langle \alpha, v \rangle = \alpha_i v^i = \left(\alpha \otimes v\right)^i_i.  \]
+
+\item След оператора --- простейший пример свёртки \[\operatorname{tr} A = A^i_i.\]
+
+\end{enumerate}
+
+\begin{remark}
+Если даны два тензора $S$ и $T$, то их свёрткой иногда называют свёртку их тензорного произведения $S \otimes T$.
+\end{remark}
+
+\end{enumerate}
+
+Следующие операции выражаются через ранее описанные:
+
+\begin{enumerate}
+
+%\setcounter{enumi}{4}
+
+
+\item \textbf{Симметризация и кососимметризация (альтернирование)}. %Эти операции делают из любого тензора новый --- симметричный или кососимметричный (по верхним или нижним индексам) тензор соответственно. %Операции позволяют построить по тензоры новый тензор ---
+% Переставляя индексы и рассматривая подходящие линейные комбинации, можно по любому тензору построить симметричный или кососимметричный :   
+Тензору сопоставляется симметричный или кососимметричный (по верхним или нижним индексам) тензор того же вида:
+ \begin{gather*} \Sym T_{i_1 \dots i_k} = {\frac {1}{k!}}\sum _{\sigma \in S_k} T_{i_{\sigma (1)} \ldots i_{\sigma (k)}},\\ \Alt T_{i_1 \dots i_k} = {\frac {1}{k!}}\sum _{\sigma \in S_k}\operatorname {sgn} \sigma \cdot T_{ i_{\sigma (1)}\ldots i_{\sigma  (k)}}.\end{gather*} 
+ 
+ \textit{Cимметричные (кососимметричные) тензоры  при симметризации (соответственно альтернировании)  переходят в себя}\footnote{См. Задачу \ref{Prob:SymAltProj}.}.
+ 
+  
+Аналогично определяются симметризация и альтернирование по любому набору нижних (или верхних) индексов.
+ 
+
+ 
+ Симметризацию по некоторому набору индексов мы также иногда будем обозначать круглыми скобками, а альтернирование --- квадратными:   \begin{equation} \label{Eq:TensPartSymAlt}  T_{(i_1 \dots i_k)} :=  \Sym T_{i_1 \dots i_k}, \qquad T_{[i_1 \dots i_k]} :=  \Alt T_{i_1 \dots i_k}.  \end{equation}
+ 
+
+\item \textbf{Поднятие и опускание индекса.} Операция опускания индекса --- это свёртка тензора с данной билинейной формой $g_{ij}$ на $V$. Пример --- опускание первого индекса на первое место: \[ S^{i_2 \dots i_p}_{i j_1 \dots j_q} = g_{ik} T^{k i_2 \dots i_p}_{ j_1 \dots j_q}. \]
+Аналогично, поднятие индекса --- это свёртка тензора с данной билинейной формой $q^{ij}$ на $V^*$. Пример --- поднятие последнего индекса на последнее место: \[ S^{ i_1 i_2 \dots i_p j}_{ j_1 \dots j_{q-1}} = T^{i_1 i_2 \dots i_p }_{j_1 \dots j_{q-1} k}  q^{k j}. \]
+Поднимать и опускать можно любой индекс на любое место. Желательно чётко указывать, 
+какой индекс на какое место поднимается/опускается\footnote{Этот момент иногда опускается, если порядок индексов не принципиален, и подойдет любой тип операции.}.
+
+\begin{remark} Билинейная форма на $V$ --- это  линейное отображение \[G: V \to V^*.\] Невырожденная форма $g_{ij}$ устанавливает изомофизм между $V$ и $V^*$. Поэтому, \textit{если на $V$ задана невырожденная билинейная форма\footnote{Например, если $V$ --- евклидово, псевдоевклидово или симплектическое пространство.}, то можно и поднимать, и опускать индексы.} Компоненты $q^{ij}$ соответствующей билинейной формы на $V^*$ --- это элементы $g^{ij}$ обратной матрицы\footnote{См. Задачу \ref{Prob:InvGTensor}.} $G^{-1}$: \[ q^{ij} = g^{ij}, \qquad  g^{ij}g_{jk} = \delta^i_k.\]
+
+\end{remark}
+
+
+
+%\begin{remark} Невырожденная форма устанавливает изоморфизм $V$ и $V^*$. Обратное отображение $B^{-1}: V^* \to V$ при этом будет билинейной формой на $V^*$. \end{remark}
+
+
+\end{enumerate}
+
+
+	
+\section{Примеры решения задач}
+	
+\begin{problem} \label{Prob:TensProdAltSymCalc1}
+Для векторов \[u = e_1 - 3e_2 +e_3, \qquad v=3 e_1 + e_3\] и ковекторов \[\xi = e^2 + e^3, \qquad \eta = e^1 - e^2 +2e^3\] \begin{enumerate}
+
+\item вычислить $\xi \otimes \eta (u , v)$,
+
+\item проальтернировать тензор $ \xi \otimes \eta$,
+
+\item просимметрировать тензор $ u \otimes v$.
+
+\end{enumerate}
+\end{problem}	
+
+	
+\textit{Ответ в Задаче~\ref{Prob:TensProdAltSymCalc1}.} \begin{enumerate}
+
+\item  $\xi \otimes \eta (u , v)=-10$.
+
+\item Искомый тензор:\begin{gather*} \Alt(\xi \otimes \eta) =-\frac{1}{2} (e^1 \otimes e^2 -e^2 \otimes e^1)  - \\ -\frac{1}{2} ( e^1 \otimes e^3  -e^3 \otimes e^1 ) + \frac{3}{2} ( e^2 \otimes e^3 - e^3 \otimes e^2 ).\end{gather*}
+
+Короче этот ответ записывается как \[ \Alt(\xi \otimes \eta) = -\frac{1}{2} e^1 \wedge e^2 -\frac{1}{2} e^1 \wedge e^3 + \frac{3}{2} e^2 \wedge e^3.\]
+
+\item Компоненты тензора $S = \Sym(u \otimes v )$ имеют вид (у симметричного тензора $S^{ij} = S^{ji}$) \begin{gather*} S^{11} = 3, \quad S^{12} =  -\frac{9}{2}, \quad S^{13} =   2, \\ S^{22} =   0, \quad S^{23} =   -\frac{3}{2} , \quad S^{33} =   1.  \end{gather*} 
+
+\end{enumerate}
+
+
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensProdAltSymCalc1}] 
+
+\begin{enumerate}
+
+\item По определению \[\xi \otimes  \eta (u,v) = \xi(u) \cdot \eta (v).\] Поскольку значение ковектора $\alpha_i e^i$ на векторе $v^j e_j$ равно $\alpha_i v^i$, получаем \begin{gather*} \xi(u) = (e^2 + e^3)(e_1 - 3e_2 +e_3)=-2, \\ \eta (v) =  (e^1 - e^2 +2e^3)(3 e_1 + e_3)=5, \\  \xi(u) \cdot \eta (v) =   (-2) \cdot 5 = -10.\end{gather*}
+
+
+\item По определению  операции альтернирования $\Alt T$ \[{\displaystyle T_{[ij]}={1 \over 2}\left(T_{ij}-T_{ji}\right)}.\]
+
+В данном случае компоненты тензора $T=\xi \otimes \eta$: \begin{gather*} T_{21} = 1, \quad T_{22} = -1, \quad T_{23} = 2, \\ T_{31} = 1, \quad T_{32} = -1, \quad T_{33} = 2.\end{gather*} 
+Так как $T_{[ij]}$ --- кососимметричный тензор \[T_{[ji]} = - T_{[ij]},\] и достаточно вычислить коэффициенты при $i<j$. 
+Получаем \[ T_{[12]} = -\frac{1}{2}, \quad T_{[13]} =  -\frac{1}{2}, \quad T_{[23]} =   \frac{3}{2}. \]
+
+Тот же ответ получится, если заметить, что тензор $\xi \otimes \eta$ задаётся матрицей\footnote{Здесь элемент $T^{ij}$ стоит в $i$-той строке и $j$-том столбце матрицы $A$. Эта матрица получается при умножении вектора-столбца $\xi$ на вектор-строку $\eta$.} \[ A = \left( \begin{matrix}  0 & 0 & 0 \\ 1 & -1 & 2 \\ 1 & -1 & 2 \end{matrix} \right), \] а тензор $\Alt (\xi \otimes \eta)$ --- матрицей $\frac{A-A^T}{2}$.
+
+
+
+
+%{\displaystyle A_{[m_{1}\ldots m_{k}]m_{k+1}m_{q}}^{n_{1}\ldots n_{p}}=
+
+
+\item  По определению операции симметризации $\Sym T$ \[{\displaystyle T^{(ij)}={1 \over 2}\left(T^{ij}+T^{ji}\right)}.\] 
+
+
+
+В данном случае компоненты тензора $T=u \otimes v$: \begin{gather*} T^{11} = 3, \quad T^{13} =1, \quad T^{21} = -9, \\ T^{23} = -3, \quad T^{31} = 3, \quad T^{33} = 1.\end{gather*} 
+
+
+
+
+Тот же ответ можно получить, если заметить, что тензор $u \otimes v$ задаётся матрицей\footnote{Для симметричных матриц не нужно думать о порядке индексов ---  ответ для матриц $A$ и $A^T$ одинаковый.}  \[ A = \left( \begin{matrix}  3 & 0 & 1 \\ -9 & 0 & -3 \\ 3 & 0 & 1 \end{matrix} \right), \] а тензор $\Sym (u \otimes v)$ --- матрицей $\frac{A+A^T}{2}$.
+
+
+
+
+
+\end{enumerate}
+		
+		Задача~\ref{Prob:TensProdAltSymCalc1} решена.  \end{proof}	
+					
+
+\begin{problem} \label{Prob:IndUpDownCalc1} Поднять (опустить) индекс у тензора \[T = e_1 \otimes e^2 +  3e_2 \otimes e^1 \] с помощью скалярного произведения, заданного матрицей  \[\left( \begin{matrix} 1 & 2 \\ 1 & 3 \end{matrix}  \right).\]  \end{problem}
+
+
+	
+\textit{Ответ в Задаче~\ref{Prob:IndUpDownCalc1}.} \[T_{11} = 6, \quad T_{12} = 9, \quad T_{21} =1, \quad T_{22} = 1, \]
+\[T^{11} = -1, \quad T^{12} = 1, \quad T^{21} =9, \quad T^{22} = -6. \]
+	
+\begin{proof}[Решение Задачи~\ref{Prob:IndUpDownCalc1}]   По определению операции опускания индекса\footnote{Опускаем верхний индекс на первое место.} \begin{equation}  \label{Eq:IndexDownRank2} T_{ij} = g_{ik}  T^k_j .\end{equation} В данном случае, \[g_{11} = 1, \quad g_{12} = 2, \quad g_{21} =1, \quad g_{22} = 3, \]\[T_{1}^1 = 0, \quad T^1_{2} = 1, \quad T^2_{1} =3, \quad T^2_{2} = 0. \] Получаем, \[ T_{11} = g_{11} T^1_1 + g_{12} T^2_1 = 1 \cdot 0 + 2 \cdot 3 = 6. \] Аналогично находятся остальные индексы.
+
+
+Формула \eqref{Eq:IndexDownRank2} --- это формула для компонент матричного произведения\footnote{Надёжней находить ответ через индексы --- не нужно думать о порядке матриц и  их транспонировании.}  \[ \left( \begin{matrix} g_{11}  & g_{12} \\ g_{21}  & g_{22}  \end{matrix}  \right) \left( \begin{matrix} T^1_1  & T^1_2 \\ T^2_1 & T^2_2 \end{matrix}  \right).\] 
+Поэтому ответ так же получится, если перемножить матрицы $\left( \begin{matrix} 1 & 2 \\ 1 & 3 \end{matrix}  \right)$ и $\left( \begin{matrix} 0 & 1 \\ 3 & 0 \end{matrix}  \right)$.  
+
+
+По определению операции поднятия индекса\footnote{Поднимаем нижний индекс на последнее место.} \begin{equation}  \label{Eq:IndexUpRank2} T^{ij} =T^i_k  g^{kj}.\end{equation} %В данном случае, \[g_{11} = 1, \quad g_{12} = 2, \quad g_{21} =1, \quad g_{22} = 3 \]\[T_{1}^1 = 0, \quad T^1_{2} = 1, \quad T^2_{1} =3, \quad T^2_{2} = 0 \] 
+где $g^{ij}$ --- компоненты обратной матрицы к $\left( g_{ij} \right)$. В данном случае \[ G^{-1} = \left( \begin{matrix} 3  & -2 \\ -1  & 1  \end{matrix}  \right), \] поэтому \[g^{11} = 3, \quad g^{12} = -2, \quad g^{21} =-1, \quad g^{22} = 1. \]
+Получаем, \[ T^{11} = T^1_1 g^{11}  + T^1_2  g^{21}= 0  \cdot  3 + 1 \cdot (-1) = -1. \] Аналогично находятся остальные индексы.
+
+
+Формула \eqref{Eq:IndexUpRank2} --- это формула для компонент матричного произведения \[\left( \begin{matrix} T^1_1  & T^1_2 \\ T^2_1 & T^2_2 \end{matrix}  \right)  \left( \begin{matrix} g^{11}  & g^{12} \\ g^{21}  & g^{22}  \end{matrix}  \right). \] 
+Поэтому ответ так же получится, если перемножить матрицы $\left( \begin{matrix} 0 & 1 \\ 3 & 0 \end{matrix}  \right)$ и $ \left( \begin{matrix} 3  & -2 \\ -1  & 1  \end{matrix}  \right)$.  Задача~\ref{Prob:IndUpDownCalc1} решена.  \end{proof}
+
+
+
+
+\begin{problem} \label{Prob:TensTrace1}  Найти свёртку тензора \[2e_1 \otimes e^2 - 3 e_2 \otimes e^2 + e_3 \otimes e^2 - e_3 \otimes e^3.\]\end{problem}
+
+
+
+
+\textit{Ответ в Задаче~\ref{Prob:TensTrace1}.} $T^{i}_i =-4 $.
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensTrace1}] Задача решается прямым вычислением. Свёртка произвольного тензора вида \[ T = \sum_{j=1}^N \alpha^j \otimes v_j\] находится по формуле \[ T^i_i = \sum_{j=1}^N \langle \alpha^j, v_j \rangle.\]  Задача~\ref{Prob:TensTrace1} решена.  \end{proof} 
+
+
+
+
+
+
+
+
+
+\section{Теоретические задачи}
+
+
+
+
+\begin{problem} \label{Prob:TranNotTens} Доказать, что перестановка индексов для тензоров типа $(1,1)$ не является тензорной операцией. \end{problem}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TranNotTens}] Несложно подобрать матрицы $C$ и $A$ такие, что \[\left( C A C^{-1}\right)^T = \left(C^{T}\right)^{-1} A^T C^T \not = C A^T C^{-1}.\] Задача~\ref{Prob:TranNotTens} решена.  \end{proof} 
+
+
+
+
+%\begin{problem} Показать, что операция, которая тензору $T^{i_1 \dots i_p}_{j_1 \dots j_q}$ ставит в  соответствие набор чисел $S^{i_1 \dots i_p}_{j_1 \dots j_{q+1}}$ по формуле \[S^{i_1 \dots i_p}_{j_1 \dots j_{q+1}} = \frac{\partial}{\partial x^{j_{q+1}}} T^{i_1 \dots i_p}_{j_1 \dots j_q}\] не является тензорной.\end{problem}
+
+
+%\footnote{На многообразиях вместо частной производной следует брать ковариантную произвоную.}. 
+
+	
+\begin{problem} \label{Prob:TensProdNonComm}  Пусть $u$ и $v$ --- два вектора. Доказать, что \begin{equation} \label{Eq:uTensvEqvTensu} u \otimes v= v \otimes u\end{equation} тогда и только тогда, когда $u$ и $v$ линейно зависимы. \end{problem}
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:TensProdNonComm} ]  Условие \eqref{Eq:uTensvEqvTensu} эквивалентно тому, что \[ u_i v_j - v_j u_i =0,\]  т.е. что все $2 \times 2$ миноры матрицы $\left(u, v \right)$ равны нулю. Это как раз и означает, что ранг этой матрицы равен $1$, т.е. векторы линейно зависимы. Задача~\ref{Prob:TensProdNonComm} решена. \end{proof}
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:TensProdNonComm} ]  Тензорные произведения определены инвариантно и не зависят от выбора координат. Если вектора $u, v$ линейно независимы, то их можно включить в базис в качестве первых двух векторов $e_1$ и $e_2$.  Тогда \[e_1 \otimes e_2 \not = e_2 \otimes e_1.\] Задача~\ref{Prob:TensProdNonComm} решена.  \end{proof}
+
+
+
+
+
+
+
+\begin{problem}  \label{Prob:SymAndSkewTensorZero} Доказать, что если тензор симметричен по индексам $i$ и $j$ и кососимметричен по индексам $j$ и $k$, то он равен нулю. \end{problem}
+
+ \begin{proof}[Решение Задачи~\ref{Prob:SymAndSkewTensorZero}] Действительно, \[T_{ijk}= -T_{ikj}  = -T_{kij} = T_{kji} =T_{jki} = -T_{jik} = - T_{ijk}.\] Задача~\ref{Prob:SymAndSkewTensorZero} решена. \end{proof} 
+
+
+
+\begin{problem}  \label{Prob:ContrSymSkewTensorZero}  Доказать, что полная свёртка $A_{ij} B^{ij}$ симметричного тензора  $A_{ij}$ и кососимметричного тензора $B^{ij}$ равна нулю. \end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ContrSymSkewTensorZero}] Очевидно, что \[A_{ij}B^{ij} = A_{ji}B^{ij} = - A_{ji}B^{ji}.\] В то же время сумма не зависит от обозначения индексов, по которым производится суммирование. Задача~\ref{Prob:ContrSymSkewTensorZero} решена.  \end{proof} 
+
+
+
+\subsection{Определитель как тензорная операция}
+
+
+\begin{problem}  \label{Prob:DetermTenstOper}  Представить определитель линейного оператора как результат выполнения последовательности элементарных тензорных  операций\footnote{Линейные комбинации, перестановка индексов, тензорное произведение и свёртка.}. \end{problem}
+	
+\textit{Ответ в Задаче~\ref{Prob:DetermTenstOper}.} \[ \det (A^i_j) ={ n! \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{i_1, \dots, i_n}_{[i_1, \dots, i_n]} \]
+
+Иными словами, нужно \begin{enumerate}
+
+\item взять $n=\dim V$ раз тензорное произведение оператора $A$ на себя;
+
+\item проальтернировать полученный тензор типа $(n,n)$ по всем нижним индексам;
+
+\item свернуть получившийся тензор $n$ раз, чтобы получить $n! \det A$.
+
+\end{enumerate}
+
+
+\textit{Указание:} Достаточно проверить эту формулу для полупростых (т.е. диагонализуемых операторов) --- они образуют всюду плотное множество в пространстве всех операторов. 
+
+\begin{proof}[Решение Задачи~\ref{Prob:DetermTenstOper}] Проверим формулу для полупростых операторов. Все операции тензорные, поэтому вычисленное число не зависит от базиса, можно сразу рассматривать базис, в котором матрица оператора диагональна.
+
+ Пусть $A  = \mathrm{diag}(\lambda_1, ..., \lambda_n)$. Тогда \begin{enumerate}
+ 
+ \item ${ \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{i_1, \dots, i_n}_{j_1, \dots, j_n} = \begin{cases} \lambda_{i_1} \dots \lambda_{i_n}, \quad \text{ если все } i_k =j_k, \\ 0, \qquad \text{ в противном случае. }\end{cases}$
+ 
+ \item  ${ \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{i_1, \dots, i_n}_{[1, \dots, n]} = \begin{cases} \mathrm{sgn } (\sigma) \lambda_{1} \dots \lambda_{n}, \\ \text{ если } \sigma ={\begin{pmatrix}1& \dots &n\\i_1 & \dots & i_n \end{pmatrix}} \in S_n, \\ 0, \qquad \text{ в противном случае. }\end{cases}$
+ 
+ 
+ \item Из-за кососимметричности все нижние индексы должны быть различны \begin{gather*} { \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{i_1, \dots, i_n}_{[i_1, \dots, i_n]} = \sum_{\sigma \in S_n}  { \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{\sigma(1), \dots, \sigma(n)}_{[\sigma(1), \dots, \sigma(n)]} = \\ = \sum_{\sigma \in S_n} \mathrm{sgn} (\sigma)  { \left( \underbrace{A \otimes \dots \otimes A }_n \right) } ^{\sigma(1), \dots, \sigma(n)}_{[1, \dots, n]} = \\=  \sum_{\sigma \in S_n} \lambda_{1} \dots \lambda_{n} = n! \lambda_{1} \dots \lambda_{n}.   \end{gather*}  
+ 
+ 
+ \end{enumerate}
+ 
+Задача~\ref{Prob:DetermTenstOper} решена. \end{proof}
+
+
+
+

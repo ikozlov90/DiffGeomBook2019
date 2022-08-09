@@ -1,0 +1,459 @@
+
+
+
+\chapter{Тензор Римана}
+
+
+
+
+
+
+\section{Теоретический материал}
+
+\subsection{Определение тензора Римана}
+
+Пусть на многообразии $M$ задана связность $\nabla$. Тогда \textbf{тензор кривизны Римана} --- это тензор типа $(1, 3)$, определяемый по формуле\footnote{В некоторых книжках перед всем этим выражением ставится знак ``$-$''.} \begin{equation} \label{Eq:RiemTensInvDef} R(X,Y)Z=\nabla_X\nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.\end{equation} 
+
+\begin{problem} \label{Prob:RiemmanTensorLocalCoord} Показать, что в локальных координатах компоненты тензора Римана\footnote{Чтобы не запутаться, в нижних индексах тензора Римана мы будем ставить запятую $R^i_{j, kl}$ (хотя в книжках она обычно не ставится).} $R^i_{j,kl}$, заданные формулой \[R(X, Y) Z = R^i_{j,kl} X^k Y^l Z^j \frac{\partial}{\partial x^i},\] имеют вид \begin{equation} \label{Eq:RiemmanCompForm}  R^{i}_{j, kl} = \frac{\partial \Gamma^{i}_{lj}}{\partial x^k } - \frac{\partial \Gamma^{i}_{kj}}{\partial x^l } +  \Gamma^{i}_{k s}\Gamma^{s}_{lj }   - \Gamma^{i}_{l s}\Gamma^{s}_{ kj }. \end{equation} \end{problem} 
+
+\begin{remark} Формула \eqref{Eq:RiemmanCompForm} верна для любой аффинной связности $\nabla$, не обязательно симметричной. Мы считаем, что $\displaystyle \Gamma_{jk}^i = \left(\nabla_j \partial_k\right)^i$, или, иными словами, что \[ \nabla_X Y^i = X^j \left( \frac{\partial Y^i}{\partial x^j} + \Gamma^i_{jk} Y^k\right). \]   \end{remark} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemmanTensorLocalCoord}] Задача~\ref{Prob:RiemmanTensorLocalCoord} решается прямым вычислением. \end{proof} 
+
+
+
+
+\subsection{Свойства тензора Римана}
+
+%Свойства тензора Римана:
+
+\begin{enumerate}
+
+%Кососимметричность по двум нижним индексам
+\item  $R(u,\;v)=-R(v,\;u)$.
+
+\end{enumerate} 
+
+Следующие три свойства выполнены, если связность не имеет кручения.
+
+
+
+
+\begin{enumerate} \setcounter{enumi}{1}
+%Первое тождество Бьянки 
+
+\item $R(u,\;v)w+R(v,\;w)u+R(w,\;u)v=0$.
+
+\end{enumerate} 
+
+
+%\[R(X,\;Y)Z+R(Y,\;Z)X+R(Z,\;X)T =\nabla_X\nabla_Y Z - \nabla_X \nabla_Y Z - \nabla_{[X,Y]} Z +... = \]\[=\nabla_X \left( \nabla_Y Z - \nabla_Z Y \right) -\nabla_{[Y,Z]} X  +... =\nabla_X [Y, Z]-\nabla_{[Y,Z]} X +\nabla_X  T(Y, Z) +...=\] \[=[X [Y, Z]] +T(X, [Y. Z]]) +\nabla_X  T(Y, Z) +...\] Первое тождество переходит в тождество Якоби для векторных полей.
+
+Если связность согласована с метрикой, то 
+
+
+\begin{enumerate} \setcounter{enumi}{2}
+
+\item %Тождество Якоби 
+
+$\langle R(u,\;v)w,\;z\rangle=-\langle R(u,\;v)z,\;w\rangle$.
+
+
+% Если связность согласованна с метрикой, то \[\langle R(X, Y) Z, W \rangle = T(X, Y) (Z, W) - \langle Z, R(X, Y) W \rangle\]
+
+\item 
+$\langle R(u,\;v)w,\;z\rangle=\langle R(w,\;z)u,\;v\rangle$.
+
+\end{enumerate} 
+
+
+
+
+Отметим, что последнее свойство вытекает из предыдущих трех. 
+
+Если связность согласована с метрикой $g_{ij}$, то можно опустить индекс у тензора Римана \[R_{ij, kl} = g_{is} R^s_{j, kl}.\] В этом случае свойства тензора Римана можно записать следующим образом\footnote{Здесь некоторые свойства собраны воедино.}.
+
+\begin{enumerate}
+
+\item  Кососимметричность \begin{equation} \label{Eq:RiemSkewSymm}   R_{ij, kl}=-R_{ji, kl}=-R_{ij, lk}. \end{equation}
+
+\item Первое тождество Бьянки \begin{equation} \label{Eq:RiemSkewSymm}  R_{i [j, kl]}=R_{ij, kl} + R_{i l, jk } + R_{i k, l j}=0.\end{equation} 
+
+\item Симметричность относительно пар индексов \begin{equation} \label{Eq:RiemPairSymm}  R_{ij, kl}=R_{kl, ij}. \end{equation} 
+
+\end{enumerate}
+
+
+
+
+
+
+\subsection{Тензор Риччи и скалярная кривизна}
+
+При помощи тензора Римана $R^i_{j, kl}$ можно построить следующие тензоры:
+
+\begin{itemize}
+
+\item \textbf{тензор Риччи} \[R_{ij} = R^s_{i, s j}\] получается при свёртке тензора Римана по паре индексов.
+
+\item \textbf{скалярная кривизна} \[R = R^i_i = g^{ij} R_{ji}\] получается из тензора Риччи после поднятия индекса и последующей свёртки.
+
+\end{itemize}
+
+
+
+
+
+
+
+\section{Тензор Римана кривых и поверхностей}
+
+
+
+\begin{problem} \label{Prob:RiemTens1D} Вычислить тензор кривизны одномерного многообразия с 
+произвольной метрикой. 
+\end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemTens1D}] Тензор Римана нулевой \[R^1_{1,11}=0, \] из-за кососимметричности по нижним индексам \eqref{Eq:RiemSkewSymm}. Задача~\ref{Prob:RiemTens1D} решена. \end{proof} 
+
+
+
+\subsection{Скалярная и гауссова кривизна}
+
+
+
+\begin{theorem}
+Для двумерного риманова многообразия \[R = 2K,\] где $R$ --- это скалярная кривизна многообразия, а $K$ -- гауссова кривизна. 
+\end{theorem}
+
+
+
+\begin{problem} \label{Prob:RiemanTwoDim} Доказать, что для двумерных многообразий тензор Римана имеет вид \begin{equation} \label{Eq:RiemanTwoDim}   R_{ij, kl} = K(x) ( g_{i k} g_{jl} -g_{i l} g_{jk}) \end{equation} для некоторой функции $K(x)$. \end{problem} 
+
+
+
+%\begin{assertion} \label{A:RiemanTwoDim} Для двумерных многообразий тензор Римана имеет вид  \end{assertion} 
+
+
+%\textit{Указание.} Из-за кососимметричности в двумерном случае у тензора Римана только одна нетривиальная компонента $R_{12, 12}$. Остальные компоненты либо равны нулю, либо совпадают с этой компонентой с точностью до знака.
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemanTwoDim}] Поскольку $\det g = g_{11} g_{22}- g_{12}^2 \not =0$, мы можем положить \[ K(x) = \frac{R_{12, 12}}{g_{11} g_{22}- g_{12}^2 }. \]  Остаётся заметить, что \begin{itemize} 
+
+\item обе части \eqref{Eq:RiemanTwoDim} одновременно меняют знак при перестановке индексов\footnote{В соотвествии с формулами \eqref{Eq:RiemSkewSymm}  и \eqref{Eq:RiemPairSymm}.},
+
+\item а в остальных случаях, когда $R_{ij,kl}$ не получается из $R_{12, 12}$  перестановкой индексов, обе части  \eqref{Eq:RiemanTwoDim} равны нулю.
+
+\end{itemize}
+
+Задача~\ref{Prob:RiemanTwoDim} решена. \end{proof}
+
+
+
+% (напрмер, $R_{11, 12} = - R_{11, 12} = 0$ и $R_{21, 12} = - R_{12, 12}$). 
+
+
+
+
+\begin{problem} \label{Prob:RiemanUni} Если на $n$-мерном многообразии тензор Римана удовлетворяет условию \[ R_{ij, kl} = K ( g_{i k} g_{jl} -g_{i l} g_{jk}),   \] то тензор Риччи и скалярная кривизна имеют вид \[R_{ij} = (n-1) K g_{ij}, \qquad \qquad R = n(n-1) K.  \] В частности, для двумерных многообразий \[R_{ij} = K g_{ij}, \qquad \qquad R = 2  K. \]
+\end{problem} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemanUni}] Доказательство прямым вычислением. 
+
+\begin{itemize}
+
+\item Тензор Римана задаётся формулой \[ R^i_{j, kl}  = g^{is} R_{sj, kl} = K \left( \delta^i_k g_{jl} - \delta^i_l g_{jk} \right).\] 
+
+\item Тензор Риччи в данном случае имеет вид \[R_{ij} = R^s_{i, sj} = K \left( \delta^s_s g_{ij} - \delta^s_j g_{is}\right) = (n-1) K g_{ij}.  \] 
+
+\item Скалярная кривизна имеет вид \[R = R_{ij}g^{ij} = (n-1) K \delta^i_i= (n-1) n K. \]
+
+\end{itemize}
+
+
+Задача~\ref{Prob:RiemanUni} решена. \end{proof}
+
+
+
+Таким образом остаётся показать, что для двумерных многообразий функция $K(x)$ совпадает с гауссовой кривизной поверхности.  Гауссова кривизна (и тем более скалярная кривизна) не меняется при движении объемлющего пространства, поэтому поверхность можно реализовать любым удобным для нас способом.  %Рассмотрим произвольную поверхность в $\mathbb{R}^3$ и фиксируем точку на ней. 
+
+
+
+
+\begin{problem} \label{Prob:RiemTensGraphSurf} Доказать, что для поверхности-графика \[ z= f(x, y),\] удовлетворяющей условиям \[f(0, 0) =0, \qquad f_x(0, 0)= f_y (0, 0) =0,\] тензор Римана имеет вид \begin{equation} \label{Eq:RiemBasicSurf} R_{ij, kl} = f_{i k} f_{jl} -  f_{i l} f_{jk},  \end{equation}  а гауссова кривизна равна \begin{equation} \label{Eq:GaussBasicSurf} K = f_{xx} f_{yy} - f_{xy}^2.\end{equation}
+\end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemTensGraphSurf} ] Задача решается прямым вычислением. Вычисления упрощаются за счет того, что $f_x(0) = f_y(0) =0$.
+\begin{itemize}
+
+\item Канонические базисные векторы: \[r_x = \left( 1, 0, f_x \right), \qquad r_y = \left( 0, 1, f_y \right). \] Получаем матрицу первой квадратичной формы: \[ G = \left( \begin{matrix} 1+f_x^2 & f_x f_y \\ f_x f_y & 1+f_y^2 \end{matrix} \right).\] Обратная к ней:\[G^{-1} = \frac{1}{1+f_x^2+f_y^2} \left( \begin{matrix} 1+f_y^2 & -f_x f_y \\ -f_x f_y & 1+f_x^2 \end{matrix} \right). \]
+
+
+\item Вторые производные: \[r_{ij} = \left( 0, 0, f_{ij} \right). \] Поэтому в начале координат матрицы первой и второй квадратичных форм: \[G(0) = \left( \begin{matrix} 1& 0 \\ 0 & 1 \end{matrix} \right), \qquad Q(0) = \left( \begin{matrix} f_{xx} & f_{xy} \\ f_{xy} & f_{yy} \end{matrix} \right). \] Получаем формулу \eqref{Eq:GaussBasicSurf} для гауссовой кривизны: \[ K(0) = \frac{\det Q(0)}{\det G(0)} = f_{xx} f_{yy} - f_{xy}^2.\]   
+
+\item Символы Кристоффеля регулярной поверхности находятся по формуле \[ \left(\begin{matrix} \Gamma^x_{ij} \\  \Gamma^y_{ij} \end{matrix}  \right) = G^{-1}\left(\begin{matrix}\left( r_{ij}, r_x \right)  \\  \left( r_{ij}, r_y \right) \end{matrix}  \right).   \] Поэтому в данном случае \[ \Gamma^k_{ij} = \frac{f_{ij} f_k}{1 +f_x^2 +f_y^2}.\] В частности, \[ \Gamma^i_{jk} (0) =0.\]
+
+\item Символы Кристоффеля $R^{i}_{j, kl}$ находятся по формуле \eqref{Eq:RiemmanCompForm}. В начале координат $f_x = f_y=\Gamma^i_{jk} = 0$ и $g_{ij} = \delta_{ij}$, поэтому вычисления упрощаются: \[ R_{ij, kl}(0) = R^i_{j, kl}(0) =\frac{\partial \Gamma^{i}_{lj}}{\partial x^k }(0) - \frac{\partial \Gamma^{i}_{kj}}{\partial x^l }(0) =  f_{i k} f_{jl} -  f_{i l} f_{jk}.\] Формула \eqref{Eq:RiemBasicSurf} доказана.
+
+\end{itemize} 
+Задача~\ref{Prob:RiemTensGraphSurf}  решена. \end{proof} 
+
+
+
+%\end{itemize}
+
+%\end{proof} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{problem} \label{Prob:RiemTensSphere}
+Вычислить тензор кривизны для двумерной сферы (единичного радиуса) в сферических координатах.	
+\end{problem} 
+
+
+\textit{Указание.} В двумерном случае у тензора кривизны только одна нетривиальная компонента: \textit{все компоненты $R_{ij,kl}$ выражаются через $R_{12, 12}$ по формулам \eqref{Eq:RiemSkewSymm} и  \eqref{Eq:RiemPairSymm}}.
+
+
+
+ \textit{Ответ в Задаче~\ref{Prob:RiemTensSphere}} Ненулевые компоненты тензора Римана:
+\[ R^\theta_{\varphi, \theta \varphi} = \sin^2{\theta}, \quad  R^\theta_{\varphi, \varphi \theta} =-\sin^2{\theta}, \quad R^\varphi_{\theta,\varphi \theta }= 1, \quad R^\varphi_{\theta,\theta \varphi}= -1.\] 
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemTensSphere}] 
+
+
+
+\begin{itemize}
+
+\item В сферических координатах $(\varphi, \theta)$ метрика \[ ds^2= d \theta^2 + \sin^2{\theta} d \varphi^2.\]
+
+
+\item Ненулевые символы Кристоффеля:    \[\Gamma^{\theta}_{\varphi \varphi} =- \cos{\theta}\sin{\theta},  \qquad \Gamma^{\varphi}_{\theta \varphi} = \Gamma^{\varphi}_{\varphi \theta} = \ctg{\theta}. \]
+
+
+
+\item Вычислим компоненту $R_{\theta \varphi, \theta \varphi}$. Для этого найдём компоненту $R^\theta_{\varphi \theta \varphi}$ по формуле \eqref{Eq:RiemmanCompForm} и опустим индекс. \begin{gather*} R^\theta_{\varphi \theta \varphi} =  \frac{\partial \Gamma^{\theta}_{\varphi\varphi}}{\partial \theta} - \frac{\partial \Gamma^{\theta}_{\theta  \varphi}}{\partial \varphi} +  \Gamma^{\theta}_{\theta  s}\Gamma^{s}_{\varphi \varphi}   - \Gamma^{\theta}_{\varphi s}\Gamma^{s}_{\theta \varphi} = \\ = -\frac{\partial \left( \cos{\theta}\sin{\theta}\right)}{\partial \theta}    - \Gamma^{\theta}_{\varphi \varphi}\Gamma^{\varphi}_{\theta \varphi}= \\ = \sin^2{\theta} - \cos^2{\theta}  + \cos^2{\theta} = \sin^2{\theta}. \end{gather*} Матрица метрики диагональна, поэтому в данном случае \[ R_{\theta\varphi, \theta \varphi} = g_{\theta s} R^s_{\varphi \theta \varphi} = R^\theta_{\varphi \theta \varphi} =\sin^2{\theta}. \] 
+
+
+\item Все компоненты тензора Римана с опущенным индексом выражаются через $R_{\theta\varphi, \theta \varphi} $ по формулам \eqref{Eq:RiemSkewSymm} и  \eqref{Eq:RiemPairSymm}:\[R_{\theta\varphi, \theta \varphi} =R_{\varphi\theta, \varphi\theta }  = \sin^2{\theta}, \qquad   R_{\varphi\theta, \theta \varphi} =R_{\theta \varphi, \varphi\theta }  = -\sin^2{\theta}. \]
+
+\item Компоненты самого тензора  $R^i_{j, kl} $ получаются из $R_{ij, kl}$ поднятием индекса. 
+\end{itemize}
+
+  Задача~\ref{Prob:RiemTensSphere} решена.  \end{proof} 
+
+
+
+
+
+\begin{problem} \label{Prob:RicciSym} Доказать, что тензор Риччи симметричен \[R_{ij} = R_{ji}.\]\end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RicciSym}]  Это следует из \eqref{Eq:RiemPairSymm}, поскольку \[R_{ij} = R^s_{i, sj} = g^{st} R_{ti, sj} = g^{st}R_{sj, ti} = R^t_{j, ti} = R_{ji}. \] Задача~\ref{Prob:RicciSym} решена. \end{proof} 
+
+
+\begin{problem} \label{Prob:RiemOtherContr} Доказать, что если связность согласована с (псевдо)римановой  метрикой, то свёртка тензора Римана по выделенному нижнему индексу тривиальна:  \[R^i_{i, kl}=0.\] \end{problem} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemOtherContr}] Действительно, свёртка тривиальна, т.к.  \[ R^i_{i, kl} = g^{is}R_{si, kl} = - g^{si}R_{is, kl}. \]   Мы использовали симметричность метрики $g^{is}=g^{si}$ и \eqref{Eq:RiemSkewSymm}. Задача~\ref{Prob:RiemOtherContr} решена. \end{proof}
+
+
+
+\begin{problem} \label{Prob:RiemTensScProd_Conformal2D} Вычислить тензор Римана, тензор Риччи и скалярную кривизну для многообразия с метрикой \[ds^2 = \lambda(x,y) (dx^2 + dy^2).\]\end{problem} 
+
+
+
+
+\textit{Ответ в Задаче~\ref{Prob:RiemTensScProd_Conformal2D}.}  Укажем только ненулевые компоненты тензоров.
+
+\begin{itemize}
+
+\item Тензор кривизны Римана \[ R_{xy, xy} = R_{yx, yx} = - R_{xy, yx} = - R_{yx, xy} =  -\frac{ \lambda \Delta \ln{\left| \lambda\right|}}{2}.\]
+
+\item Тензор Риччи \[ R_{xx} =R_{yy} = -\frac{\Delta \ln{\left| \lambda\right|}}{2}.\]
+
+\item Скалярная кривизна \[ R=-\frac{\Delta \ln{\left| \lambda\right|}}{\lambda}.\]
+
+
+\end{itemize}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:RiemTensScProd_Conformal2D}]   Решение аналогично Задаче~\ref{Prob:RiemTensSphere}. Отметим, что в данном случае ненулевые символы Кристоффеля имеют вид
+ \begin{gather*} \Gamma^x_{xx} = \Gamma^{y}_{xy} = \Gamma^{y}_{yx} = \frac{\lambda_x}{2\lambda}, \qquad  \Gamma^x_{yy} = -\frac{\lambda_x}{2\lambda}, \\  \Gamma^y_{yy} = \Gamma^{x}_{xy} = \Gamma^{x}_{yx} = \frac{\lambda_y}{2\lambda}, \qquad  \Gamma^y_{xx} = -\frac{\lambda_y}{2\lambda}, \end{gather*} а, например, компонента $R^x_{yxy}$ тензора кривизны находится по формуле \begin{gather*} R^x_{yxy} =  \frac{\partial \Gamma^{x}_{yy}}{\partial x} - \frac{\partial \Gamma^{y}_{xy}}{\partial y } +  \Gamma^{x}_{x s}\Gamma^{s}_{yy}   - \Gamma^{x}_{y s}\Gamma^{s}_{xy} = \\ = \frac{1}{2} \left( \left(-\frac{\lambda_x}{\lambda} \right)_x - \left(\frac{\lambda_y}{\lambda} \right)_y - \left(\frac{\lambda_x}{\lambda} \right)^2  \right. + \\ \left. +\left(\frac{\lambda_y}{\lambda}\right)^2 -\left(\frac{\lambda_y}{\lambda} \right)^2 +\left(\frac{\lambda_x}{\lambda} \right)^2  \right)= \\= - \frac{ \partial^2  \ln{\left|\lambda\right|}}{2\partial x^2} -  \frac{ \partial^2  \ln{\left|\lambda\right|}}{2\partial y^2} = - \frac{ \Delta \ln{\left|\lambda \right|}}{2}. \end{gather*} Задача~\ref{Prob:RiemTensScProd_Conformal2D} решена.   \end{proof} 
+
+\begin{corollary}  Плоскость Лобачевского --- поверхность постоянной отрицательной гауссовой кривизны. В модели в верхней полуплоскости с метрикой \[ ds^2 = \frac{dx^2 + dy^2}{y^2} \] гауссова кривизна $K=-1$. \end{corollary} 
+
+
+
+\section[Тензор Римана и плоскость метрики]{Тензор Римана и плоскость \\ метрики}
+
+
+
+\begin{problem} \label{Prob:RiemZeroFlat} Доказать, что риманово многообразие локально изометрично евклидову тогда и только тогда, когда тензор Римана обращается в ноль. \end{problem}
+
+
+
+Иными словами, в окрестности риманова многообразия существуют локальные координаты, в которых метрика имеет вид $g_{ij} = \delta_{ij}$ тогда и только тогда, когда в окрестности этой точки $R^i_{j, kl}= 0 $. 
+
+
+\begin{proof}[Решение  Задачи~\ref{Prob:RiemZeroFlat}] 
+
+\begin{itemize}
+
+
+\item Рассмотрим формулу, по которой меняются символы Кристоффеля при замене координат
+ \[  \Gamma^{i}_{jk} = \Gamma^{i'}_{j'k'} \frac{\partial x^{i}}{\partial x^{i'} }\frac{\partial x^{j'}}{\partial x^{j} } \frac{\partial x^{k'}}{\partial x^{k}}  + \frac{\partial x^{i}}{\partial x^{i'}} \frac{\partial^2 x^{i'} }{\partial x^{j} \partial x^{k}}. \]
+
+
+\item Мы хотим найти такие координаты $x^{i'}$, что $ \Gamma^{i'}_{j'k'} =0$, т.е., что \[  \Gamma^{i}_{jk} =  \frac{\partial x^{i}}{\partial x^{i'}} \frac{\partial^2 x^{i'} }{\partial x^{j} \partial x^{k}} \qquad \Leftrightarrow \qquad  \frac{\partial x^{i'}}{\partial x^{i}}  \Gamma^{i}_{jk} =  \frac{\partial^2 x^{i'} }{\partial x^{j} \partial x^{k}}. \]
+
+
+
+\item Введём функции \[F^{i'}_{j} = \frac{\partial x^{i'}}{\partial x^{j}}. \]
+
+ \item  Получаем систему дифференциальных уравнений на $F^{i'}_{j}$: \[ \frac{\partial F^{i'}_j} {\partial x^k } = \Gamma^i_{jk} F^{i'}_i. \]
+ 
+ \item Чтобы эта система дифференциальных уравнений была разрешима, необходимо, чтобы \[ \frac{\partial^2 F^{i'}_j}{\partial x^k \partial x^l} = \frac{\partial^2 F^{i'}_j}{\partial x^l \partial x^k}.\]
+ 
+ \item Это равенство приводит к тому, что $R^i_{j, kl} =0$.
+ 
+ \item Остаётся построить координаты по функциям $F^{i'}_j$, т.е. решить  \[F^{i'}_{j} = \frac{\partial x^{i'}}{\partial x^{j}}. \] 
+ 
+ \item Эта система будет иметь решение, если \[ \frac{\partial^2 x^{i'} }{\partial x^{j} \partial x^{k}} =  \frac{\partial^2 x^{i'} }{\partial x^{k} \partial x^{j}},\] что равносильно симметричности связности.
+
+ 
+% Мы хотим найти такие координаты $x^{i'}$, что $ \Gamma^{i'}_{j'k'} =0$, т.е., что \[  \Gamma^{i}_{jk} =  \frac{\partial x^{i}}{\partial x^{i'}} \frac{\partial^2 x^{i'} }{\partial x^{j} \partial x^{k}} \]
+
+
+
+\end{itemize}  Задача~\ref{Prob:RiemZeroFlat} решена.
+
+\end{proof}
+
+
+
+
+
+
+\section[Бездивергентность тензора Эйнштейна]{Бездивергентность тензора \\ Эйнштейна}
+
+
+\subsection{Второе тождество Бьянки}
+
+
+
+Есть ещё одно тождество, в котором уже участвуют ковариантные производные тензора Римана. 
+
+\begin{theorem} \label{Prob:SecondBianchiIdentity} Пусть связность $\nabla$ согласована с римановой или псевдоримановой метрикой. Тогда
+\[\nabla_uR(v,\;w)+\nabla_vR(w,\;u)+\nabla_wR(u,\;v)=0.\]
+
+\end{theorem}
+
+Это тождество называется \textbf{вторым тождеством Бьянки}.
+
+
+
+
+Введём обозначение \[\nabla_i T^{i_1, \dots i_p}_{j_1, \dots, j_q} = T^{i_1, \dots i_p}_{j_1, \dots, j_q; i} .\]
+
+  Тогда второе тождество Бьянки запишется в виде \[R_{ij,[ kl;m]}= R_{ij,kl;m} + R_{ij, m k;l } + R_{ij,l m;k}=0. \]
+
+
+
+\begin{proof} [Доказательство Теоремы~\ref{Prob:SecondBianchiIdentity}]
+Это тождество удобно доказывать в геодезических координатах. В этих координатах $\Gamma^i_{jk} (0) =0$, поэтому \begin{gather*} R^i_{j, kl}(0) =  \frac{\partial \Gamma^{i}_{lj}}{\partial x^k }(0) - \frac{\partial \Gamma^{i}_{kj}}{\partial x^l } (0), \\ \nabla_m R^i_{j, kl}(0) =  \frac{\partial \Gamma^{i}_{lj}}{\partial x^k \partial x^m}(0) - \frac{\partial \Gamma^{i}_{kj}}{\partial x^l\partial x^m } (0).  \end{gather*} При суммировании все смешанные производные сократятся --- каждое слагаемое будет входить в формулу дважды с разными знаками.
+\end{proof} 
+
+
+
+\begin{theorem} \label{Prob:RicciCovarDeriv}
+Тензор Риччи и скалярная кривизна удовлетворяют тождеству \begin{equation} \label{Eq: RicciScalar} \nabla_l R^l_m  = \frac{1}{2} \nabla_m R. \end{equation}
+\end{theorem}
+
+\begin{proof}[Доказательство Теоремы~\ref{Prob:RicciCovarDeriv}]
+Это тождество вытекает из второго тождества Бьянки после двукратного поднимания и сворачивания индексов.
+
+\[g^{il}g^{nk}\left( R_{n i,kl;m} + R_{ni, m k;l } + R_{ni,l m;k} \right)=0. \]
+
+Связность согласована с метрикой, поэтому $\nabla_m g = 0$, поэтому метрический тензор $g_{ij}$ (а также производные от него тензоры $g^{ij}$, $g^i_j$ ) можно свободно вносить и выносить из-под знака ковариантной производной (вообще-то это утверждение --- это упражение, которое нужно проверить).
+
+
+Поднимем один индекс. У первых двух слагаемых сделаем это при помощи $g^{nk}$, у последнего --- при помощи $g^{il}$. Нужно следить за знаками, пользуясь кососимметричностью тензора Римана --- поднимать следует именно первый индекс.
+
+\[g^{il} R^k_{ i,kl;m} - g^{il}  R^k_{i,  km;l } - g^{nk}R^l_{n,l m;k}=0. \]
+
+Сворачивая тензоры Римана, получаем тензоры Риччи \[g^{il} R_{ il;m} - g^{il}  R_{i m;l } - g^{nk} R_{n m;k}=0. \]
+
+Ещё раз поднимем индекс \[R^l _{l;m} - R^l _{ m;l } - R^k_{ m;k}=0. \] Первое слагаемое даёт нам скалярную кривизну, остальные два слагаемых --- ковариантную производную тензора Риччи (эти слагаемые равны). Получаем требуемое равенство \[ R_{;m } = 2 R^l_{m;l}. \] Теорема~\ref{Prob:RicciCovarDeriv} доказана.\end{proof}
+
+
+Доказанное тождество~\eqref{Eq: RicciScalar} позволяет доказать следующие два факта, описанные ниже.
+
+
+
+\subsection{Тензор Эйнштейна}
+
+Тензор \[ G_{lm} = R_{lm} - \frac{1}{2}R g_{lm} \] называется \textbf{тензором Эйнштейна}.
+
+
+\begin{theorem} \label{Prob:EinstTensNoDiver}
+Тензор Эйнштейна бездивергентный \[ \nabla_l G^{lm} =0. \]
+\end{theorem} 
+
+
+
+
+\begin{proof}[Доказательство Теоремы~\ref{Prob:EinstTensNoDiver}]
+Формула \eqref{Eq: RicciScalar} может быть записана в виде  \[\nabla_l R^l_m  - \frac{1}{2} \delta_m^l \nabla_l R =0. \] Остаётся заметить, что \[  \delta_m^l = g_m^l, \] и внести $g_m^l$  под знак ковариантной производной: \[\nabla_l (R^l_m  - \frac{1}{2} g_m^l R)=0. \] Теорема~\ref{Prob:EinstTensNoDiver}  доказана. \end{proof}
+
+\subsection{Пространство Эйнштейна}
+
+\begin{problem} \label{Prob:EinstSpaceScalarCurv} Риманово многообразие, в котором \[R_{ij} = \lambda(x)g_{ij}\] называется \textbf{пространством Эйнштейна}. Доказать, что: 
+
+\begin{enumerate}
+
+\item любое двумерное риманово многообразие является 
+пространством Эйнштейна. 
+
+\item  если размерность многообразия больше двух ($n>2$), то $\lambda(x) = \const$ (в частности, скалярная кривизна пространства Эйнштейна $R = \frac{1}{n}\lambda(x)$  постоянна).
+
+\end{enumerate}
+
+\end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:EinstSpaceScalarCurv}]
+
+\begin{enumerate}
+
+
+\item Двумерный случай вытекает из Задач \ref{Prob:RiemanTwoDim}  и \ref{Prob:RiemanUni}. %Честно проверяется, что скалярная кривизна $R = n \lambda(x)$ % и что $R_{ij} = K g_{ij}$
+
+\item Подставляем выражение для тензора Риччи и скалярной кривизны в тождество~\eqref{Eq: RicciScalar}:\[ \nabla_l R^l_m  - \frac{1}{2} \nabla_m R = \nabla_l \left( \lambda \delta^l_m \right) - \frac{n}{2} \nabla_m  \lambda  =\frac{2-n}{2} \nabla_m \lambda =0.\]  Получаем \[(n-2) \nabla_m \lambda(x) =0,\] что при $n>2$ возможно лишь при $\lambda(x) = \const$.
+
+\end{enumerate}
+
+Задача~\ref{Prob:EinstSpaceScalarCurv} решена. \end{proof}
+
+
+
+

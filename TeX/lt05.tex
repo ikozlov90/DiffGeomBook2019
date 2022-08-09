@@ -1,0 +1,538 @@
+
+\chapter{Дифференциальные формы}
+
+
+\textbf{Дифференциальная форма порядка $k$} или \textbf{$k$-форма} --- это кососимметричное тензорное поле типа $(0, k)$. В локальных координатах дифференциальная $k$-форма задаётся суммой \[ \omega = \sum_{1 \leq i_1 <  \dots < i_k \leq n} \omega_{i_1 \dots i_k} (x) dx^{i_1} \wedge \dots \wedge dx^{i_k}.  \] Пространство $k$-форм на многообразии $M$ мы будем обозначать через $\Omega^k(M)$. Мы последовательно изучим четыре операции на дифферециальных формах: 
+
+\begin{itemize}
+
+\item внешнее произведение $\wedge$,
+
+\item внешний дифференциал $d$,
+
+\item прообраз при отображении $f^*$,
+
+\item интегрирование $\int$. 
+
+\end{itemize}
+
+Иногда проще вначале научиться работать с этими операциями в локальных координатах, а потом дать их инвариантное определение. 
+
+
+\section{Операции над дифференциальными формами}
+
+
+\subsection{Внешнее произведение}
+
+
+Операция \textbf{внешнего произведения} $\alpha \wedge \beta$ дифференциальных форм на $M$ выполняется поточечно\footnote{См. Раздел~\ref{SubS:ExteriorAlgebra}.} --- в каждом касательном пространстве $T_x M$. 
+
+Напомним, что внешнее произведение $\wedge$ кососимметрично:\[ dx^i \wedge dx^j = - dx^j \wedge x^i,\] поэтому для любой $p$-формы $\alpha$ и $q$-формы $\beta$ \[ \alpha \wedge \beta = (-1)^{pq} \beta \wedge \alpha. \]
+
+
+
+\begin{problem} \label{Prob:WedgeProd_Ex1} Вычислить внешнее произведение форм \[ \alpha = 2dx + 3 dy \qquad \text{ и } \qquad \beta = dx \wedge dy + dy \wedge dz.\] \end{problem}
+
+
+
+\textit{Ответ в Задаче~\ref{Prob:WedgeProd_Ex1}.}  \[\alpha \wedge \beta =  2dx \wedge dy \wedge dz.\]
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:WedgeProd_Ex1}] 
+ Внешнее произведение дистрибутивно, поэтому можно формально раскрыть скобки. После этого остаётся сгруппировать слагаемые, воспользовавшись кососимметричностью внешнего произведения: \begin{gather*} \alpha \wedge \beta = ( 2dx + 3 dy) \wedge (dx \wedge dy + dy \wedge dz) = \\ = 2dx \wedge dx \wedge dy + 2dx \wedge dy \wedge dz + \\ + 3dy \wedge dx \wedge dy + 3dy\wedge dy \wedge dz = \\ = 0 + 2dx \wedge dy \wedge dz +0 + 0 = 2dx \wedge dy \wedge dz. \end{gather*}Задача~\ref{Prob:WedgeProd_Ex1} решена. \end{proof}
+
+
+
+
+\subsection{Внешний дифференциал}
+
+
+
+
+
+\begin{definition} \textbf{Внешний дифференциал} $k$-формы $\alpha$ --- это $(k+1)$-форма $d \alpha$, в локальных координатах определяемая по формуле\footnote{Здесь $I$ --- это мультииндекс, т.е. $dx^I = dx^{i_{1}}\wedge dx^{i_{2}}\wedge \cdots \wedge dx^{i_{k}} $.} \[ d \left( \sum f_{I} d^{I} \right) = \sum  df_I \wedge dx^{I}. \] \end{definition}
+
+Иными словами, 
+
+
+\begin{enumerate}
+
+\item дифференциал суммы --- сумма дифференциалов: \[ d(\alpha + \beta) = d \alpha + d \beta,\] 
+
+\item дифференциал формы \[\alpha =f\,dx^{i_{1}}\wedge dx^{i_{2}}\wedge \cdots \wedge dx^{i_{k}} \] задаётся формулой \[ d\alpha = \sum_i {\frac {\partial f}{\partial x^{i}}}dx^{i}\wedge dx^{i_{1}}\wedge dx^{i_{2}}\wedge \cdots \wedge dx^{i_{k}}. \] 
+
+
+
+\end{enumerate}
+
+
+
+%\begin{problem} Вычислить внешний дифференциал формы $\omega = x^2 dx + x y^3 dy$. \end{problem}
+
+\begin{problem} \label{Prob:ExtDiff_Ex1} Вычислить внешний дифференциал формы \[\omega = x dy \wedge dz + y^3 dx \wedge dz.\] \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:ExtDiff_Ex1}.} \[ d \omega = (1-3y^2) dx \wedge  dy \wedge dz.\]
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ExtDiff_Ex1}] Доказательство прямым вычислением: \begin{gather*} d(x dy \wedge dz + y^3 dx \wedge dz) = dx \wedge  dy \wedge dz + 3 y^2 dy \wedge dx \wedge dz = \\ = (1-3y^2) dx \wedge  dy \wedge dz.  \end{gather*}  Задача~\ref{Prob:ExtDiff_Ex1} решена. \end{proof}
+
+
+
+
+\begin{remark} Внешний дифференциал --- это семейство $\mathbb{R}$-линейных отображений \[ d: \Omega^k(M) \to \Omega^{k+1} (M), \] которое характеризуется следующими свойствами:
+\begin{enumerate}
+
+\item для $0$-форм: $df$ --- это дифференциал функции $f$,
+
+\item для любой формы $\alpha$ \begin{equation} \label{Eq:d2Eq0} d(d\alpha) = 0, \end{equation} 
+
+
+\item для любых формы $\beta$ и  $p$-формы $\alpha$ \begin{equation} d(\alpha \wedge  \beta) = d \alpha \wedge \beta+ (-1)^p (\alpha \wedge d \beta). \end{equation} 
+
+
+\end{enumerate}
+\end{remark}
+
+
+
+\begin{remark} Внешний дифференциал также можно инвариантно определить по формуле~\eqref{Eq:ExterDerivInvarForm}. \end{remark}
+
+
+%\section{Замкнутые формы}
+
+
+%\begin{problem} Найти при каком значении параметра $\lambda$ форма $ \lambda x dy + y dx $  будет замкнутой. \end{problem}
+
+
+%\begin{problem} Найти значения параметра $\lambda$, для которых форма $3 \lambda x dy \wedge dz + y dx \wedge dz$  будет замкнутой. \end{problem}
+
+
+
+%\begin{problem}Для $1$-формы $\alpha = f(z) dx + dy + (x+y) dz$ описать все функции $f(z)$, для которых $\alpha \wedge d\alpha =0$. \end{problem}
+
+
+
+\subsection{Прообраз дифференциальной формы}
+
+
+
+
+
+
+
+Пусть $f: M^n \to N^m$ --- гладкое отображение гладких многообразий. Напомним, что в каждой точке $p \in M^n$ определён дифференциал отображения \[ d_p f: T_p M^n  \to T_{f(p)} N^m.\]  Он порождает отображение дифференциальных форм \[f^*: \Omega^k(N^m) \to \Omega^k(M^n) \] по формуле \[(f^{*}\omega )_{p}(v_{1},\ldots ,v_{k})=\omega _{f(p)}\left(d_p f \left( v_{1}\right),\ldots , d_pf \left(v_{k}\right) \right). \]  Здесь   \begin{itemize}
+
+\item $\omega$ --- это $k$-форма на $M^n$, 
+
+\item $p \in M$ --- произвольная точка,
+
+\item $v_1, \dots, v_k \in T_p M$ --- произвольные вектора в этой точке. 
+
+\end{itemize}
+
+
+Форма $f^* \omega$ называется  \textbf{прообразом}\footnote{Также $f^*\omega$ называют \textbf{обратным образом} или \textbf{индуцированной} формой.} $k$-формы $\omega$ при отображении $f$.
+
+%\begin{definition} \textbf{Прообраз}\footnote{Также $f^*\omega$ называют \textbf{обратным образом} или \textbf{индуцированной} формой} $k$-формы $\omega \in \Omega^k(N^m)$ при отображении $f$ --- это $k$-форма $f^* \omega \in \Omega^k(M^n)$, определённая формулой для любой точки $p \in M^n$  и любых векторов $v_1, \dots, v_k \in T_p M$.\end{definition}
+
+
+\textit{В локальных координатах индуцированная форма $f^* \omega$ находится формальной подстановкой координатных функций $f^i$ в выражение для формы $\omega$.}   Если \begin{itemize}
+
+\item $x^1, \dots, x^n$ --- локальные координаты на $M^n$,
+
+\item $y^1, \dots, y^m$ --- локальные координаты на $N^m$,
+
+\item эти координаты связаны формулами $y^i = f^i(x^1, \dots, x^n)$, 
+
+\item $k$-форма на $N^m$ имеет вид \[\omega = \sum _{i_{1}<\cdots <i_{k}}  \omega _{i_{1}\cdots i_{k}}(y)\,dy^{i_{1}}\wedge \cdots \wedge dy^{i_{k}},\]
+
+\end{itemize}
+
+то \begin{gather*} f^* \omega = \sum _{i_{1}<\cdots <i_{k}} \omega_{i_1 \dots i_k}  (f(x)) df^{i_1} \wedge \dots \wedge df^{i_k}. \end{gather*}
+
+%\left( \sum \omega_{i_1 \dots i_k} (y) dy^{i_1} \wedge \dots \wedge dy^{i_k} \right) = \\
+
+
+
+\begin{problem} \label{Prob:DiffFormUnderMap_Ex1} Записать форму  \[\omega  = dx \wedge dy \wedge dz\] в цилиндрических координатах. \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:DiffFormUnderMap_Ex1}.} \[\omega =r^2 d r  \wedge d \varphi  \wedge d z.\]
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:DiffFormUnderMap_Ex1}] 
+ Практически с заменой координат можно работать так же, как и с отображением. Подставляя \[x = r \cos{\varphi}, \quad y =   r \sin{\varphi}, \quad z=z, \]  получаем \begin{gather*} \omega = d \left( r \cos{\varphi} \right) \wedge d (r \sin{\varphi}) \wedge d z =\\ =  \left(  \cos{\varphi} d r  -  r \sin{\varphi}d \varphi \right) \wedge   \left( \sin{\varphi} d r  +  r \cos{\varphi} d \varphi \right) \wedge d z =  \\ = \left(  r^2   \cos^2{\varphi} + r^2   \sin^2 {\varphi} \right) d r  \wedge d \varphi  \wedge d z = r^2 d r  \wedge d \varphi  \wedge d z. \end{gather*} Задача~\ref{Prob:DiffFormUnderMap_Ex1} решена. \end{proof}
+
+Очевидно, что \textit{прообраз формы согласован с операцией внешнего произведения}: для любых форм $\alpha$ и $\beta$ \[ f^* \left( \alpha \wedge \beta \right) = f^*\alpha \wedge f^*\beta.\] Проверим, что \textit{прообраз формы также согласован с операцией внешнего дифференцирования}.
+
+\begin{problem} \label{Prob:ExtDerFuncCommute} Доказать, что для любого гладкого отображения многообразий $f: M \to N$ и любой формы $\alpha$ на $N$ \begin{equation} \label{Eq:ExtDerFuncCommute} d( f^* \alpha) = f^*( d \alpha).\end{equation} \end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ExtDerFuncCommute}] Тензорные тождества вида~\eqref{Prob:ExtDerFuncCommute} можно честно проверять  в локальных координатах.  Пусть \begin{itemize}
+
+\item $x^1, \dots, x^n$ --- локальные координаты на $M^n$,
+
+\item $y^1, \dots, y^m$ --- локальные координаты на $N^m$,
+
+\item эти координаты связаны формулами $y^i = f^i(x^1, \dots, x^n)$.
+
+\end{itemize}
+
+Формула~\eqref{Prob:ExtDerFuncCommute} $\mathbb{R}$-линейна по $\alpha$. Поэтому достаточно доказывать её для базисных $1$-форм \[ \alpha = g(y) dy^{i_1} \wedge \dots dy^{i_k}. \] С одной стороны,  \begin{gather*} f^* d\left( g (y)  dy^{i_1} \wedge \dots dy^{i_k} \right) = f^* \left( \frac{\partial g}{\partial y^i} dy^i \right) \wedge  dy^{i_1} \wedge \dots dy^{i_k} = \\ = \left( \frac{\partial g}{\partial y^i} df^i \right) \wedge  df^{i_1} \wedge \dots df^{i_k}. \end{gather*} По формуле для производной сложной функции \[ \frac{\partial g}{\partial y^i} df^i = \frac{\partial g}{\partial y^i} \frac{\partial f^i}{\partial x^j} dx^j = \frac{\partial g (f(x))}{\partial x^j} dx^j = dg(f(x)).\] Таким обазом \begin{gather*} f^* d\left( g (y)  dy^{i_1} \wedge \dots dy^{i_k} \right)  =  dg(f(x))\wedge  df^{i_1} \wedge \dots df^{i_k} =    \\ = df^*\left( g(y) dy^{i_1} \wedge \dots dy^{i_k} \right).\end{gather*} Задача~\ref{Prob:ExtDerFuncCommute} решена. \end{proof}
+
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:ExtDerFuncCommute}]  Тождество~\eqref{Prob:ExtDerFuncCommute} можно вывести из остальных свойств прообраза и внешнего дифференциала. Следующее наблюдение упрощает вычисления.
+
+Заметим, что для любой функции $f$ и любой формы $\alpha$ \[ f \alpha = f \wedge \alpha.\]  Поэтому \textit{любая дифференциальная форма локально суть внешнее произведение функций и дифференциалов функций.} 
+
+\begin{itemize} 
+
+\item Проверим тождество~\eqref{Eq:ExtDerFuncCommute} для произвольной функции $g$. Действительно, для любого векторного поля $v$ \[ \langle d(f^* g), v \rangle = v(f^* g)  = df(v) (g) = \langle df(v), dg \rangle = \langle f^* dg, v \rangle. \]
+
+\item Проверим тождество~\eqref{Eq:ExtDerFuncCommute}  для дифференциала функции $dg$. Оно вытекает из свойства $d^2=0$ и тождества~\eqref{Eq:ExtDerFuncCommute} для функции: \begin{equation} \label{Prob:ExtDerFuncCommute2} f^* d(d g) = 0 =  d(d f^* g) = d (f^* dg). \end{equation}
+
+\item Покажем,  что если тождество~\eqref{Eq:ExtDerFuncCommute}  выполнено для форм $\alpha$ и $\beta$, то оно выполнено и для  внешнего произведения $\alpha \wedge \beta$: \[f^* d\left(\alpha \wedge \beta\right)  = d f^* \left(\alpha \wedge \beta\right).  \] Действительно, с одной стороны,
+\begin{gather*} f^* d\left(\alpha \wedge \beta\right) = f^* \left( d\alpha \wedge \beta + (-1)^p \alpha \wedge d \beta \right) =   \\ =  \left( f^* d\alpha\right) \wedge f^*\beta + (-1)^p f^*\alpha \wedge \left( f^*d \beta \right). \end{gather*}  С другой стороны,
+\begin{gather*} df^*\left(\alpha \wedge \beta\right) = d \left( f^*\alpha \wedge f^*\beta\right) = \\ = \left( df^* \alpha \right) \wedge f^* \beta  + (-1)^p f^*\alpha \wedge \left( d f^*\beta \right).  \end{gather*} Выражения равны, т.к. по предположению \[ d f^* \alpha = f^* d \alpha, \qquad d f^* \beta = f^* d \beta\]
+
+
+\item Таким образом для любых функций $f, g^1, \dots, g^k$ тождество~\eqref{Eq:ExtDerFuncCommute} будет выполнено для $f, dg^1, \dots, dg^k$, а следовательно и для формы \[ f dg^1 \wedge \dots \wedge dg^k = f \wedge dg^1 \wedge \dots \wedge dg^k.\] Поскольку любая форма есть сумма форм такого вида,   \eqref{Eq:ExtDerFuncCommute} выполнено для всех форм.
+
+\end{itemize}
+
+
+Задача~\ref{Prob:ExtDerFuncCommute} решена. \end{proof}
+
+
+
+\begin{corollary} \label{Cor:ClosedInduceSubmanClose}  Ограничение замкнутой формы на подмногообразие является замкнутой формой. \end{corollary} 
+
+\begin{proof}[Доказательство Следствия~\ref{Cor:ClosedInduceSubmanClose}]  Пусть $\alpha$ --- замкнутая форма на $M^n$ и $i: N^m \to M^n$ --- вложение подмногообразия. Тогда индуцированная форма на $N^m$ --- это форма $i^* \alpha$. По Задаче~\ref{Prob:ExtDerFuncCommute} \[ d \left(i^* \alpha \right) = i^* \left( d \alpha \right) =0.\] Следствие~\ref{Cor:ClosedInduceSubmanClose} доказано. \end{proof}
+
+
+
+\subsection{Интеграл}
+
+
+\textit{Дифференциальную $n$-форму $\omega$ можно \textbf{интегрировать} по компактному ориентированному $n$-мерному многообразию $M^n$.} В локальных координатах или для произвольной поверхности $\Omega \subset \mathbb{R}^N$ интеграл от формы равен соответствующему кратному интегралу: \[\int_{\Omega} f dx^1 \wedge \dots \wedge dx^n =\int \cdots \int _{\Omega }\,f \,dx^{1}\!\cdots dx^{n}.\] В общем случае интеграл $\int_{M^n} \omega$ определяется при помощи подходящего разбиения единицы\footnote{Подробнее определение интеграла от дифференциальной формы см.\cite{MishFom00}, \cite{IvTuzh11} или  \cite{NovTai14}.} $\left\{\varphi_{\alpha} \right\}$: \[ \int_{M^n} \omega  = \sum_{\alpha} \int_{M^n} \varphi_{\alpha} \, \omega.\]
+
+
+
+
+
+
+
+\begin{problem} \label{Prob:Integral1Form_Ex1} Вычислить интеграл от $1$-формы \[ dx+dy\] по нижней половине эллипса \[x^2 + 2y^2 =1.\] \end{problem}
+
+
+
+
+\textit{Ответ в Задаче~\ref{Prob:Integral1Form_Ex1}:} \[\int_{\gamma} dx + dy = \pm 2.\]
+
+\begin{remark} Знак в ответе зависит от направления обхода (т.е. ориентации половинки эллипса). ``$+$'', если идти от левого конца $(-1, 0)$ к правому $(1, 0)$. \end{remark}
+
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:Integral1Form_Ex1} ]  Можно применить формулу \\ Ньютона-Лейбница. Если $1$-форма точна, т.е. $\alpha = df$, то её интеграл по пути $\gamma(t)$, где $t \in [a, b]$ равен \[ \int_{\gamma(t)} d f = f (\gamma(a)) - f(\gamma(b)). \] 
+
+%В данном случае \[ \int_{\gamma(t)} d x + dy  = f (\gamma(a)) - f(\gamma(b)) \] 
+
+В данном случае интеграл от $dx +dy$ равен сумме разностей координат $x$ и $y$ в концевых точках. Задача~\ref{Prob:Integral1Form_Ex1} решена. \end{proof}
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:Integral1Form_Ex1} ]   Параметризуем кривую: \[\gamma(t) = (\cos{t}, \frac{1}{\sqrt{2} } \sin{t} ), \qquad t\in (\pi, 2 \pi ) .\] Отметим, что при изменении направления обхода интеграл поменяет знак. Тогда \[ I = \int_{\gamma(t)} dx + dy =\int_{\pi}^{2\pi} d \cos t  + d\left(\frac{1}{\sqrt{2} } \sin{t} \right).  \] Интегрируя по $t$, получаем \[I = \left. \left( \cos t + \frac{1}{\sqrt{2} } \sin{t}  \right) \right|_{\pi}^{2\pi} = 2. \] Задача~\ref{Prob:Integral1Form_Ex1} решена. \end{proof}
+
+\begin{remark} В данном случае вычисления во втором решении аналогичны первому, но они работают и в том случае, если форма не точна. \end{remark}
+
+
+
+
+\section[Формула для внешнего дифференциала]{Формула для внешнего \\ дифференциала} \label{S:ExterDerivInvForm}
+
+\begin{problem} \label{Prob:ExtDiffFormula2D}
+Доказать формулу \begin{equation} \label{Eq:Diff1Form} d\alpha (X, Y) = X (\alpha (Y)) - Y (\alpha(X)) - \alpha ([X, Y]),\end{equation} где $\alpha$ --- дифференциальная $1$-форма, $X,Y$ --- векторные поля, $X(f)$ --- производная функции $f$ по направлению векторного поля $X$, а $[X,Y]$ --- коммутатор векторных полей $X$ и $Y$.
+\end{problem}
+
+
+\textit{Указание.} Многие тензорные тождества можно доказать следующим образом. \begin{enumerate}
+
+\item Вначале проверяется, что тождество выполняется для базисных тензоров (например $\displaystyle \frac{\partial}{\partial x^i}$ или $dx^i$).
+
+\item После чего проверяется, что обе части тождества одинаково меняются при замене аргументов на сумму  $X\to X_1 +X_2$ или умножении их на функции $X \to fX$.
+
+\end{enumerate}
+
+\begin{proof}[Решение Задачи~\ref{Prob:ExtDiffFormula2D}] 
+
+\begin{itemize}
+
+\item Проверим, что формула~\eqref{Eq:Diff1Form} выполняется для базисных векторов \[ X = \displaystyle \frac{\partial}{\partial x^i}, \qquad Y = \displaystyle \frac{\partial}{\partial x^j}.\] Действительно, мы получаем формулу для компоненты дифференциала $1$-формы: \[ d \alpha_{ij} =\frac{\partial \alpha_j}{\partial x^i} - \frac{\partial \alpha_i}{\partial x^j} .\] Здесь $\displaystyle [X, Y]= \left[\frac{\partial}{\partial x^i}, \displaystyle \frac{\partial}{\partial x^j}\right] =0$.
+
+\itemДокажем формулу~\eqref{Eq:Diff1Form} для произвольных векторных полей \[ X = \displaystyle X^i\frac{\partial}{\partial x^i}, \qquad Y = \displaystyle Y^j \frac{\partial}{\partial x^j}.  \] Очевидно, что \eqref{Eq:Diff1Form} сохраняется при замене $X$ или $Y$ на сумму векторных полей \[ X \to X_1 + X_2, \qquad Y \to Y_1 + Y_2.\] Поэтому остаётся проверить, что \eqref{Eq:Diff1Form} сохраняется при умножении $X$ и $Y$ на функции \[X \to f X, \qquad Y \to gY.  \]  В формуле  \eqref{Eq:Diff1Form} слева функции выносятся за скобки \[ d \alpha(fX, gY) = fg d\alpha(X, Y).\] Справа же мы получаем следующие слагаемые: \begin{gather*}f X (\alpha (gY)) =  f g X (\alpha (Y)) + f X(g) \alpha(Y), \\ gY (\alpha(fX))  = fgY (\alpha(X)) +  gY(f) \alpha(X), \\  \alpha ([fX, gY]) =   fg \left( X (\alpha (Y)) - Y (\alpha(X)) - \alpha ([X, Y])\right). \end{gather*} Складывая их, получаем требуемое равенство \[fg d\alpha(X, Y) =   fg \left( X (\alpha (Y)) - Y (\alpha(X)) - \alpha ([X, Y])\right) .\]
+
+\end{itemize}
+
+
+ Задача~\ref{Prob:ExtDiffFormula2D} решена. \end{proof}
+
+
+\begin{remark} Аналогично может быть доказана формула для дифференциальной формы $\omega$ степени $p$:
+\begin{equation} \label{Eq:ExterDerivInvarForm} \begin{aligned} d \omega(X_0, \dots, X_p) = \sum_{i=0}^p (-1)^i X_i 	\left(\omega(X_0, \dots, \hat{X}_i, \dots, X_p)\right)  \\ + \sum_{0\leq i < j \leq p } (-1)^{i+j}  \omega([X_i, X_j], X_0, \dots, \hat{X}_i, \dots, \hat{X}_j,  \dots, X_p). \end{aligned} \end{equation}
+\end{remark}
+
+
+
+\section{Локальная интегрируемость форм}
+
+
+  \begin{problem} \label{Prob:TensRank1Straight} Верно ли, что любое поле тензоров ранга $1$ можно (локально) ``выпрямить'' в окрестности своей неособой точки\footnote{В окрестности нуля ``выпрямляется'' только нулевое поле.}, т.е. найти систему координат, в которой компоненты этого поля будут постоянны? Разобрать отдельно случаи тензоров типа  $(1, 0)$ и $(0, 1)$. \end{problem} 
+  
+ 
+  
+  \textit{Ответ в Задаче~\ref{Prob:TensRank1Straight}.} 
+  
+  \begin{itemize}
+  
+  \item Векторные поля выпрямляются.
+  
+  \item $1$-формы не выпрямляются (они выпрямляются тогда и только тогда, когда замкнуты\footnote{Это следствие теоремы Пуанкаре, см. Раздел~\ref{S:DeRhamCohomology}.}). 
+   
+   \end{itemize}
+
+  
+\begin{proof}[Решение Задачи~\ref{Prob:TensRank1Straight}]
+  
+
+  \begin{itemize}
+  
+  \item Доказательство следующей теоремы можно найти, например, в \cite{ArnODE}.
+  
+   \begin{theorem} \label{Th:VectFieldLocIntegr} Гладкое векторное поле $v$ выпрямляется в окрестности любой своей неособой точки $P$. Иными словами, в окрестности точки $P$ существуют локальные координаты  $(x^1, \dots, x^n)$, в которых \[v = \displaystyle \frac{\partial}{\partial x^1}.\] \end{theorem}
+  
+  
+  \begin{proof}[Доказательство Теоремы~\ref{Th:VectFieldLocIntegr}] Без ограничения общности, точка $P$ --- это начало координат $0$ в $\mathbb{R}^n$. Линейной заменой координат всегда можно добиться \[v^1(0) =1, \qquad v^2(0) = \dots =v^n(0) =0.\]  Обозначим через $g(t, p)$ решение задачи Коши  \[\begin{cases} \dot{x}^i = v^i(x), \quad i=1, \dots, n, \\ x(0) = p. \end{cases} \] Возьмём точку $(0, x^2, \dots, x^n)$ в трансверсальной в начале координат гиперплоскости к $v$ и рассмотрим соответствующее решение задачи Коши: \[ G(x^1, x^2, \dots, x^n)= g\left(x_1, \left( 0, x^2, \dots, x^n\right) \right). \] Несложно проверить следующее.
+  
+\begin{itemize}
+
+\item Отображение $G$ дифференцируемо\footnote{По теореме о гладкой зависимости решений задачи Коши от начальных условий.}.
+
+\item Отображение $G$ --- локальный диффеоморфизм. (Несложно проверить, что в $0$ у $G$ единичный якобиан.)
+
+\item Отображение $G^{-1}$ --- выпрямляющее, по построению.
+
+\end{itemize}
+  
+   
+  
+  Теорема~\ref{Th:VectFieldLocIntegr} доказана.   \end{proof}
+  
+
+  
+  
+  \item Если $1$-форма $\alpha$ ``выпрямляется'', то $d\alpha =0$. Внешний дифференциал --- тензорная операция, поэтому его равенство нулю не зависит от выбора системы координат. 
+    
+  
+  \end{itemize} 
+  
+  
+  
+  
+  
+  
+  Задача~\ref{Prob:TensRank1Straight} решена.  \end{proof} 
+  
+   
+ 
+
+\begin{problem} \label{Prob:AbsNonIntForm}  Доказать, что 1-форму \[\alpha = dx +ydz\] в $\mathbb{R}^3$ никакой заменой координат нельзя привести к форме вида $fdg$. \end{problem}
+
+\textit{Указание.} $1$-форма $\alpha$ на $M^{2n+1}$ называется \textbf{абсолютно неинтегрируемой}, если \[ \alpha \wedge \left(d \alpha\right)^n = \alpha \wedge \underbrace{d \alpha \wedge \dots \wedge d\alpha }_{n} \not =0\] ни в какой точке. 
+
+\begin{proof}[Решение Задачи~\ref{Prob:AbsNonIntForm}] Если $\alpha = fdg$, то $\alpha \wedge d \alpha =0$, но \[\alpha \wedge d \alpha = dx \wedge dy \wedge dz \not =0.\] Задача~\ref{Prob:AbsNonIntForm} решена.   \end{proof} 
+
+
+
+
+
+
+
+\section{Формула Стокса}
+
+\begin{theorem}[Теорема Стокса]
+Пусть $M^n$ --- компактное ориентированное $n$-мерное многообразие с краем, и пусть $\omega$ --- $(n-1)$-форма на $M^n$. Тогда \begin{equation} \label{Eq:StokesFormula} \int_{M^n} d \omega = \int_{\partial M^n} \omega.  \end{equation} 
+\end{theorem}
+
+
+\begin{remark} Ориентация края $\partial M$ согласована с ориентацией $M$ следующим образом:
+
+ \begin{itemize}
+ 
+  \item  если касательные вектора $v_1, \dots, v_{n-1}$ задают положительную ориентацию границы $\partial M$, 
+  
+  \item то  положительную ориентацию $M$ задаёт базис \[N, v_1, \dots, v_{n-1},\] где $N$ --- вектор внешней нормали.
+  
+  \end{itemize}
+  
+  При другом выборе ориентации в формуле Стокса может  возникнуть знак. 
+\end{remark}
+
+
+
+
+\begin{problem} \label{Prob:Stokes_Ex1} Проверить выполнение формулы Стокса \eqref{Eq:StokesFormula} для формы $\omega = xdy$ и прямоугольника \[ \left\{ 0 \leq x \leq 2, \qquad 0 \leq y \leq 1 \right\} \] на плоскости $\mathbb{R}^2(x, y)$.  \end{problem} 
+
+
+
+\begin{figure}[h!]
+\begin{center}
+\begin{tikzpicture}[{scale=1}] 
+\node[left] at (0, 0) {(0,0)};
+\node[right] at (4, 0) {(2,0)};
+\node[right] at (4, 2) {(2,1)};
+\node[left] at (0, 2) {(0,1)};
+%\draw [ -] (0,0) to (4,0);
+\begin{scope}[very thick,decoration={markings,mark=at position 0.5 with {\arrow{>}}}] 
+\draw[postaction={decorate}]  [ -] (0,0) to (4,0);
+\draw[postaction={decorate}]  [ -] (4,0) to (4,2);
+\draw[postaction={decorate}] [ -] (4,2) to (0,2);
+\draw[postaction={decorate}] [ -] (0,2) to (0,0);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\caption{Прямоугольник $0 \leq x \leq 2, \quad 0 \leq y \leq 1$.}
+\label{Fig:StokesPlaneSquare}
+\end{figure}
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:Stokes_Ex1}]  Плоскость $\mathbb{R}^2(x, y)$ ориентирована стандартным образом, поэтому граница прямоугольника $P$ ориентирована как на рис.~\ref{Fig:StokesPlaneSquare}. Интеграл от $d\omega= dx \wedge dy$ по $P$ равен его площади \[ \int_{P} d(x dy) = \int_{P} dx \wedge dy = S(P) = 2.\] Интеграл по границе равен тому же числу: \begin{gather*} \int_{(0,0)}^{(2,0)} x dy + \int_{(2,0)}^{(2,1)} x dy + \int_{(2,1)}^{(0,1)} x dy + \int_{(0,1)}^{(0,0)} x dy = \\ =0+ \int_{0}^{1} 2 dy + 0 + 0 = 2. \end{gather*} Задача~\ref{Prob:Stokes_Ex1} решена. \end{proof}
+
+
+\begin{problem} \label{Prob:StokesNoBoundary} Доказать, что формула Стокса верна и для многообразий без края (т.е. когда $\partial M = \emptyset$). В этом случае \[ \int_{M^n} d \omega =0 \]  \end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:StokesNoBoundary}] Достаточно вырезать из многообразия маленький замкнутый диск $D^n$, и два раза применить формулу Стокса для многообразий с краем \[ \int_{M^n} d\omega =  \int_{M^n \backslash D^n} d \omega + \int_{D^n} d \omega  = \int_{\partial D^n} \omega - \int_{\partial D^n}  \omega=0.\]  У поверхностей $M^n\backslash D^n$ и $D^n$ противоположные внешние нормали, поэтому интегралы по их границам сократятся.  Задача~\ref{Prob:StokesNoBoundary} решена. \end{proof}
+
+
+\begin{remark} Компактность $M$ нужна, чтобы все интегралы были корректно определены. Формула Стокса также верна, если многообразие $M$ некомпактно, но форма $\omega$ имеет компактный носитель. \textbf{Носитель} формы $\omega$ --- это замыкание множества точек, где он не равен нулю: \[{\displaystyle \operatorname {supp} (\omega):={\overline {\{x\in M\,|\,\omega(x)\neq 0\}}}}.\] \end{remark} 	
+	
+
+
+
+
+
+\section{Геометрический смысл операций $\grad, \rot, \diver$}
+
+В математическом анализе градиент функции, ротор\footnote{В западной литературе ротор обычно обозначается как $\operatorname{curl}$.} и дивергенция векторного поля обычно определяют явными формулами\footnote{Следующие формулы написаны в традиционных обозначениях, не согласующимися с принятыми в этом тексте. В частности, не следует путать формальный оператор $\nabla = \displaystyle \left( \frac{\partial}{\partial x}, \quad \frac{\partial}{\partial y}, \quad \frac{\partial}{\partial z} \right)$ из этой формулы с ковариантной производной.} в $\mathbb{R}^3$: \begin{gather*} \grad f = \nabla f = \left( \frac{\partial f}{\partial x}, \quad \frac{\partial f}{\partial y}, \quad \frac{\partial f}{\partial z} \right),\\
+%
+ \rot \vec{v} = \nabla \times \vec{v} =  \left( \frac{\partial v_z} {\partial y} - \frac{\partial v_y} {\partial z}, \quad \frac{\partial v_z} {\partial x} - \frac{\partial v_x} {\partial z}, \quad \frac{\partial v_y} {\partial x} - \frac{\partial v_x} {\partial y}\right), \\
+%
+ \diver \vec{v} = \left(\nabla, \vec{v} \right)  = \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z}. \end{gather*}
+ 
+ % (v_x, v_y, v_z)  
+ 
+ %(v_x, v_y, v_z) 
+ 
+Выразим $\grad, \rot$ и $\diver$ через стандартные тензорные операции, чтобы их определения не зависели от выбора координат. 
+
+%Дадим инвариантное определение 
+
+Рассмотрим $\mathbb{R}^3(x, y,z)$ как ориентированное риманово многообразие. При помощи звезды Ходжа  $*$  и  операций поднятия и опускания индекса отождествим 
+\begin{itemize}
+\item $0$-формы и $3$-формы;
+
+\item $1$-формы и $2$-формы с векторными полями.
+\end{itemize}
+
+Тогда все три операции \textit{$\grad, \rot$ и $\diver$ отождествятся с операцией внешнего дифференцирования $d$ на $0$, $1$ и $2$-формах соответственно.} Действительно, если в последовательности 
+\[\footnotesize \begin{CD} 0 @>>> \Omega ^{0}(\mathbb{R}^3) @>d_0>> \Omega ^{1}(\mathbb{R}^3) @>d_1>> \Omega ^{2}(\mathbb{R}^3) @>d_2>> \Omega ^{3}(\mathbb{R}^3) @>>> 0 \end{CD} \] положить \[ d_0 = \grad, \qquad d_1 = \rot, \qquad d_2 = \diver, \] то 
+
+% \[{\displaystyle 0\,{\overset {}{\to }}\,\Omega ^{0}(\mathbb {R} ^{3})\,{\overset {d_0}{\to }}\,\Omega ^{1}(\mathbb {R} ^{3})\,{\overset {d_1}{\to }}\,\Omega ^{2}(\mathbb {R} ^{3})\,{\overset {d_3}{\to }}\,\Omega ^{3}(\mathbb {R} ^{3})\,{\overset {}{\to }}\,0.}\] 
+
+\begin{enumerate}
+
+\item $\grad$ переводит функции ($0$-формы) в векторные поля ($1$-формы);
+\item $\rot$ переводит векторные поля ($1$-формы) в векторные поля ($2$-формы);
+\item $\diver$ переводит векторные поля ($2$-формы) в функции ($3$-формы).
+
+\end{enumerate}
+
+
+\begin{problem} \label{Prob:RotGradDivDoubleDZero} Доказать, что  \[ \rot \left( \grad f \right) = 0, \qquad \diver \left( \rot \vec{v} \right) =0. \]  \end{problem}  
+
+\begin{proof}[Решение Задачи~\ref{Prob:RotGradDivDoubleDZero}] Это немедленные следствия того, что 
+\begin{itemize}
+
+\item $*^2 = \pm \operatorname{id}$ по \eqref{Eq:HodgeSquare};
+
+\item $d^2=0$  по \eqref{Eq:d2Eq0}.
+
+\end{itemize} 
+
+
+ Задача~\ref{Prob:RotGradDivDoubleDZero} решена. \end{proof} 
+
+
+Аналогичные формулы можно определить и для некоторых классов многообразий (в частности, для ориентированных римановых и псевдоримановых многообразий). При описании этих формул мы будем использовать ``музыкальные'' обозначения для операций поднятия и опускания индекса на многообразии $M$:  \[ \sharp :T^{*}M\to TM,\qquad      \flat :TM\to T^{*}M.\]
+
+
+
+\begin{enumerate}
+
+\item \textbf{Градиент} функции $f$ --- векторное поле $\grad f$, получающееся из дифференциала $df$ поднятием индекса: 
+\[ {\displaystyle \operatorname {grad} f =\left(df\right)^{\sharp }}\]  
+
+Градиент функции можно определить на любом многообразии, на котором задан произвольный тензор\footnote{Поэтому в симплектической геометрии гамильтоновы векторные поля также называют косыми градиентами.} типа $(2,0)$. И уж тем более он определен на любом (псевдо)римановом многообразии $(M, g)$.
+
+
+В локальных координатах: \[ \grad f^i = g^{i j } \frac{\partial f}{\partial x^j}. \] 
+
+
+
+%Далее \underline{отождествим векторные поля и ковектора} при помощи скалярного произведения. 
+
+
+
+\item \textbf{Дивергенция} векторного поля $v$ --- это функция $\diver v$, заданная формулой
+%\[ \diver \alpha = * d * \alpha\]
+\[\operatorname {div} v={* d{* (v^{\flat })}}.\]
+
+Дивергенцию можно определить на любом ориентированном (псевдо)римановом многообразии $(M, g)$.
+
+
+\item \textbf{Ротор} векторного поля $v$ можно определить на любом \textit{трёхмерном} ориентированном (псевдо)римановом многообразии $(M^3, g)$ по формуле  \[\operatorname {rot} v=\left(* d(v^{\flat })\right)^{\sharp }.\]
+
+Эта формула корректно определена для любого ориентированного (псевдо)риманова многообразия $(M^n, g)$, но результатом её применения является кососимметричный тензор типа $(n-2, 0)$. Только при $n=3$ $\rot v$ является векторным полем.
+
+
+
+ % $\rot{v}$ \[ \rot \alpha = * d \alpha\]
+
+
+%\[ \left(\operatorname {rot} v \right)^{\flat} =* d(v^{\flat }) \]
+
+
+
+
+
+\end{enumerate}
+
+
+
+%\[{\displaystyle {\begin{array}{rcccl}\operatorname {grad} f&=&\nabla f&=&\left(df\right)^{\sharp }\\\operatorname {div} F&=&\nabla \cdot F&=&{\star d{\star (F^{\flat })}}\\\operatorname {curl} F&=&\nabla \times F&=&\left(\star d(F^{\flat })\right)^{\sharp }\\\Delta f&=&\nabla ^{2}f&=&{\star d{\star df}},\\\end{array}}}\]
+
+%Градиент функции, ротов и дивергенция векторного --- поля хорошо известные операции, которые функциям или векторным полям сопоставляет функции или векторные поля: \begin{enumerate} \item $\grad: \, \textrm{функция}  \to \textrm{вект. поле} $. \item $\rot: \, \textrm{вект. поле }  \to \textrm{вект. поле} $. \item $\diver: \, \textrm{вект. поле } \to \textrm{функция} $.\end{enumerate}В курсе математического анализа эти операции обычно определяются явными формулами $\mathbb{R}^3$. Оказывается эти операции можно выразить\footnote{\color{green} Кажется, половину слов тут можно выкинуть.} через \begin{itemize} \item  $*$ Ходжа,  \item внешний дифференциал $d$, \item операции поднятия и опускания индекса   \end{itemize} В частности, можно говорить об операциях $\grad,\rot$ и $\diver$  на произвольном ориентированном\footnote{Для $\grad$ ориентированность не нужна.} римановом (или псевдоримановом\footnote{\color{green} Симплектический ротор и дивергенция?}) многообразии $(M, g)$. 
+
+
+
+
+
+\begin{definition} \textbf{Оператор Лапласа} $\Delta$ суть композиция градиента и дивергенции:\[ \Delta f = \diver \grad f.\]  Таким образом, на любом ориентированном (псевдо)римановом многообразии можно определить Лапласиан функции как функцию \[ \Delta f = * d * d f. \] \end{definition}
+
+\begin{remark} Оператор Лапласа --- очень важный в математике оператор, и его часто рассматривают не только на пространстве гладких функций, но в более общих случаях, например на пространстве $\mathcal{L}^2$-функций. \end{remark}
+
+
+

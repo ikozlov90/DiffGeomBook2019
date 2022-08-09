@@ -1,0 +1,441 @@
+
+
+
+
+\part{Тензоры}
+
+\chapter{Определение и примеры тензоров} \label{Sec:Sem1TensorExam} 
+
+
+В каждом разделе мы будем стараться давать основные задачи по данной тематике. Дополнительные задачи по каждой теме можно найти в \cite{MishSolFom} или \cite{Skop08}. Мы предполагаем, что читатель знаком с основными понятиями линейной алгебры, математического анализа и топологии.
+
+
+
+
+\section{Теоретический материал}
+
+\subsection{Понятие тензора}
+
+\begin{definition} \textbf{Тензор} $T$ типа $(p, q)$ на линейном пространстве $V$ над полем $\mathbb{K}$ --- это полилинейное отображение \[ T: \underbrace{V^* \times \dots \times V^*}_p \times  \underbrace{V \times \dots \times V}_q \to \mathbb{K}. \] Число $r=p+q$ называется \textbf{валентностью} или \textbf{рангом}\footnote{Термин ``ранг'' не очень удачен --- для билинейных форм и операторов нужно отличать ранг тензора и ранг соответствующей матрицы.} тензора $T$. \end{definition}
+
+
+Примеры тензоров:
+
+\begin{enumerate}
+
+\setcounter{enumi}{-1}
+
+\item Тензор типа $(0, 0)$ --- скаляр $c \in \mathbb{K}$. 
+
+\item Тензор типа $(1, 0)$ --- вектор $v: V^* \to \mathbb{K}$. 
+
+\item Тензор типа $(0, 1)$ --- ковектор $\alpha: V \to \mathbb{K}$. 
+
+\item Тензор типа $(0, 2)$ --- билинейная форма \[B: V \times V \to \mathbb{K}.\] 
+
+\item Тензор типа $(2, 0)$ --- билинейная форма на $V^*$, т.е.  \[Q: V^* \times V^* \to \mathbb{K}.\] 
+
+\item Тензор типа $(1, 1)$ --- линейный оператор  \[A: V^* \times V  \to \mathbb{K}.\] 
+
+\item Линейная форма объёма на линейном пространстве $V^n$ \[ \Omega:  \underbrace{V^n \times \dots \times V^n}_n \to \mathbb{K} \] является (абсолютно кососимметричным) тензором типа $(0, n)$ на $V^n$. 
+
+\end{enumerate}
+
+
+\begin{remark} Мы будем обычно рассматривать тензоры на конечномерных вещественных или комплексных пространствах (т.е. $\mathbb{K} = \mathbb{R}$ или $\mathbb{C}$). В дифференциальной геометрии тензоры обычно заданы на касательных пространствах к многообразиям.\end{remark}
+
+ % Ключевой объект дифференциальной геометрии --- тензорные поля --- являются тензорами на касательных пространствах к гладкому многообразию. 
+
+
+%, гладко зависящие от точки
+
+\subsection{Компоненты тензора} 
+
+Введём естественный базис в пространстве тензоров. Пусть \begin{itemize} 
+
+\item $e_1, \dots, e_n$ --- базис $V$,
+
+\item $x^1, \dots, x^n$ --- соответствующие (линейные) координаты\footnote{В дифференциальной геометрии, чтобы работало правило суммирования Эйнштейна,  индексы у координат нужно писать сверху.} на $V$,
+
+\item $e^1, \dots, e^n$ --- двойственный базис $V^*$, т.е. \[ e^i(e_j) =  \delta^i_{j} = \begin{cases}  1, \qquad \text{если } i = j,  \\ 0, \qquad \text{если } i \not = j. \end{cases} \] 
+
+\end{itemize} 
+ 
+ Любой тензор задаётся набором из $n^{p +q}$ своих \textbf{компонент}  --- значений на всевозможных наборах базисных векторов и ковекторов \[ T^{i_1 \dots i_p}_{j_1 \dots j_q} = T\left(e^{i_1}, \dots, e^{i_p}, e_{j_1}, \dots, e_{j_q} \right). \] 
+
+Получаем разложение по базису \[T = \sum\limits_{\substack{i_1, \dots, i_p, \\ j_1, \dots, j_q}}   T^{i_1 \dots i_p}_{j_1 \dots j_q} e_{i_1} \otimes \dots \otimes e_{i_p}  \otimes e^{j_1} \otimes \dots \otimes e^{j_q}, \] где через $e_{i_1} \otimes \dots \otimes e_{i_p}  \otimes e^{j_1} \otimes \dots \otimes e^{j_q} $ обозначен тензор, который 
+
+\begin{itemize} 
+
+\item принимает значение $1$ на наборе $\left(e^{i_1}, \dots, e^{i_p}, e_{j_1}, \dots, e_{j_q} \right) $
+
+\item и равен $0$ на любом другом наборе базисных векторов и ковекторов.
+
+\end{itemize}
+
+
+При замене координат $x^i \to x^{i'}$ компоненты меняются по \textbf{тензорному закону} \begin{equation} \label{Eq:TensorLaw}  T^{{i_1'} \dots {i_p}'}_{{j_1}' \dots {j_q}'} = \sum\limits_{\substack{i_1, \dots, i_p, \\ j_1, \dots, j_q}}  T^{i_1 \dots i_p}_{j_1 \dots j_q} \frac{\partial x^{{i_1}'}}{\partial x^{i_1}} \dots  \frac{\partial x^{{i_p}'}}{\partial x^{i_p}}  \frac{\partial x^{{j_1}}}{\partial x^{{j_1}'}}\dots  \frac{\partial x^{{j_q}}}{\partial x^{{j_q}'}}, \end{equation} где $T^{{i_1'} \dots {i_p}'}_{{j_1}' \dots {j_q}'} $ --- компоненты тензора в ``новых'' координатах $x^{i'}$. 
+
+
+
+
+\begin{convention}[\textbf{Правило суммирования Эйн\-штей\-на}]
+При работе с тензорами преполагается  \textit{суммирование по обозначенным буквами повторяющимся верхним и нижним индексам}. Эти индексы пробегают все свои возможные значения. Знак суммы при этом опускается. \end{convention}
+
+Например, формула \eqref{Eq:TensorLaw} записывается как \[T^{{i_1'} \dots {i_p}'}_{{j_1}' \dots {j_q}'} = T^{i_1 \dots i_p}_{j_1 \dots j_q} \frac{\partial x^{{i_1}'}}{\partial x^{i_1}} \dots  \frac{\partial x^{{i_p}'}}{\partial x^{i_p}}  \frac{\partial x^{{j_1}}}{\partial x^{{j_1}'}}\dots  \frac{\partial x^{{j_q}}}{\partial x^{{j_q}'}}.\]
+
+
+\section{Тензоры и матрицы}
+
+
+
+
+
+
+
+\begin{problem}  \label{Prob:KroneckerDeltaTensor} Доказать, что числа \[ \delta^i_{j} = \begin{cases}  1, \qquad \text{если } i = j,  \\ 0, \qquad \text{если } i \not = j, \end{cases}\] являются компонентами некоторого тензора типа $(1,1)$. \end{problem}
+
+
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:KroneckerDeltaTensor}]  Чтобы доказать, что $\delta^i_j$ --- тензор, проверим, что при замене координат компоненты меняются по тензорному закону, т.е. что \[  \delta^{i'}_{j'} = \delta^i_j \frac{\partial x^{i'}}{\partial  x^i} \frac{\partial x^j}{\partial x^{j'}}.  \] Действительно,   \[ \delta^i_j \frac{\partial x^{i'}}{\partial  x^i} \frac{\partial x^j}{\partial x^{j'}} =  \frac{\partial x^{i'}}{\partial  x^k} \frac{\partial x^k}{\partial x^{j'}} = \frac{\partial x^{i'}}{\partial x^{j'}} = \begin{cases}  1, \qquad \text{если } i' = j' , \\ 0, \qquad \text{если } i' \not = j'. \end{cases} \] 
+
+В предпоследнем равенстве мы воспользовались формулой для производной сложной функции: \[ \frac{\partial f(y(x))}{\partial x^i} = \frac{\partial f}{\partial y^j} \frac{\partial y^j}{\partial x^i}. \]   Задача~\ref{Prob:KroneckerDeltaTensor} решена. \end{proof}
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:KroneckerDeltaTensor}]  $\delta^i_j$ --- это компоненты тождественного оператора $\operatorname{id}$. Этот оператор в любом базисе задаётся единичной матрицей. Задача~\ref{Prob:KroneckerDeltaTensor} решена.  \end{proof}
+
+  
+\begin{problem}  \label{Prob:KroneckerLowDeltaNotTensor} Образует ли набор чисел \[ \delta_{ij} = \begin{cases}  1, \qquad \text{если } i = j,  \\ 0, \qquad \text{если } i \not = j, \end{cases}\] тензор типа $(0,2)$? 
+\end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:KroneckerLowDeltaNotTensor}]  Покажем, что $\delta_{ij}$ --- не тензор. Пусть $C$ --- матрица замены координат. Тогда в матричном виде тензорный закон для тензоров валентности $2$ записывается следующим образом:
+  
+  \begin{itemize}
+  
+  \item для тензоров т. $(1,1)$ (т.е. для линейных операторов) \begin{equation} \label{Eq:OperCoordChange} A' = C A C^{-1},\end{equation}
+  
+  \item для тензоров т. $(0,2)$ (т.е. для билинейных форм) \begin{equation} \label{Eq:BiFormCoordChange} B = C^T B' C \qquad \Leftrightarrow \qquad  B' = \left(C^{-1}\right)^T B C^{-1}, \end{equation}
+  
+  \item для тензоров т. $(2,0)$ (т.е. для билинейных форм на $V^*$) \begin{equation} \label{Eq:BiVectCoordChange}  Q' = C Q C^T.\end{equation}
+  
+  \end{itemize}
+  
+Здесь во всех пунктах штрихом обозначены матрицы тензоров в новых координатах.
+  
+  Легко видеть, что если в каком-то базисе матрица билинейной формы единичная $Q=E$, то она не обязана быть единичной во всех остальных базисах\footnote{Единственное исключение --- одномерное пространство над полем $\mathbb{Z}_2$.}. Например, при гомотетии $C = \frac{1}{\lambda} E$ все коэффициенты билинейной формы умножатся на $\lambda^2$. Задача~\ref{Prob:KroneckerLowDeltaNotTensor} решена.   \end{proof}
+  
+  
+  \begin{remark} В формулах $\eqref{Eq:OperCoordChange}$~--~$\eqref{Eq:BiVectCoordChange}$ мы считаем, что координаты векторов и ковекторов (записанные в столбик) связаны соответственно по формулам \[v' = C v, \qquad \alpha = C^T \alpha'.\]  Формулы $\eqref{Eq:OperCoordChange}$~--~$\eqref{Eq:BiVectCoordChange}$ несложно проверить, воспользовавшись тем, что значение тензора на наборе векторов и ковекторов не зависит от выбора базиса. Например, для билинейных форм получаем \[ (u')^T B' v'   = u^T C^T B' C v = u^T Bv.\]
+  
+  \end{remark}
+  
+  
+  \begin{remark} Тензоры ранга $2$ задаются матрицами, и полезно помнить, что некоторые тензорные выражения суть покомпонентная запись операций над матрицами. Например,
+  \begin{itemize} \item  выражение $a^i_j v^j$ соответствует умножению матрицы $a^i_j$ на вектор-столбец $v^j$:     \[\begin{pmatrix}  \displaystyle a^1_1 &  \dots  &  a^1_n \\ \vdots, &  \ddots  & \vdots \\  a^n_1 &  \dots  &  a^n_n \end{pmatrix}  \begin{pmatrix} v^1 \\ \vdots \\ v^n \end{pmatrix} =\begin{pmatrix} a^1_i v^i \\ \vdots \\ a^n_i v^i \end{pmatrix}, \]  
+  \item а равенство \[  \frac{\partial x^{i'}}{\partial  x^k} \frac{\partial x^k}{\partial x^{j'}} = \delta^{i'}_{j'} \]  является покомпонентной записью тождества \[ J J^{-1} = E,\] где $J$ ---  матрица Якоби:   \[ J= \begin{pmatrix}  \displaystyle \frac{\partial x^{1'}}{\partial x^{1}} &  \dots  &  \displaystyle  \frac{\partial x^{1'}}{\partial x^{n}} \\ \vdots, &  \ddots  & \vdots \\  \displaystyle  \frac{\partial x^{n'}}{\partial x^{1}} &  \dots  &  \displaystyle  \frac{\partial x^{n'}}{\partial x^{n}} \end{pmatrix}.  \]  \end{itemize} \end{remark}
+   
+   
+
+  
+   \begin{problem} \label{Prob:InvGTensor} Если $G = \left(g_{ij}\right)$ --- невырожденный тензор типа $(0,2)$ на $V$ (т.е. невырожденная билинейная форма), то элементы обратной матрицы $G^{-1} = \left(g^{ij}\right) $ являются компонентами тензора типа $(2, 0)$.     \end{problem}
+  
+      \begin{proof}[Первое решение Задачи~\ref{Prob:InvGTensor}] Обратная матрица $G^{-1}$ меняется при замене координат по тому же закону, что и матрица билинейной формы на $V^*$: \[ \left( \left(C^{-1} \right)^T G C^{-1} \right)^{-1} = C G^{-1} C^T. \] Это следует из формул \eqref{Eq:BiFormCoordChange} и \eqref{Eq:BiVectCoordChange}. Задача~\ref{Prob:InvGTensor} решена. \end{proof}
+    
+      \begin{proof}[Второе решение Задачи~\ref{Prob:InvGTensor}] Компоненты $g^{ij}$ задаются формулой \begin{equation} \label{Eq:InvG} g^{ik} g_{kj} = \delta^i_j.\end{equation} (Это покомпонентная запись  формулы $G^{-1} G = E$.) Матрица $G^{-1}$ определена однозначно, поэтому достаточно проверить, что формула останется верной, если $g_{kj}$ и $g^{ik}$ меняются как тензоры типа $(0,2)$ и $(2,0)$ соответственно. Тогда
+    
+   \[ g^{i' k'} g_{k' j'} = g^{ip } \frac{\partial x^{i'}}{\partial x^i} \frac{\partial x^{k'}}{\partial x^p} g_{qj} \frac{\partial x^{q}}{\partial x^{k'}} \frac{\partial x^{j}}{\partial x^{j'}}.  \] Суммируя по $k'$, получаем \[ g^{i' k'} g_{k' j'} = g^{ip } \frac{\partial x^{i'}}{\partial x^i}  g_{qj} \frac{\partial x^{j}}{\partial x^{j'}}\delta_p^q  =g^{ip } \frac{\partial x^{i'}}{\partial x^i}  g_{pj} \frac{\partial x^{j}}{\partial x^{j'}}.   \]  Используя исходное равенство $\eqref{Eq:InvG}$, получаем, что \[ g^{i' k'} g_{k' j'}  = \delta^i_j  \frac{\partial x^{i'}}{\partial x^i}  \frac{\partial x^{j}}{\partial x^{j'}}  = \delta^{i'}_{j'},\]  что и требовалось доказать.  Задача~\ref{Prob:InvGTensor} решена. \end{proof}
+   
+   
+   
+      \begin{proof}[Третье решение Задачи~\ref{Prob:InvGTensor}] Билинейная форма на $V$ (т.е. тензор типа $(0, 2)$) задаётся линейным отображением\footnote{Отметим, что если $e_i$ --- базис $V$, а $e^i$ --- двойственный базис в $V^*$, то матрица этого отображения совпадает с матрицей Грамма $g_{ij}$ в базисе $e_i$.} \[ G: V \to V^*.\]  Поэтому обратное отображение \[ G^{-1}: V^* \to V \] будет билинейной формой на $V^*$ (т.е. тензором типа $(2, 0)$).  Задача~\ref{Prob:InvGTensor} решена.  \end{proof}
+   
+   
+\begin{remark}  Для любых линейных пространств $V$ и $W$ (над одним полем $\mathbb{K}$) существует естественная биекция между билинейными отображениями \[ P : V \times W \to \mathbb{K}\] и линейными отображениями \[ \hat{P} : V \to W^*. \] Отображения $P$ и $\hat{P}$ связаны формулой \[ P(v, w) = \hat{P}(v) (w), \qquad \forall v \in V, w \in W.\]   Поэтому линейные отображения \[ A:V \to V, \qquad B: V \to V^*\] задают тензоры типа $(1,1)$ и $(0,2)$ соответственно. 
+
+%Поэтому для конечномерных пространств $V$ существует два эквивалентных способа задания линейных операторов\footnote{\color{green} К сожалению, в следующей формуле обозначения двух операторов не совпадает с введенным.}: \[ A : V \to V \qquad   \longleftrightarrow  \qquad \hat{A}: V^* \times V \to \mathbb{K}. \]  и два эквивалентных способа задания билинейных отображений: \[ B: V \times  V \to \mathbb{K} \qquad   \longleftrightarrow  \qquad \hat{B}: V \to V^* . \] 
+
+\end{remark}
+   
+
+
+
+\section{Нахождение компонент тензора}
+
+\begin{problem} \label{Prob:TensCompNewBasis_Ex1} Найти компоненту $T_{1}^{11}$ тензора \[T = e^1 \otimes e_2 \otimes e_2 + 2 e^2 \otimes e_2 \otimes e_2\] в базисе \[f_1 = 3 e_2, \qquad f_2 = -e_1.\] \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:TensCompNewBasis_Ex1}.} $T_1^{11}=\frac{2}{3} $.
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensCompNewBasis_Ex1}] По определению, \[T_1^{11} = T(f_1, f^1, f^1).\] Выражение $f_i$ через $e_i$ мы знаем. Остаётся выразить $f^j$ через $e^j$. 
+
+
+
+\begin{lemma} \label{L:DualBasisMatrix} Если матрица перехода между базисами равна $A$, то матрица перехода между двойственными базисами равна $(A^T)^{-1}$. Иными словами,  \begin{gather*}\begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix}  = \begin{pmatrix} e_1, & \dots, & e_n  \end{pmatrix}   A \quad \Rightarrow  \\ \Rightarrow  \quad \begin{pmatrix} f^1, & \dots, & f^n  \end{pmatrix}  = \begin{pmatrix} e^1, & \dots, & e^n  \end{pmatrix}   (A^T)^{-1}.\end{gather*} \end{lemma}
+
+
+
+\begin{proof}[Доказательство Леммы~\ref{L:DualBasisMatrix}] Нужно доказать, что 
+ \[\begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix}  = \begin{pmatrix} e_1, & \dots, & e_n  \end{pmatrix}   A \quad \Rightarrow   \quad \begin{pmatrix} e^1 \\ \vdots \\ e^n  \end{pmatrix}  = A \begin{pmatrix} f^1 \\ \vdots \\ f^n  \end{pmatrix}.  \]
+ 
+ Достаточно рассмотреть значения базиса из ковекторов на базисе из векторов. С одной стороны, \[ \begin{pmatrix} e^1 \\ \vdots \\ e^n  \end{pmatrix} \begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix}  = \begin{pmatrix} e^1 \\ \vdots \\ e^n  \end{pmatrix}  \begin{pmatrix} e_1, & \dots, & e_n  \end{pmatrix}   A = E  A =A.  \] С другой стороны, если \[  \begin{pmatrix} e^1 \\ \vdots \\ e^n  \end{pmatrix}  = X\begin{pmatrix} f^1 \\ \vdots \\ f^n  \end{pmatrix},  \] то \[ \begin{pmatrix} e^1 \\ \vdots \\ e^n  \end{pmatrix} \begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix}  =   X\begin{pmatrix} f^1 \\ \vdots \\ f^n  \end{pmatrix}  \begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix} =  X.  \] Таким образом, $X=A$. Лемма~\ref{L:DualBasisMatrix} доказана. \end{proof}
+ 
+ 
+% Записанное в тензорной форме: \[  f_i = a_i^j e_j \qquad \Rightarrow \qquad e^j = a^j_i f^i, \]  равенство очевидно. Действительно, по определению, значение ковектора $e^j$ на векторе $e_i$ равно \[ e^j (e_i) = \delta^i_{j} = \begin{cases}  1, \qquad \text{если } i = j  \\ 0, \qquad \text{если } i \not = j \end{cases} \]  Если $f^i = a^i_1 e^1 + \dots a^i_n e^n$, то \[f^i (e_j) =  a^i_1 \cdot 0  + \dots + a^i_j \cdot 1 + \dots + a^i_n  0 =a^i_j \] 
+
+%\begin{proof} Нужно доказать, что   \[\begin{pmatrix} f_1, & \dots, & f_n  \end{pmatrix}  = \begin{pmatrix} e_1, & \dots, & e_n  \end{pmatrix}   \begin{pmatrix} a^1_1 & \dots & a^1_n\\ \vdots & \ddots & \vdots  \\ a^n_1 & \dots&  a^n_1  \end{pmatrix} \quad \Rightarrow \quad \begin{pmatrix} e^1 \\ \vdots \\ e_n  \end{pmatrix}  = \begin{pmatrix} a^1_1 & \dots & a^1_n\\ \vdots & \ddots & \vdots  \\ a^n_1 & \dots&  a^n_1  \end{pmatrix}  \begin{pmatrix} f^1 \\ \vdots \\ f^n  \end{pmatrix}  \]  Записанное в тензорной форме: \[ f_i = a_i^j e_j \qquad \Rightarrow \qquad e^j = a^j_i f^i, \]  равенство очевидно. Действительно, по определению, значение ковектора $e^j$ на векторе $e_i$ равно \[ e^j (e_i) = \delta^i_{j} = \begin{cases}  1, \qquad \text{если } i = j  \\ 0, \qquad \text{если } i \not = j \end{cases} \]  Если $f^i = a^i_1 e^1 + \dots a^i_n e^n$, то \[f^i (e_j) =  a^i_1 \cdot 0  + \dots + a^i_j \cdot 1 + \dots + a^i_n  0 =a^i_j \] \end{proof}
+
+%В данном случае \[ e_1 = -f_2 , \qquad e_2 = \frac{1}{3} f_1\] 
+
+%Поэтому \[ f^1(e_1) = f^1 (-f_2) = 0, \quad f^1(e_1) = f^1 (-f_2) = 0\]
+
+%Поэтому, если $e^i = a^i_j e^j$, то $f^i (e_j) = a^i_k \delta^k_j = a^i_j$. 
+
+
+
+
+
+ В данном случае  \[\begin{pmatrix} f_1, & f_2  \end{pmatrix}  = \begin{pmatrix} e_1, & e_2  \end{pmatrix}   \begin{pmatrix} 0 & -1 \\ 3 & 0  \end{pmatrix} \quad \Rightarrow \quad \begin{pmatrix} e^1 \\ e^2  \end{pmatrix}  = \begin{pmatrix} 0 & -1\\ 3 &  0  \end{pmatrix}  \begin{pmatrix} f^1\\ f^2  \end{pmatrix}.  \] 
+
+Получаем, 
+ \[\begin{pmatrix} e^1 \\ e^2  \end{pmatrix}  = \begin{pmatrix} 0 & -1\\ 3 &  0  \end{pmatrix}  \begin{pmatrix} f^1\\ f^2  \end{pmatrix} \quad \Rightarrow \quad \begin{pmatrix} f^1 \\ f^2  \end{pmatrix}  = \begin{pmatrix} 0 & \frac{1}{3} \\-1 &  0  \end{pmatrix}  \begin{pmatrix} e^1\\ e^2  \end{pmatrix}.  \] 
+
+Находим компоненту тензора \begin{gather*} T_1^{11} = T(f_1, f^1, f^1) = \\ =  \left( e^1 \otimes e_2 \otimes e_2 + 2 e^2 \otimes e_2 \otimes e_2 \right)\left(3e_2, \frac{1}{3} e^2, \frac{1}{3}  e^2\right) = \\ =   e^1 \left(3 e_2 \right) \cdot e_2 \left(\frac{1}{3}  e^2 \right) \cdot e_2 \left(\frac{1}{3}  e^2 \right) + \\ + 2 e^2 \left(3 e_2 \right) \cdot e_2 \left(\frac{1}{3}  e^2 \right) \cdot e_2 \left(\frac{1}{3}  e^2 \right) = \\ = 0 \cdot \frac{1}{3}  \cdot \frac{1}{3}  + 6 \cdot \frac{1}{3}  \cdot \frac{1}{3}  = \frac{2}{3}. \end{gather*} 
+
+Задача~\ref{Prob:TensCompNewBasis_Ex1} решена. \end{proof}
+
+
+
+\begin{definition} Тензор \textbf{(абсолютно) кососимметричен}, если при перестановке любых двух индексов он меняет знак. Иными словами, тензор кососимметричен, если для любой перестановки индексов $\sigma$ \[T_{i_{\sigma (1)} \dots i_{\sigma (k)}} = \mathrm{sgn }( \sigma)  T_{i_1 \dots i_k}. \] \end{definition}   В частности, компонента кососимметричного тензора равна нулю, если какие-либо его индексы совпадают. 
+
+\begin{problem} \label{Prob:TensSkewCompNewBasis_Ex1} Пусть $T_{ijk}$ --- кососимметричный тензор в пространстве $\mathbb{R}^3$, у которого компонента $T_{123}$ равна $2$ в базисе $e_1, e_2, e_3$. Вычислить его компоненты в базисе \[f_1 = e_2, \qquad f_2 =-e_3, \qquad f_3 = e_1 + e_2.\] \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:TensSkewCompNewBasis_Ex1}.} \[T_{\sigma(1)\sigma(2) \sigma(3)} = \mathrm{sgn }( \sigma)  \cdot (-2),\] остальные компоненты равны нулю.
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensSkewCompNewBasis_Ex1}] После замены координат кососимметричный тензор останется кососимметричным, поэтому в данном случае достаточно найти  компоненту $T_{1'2'3'}$. \begin{gather*} T_{1'2'3'} = T(f_1, f_2, f_3) = T(e_2, -e_3, e_1+e_2)  =  \\ =- T_{231} - T_{232} = - T_{123} - 0 = -2.\end{gather*} Задача~\ref{Prob:TensSkewCompNewBasis_Ex1} решена. \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Инвариантные тензоры}
+
+
+\begin{definition} Тензор называется \textbf{инвариантным}, если его компоненты не меняются при замене координат.  \end{definition}
+
+В этом разделе будем считать\footnote{Для полей конечной характеристики, например $\mathbb{Z}_2$, ответы могут быть другими.}, что $\operatorname{char} \mathbb{K} = 0$ (например, $\mathbb{K} = \mathbb{R}$ или $\mathbb{C}$).
+
+
+\begin{problem} \label{Prob:InvTensRank2} Описать все инвариантные тензоры ранга $2$. \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:InvTensRank2}.} \begin{itemize} 
+\item Только нулевые тензоры типа $(0,2)$ и $(2, 0)$ являются инвариантными.%\footnote{Единственное исключение --- для поля $\mathbb{K} = \mathbb{Z}_2$ любой тензор ранга $2$ на одномерном пространстве инвариантен.}.
+
+\item Инвариантные тензоры типа $(1,1)$ --- это скалярные операторы $\lambda \delta^i_j$, $\lambda \in \mathbb{K}$.
+
+\end{itemize}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:InvTensRank2}] Единственные матрицы $A$ и $Q$, которые удовлетворяют условиям \begin{equation} \label{Eq:InvTensRank2} C A C^{-1} = A \qquad \text{ и } \qquad C Q C^T = Q, \qquad \forall C \in \operatorname{GL} (n, \mathbb{K}),\end{equation} это нулевая матрица $Q=0$ и скалярная $A = \lambda E$. Действительно, для диагональных матриц \[C = \operatorname{diag}\left(\lambda_1, \dots, \lambda_n \right),\] тождество  \eqref{Eq:InvTensRank2}  имеет вид \[ a^i_j = a^i_j \frac{\lambda_i}{\lambda_j}, \qquad q_{ij} = q_{ij} \lambda_i \lambda_j. \] Получаем, что $Q=0$, а $A$ диагональна. Элементы на диагонали у $A$ равны, т.к. она инвариантна относительно перестановки базисных векторов. Задача~\ref{Prob:InvTensRank2} решена. \end{proof}
+
+
+
+
+
+
+
+\begin{problem} \label{Prob:InvTensTypePP} Доказать, что все ненулевые инвариантные тензоры имеют тип $(p, p)$. \end{problem} 
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:InvTensTypePP}] При гомотетии $x' = \lambda x$ компоненты $T^{i_1 \dots i_p}_{j_1 \dots j_q}$ тензора типа $(p, q)$ умножаются на  $\lambda^{p-q}$. Поэтому при $p \not =q$ единственный инвариантный тензор --- нулевой. Задача~\ref{Prob:InvTensTypePP} решена. \end{proof}
+
+
+\begin{problem} \label{Prob:InvTensRankTo4} Доказать, что ненулевыми инвариантными тензорами ранга $\leq 4$ являются \begin{enumerate}
+
+\item скаляры $c \in \mathbb{K}$;
+
+\item скалярные операторы $\lambda \delta^i_j$, $\lambda \in \mathbb{K}$;
+
+\item и тензоры ранга $4$ вида \begin{equation} \label{Eq:InvTensRank4} \alpha \delta^{i_1}_{j_1} \delta^{i_2}_{j_2} +  \beta \delta^{i_1}_{j_2} \delta^{i_2}_{j_1}, \qquad \alpha, \beta \in \mathbb{K}. \end{equation}
+
+\end{enumerate}
+
+\end{problem}
+
+
+\textit{Указание.} Тензор инвариантен тогда и только тогда, когда он инвариантен относительно  элементарных преобразований. Их три типа.
+
+\begin{enumerate}
+
+\item Перестановка местами двух координат: \[x^i \leftrightarrow x^j.\]
+
+\item Умножение координаты на ненулевое число: \[x^i \to \lambda x^i.\]
+
+\item Прибавление к одной координате другой, умноженной на некоторую константу: \[ x^i \to x^i + \lambda x^j.\] 
+
+\end{enumerate} 
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:InvTensRankTo4}]  Осталось рассмотреть случай тензоров типа $(2,2)$. В этом доказательстве в формулах нет суммирования по повторяющимся верхним и нижним индексам.
+
+\begin{enumerate}
+
+\item \textit{У инвариантного тензора ненулевыми могут быть только компоненты вида \begin{equation} \label{Eq:InvTens22Comp} T^{i i }_{i i}, \qquad T^{i j }_{i j}, \qquad T^{j i }_{i j}, \end{equation} где $ i \not = j.$}
+
+  Действительно, при замене координат, заданной диагональной матрицей \[x^i \to  \lambda^i  x^i, \] все компоненты тензора умножаются на соответствующую константу \[ T^{i_1 i_2}_{j_1 j_2} \to \frac{\lambda^{i_1}  \lambda^{i_2}}{\lambda^{j_1}  \lambda^{j_2}} T^{i_1 i_2}_{j_1 j_2}.\] Если все $\lambda^i$ --- различные числа, то только компоненты с одинаковыми наборами верхних и нижних индексов \eqref{Eq:InvTens22Comp} остаются неизменными. 
+
+
+
+\item \textit{Все компоненты одного вида из \eqref{Eq:InvTens22Comp} равны: \[ T^{i i }_{i i} =T^{i' i' }_{i' i'} , \qquad T^{i j }_{i j} =T^{i' j' }_{i' j'}, \qquad T^{j i }_{i j}=T^{j' i' }_{i' j'}, \] для любых $i \not =j, i' \not = j'$.} Это так, потому что тензор инвариантен относительно перестановок базисных векторов. 
+
+
+\item \textit{Покажем, что инвариантные тензоры ранга $4$ имеют вид \eqref{Eq:InvTensRank4}, т.е. что} \[ T^{i i }_{i i}=0.\] Очевидно, что указанные в ответе тензоры \eqref{Eq:InvTensRank4} инварианты. Прибавляя их линейную комбинацию, всегда можно добиться того, что все коэффициенты, отличные от $T^{ii}_{ii}$, равны нулю: \[  T^{i j }_{i j}=0, \qquad T^{j i }_{i j} =0.\] Если коэффициент $T^{ii}_{ii}\not=0$, то, деля на него, мы получаем тензор \begin{equation} \label{Eq:NonInvTens1} T = \sum_{i=1}^n  e^i \otimes e^i \otimes e_i \otimes e_i.\end{equation} Остаётся показать, что тензор \eqref{Eq:NonInvTens1} не является инвариантным. Действительно, прибавление к $i$-тому базисному вектору $j$-того, умноженного на константу \[ e_i \to e_i + \lambda e_j\] не сохраняет тензор $T$:\begin{gather*}  e^j \otimes e^j  \otimes e_j \otimes e_j + e^i \otimes e^i \otimes  e_i \otimes e_i  \not  = \\ \not = \left( e^j - \lambda  e^i \right) \otimes \left( e^j - \lambda  e^i \right) \otimes e_j \otimes e_j + \\ +  e^i \otimes e^i \otimes \left( e_i + \lambda  e_j \right) \otimes \left( e_i + \lambda  e_j \right). \end{gather*}
+
+\end{enumerate}
+
+
+
+Задача~\ref{Prob:InvTensRankTo4} решена.   \end{proof}
+
+
+
+
+\begin{problem} \label{Prob:InvBilForm}  Пусть $T_{ij} v^i v^j$ --- инвариант (т.е. в каждом базисе задан набор чисел $T_{ij}$ так, что для любого вектора $v$ число $T_{ij} v^i v^j$ не зависит от базиса). Доказать, что $T_{ij}  +T_{ji}$ --- тензор типа $(0, 2)$.   \end{problem} 
+
+
+
+
+
+%По условию наборы чисел $T_{ij}$ корректно определяют квадратичную форму
+% корректно определена и
+
+  
+  \begin{proof}[Решение Задачи~\ref{Prob:InvBilForm}]   В каждом базисе набор чисел $T_{ij}$ задаёт квадратичную форму \[ Q(v) = T_{ij} v^i v^j.\] По условию форма $Q(v)$ не зависит  от выбора базиса. Любая квадратичная форма определяет симметричную билинейную форму по формуле \[ B(u,v)+B(v,u) = Q(u+v) - Q(u) -Q(v).\] Остаётся заметить, что $\displaystyle T_{ij} + T_{ji}$ --- это компоненты билинейной формы $2B(u,v)$.  Задача~\ref{Prob:InvBilForm} решена. \end{proof}
+  
+   
+
+
+%\begin{problem} Пусть $v$ --- векторное поле, равное нулю в точке $P$. Доказать, что частные производные $\frac{\partial v^i}{\partial x^j}$, вычисленные в точке $P$, являются компонентами некоторого тензора типа $(0, 2)$. \end{problem} 
+
+\begin{problem} \label{Prob:DualTensTens} Пусть для каждого базиса в $\mathbb{R}^n$ задан набор чисел \[S^1, \dots, S^n,\] причем для любого тензора $T_i$  типа $(0, 1)$  ``свёртка'' $S^i T_i$ не зависит от базиса. Доказать, что числа $S^i$ образуют тензор типа $(1,0)$. \end{problem}
+
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:DualTensTens}]   По условию корректно определено линейное отображение \[ S : V^* \to \mathbb{K}, \] заданное формулой \[ S(T) = S^i T_i.\] $S$ --- вектор, т.к. линейный функционал на ковекторах --- это вектор (для конечномерных пространств $V^{**} \cong V$). Задача~\ref{Prob:DualTensTens} решена.  \end{proof}
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:DualTensTens}]  По условию  для любого ковектора $T_i$ выполнено \[S^{i'}T_{i'} = S^{i'} \frac{\partial x^i}{\partial x^{i'}} T_i = S^i T_i. \] Поскольку числа $T_i$ --- произвольные, коэффициенты при них должны быть равны: \[ S^{i} =  S^{i'} \frac{\partial x^i}{\partial x^{i'}}. \]  Это доказывает, что при замене координат числа $S^i$ меняются как тензор типа $(1,0)$.  Задача~\ref{Prob:DualTensTens} решена. \end{proof}
+
+  
+  
+  
+
+
+\section{Тензорные поля}
+
+
+Пусть $M$ --- гладкое многообразие (поскольку утверждения в следующих задачах локальны, можно считать $M = \mathbb{R}^n$).
+
+\begin{problem} \label{Prob:HessTens} Пусть $x$ --- критическая точка гладкой функции $f$ на $M$: \[ \left. df\right|_x = 0 .\] Доказать, что гессиан\footnote{Гессианом мы называем квадратичную форму, соответствующую матрице Гессе --- матрице вторых производных функции. Иногда в литературе гессианом также называют определитель матрицы Гессе.} функции \[\operatorname{Hess}f = \left( \displaystyle \frac{\partial^2 f}{\partial x^i \partial x^j} \right),\] является тензором типа $(0, 2)$ в точке $x \in M$ (т.е. на $T_x M$). \end{problem} 
+
+%\begin{remark} \end{remark}
+
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:HessTens}] 
+ Рассмотрим две системы локальных координат $x^i$ и $x^{i'}$. По формуле для производной сложной функции дифференциал функции $df$ --- это тензорное поле типа $(1, 0)$ на $M$: \[ \frac{\partial f}{\partial x^{i'}} = \frac{\partial f}{\partial x^i} \frac{\partial x^{i}}{\partial x^{i'}}. \]  Два раза применяя эту формулу, получаем формулу для второго дифференциала  \[ \frac{\partial^2 f}{\partial x^{i'}\partial x^{j'} } = \frac{\partial^2 f}{\partial x^i \partial x^{j}} \frac{\partial x^{i}}{\partial x^{i'}}\frac{\partial x^{j}}{\partial x^{j'}}  + \frac{\partial f}{\partial x^{k}}  \frac{\partial^2 x^{k}}{\partial x^{i'} \partial x^{j'}}. \] Второе слагаемое, меняющееся не по тензорному закону, исчезает, т.к. $\displaystyle \frac{\partial f}{\partial x^{k}}  =0$. Задача~\ref{Prob:HessTens} решена.  \end{proof}
+
+
+
+\begin{problem}  \label{Prob:TensSevDeriv}
+Пусть $f$ --- гладкая функция от переменных $x^1, \dots, x^n$, а $P$ --- точка, в которой все её производные до порядка $(k-1)$ включительно равны нулю. Доказать, что числа \[A_{i_1 \dots i_k} 	= \left. \frac{\partial^k f}{\partial x^{i_1} \dots  \partial x^{i_k} }\right|_{P},\] являются компонентами некоторого тензора типа $(0, k)$. 
+\end{problem}  
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensSevDeriv}] 
+  Так же, как и в Задаче \ref{Prob:HessTens} мы получаем, что в точке $P$
+\[\frac{\partial^k f}{\partial x^{{i_1}'} \dots  \partial x^{{i_k}'} }  =\frac{\partial^k f}{\partial x^{i_1} \dots  \partial x^{i_k} } 
+ \frac{\partial x^{{i_1}}}{\partial x^{{i_1}'}} \dots  \frac{\partial x^{{i_k}}}{\partial x^{{i_k}'}}.  \] Все остальные слагаемые будут равны нулю, т.к. в них присутствуют частные производные меньшего порядка (это легко доказать по индукции). Задача~\ref{Prob:TensSevDeriv} решена. \end{proof}
+
+\begin{problem} \label{Prob:PolynomeCoeffTens}  Пусть $F(x^1, \dots, x^n)$ --- однородный многочлен степени $k$ в $\mathbb{R}^n$. Доказать, что числа \[A_{i_1 \dots i_k} 	=  \frac{\partial^k F}{\partial x^{i_1} \dots  \partial x^{i_k} }\] являются компонентами  тензора типа $(0, k)$.   \end{problem}  
+
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:PolynomeCoeffTens}] 
+ Немедленно следует из Задачи \ref{Prob:TensSevDeriv} (точка $P$ --- начало координат).  Задача~\ref{Prob:PolynomeCoeffTens} решена. \end{proof}
+
+
+
+\begin{definition} 
+\textbf{Тензорным полем} типа $(p, q)$ на гладком  многообразии $M$ называется семейство тензоров $T_x$, заданных на касательных пространствах $T_x M$, компоненты которых $T^{i_1 \dots i_p}_{j_1 \dots j_q}(x)$ гладко зависят от точки $x$ в любых локальных координатах на $M$.
+\end{definition}
+
+\begin{remark} Тензорное поле также определяют как соответствие, которое любым локальным координатам $x^1$, $\dots$, $x^n$ сопоставляет набор гладких функций $ T^{i_1 \dots i_p}_{j_1 \dots j_q}(x)$, которые при замене локальных координат $x^i \to x^{i'}$ меняются по тензорному закону \eqref{Eq:TensorLaw}. \end{remark}
+
+
+
+
+Задача \ref{Prob:HessTens} является частным случаем следующего общего факта.
+
+
+\begin{problem} \label{Prob:PartDiffTensor} Доказать, что если тензорное поле $T$ типа $(p, q)$ на многообразии $M$ обращается в ноль в точке $x$: \[ T^{i_1 \dots i_p}_{j_1 \dots j_q} (x) = 0, \] то частные производные $\displaystyle \frac{\partial T^{i_1 \dots i_p}_{j_1 \dots j_q}}{\partial x^k}$ образуют тензор типа \\ $(p, q+1)$ на $T_x M$. \end{problem} 
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:PartDiffTensor}]   Аналогично Задаче \ref{Prob:HessTens}. Задача~\ref{Prob:PartDiffTensor} решена. \end{proof} 
+
+
+
+
+
+
+
+\section[Отображение тензорных пространств]{Отображение тензорных \\ пространств}
+
+Утверждение о  том, что линейные отображения \[ A:V \to V, \qquad B: V \to V^*\] задают тензоры типа $(1,1)$ и $(0,2)$ соответственно, можно немного обобщить.
+
+
+
+\begin{problem}  \label{Prob:LinMapTens} Пусть $\mathcal{T}^m_n$ --- пространство всех тензоров типа $(m,n)$. Показать, что для любого линейного отображения тензорных пространств \[ F: \mathcal{T}^m_n \to \mathcal{T}^p_q\] его компоненты в стандартном базисе образуют тензор типа $(p +n , q +m)$.\end{problem}
+
+\textit{Указание.} Речь идет о полилинейном отображении \[ F_T :  \underbrace{V^* \times \dots \times V^*}_{p+n} \times  \underbrace{V \times \dots \times V}_{q+m} \to \mathbb{K}, \]  которое на базисных элементах задаётся формулой  \begin{equation} \begin{gathered} \label{Eq:TensorSpaceMapTensor}   F_T \left(  e^{i_1}, \dots, e^{i_{n+p}}, e_{j_1}, \dots, e_{j_{m+q}} \right) =\\  = F\left(e^{i_1} \otimes \dots \otimes e^{i_{n}} \otimes e_{j_1} \otimes \dots \otimes e_{j_{m}} \right) \\ \left( e^{i_{n+1}}, \dots, e^{i_{n+p}}, e_{j_{m+1}}, \dots, e_{j_{m+q}} \right). \end{gathered} \end{equation} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:LinMapTens}] Отображение $F_T$ является тензором типа $(p+n, q+m)$, поскольку формулу  \eqref{Eq:TensorSpaceMapTensor} можно записать инвариантно, чтобы она не зависела от выбора базиса: \begin{gather*} F_T \left(  \alpha^1, \dots, \alpha^{n+p}, v_{1}, \dots, v_{m+q} \right) = \\ = F\left(\alpha^1 \otimes \dots \otimes \alpha^{n} \otimes v_{1} \otimes \dots \otimes v_{m} \right)  \\ \left( \alpha^{n+1}, \dots, \alpha^{n+p}, v_{m+1}, \dots, v_{m+q} \right)\end{gather*} для любых $\alpha^i \in V^*, v_j \in V$.  Отображение $F_T$ соответствует отображению $F$, поскольку согласно \eqref{Eq:TensorSpaceMapTensor} компонента \[ \left(F_T\right)^{i_1 \dots i_{p+n}}_{j_{1} \dots j_{m+q}} \] равна компоненте образа базисного тензора \[F\left(e^{i_1} \otimes \dots \otimes e^{i_{n}} \otimes e_{j_1} \otimes \dots \otimes e_{j_{m}} \right)^{i_{p+1} \dots i_{p+n}}_{j_{m+1} \dots j_{m+q}}. \]  Задача~\ref{Prob:LinMapTens} решена.  \end{proof}
+
+  
+
+
+Компоненты $F^{s_{1} \dots s_{p} \, \, j_1 \dots j_n  }_{t_{1} \dots t_{q} \, \,  i_1 \dots i_m } $ тензора из Задачи \ref{Prob:LinMapTens} задаются формулой  \[ F(T)^{s_{1} \dots s_{p} }_{t_{1} \dots t_{q}} = \sum_{i_\alpha, j_\beta}  F^{s_{1} \dots s_{p} \, \, j_1 \dots j_n  }_{t_{1} \dots t_{q} \, \,  i_1 \dots i_m } T^{i_1 \dots i_m }_{j_1 \dots j_n }. \] Несложно доказать даже чуть более общее утверждение.
+
+
+
+\begin{assertion} \label{A:TensDivision} Если для каждого базиса задан набор чисел
+\[B^{s_{1} \dots s_{p} \, \, j_1 \dots j_n  }_{t_{1} \dots t_{q} \, \,  i_1 \dots i_m },\] и для любого тензора $ C \in \mathcal{T}^{m+k}_{n+l}$ ``свёртка''  \[ A^{s_{1} \dots s_{p} \, \, u_1 \dots u_k}_{t_{1} \dots t_{q} \, \, v_1 \dots v_l } = \sum_{i_\alpha, j_\beta}  B^{s_{1} \dots s_{p} \, \, j_1 \dots j_n  }_{t_{1} \dots t_{q} \, \,  i_1 \dots i_m } C^{i_1 \dots i_m \, \, u_1 \dots u_k}_{j_1 \dots j_n \, \, v_1 \dots v_l } \] является тензором типа $(p+k, q+l)$, то набор чисел \[B^{s_{1} \dots s_{p} \, \, j_1 \dots j_n  }_{t_{1} \dots t_{q} \, \,  i_1 \dots i_m }\]  задаёт тензор типа $(p+n, q+m)$. \end{assertion}
+
+
+
+
+
+
+
+

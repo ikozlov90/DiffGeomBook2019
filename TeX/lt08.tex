@@ -1,0 +1,308 @@
+
+
+
+
+
+
+
+\chapter{Ковариантная производная} \label{S:CovarDeriv}
+
+\section{Теоретический материал}
+
+
+Рассмотрим многообразие $M$ с заданной на нём аффинной связностью $\nabla$. Операцию \textbf{ковариантной производной} вдоль векторного поля $X$ можно определить для любого тензорного поля $T$ на $M$ по следующим правилам:
+
+%для любого  корректно определена операция {ковариантной производной} $\nabla_X T$ произвольного тензорного поля $T$ вдоль векторного поля $X$.
+
+ % можно продолжить с векторных полей на произвольные тензорные поля на $M$ по следующим правилам:
+
+\begin{enumerate}
+
+\item Ковариантная производная $\nabla_X T$ тензорного поля $T$ типа $(p, q)$ --- снова тензорное поле типа $(p, q)$.
+
+\item Для функции $f$ ковариантная производная совпадает с обычной производной вдоль векторного поля \[ \nabla_X f = X(f). \]
+
+\item Для векторных полей $Y$ ковариантная производная $\nabla_X Y$ задаётся аффинной связностью. 
+
+
+
+\item Для $1$-формы $\alpha$ ковариантная производная определяется так, чтобы свёртка дифференцировалась по правилу Лейбница: \[ \left(\nabla_ X \alpha \right) Y = \nabla_X \left( \alpha (Y) \right) - \alpha \left( \nabla_X Y \right) \]  для любого векторного поля $Y$.
+
+
+
+\item Тензорное произведение дифференцируется по правилу Лейбница: \[\nabla_X \left( S \otimes T \right) = \left( \nabla_X S \right) \otimes T + S \otimes \left( \nabla_X  T \right)  \] для любых тензорных полей $S$ и $T$.
+
+
+\end{enumerate}
+
+
+
+
+В локальных координатах $\left( x^1, \dots, x^n\right)$ ковариантная производная тензорного поля $T^{i_1 \dots i_p}_{j_1 \dots j_q} \left(x \right) $ задаётся формулой \begin{equation} \label{Eq:CovDerivCoord}\begin{gathered} \left(\nabla _{X}T\right)^{i_1 \dots i_p}_{j_1 \dots j_q}=  X^k \left( {\frac {\partial T^{i_1 \dots i_p}_{j_1 \dots j_q}}{\partial x^{k}}}+ \right. \\ + \Gamma ^{i_1}_{k s} T^{s i_2 \dots i_p}_{j_1 \dots j_q}  + \dots + \Gamma ^{i_p}_{k s} T^{i_1 \dots i_{p-1} s}_{j_1 \dots j_q} -  \\  \left.  -  \Gamma ^{s}_{k j_1} T^{i_1 i_2 \dots i_p}_{s j_2 \dots j_q}  -\dots - \Gamma ^{s}_{k j_q} T^{i_1 \dots i_p}_{j_1 \dots j_{q-1} s}  \right). \end{gathered} \end{equation}
+
+
+%{\displaystyle  }
+
+
+%+\,T^{da_{2}\ldots a_{r}}{}_{b_{1}\ldots b_{s}}+\cdots +\Gamma ^{a_{r}}{}_{dc}T^{a_{1}\ldots a_{r-1}d}{}_{b_{1}\ldots b_{s}}}{\displaystyle -\,\Gamma ^{d}{}_{b_{1}c}T^{a_{1}\ldots a_{r}}{}_{db_{2}\ldots b_{s}}-\cdots -\Gamma ^{d}{}_{b_{s}c}T^{a_{1}\ldots a_{r}}{}_{b_{1}\ldots b_{s-1}d}.} -\,\Gamma ^{d}{}_{{b_{1}c}}T^{{a_{1}\ldots a_{r}}}{}_{{db_{2}\ldots b_{s}}}-\cdots -\Gamma ^{d}{}_{{b_{s}c}}T^{{a_{1}\ldots a_{r}}}{}_{{b_{1}\ldots b_{{s-1}}d}}.
+
+
+Формула \eqref{Eq:CovDerivCoord} получается, если ``скомбинировать'' формулы для ковариантной производной векторных полей \[ \left( \nabla_X Y\right)^i = X^j \left(  \frac{\partial Y^i}{\partial x^j} + \Gamma_{jk}^i Y^k \right) \]
+и ковариантной производной $1$-форм \[ \left( \nabla_X \alpha\right)_i = X^j \left( \frac{\partial \alpha_i }{\partial x^j} - \Gamma_{ji}^k \alpha_k \right). \]
+
+
+\textbf{Ковариантную производную} также можно рассматривать как отображение, сопоставляющее тензорному полю $T$ типа $(p, q)$ тензорное поле $\nabla T$ типа $(p, q+1)$, где\footnote{Для удобства мы выделяем новый нижний индекс в $\nabla T$ точкой с запятой.} \[ \left( \nabla T \right)^{i_1 \dots i_p}_{j_1 \dots j_q; k} : = \left( \nabla_k T \right)^{i_1 \dots i_p}_{j_1 \dots j_q}. \]
+
+
+%\newpage
+%%%%%%S11
+
+
+
+
+
+\section{Вычисление ковариантной производной}
+
+
+
+%\begin{problem} \label{Prob:CovarDerivVect_Ex2} Найти ковариантную  производную  векторного поля  \[v = \left( x^2, y\right)\] относительно римановой связности для метрики \[ds^2 = 2dx^2 +3dy^2.\] \end{problem}\textit{Ответ в Задаче~\ref{Prob:CovarDerivVect_Ex2}.} $\nabla v = 2x \frac{\partial}{\partial x} \otimes dx + \frac{\partial}{\partial y} \otimes dy$.\begin{proof}[Решение Задачи~\ref{Prob:CovarDerivVect_Ex2}] Все компоненты $\nabla v$ явно находятся по формуле  \[ \left( \nabla v\right)^i_{;j} = \frac{\partial v^i}{\partial x^j} + \Gamma_{jk}^i v^k. \] В данном случае все $\Gamma^i_{jk} = 0$, т.к. $g_{ij} = \operatorname{const}$. Задача~\ref{Prob:CovarDerivVect_Ex2} решена. \end{proof} 
+
+
+
+
+%\begin{problem} На плоскости с координатами $x,y$ найти связность, относительно которой векторные поля $\xi = (e^x, 1)$ и $\eta = (0, e^y)$ ковариантно постоянны. Найти тензор кручения этой связности.  \end{problem} 
+
+
+
+%Так как \Gamma^i_{jk}=0, то $\nabla v^i_{;k} = \frac{\partial v^i}{\partial x^k} $.
+
+
+%\begin{problem} Компоненты векторного поля $v$ на плоскости с полярными координатами $r, \varphi$ равны $v^1 = \cos{\varphi}$ и $v^2 = -\frac{1}{r} \sin{\varphi}$. Найти модуль и компоненты ковариантной производной поля $v$ относительно евклидовой метрики. \end{problem} 
+
+
+
+\begin{problem} \label{Prob:CovarDerivTensor_Ex2}  Пусть в $\mathbb{R}^3$ с евклидовой метрикой задана соответствующая ей симметричная риманова связность. Найти ковариантные производные тензорных полей, которые в цилиндрических координатах $(r, \varphi, z)$ имеют компоненты
+
+\[ \left(1\right) \quad  \left|\left| g_{ij} \right|\right| = \begin{pmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1\end{pmatrix}, \qquad  \left(2\right) \quad \left|\left| t^i_{j} \right|\right| = \begin{pmatrix} r & 0 & 0 \\ 0 & r & 0 \\ 0 & 0 & 1\end{pmatrix}.\]
+
+
+
+\end{problem} 
+
+
+%\textit{Ответ:}$\nabla g_{ij} = 0$. Ненулевые компоненты во втором случае: \[ \left(\nabla t\right)^r_{r;r} =1, \qquad \left(\nabla t\right)^{\varphi}_{\varphi;r} = 1\] 
+
+%\[ \left(\nabla t\right)_{rr;r} =1, \qquad \left(\nabla t\right)_{\varphi \varphi;r} = -1, \qquad \left(\nabla t\right)_{r \varphi; r} = \left(\nabla t\right)_{\varphi r; r}  = r^2-1\]
+
+%\textit{Указания:} В первом случае дан метрический тензор в цилиндрических координатах $ds^2 = dr^2 + r^2 d\varphi^2 + dz^2$. 
+
+%Во втором случае нужно честно применить формулу для ковариантной производной \[ \left(\nabla t\right)^i_{j;k} = \frac{\partial t^i_{j}}{\partial x^k} + \Gamma^i_{ks} t^s_{j} - \Gamma^s_{kj} t^i_{s} \]
+
+
+
+
+
+\textit{Ответ в Задаче~\ref{Prob:CovarDerivTensor_Ex2}.}
+
+\begin{enumerate}
+
+\item $\nabla g = 0$. 
+
+\item Ненулевые компоненты во втором случае:
+\[ \left(\nabla t\right)^r_{r;r} =1, \qquad \left(\nabla t\right)^{\varphi}_{\varphi;r} = 1.\] 
+
+%\[ \left(\nabla t\right)_{rr;r} =1, \qquad \left(\nabla t\right)_{\varphi \varphi;r} = -1, \qquad \left(\nabla t\right)_{r \varphi; \varphi} = \left(\nabla t\right)_{\varphi r; \varphi}  = r^2-1\]
+
+
+
+%\item Ненулевые компоненты во втором случае:\[ \left(\nabla t\right)_{rr;r} =1, \qquad \left(\nabla t\right)_{\varphi \varphi;r} = -1, \qquad \left(\nabla t\right)_{r \varphi; \varphi} = \left(\nabla t\right)_{\varphi r; \varphi}  = r^2-1\]
+
+\end{enumerate}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CovarDerivTensor_Ex2}]
+
+
+\begin{itemize}
+
+\item $\nabla g=0$, поскольку связность согласована с метрикой, а $g$ --- это метрический тензор в цилиндрических координатах: \[ ds^2 = dr^2 + r^2 d\varphi^2 + dz^2.\] 
+
+
+\begin{remark} Можно честно применить формулу для ковариантной производной тензоров типа $(0, 2)$: \begin{equation} \label{Eq:CovarDerivTens02} \left(\nabla g\right)_{ij;k} = \frac{\partial g_{ij}}{\partial x^k} - \Gamma^s_{ki} g_{sj} - \Gamma^s_{kj} g_{is}. \end{equation} Вычисления можно немного сократить, если заметить следующее. В цилиндрических координатах ненулевые символы Кристоффеля имеют вид \begin{equation} \label{Eq:KristofSymbCylindrCoord}  \Gamma_{\varphi \varphi }^r = -r, \qquad \Gamma_{\varphi r}^{\varphi} = \Gamma_{r \varphi}^{\varphi} = \frac{1}{r},\end{equation} Поэтому ненулевыми слагаемыми в формуле  \eqref{Eq:CovarDerivTens02} могут быть только \[  \frac{\partial g_{\varphi \varphi}}{\partial r}, \qquad \Gamma^r_{\varphi \varphi} g_{r r}, \qquad  \Gamma_{\varphi r}^{\varphi} g_{\varphi \varphi}, \qquad  \Gamma_{r \varphi}^{\varphi} g_{\varphi \varphi}. \] Легко проверяется, что соответствующие компоненты $\nabla T$ равны нулю: \begin{gather*}
+\left(\nabla g\right)_{\varphi \varphi;r} = \frac{\partial g_{\varphi \varphi }}{\partial r} - 2\Gamma^\varphi_{r \varphi} g_{\varphi \varphi}= 2r - 2 \frac{r^2}{r}=0,\\
+%
+ \left(\nabla g\right)_{r \varphi;\varphi} = \left(\nabla g\right)_{\varphi r;\varphi} = - \Gamma^r_{\varphi \varphi} g_{r r} - \Gamma^\varphi_{\varphi r} g_{\varphi\varphi}= r - \frac{r^2}{r} = 0. 
+\end{gather*}
+
+
+\end{remark}
+
+
+\item Применим формулу для ковариантной производной тензоров типа $(1, 1)$: \begin{equation} \label{Eq:CovarDerivTens11}  \left(\nabla t\right)^i_{j;k} = \frac{\partial t^i_{j}}{\partial x^k} + \Gamma^i_{ks} t^s_{j} - \Gamma^s_{kj} t^i_{s}. \end{equation}  Ненулевые символы Кристоффеля имеют вид \eqref{Eq:KristofSymbCylindrCoord}, поэтому ненулевыми слагаемыми в формуле  \eqref{Eq:CovarDerivTens11} могут быть только \begin{gather*} \frac{\partial t^{r}_{r}}{\partial r}, \qquad  \frac{\partial t^{\varphi}_{\varphi}}{\partial r}, \qquad \Gamma^r_{\varphi \varphi} t^{r}_{r}, \\  \Gamma^r_{\varphi \varphi} t^{\varphi}_{\varphi}, \qquad  \Gamma_{\varphi r}^{\varphi} t^{\varphi}_{\varphi},  \qquad  \Gamma_{\varphi r}^{\varphi} t^{r}_{r},  \qquad  \Gamma_{r \varphi}^{\varphi} t^{\varphi}_{\varphi}. \end{gather*} Остаётся явно вычислить соответствующие компоненты $\nabla t$: \begin{gather*}
+\left(\nabla t\right)^r_{r;r} = \frac{\partial t^r_{r}}{\partial r} =1, \qquad \left(\nabla t\right)^{r}_{\varphi;\varphi} = \Gamma^{r}_{\varphi \varphi} t^{\varphi}_{\varphi} - \Gamma^{r}_{\varphi \varphi} t^{r}_{r} =0, \\
+\left(\nabla t\right)^{\varphi}_{\varphi;r} = \frac{\partial t^{\varphi}_{ \varphi }}{\partial r}+\Gamma^\varphi_{r \varphi} t^{\varphi}_{\varphi} -\Gamma^\varphi_{r \varphi} t^{\varphi}_{\varphi}= 1,\\
+%
+\left(\nabla t\right)^{\varphi}_{r;\varphi} = \Gamma^{\varphi}_{\varphi r} t^{r}_{r} - \Gamma^{\varphi}_{\varphi r} t^{\varphi}_{\varphi} =0.
+\end{gather*}
+
+
+\end{itemize}
+ 
+ Задача~\ref{Prob:CovarDerivTensor_Ex2} решена.   \end{proof}
+  
+
+\section{Свойства ковариантной производной}
+
+
+
+
+\begin{problem} \label{Prob:CovarDerivSubMan} Пусть \begin{itemize}
+
+\item $N$ --- гладкое подмногообразие риманова многообразия $M$, 
+
+\item $\nabla^M$ и $\nabla^N$ --- связности Леви-Чевитты на $M$ и $N$ соответственно,
+
+\item $\gamma(t)$ --- гладкая кривая в $N$ и
+
+\item $X$ --- гладкое поле на $\gamma$, касательное к $N$. 
+\end{itemize}
+
+Доказать, что \begin{equation} \label{Eq:CovDerivProj} \nabla^N_{\dot{\gamma}} X = \operatorname{pr } \, \left( \nabla^M_{\dot{\gamma}} X\right) \end{equation} где $\operatorname{pr}$ --- ортогональная проекция на касательное пространство к $N$. 
+
+\end{problem}
+
+
+
+\textit{Указание.} Воспользоваться Леммой~\ref{L:SubManLocCoord}.
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CovarDerivSubMan}] Фиксируем точку $P$ подмногообразия $N$. Пусть \[\dim N = m, \qquad \dim M = n+m.\] Используя Лемму~\ref{L:SubManLocCoord} и делая линейную замену координат, найдём локальные координаты $\left(x^1, \dots, x^{n+m}\right)$ в окрестности точки $P$ на $M$, в которых 
+\begin{itemize}
+
+\item  подмногообразие $N^m$ является подпространством \[ x^{m+1} =0, \qquad \dots \qquad x^{n+m} = 0,\] 
+
+\item в точке $P$ метрика задаётся единичной матрицей \[  g_{ij} (P) = \delta_{ij}.\]
+
+\end{itemize}
+
+В этих координатах оператор проекции просто отбрасывает последние $n$ координат: \[ \operatorname{pr } \left( v^1, \dots, v^m, v^{m+1}, \dots, v^{m+n} \right) =\left( v^1, \dots, v^m \right) \]
+
+Посмотрим теперь внимательно на выражения для ковариантных производных на $N$ и $M$:
+\begin{gather} \nabla^N_{\dot{\gamma}} X^i= \sum_{j=1}^m \dot{\gamma}^j \left( \frac{\partial X^i}{\partial x^j}  +  \sum_{k=1}^m  \Gamma^{i \, (N)}_{jk} X^k \right), \label{Eq:CovDerivNSubm} \\ \nabla^M_{\dot{\gamma}} X^i =\sum_{j=1}^{n+m} \dot{\gamma}^j \left( \frac{\partial X^i}{\partial x^j}  + \sum_{k=1}^{n+m}  \Gamma^{i\, (M)}_{jk} X^k \right),  \label{Eq:CovDerivMMan} \end{gather} где через $ \Gamma^{i\, (N)}_{jk}$ и $\Gamma^{i\, (M)}_{jk}$ обозначены символы Кристоффеля на $N$ и $M$ соответственно. Нужно доказать, что при $1 \leq i \leq m$ выражения \eqref{Eq:CovDerivNSubm} и \eqref{Eq:CovDerivMMan} совпадают. 
+
+
+\begin{itemize}
+
+\item Векторные поля $X$ и $\dot{\gamma}$ касаются подмногообразия $N$, поэтому они имеют вид \[ X = \left( X^1, \dots, X^m, 0, \dots, 0\right), \quad \dot{\gamma} = \left( \dot{\gamma}^1, \dots, \dot{\gamma}^m, 0, \dots, 0\right).\] \textit{Поэтому в формуле \eqref{Eq:CovDerivMMan} все суммы следует брать от $1$ до $m$, как и в \eqref{Eq:CovDerivNSubm}.}
+
+\item Остаётся показать, что \[ \Gamma^{i\, (N)}_{jk} = \Gamma^{i\, (M)}_{jk}, \qquad 1 \leq i, j, k \leq m. \] Посмотрим внимательно на выражения для символов Кристоффеля через метрику: \begin{gather}  \Gamma^{i \, (N)}_{jk} =\sum_{\alpha=1}^{m} \frac{g^{i \alpha}}{2}\left( \frac{\partial g_{k \alpha}}{\partial x^{j}}  + \frac{\partial g_{\alpha j}}{\partial x^{k}}  -\frac{\partial g_{jk}}{\partial x^{\alpha}} \right), \label{Eq:CristSymbSubmN} \\ \Gamma^{i\, (M)}_{jk}= \sum_{\alpha=1}^{n+m} \frac{g^{i \alpha}}{2}\left( \frac{\partial g_{k \alpha}}{\partial x^{j}}  + \frac{\partial g_{\alpha j}}{\partial x^{k}}  -\frac{\partial g_{jk}}{\partial x^{\alpha}} \right). \label{Eq:CristSymbManM} \end{gather} Мы считаем, что в точке $P$ матрица $g_{ij}$ единичная, поэтому \[ g^{ij} =0, \qquad i \not =j.\] Следовательно \textit{в формуле \eqref{Eq:CristSymbManM} ненулевым будет только слагаемое с $\alpha = i$, и сумму можно брать от $1$ до $m$}.  Формула \eqref{Eq:CovDerivMMan} совпадёт с  \eqref{Eq:CristSymbSubmN}, а формула  \eqref{Eq:CovDerivNSubm}  --- с  \eqref{Eq:CovDerivMMan} (при $1 \leq i \leq m$). \end{itemize} 
+
+
+
+
+Задача~\ref{Prob:CovarDerivSubMan} решена. \end{proof}
+
+
+
+\subsection{Ковариантная дивергенция}
+
+\begin{definition} Пусть $v$ --- векторное поле на многообразии $M$, на котором задана аффинная связность $\nabla$. Функция \[ \diver v= \nabla_i v^i\] называется \textbf{(ковариантной) дивергенцией} векторного поля $v$. \end{definition}
+
+
+
+\begin{problem}  \label{Prob:AffineDivergence}  Доказать, что для любой (псевдо)римановой связности \begin{equation} \label{Eq:CovarDerivValue} \nabla_i v^i  = \displaystyle \frac{1}{\sqrt{ |g|}  } \frac{\partial \left(  \sqrt{|g| } v^i\right) }{\partial x^i},\end{equation} где $g = \det \left( g_{ij}\right)$. \end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:AffineDivergence} ]  Это немедленное следствие Задачи~\ref{Prob:CristoffSymbContract}: \[  \nabla_i v^i = \frac{\partial v^i}{\partial x^i} + \Gamma^i_{ij} v^j =  \frac{\partial v^i}{\partial x^i} + \frac{1}{g } \frac{\partial g }{\partial x^j} v^j  =  \displaystyle \frac{1}{\sqrt{ |g|}  } \frac{\partial \left(  \sqrt{|g| } v^i\right) }{\partial x^i}. \] Задача~\ref{Prob:AffineDivergence} решена.  \end{proof} 
+ 
+ 
+ 
+ 
+ 
+
+
+
+\begin{problem} \label{Prob:DivergCovarAndHodge}  Доказать, на любом ориентированном римановом многообразии ковариантная дивергенция совпадает с дивергенцией, определённой через звезду Ходжа: \begin{equation} \label{Eq:CovarDerivEqHodgeDeriv} \operatorname{div } v = \nabla_i v^i = *d* v^{\flat}.\end{equation} \end{problem} 
+
+Все объекты в формуле~\eqref{Eq:CovarDerivEqHodgeDeriv} согласованы с метрикой $g_{ij}$:
+
+\begin{itemize}
+
+
+\item $\nabla$ --- связность Леви-Чивиты (т.е. симметричная риманова связность),
+
+
+\item $v^{\flat}$ --- $1$-форма, полученная из векторного поля $v$ опусканием индекса: \[ v^{\flat}_i = g_{ij} v^j,\]
+
+
+
+\item $*$ --- оператор двойственности Ходжа. 
+
+\end{itemize} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:DivergCovarAndHodge}]  Это задача неплохо проверяет знание ранее доказанных фактов о символах Кристоффеля и звезде Ходжа $*$.
+
+С одной стороны, для $\nabla_i v^i$ выполнена формула~\eqref{Eq:CovarDerivValue}. 
+
+С другой стороны, \begin{gather*}  * d* v^{\flat}  = * d \left(\sum_i v^i  \sqrt{|g|}  (-1)^{i-1} dx^1 \wedge \dots \wedge \widehat{dx^i} \wedge \dots \wedge dx^n \right) = \\ = * \left( \frac{1}{\sqrt|g|}   \frac{\partial v^i \sqrt{|g|}  }{\partial x^i}  \Omega \right)  = \frac{1}{\sqrt{|g|}  } \frac{\partial v^i \sqrt{|g|}  }{\partial x^i},\end{gather*} где через $\Omega$ обозначена форма объема \[ \Omega = \sqrt{|g|}  \,  dx^1 \wedge \dots \wedge dx^n.\] Мы использовали то, что для звезды Ходжа \[ * f \Omega = f.\] Чтобы проверить равенство \[ * v^{\flat}= \sum_i v^i  \sqrt{|g|}  (-1)^{i-1} dx^1 \wedge \dots \wedge \widehat{dx^i} \wedge \dots \wedge dx^n,  \] можно использовать формулу~\eqref{Eq:HodgeStar}, в соответствии с которой \[ \left(* v^{\flat}\right)_{i_2 \dots i_{n}} =  \Omega_{i_1 \dots  i_n } v^{i_1 }, \] либо можно использовать вытекающее из \eqref{Eq:WedgeHodgeScalarProd} тождество \[ \alpha \wedge * v^{\flat} = \alpha(v) \omega, \] выполненное для любой $1$-формы $\alpha$. Задача~\ref{Prob:DivergCovarAndHodge} решена. \end{proof}
+
+%\begin{problem} Найти результат параллельного переноса вектора $(0,-1)$ на евклидовой плоскости с декартовыми координатаи $(x,y)$ вдоль нижней полуокружности $x^2 +y^2=1$ из правой крайней точки в левую. \end{problem}
+
+
+
+
+ 
+ 
+
+\subsection[Форма объёма ковариантно постоянна]{Форма объёма ковариантно \\ постоянна}
+
+
+\begin{problem} \label{Prob:CovarDerivVolumeForm} Пусть $M$ --- риманово многообразие с метрикой $g_{ij}$. Доказать, что ковариантная производная $n$-формы \[ \omega = \sqrt{\mathrm{det } g_{ij}} dx^1 \wedge \dots \wedge dx^n\] (формы объёма) относительно римановой связности на $M$ равна нулю. \end{problem} 
+
+
+
+
+\textit{Указание.} На любой кривой $\gamma(t)$ можно взять набор параллельных векторных полей $X_1, \dots, X_n$. Тогда  \begin{gather*} \nabla_{\dot{\gamma}} X_i =0 \qquad \Rightarrow \qquad \nabla_{\dot{\gamma}} g(X_i, X_j )=0 \qquad \Rightarrow \\ \Rightarrow \qquad \nabla_{\dot{\gamma}} \operatorname{vol}(X_1, \dots, X_n )=0.\end{gather*} 
+
+  \begin{proof}[Решение Задачи~\ref{Prob:CovarDerivVolumeForm}]  Нужно доказать, что для любого векторного поля $X$ \[ \nabla_ X \omega =0. \] Пусть $X_1, \dots, X_n$ --- произвольный набор параллельных (вдоль $X$) касательных векторных полей: \[ \nabla_ X X_i =0.\] Так как связность согласована с метрикой, \[ \nabla_X g(X_i, X_j) =  0 \qquad \Rightarrow \qquad g\left(X_i, X_j\right)  = \mathrm{const}. \] Объём параллелепипеда, натянутого на вектора $X_1, \dots, X_n$, равен $\sqrt{\det g \left(X_i, X_j \right)  } $, поэтому  \[\omega (X_1, \dots, X_n) = \mathrm{const}  \qquad \Rightarrow \qquad \nabla_X (\omega (X_1, \dots, X_n)) = 0. \]
+По свойствам ковариантного дифференцирования \begin{gather*} \nabla_X (\omega (X_1, \dots, X_n) ) = (\nabla_X \omega) (X_1, \dots, X_n) + \\+ \omega(\nabla_X X_1, X_2, \dots, X_n) + \dots + \omega(X_1, X_2, \dots, \nabla_X  X_n).  \end{gather*} Все слагаемые, кроме $(\nabla_X \omega) (X_1, \dots, X_n) $, равны нулю, откуда $\nabla_X \omega=0$, поскольку $X_1, \dots, X_n$ можно выбрать базисными в касательном пространстве. Задача~\ref{Prob:CovarDerivVolumeForm} решена.  \end{proof} 
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:CovarDerivVolumeForm}] Честно применим формулу для ковариантной производной \eqref{Eq:CovDerivCoord}. Так как $\omega$ --- $n$-форма, $\nabla_X \omega$ --- тоже $n$-форма, поэтому достаточно найти только одну её компоненту: \begin{gather*}  \left(\nabla_X \omega \right)_{1 \dots n} = X^k \left(  \frac{\partial \sqrt{|g| }}{\partial x^k} - \Gamma^s_{k1} \sqrt{|g| } \varepsilon_{s 2 \dots n} -  \Gamma^s_{kn} \sqrt{|g| } \varepsilon_{1 2 \dots s}  \right)= \\ = X^k \left(  \frac{\partial \sqrt{|g| }}{\partial x^k} - \Gamma^i_{ki} \sqrt{|g| } \right).\end{gather*} Здесь $g = \operatorname{det} \left( g_{ij} \right)$ и $ \varepsilon_{i_1  \dots i_n}$ --- символ Леви-Чивиты\footnote{Т.е. абсолютно антисимметричный единичный тензор}. $\nabla_X \omega =0$ по формуле~\eqref{Prob:CristoffSymbContract}. Задача~\ref{Prob:CovarDerivVolumeForm} решена.  \end{proof} 
+
+\subsection{Ковариантная и внешняя производные}
+
+
+\begin{problem} \label{Prob:ExtDiffAltCovarDeriv} Пусть на многообразии $M$ задана симметричная связность $\nabla$. Доказать, что для любой $k$-формы $\omega$ \begin{equation} \label{Eq:CovDerExtDer} \frac{(-1)^k}{ k+1} d \omega = \mathrm{Alt } \left( \nabla \omega \right). \end{equation} \end{problem} 
+
+%\textit{Договоренности:} Формула \eqref{Eq:CovDerExtDer} верна, если операции внешнего произведения и альтернирования связаны следующим образом: \begin{gather*} dx^{i_1} \wedge \dots \wedge dx^{i_k} = k! \, \mathrm{Alt } \left(  dx^{i_1} \otimes \dots \otimes dx^{i_k}\right) = \\=\sum_{ \sigma \in S_k} \mathrm{sgn}(\sigma) dx^{i_{\sigma(1)}} \otimes \dots \otimes dx^{i_{\sigma(k) }} \end{gather*}
+
+
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:ExtDiffAltCovarDeriv} ]  Можно честно расписать формулу для ковариантной производной \eqref{Eq:CovDerivCoord}. 
+\[\left(\nabla  \omega \right)_{i_1 \dots i_{k}; i_{k+1}}= \frac {\partial \omega_{i_1 \dots i_k}}{\partial x^{i_{k+1}}}-  \Gamma ^{s}_{i_{k+1} i_1} \omega_{s i_2 \dots i_k}-\dots - \Gamma ^{s}_{i_{k+1} i_k} \omega_{i_1  \dots i_{k-1} s}.\] При альтернировании все слагаемые вида $-  \Gamma ^{s}_{i_{k+1} i_1} \omega_{s i_2 \dots i_k}$ сократятся с $\Gamma ^{s}_{i_1 i_{k+1}} \omega_{s i_2 \dots i_k}$.
+
+Так как $\mathrm{Alt} \, \left( \nabla \omega \right) $ --- кососимметрический тензор, можно считать $i_1 < i_2 < \dots < i_{k+1}$. Используя кососимметричность $\omega$, получаем, что \begin{gather*} \mathrm{Alt} \, \left( \nabla \omega \right) _{i_1 \dots i_{p+1} } = \frac{1}{\left(k+1\right)!} \sum_ {\sigma \in S_{k+1}} \mathrm{sgn}(\sigma) \frac {\partial \omega_{i_{\sigma(1)} \dots i_{\sigma(k)}}}{\partial x^{i_{\sigma(k+1)}}} =\\ = \frac{(-1)^p}{k+1} \sum_ {j=1}^{k+1} \left( -1\right)^{j-1}  \frac{\partial \omega_{i_1 \dots \widehat{i}_j \dots i_{k+1}}}{\partial x^{i_j}}.\end{gather*}
+
+
+Остаётся вспомнить, что коэффициент перед \[dx^{i_1} \wedge \dots \wedge dx^{i_{k+1}}\] в $d \omega$ равен \[ \sum_{j=1}^{k+1} \left( -1 \right)^{j-1} \frac{\partial \omega_{i_1 \dots \widehat{i}_j \dots i_{k+1}}}{\partial x^{i_j}}. \]  Задача~\ref{Prob:ExtDiffAltCovarDeriv} решена. \end{proof}
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:ExtDiffAltCovarDeriv} ]  Заметим, что обе части формулы~\eqref{Eq:CovDerExtDer}
+
+\begin{enumerate} 
+
+\item являются $\mathbb{R}$-линейными по $\omega$: \begin{gather*} \mathrm{Alt } \left( \nabla c_1 \omega_1 + c_2 \omega_2 \right)  = c_1 \mathrm{Alt } \left( \nabla \omega_1 \right) +c_2 \mathrm{Alt } \left( \nabla \omega_2 \right), \\ d\left(  c_1 \omega_1 + c_2 \omega_2 \right)  = c_1 d \omega_1  +c_2 d \omega_2; \end{gather*}
+
+
+\item одинаково меняются при умножении на функцию:  \begin{align*} \mathrm{Alt } \left( \nabla f \omega \right)  &= \mathrm{Alt } \left( f \nabla  \omega + \omega \otimes df \right)  = \\ &=f \mathrm{Alt } \left(  \nabla  \omega \right) + \frac{1}{k+1} \omega \wedge d f,  \\ d\left(f \omega\right) &= f d \omega + \left(-1\right)^k \omega \wedge df.  \end{align*} Здесь мы воспользовались тем, что для любых $p$-формы $\alpha$ и $q$-формы $\beta$ \[ \alpha \wedge \beta = \frac{p! \, q!}{(p+q)!} \mathrm{Alt } \left( \alpha \otimes \beta \right), \] и что \[\alpha \wedge \beta = \left(-1\right)^{pq} \beta \wedge \alpha.\]
+
+\end{enumerate}
+
+Таким образом остаётся проверить тождество лишь для форм вида \[ dx^{i_1} \wedge \dots \wedge dx^{i_k}.\] %(перенумеровав координаты, можно считать $i_j =j$). 
+Очевидно, что $d \omega =0$ и \[\left(\nabla  \omega \right)_{i_1 \dots i_{k}; i_{k+1}}=  0 -  \Gamma ^{s}_{i_{k+1} i_1} \omega_{s i_2 \dots i_k}-\dots - \Gamma ^{s}_{i_{k+1} i_k} \omega_{i_1  \dots i_{k-1} s}.\] 
+
+Так же, как и в предыдущем решении, все слагаемые вида $-  \Gamma ^{s}_{i_{k+1} i_1} \omega_{s i_2 \dots i_k}$ сократятся с $\Gamma ^{s}_{i_1 i_{k+1}} \omega_{s i_2 \dots i_k}$. Задача~\ref{Prob:ExtDiffAltCovarDeriv} решена.  \end{proof}

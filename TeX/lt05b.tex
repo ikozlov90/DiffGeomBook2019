@@ -1,0 +1,80 @@
+
+
+\chapter{Производная Ли}\label{S:LieDeriv}
+
+%Рассмотрим операцию частной производной \[ T^i_j \to \frac{\partial T^i_j}{\partial x^k} \]
+
+\section{Определение производной Ли}
+
+
+\begin{definition}
+Пусть $M$ --- гладкое многообразие и $X$ --- касательное векторное поле на нем. \textbf{Производная Ли} вдоль векторного поля $X$ --- это операция, которая сопоставляет тензорному полю $T$ типа $(p, q)$ тензорное поле $L_X T$ типа $(p, q)$ и удовлетворяет следующим свойствам:
+
+\begin{enumerate}
+
+\item Производная Ли функции совпадает с обычной производной вдоль векторного поля \[ L_v f = v(f). \]
+
+\item Производная векторного поля совпадает с коммутатором векторных полей \[ L_X Y  = [X, Y]. \]
+
+\item Производная Ли свёртки тензоров\footnote{Для простоты далее в формуле указан только индекс, по которому идет суммирование. Утверждение верно для свёртки тензоров любого типа.} находится по правилу Лейбница: \[ L_X \left( S^i T_i \right) = \left( L_X S\right)^i T_i +S^i \left( L_X T \right)_i.   \]
+
+
+\item  Производная Ли тензорного произведения также находится по правилу Лейбница: \[ L_X \left( S \otimes T \right) = \left( L_X S\right) \otimes T +S \otimes \left( L_X T \right).   \]
+
+\end{enumerate}
+
+\end{definition}
+
+
+\subsection{Геометрический смысл производной Ли} Любое векторное поле $v$ определяюет однопараметрическую группу (локальных) диффеоморфизмов $\varphi_t$ т.,ч. \[ v = \left. \frac{d}{dt} \right|_{t=0} \varphi_t. \] Эта группа автоморфизмов позволяет переносить тензорные поля вдоль путей и построить однопараметрическое семейство тензорных полей $\varphi_{-t}^* T$. Производная Ли --- производная по параметру получившегося семейства тензорных полей: \[ L_v T    = \left. \frac{d}{dt} \right|_{t=0} \varphi_{-t}^* T  \]
+
+\begin{proof}  Для базисных векторных полей $ X = \displaystyle \frac{\partial} {\partial x^k}$ производная Ли совпадает с обычной операцией частной производной: \[ L_{\frac{\partial}{\partial x^k} } T^i_j = \frac{\partial T^i_j}{\partial x^k}\]
+\end{proof}
+
+\subsection{Производная Ли в локальных координатах} 
+В общем случае в локальных координатах производная Ли тензорного поля $T^{i_1 \dots i_p}_{j_1 \dots j_q}$ типа $(p, q)$ задается формулой \[\begin{aligned}({\mathcal  {L}}_{X}T)^{i_1 \dots i_p}_{j_1 \dots j_q}=&X \left( T^{i_1 \dots i_p}_{j_1 \dots j_q}\right) -\frac{\partial X^{i_1}}{\partial x^s}T^{s i_2 \dots i_p}_{j_1 \dots j_q} - \dots  -\frac{\partial  X^{i_p}}{\partial x^s}T^{i_1 \dots i_{p-1} s}_{j_1 \dots j_q}  + \\&+\frac{\partial X^{s}}{\partial x^{j_1}}T^{i_1 \dots i_p}_{s j_2 \dots j_q} + \dots  + \frac{\partial X^{s}}{\partial x^{j_q} } T^{i_1 \dots i_{p}}_{j_1 \dots j_{q-1} s}. \end{aligned}\]
+
+
+\section{Свойства производной Ли}
+
+\begin{problem} \label{Prob:ExtDiffLieDerCommute} Доказать, что для дифференциальных форм производная Ли коммутирует со внешним дифференциалом, т.е. что для любой формы $\alpha$ \[ L_X \left( d \alpha \right) = d \left( L_X \alpha \right) \] \end{problem} 
+
+\textit{Указание:} Оба выражения одинаково меняются при замене $X$ и $\alpha$ на сумму и умножении их на гладкую функцию.
+
+
+
+
+{\color{red}  \begin{proof}[Решение Задачи~\ref{Prob:ExtDiffLieDerCommute}]  \end{proof} }
+
+\begin{problem} \label{Prob:LieDerivExtProd} Доказать, что для любых дифференциальных форм $\alpha$ и $\beta$
+\[{\mathcal  {L}}_{X}(\alpha \wedge \beta )=({\mathcal  {L}}_{X}\alpha )\wedge \beta +\alpha \wedge ({\mathcal  {L}}_{X}\beta )\]
+\end{problem}
+
+
+{\color{red}  \begin{proof}[Решение Задачи~\ref{Prob:LieDerivExtProd}]  \end{proof} }
+
+
+\subsection{``Магическая формула Картана''}
+
+\begin{problem} \label{Prob:MagicCartanFormula} Пусть $\omega$ --- произвольная $k$-форма. Доказать ``\textbf{магическую формулу Картана}'' \[ {\mathcal  {L}}_{X}\omega =i_{X}d\omega +d(i_{X}\omega ),\] где $i_X \omega$ --- это $(k-1)$-форма, получающаяся при подстановке $X$ в форму $\omega$ в качестве первого аргумента, т.е. 
+\[ (i_{X}\omega )(X_{1},\ldots ,X_{k-1})=\omega (X,X_{1},\ldots ,X_{k-1}).\]
+
+
+\end{problem}
+
+
+\subsection{Производная Ли формы объёма}
+
+
+%\[{\displaystyle i_{X}:\Lambda ^{k+1}(M)\rightarrow \Lambda ^{k}(M)}\]
+
+% The interior product of X and \omega is the k-form $ i_{X}\omega$  defined as
+
+%The differential form ${\displaystyle i_{X}\omega } i_{X}\omega $ is also called the contraction of with X. Note that and that ${\displaystyle i_{X}} i_{X}$ is a ${\displaystyle \wedge } \wedge $-antiderivation. That is,$ {\displaystyle i_{X}} i_{X}$ is -linear, and
+
+%\[ i_{X}(\omega \wedge \eta )=(i_{X}\omega )\wedge \eta +(-1)^{k}\omega \wedge (i_{X}\eta )\]
+
+\textit{Указание:} Стандартная техника: оба выражения одинаково меняются при замене $X$ и $\alpha$ на сумму и умножении их на гладкую функцию.
+
+
+{\color{red}  \begin{proof}[Решение Задачи~\ref{Prob:MagicCartanFormula}]  \end{proof} }

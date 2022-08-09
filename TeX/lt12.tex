@@ -1,0 +1,642 @@
+
+\part{Степень отображения и когомологии}
+
+
+\chapter{Степень отображения}
+
+
+
+\section{Гомотопия и гомотопическая эквивалентность}
+
+
+Пусть $X, Y$ --- топологические пространства.
+
+\begin{definition}  Два непрерывных отображения топологических пространств $f, g : X \to Y$ называются \textbf{гомотопными} (обозначается $f \sim g$), если существует непрерывное отображение \[ H: [0, 1]   \times X \to Y \] т.,ч. для любого $x \in X$ \[H(0, x) = f(x), \qquad H(1, x) = g(x).\]
+\end{definition}
+
+
+Само отображение $F$ называют \textbf{гомотопией}, связывающей отображения $f$ и $g$. Часто отображение $F(t, x)$ обозначают через\footnote{Гомотопию можно представлять себе как непрерывное семейство отображений $F_t(x)$.} $F_t(x)$. 
+
+
+
+
+
+\begin{problem} \label{Prob:MapFromOrToEuclHomotId}
+Доказать, что любое непрерывное отображение $f: X \to Y$ гомотопно постоянному отображению (т.е. отображению в точку), если \begin{enumerate}
+
+\item $X = \mathbb{R}^n$,
+
+\item $Y = \mathbb{R}^n$.
+
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:MapFromOrToEuclHomotId}]   Искомые гомотопии, связывающие отображения $f: X\to Y$ с отображением в точку: \begin{enumerate} \item $F(\vec{x}, t) = f(t\vec{x})$, \item $F(\vec{x}, t) = t f(\vec{x})$. \end{enumerate} Задача~\ref{Prob:MapFromOrToEuclHomotId} решена. \end{proof}
+
+
+
+
+\begin{problem} \label{Prob:HomotEquivRelat}
+Доказать, что гомотопия является отношением эквивалентности на множестве непрерывных отображений. 
+\end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:HomotEquivRelat}] Очевидно: \begin{enumerate} \item Рефлексивность: $f \sim f$. Полагаем $F_t(x) = f(x),\quad \forall t$. \item Симметричность: $f \sim g \Rightarrow g \sim f$. Если гомотопия $F(x, t)$ связывает $f$ и $g$, то гомотопия $F(x, 1-t)$ связывает $g$ и $f$. 
+
+\item Транзитивность:   $f \sim g, g\sim h  \Rightarrow f \sim h$. Если гомотопия $F_1(x, t)$ связывает $f$ с $g$, а гомотопия $F_2(x, t)$ связывает $g$ с $h$, то гомотопия \[ F(x, t) = \begin{cases} F_1 (x, 2t), \quad t \in [0, \frac{1}{2} ] \\ F_2(x, 2t-1), \quad t \in [\frac{1}{2}, 1] \end{cases} \]  связывает $f$ с $h$. \end{enumerate} Задача~\ref{Prob:HomotEquivRelat} решена. \end{proof}
+
+
+\begin{definition}  Два топологических пространства $X$ и $Y$ называются \textbf{гомотопически эквивалентными} (обозначается $X \sim Y$), если существуют отображения\[ f: X \to Y, \qquad g: Y \to X\] такие, что \[ g \circ f  \sim \operatorname {id} _{X}, \qquad f \circ g \sim \operatorname {id} _{Y}.\] \end{definition}
+
+
+
+\begin{problem} \label{Prob:EuclSpaceContr}
+Доказать, что $\mathbb{R}^n$ \textbf{стягиваемо} (т.е.  гомотопически эквивалентно точке). 
+\end{problem}
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:EuclSpaceContr}]  Для доказательства стягиваемости пространства достаточно построить гомотопию тождественного отображения и отображения в точку. Для $\mathbb{R}^n$ можно взять гомотетию \[F(\vec{x}, t) = t\vec{x}, \quad \vec{x} \in \mathbb{R}^n, t \in [0, 1].\] Задача~\ref{Prob:EuclSpaceContr} решена. \end{proof} 
+
+
+
+\begin{problem} \label{Prob:RnNoZeroRetr}
+Доказать, что $\mathbb{R}^n$ без точки гомотопически эквивалентно $(n-1)$-мерной сфере. 
+\end{problem}
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:RnNoZeroRetr}] 
+\[\mathbb{R}^n \backslash pt \approx S^{n-1} \times \mathbb{R}  \sim S^{n-1} \times pt,\] т.к. $\mathbb{R} \sim pt$. Здесь мы воспользовались следующим утверждением. \begin{assertion} \label{Asser:ProductHomot}Если пространства гомотопически эквивалентны $X_1 \sim X_2, Y_1 \sim Y_2$, то их прямые произведения тоже гомотопически эквивалентны \[ X_1 \times Y_1 \sim X_2 \times Y_2.\] \end{assertion} \begin{proof}[Доказательство Утверждения \ref{Asser:ProductHomot}] Гомотопия для произведения --- произведение гомотопий.  Утверждение \ref{Asser:ProductHomot} доказано.\end{proof} Задача~\ref{Prob:RnNoZeroRetr} решена. \end{proof} 
+
+
+
+
+\begin{problem} \label{Prob:RnNoRkRetr}
+Доказать, что $\mathbb{R}^n\backslash \mathbb{R}^k$ гомотопически эквивалентно $(n-k-1)$-мерной сфере. 
+\end{problem}
+
+
+
+%{\color{red} \textit{Решение-1:} $\mathbb{R}^n \backslash pt \approx S^{n-1} \times \mathbb{R}  \sim S^{n-1} \times pt$, т.к. $\mathbb{R} \sim pt$. Здесь мы воспользовались следующим утверждением. \begin{assertion} Если пространства гомотопически эквивалентны $X_1 \sim X_2, Y_1 \sim Y_2$, то их прямые произведения тоже гомотопически эквивалентны \[ X_1 \times Y_1 \sim X_2 \times Y_2.\] \end{assertion} }
+
+
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:RnNoRkRetr}] \[\mathbb{R}^n\backslash \mathbb{R}^k \approx \left(\mathbb{R}^{n-k}\backslash pt \right) \times \mathbb{R}^k \sim S^{n-k-1} \times pt \] по Задаче \ref{Prob:RnNoZeroRetr}. Задача~\ref{Prob:RnNoRkRetr} решена. \end{proof}
+
+
+
+
+
+\section{Теоретический материал}
+
+
+
+\begin{definition} \label{Def:DegMap} Пусть $M^n, N^n$ --- гладкие компактные ориентированные многообразия одинаковой размерности $n$. Тогда \textbf{ степень отображения} $f: M^n \to N^n$ определяется как \begin{equation} \label{Eq:DegMap} \deg f :=\sum _{{y\in f^{{-1}}(p)}}\operatorname{sgn} \det Df (y), \end{equation} где \begin{itemize}   \item  $p$ --- произвольная регулярная точка отображения $f$, \item  а $ Df(y)$ --- якобиан отображения $f$ в точке $y$. \end{itemize}  \end{definition}
+
+
+\begin{remark}  Проясним формулу \eqref{Eq:DegMap}. 
+
+\begin{enumerate}
+
+\item По теореме Сарда множество критических значений отображения $f$ имеет меру ноль. Как следствие, существует регулярное значение $p \in N^n$.
+
+\item Так как многообразие $M^n$ компактно, в прообразе регулярного значения $p$ лежит конечное число точек \[ f^{-1}(p) = \left\{ y_1, \dots, y_k \right\}. \]
+
+\item Так как все точки $y_i$ регулярны, отображение $f$ задаёт диффеоморфизмы \[ f_i : U_i  \to V \] малых окрестностей $U_i$ точек $y_i$ на малую окрестность $V$ точки $p$. 
+
+
+\item Каждый из диффеоморфизмов $f_i$ либо сохраняет ориентацию, либо меняет её. Степень отображения равна количеству $f_i$, сохраняющих ориентацию, минус количество $f_i$, меняющих её.
+
+%существуют окрестности $U_i$ точек $f_i$ и окрестность $V$ точки $p$, что ограничение отображения $f$ задаёт локальные диффеоморфизмы 
+
+%В окрестности каждой точки $x_i$ отображения $f$ является локальным диффеморфизмом. Каждый из этих локальных диффеоморфизмов  \[ \det Df(y_i) = \pm 1\]
+
+%\item Степень отображения равна количествы $f_i$
+
+\end{enumerate}
+
+
+\end{remark}
+
+
+
+
+
+
+\begin{remark} \label{Rem:DegMapProp} Ключевые свойства степени отображения:
+
+\begin{enumerate}
+
+\item Степень отображения не зависит от выбора регулярного значения $p$ в формуле \eqref{Eq:DegMap} (т.е. определение \ref{Def:DegMap} корректно).
+
+\item Если отображения $f$ и $g$ гомотопны\footnote{Мы предполагаем, что все отображения гладкие, но утвержения останутся верными для непрерывных отображений. Для них степень отображения $f:X \to Y$ определяется через гомологии по формуле ${\displaystyle f_{*}([X])=\deg(f)[Y],}$ где $[X]$ --- фундаментальный класс многообразия $X$.}, то их степени равны \[ f \sim g \qquad \Rightarrow \qquad \deg f = \deg g.\] 
+
+\end{enumerate}
+
+\end{remark}
+
+
+\begin{remark} Если  многообразия $M^n$ и $N^n$ не ориентированы, то можно рассматривать \textbf{степень отображения по модулю 2}. Эта степень является элементом $\mathbb{Z}_2$ и определяется по аналогичной формуле \begin{equation} \label{Eq:DegMap2} \deg_2 f :=\sum _{{y\in f^{{-1}}(p)}}\operatorname{sgn} \det Df (y)  \pmod{2} \end{equation} для произвольного гладкого отображения $f: M^n \to N^n$ компактных многообразий одинаковой размерности. Как и ранее, $y \in N$ --- произвольное регулярное значение $f$. 
+
+
+ Легко видеть, что 
+
+ \begin{itemize}
+\item  $\deg_2 f$ --- количество элементов $\pmod 2$ в прообразе любого регулярного значения $p$.
+
+\item для ориентированных многообразий \[\deg_2 f = \deg f \pmod{2}.\]
+
+\end{itemize}
+
+%Так же, как и для степени отображения, $\deg_2 f$ корректно 
+Для степени отображения по модулю $2$ выполнены свойства, аналогичные описанным в Замечании \ref{Rem:DegMapProp}.
+
+
+%Аналогично Замечанию \ref{Rem:DegMapProp}  Степень отображения по модулю $2$ корректно
+
+
+
+\end{remark}
+
+
+
+
+
+
+
+\section{Простейшие задачи на степень отображения}
+
+\begin{problem} \label{Prob:DegComp}
+Пусть $X, Y, Z$ --- гладкие замкнутые ориентированные многообразия одинаковой размерности, а $f: X \to Y$ и $g: Y \to Z$ --- гладкие отображения. Доказать, что \[\deg (g \circ f) = \deg  g \cdot  \deg  f.\] 
+\end{problem} 
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:DegComp}] 
+ Достаточно честно посчитать степень отображения. Пусть 
+\begin{itemize}
+
+\item  $z\in Z$ --- регулярное значение функции $h = g \circ f$;
+
+\item $y_1, \dots, y_k$ --- точки в прообразе $g^{-1}(z)$;
+
+\item $x_{i, j}$, $j = 1, \dots, n_i$ --- точки в прообразе $f^{-1}(y_i)$ при $i=1, \dots, k$.
+
+\end{itemize} Так как $z$ --- регулярное значение для $h$, то $y_i$ и $x_{i, j}$ --- регулярные точки для $g$ и $f$ соответственно. По определению степени отображения \begin{gather*} \deg \left( g \circ h\right) =  \sum_{i=1}^n \sum_{j=1}^{n_i} \operatorname{sgn} \det Dh(x_{i,j}) = \\ =\sum_{i=1}^n \sum_{j=1}^{n_i} \operatorname{sgn} \left(  \det Df(x_{i,j})   \det Dg(f(x_{i,j})) \right) = \\ = \sum_{i=1}^n \left( \sum_{j=1}^{n_i} \operatorname{sgn} \det Df(x_{i,j})   \right)   \operatorname{sgn}  \det Dg({y_i})  =\\ = \sum_{i=1}^n \deg f \cdot  \operatorname{sgn}  \det Dg({y_i}) =  \\   = \deg f  \left( \sum_{i=1}^n \operatorname{sgn}  \det Dg({y_i})   \right) = \deg f \deg g. \end{gather*} Задача~\ref{Prob:DegComp} решена. \end{proof}
+
+
+\begin{problem} \label{Prob:ClosedManifNotContr} Доказать, что замкнутое многообразие ненулевой размерности не стягиваемо (т.е. тождественное отображение не гомотопно отображению в точку). \end{problem} 
+
+\textit{Указание:} У тождественного отображения и отображения в точку разные степени (по модулю $2$).
+
+ \begin{proof}[Решение Задачи~\ref{Prob:ClosedManifNotContr}] 
+ Тождественное отображение $\operatorname{id} : X \to X$ не может быть гомотопно отображению в точку $\pi :X \to pt \in X$, поскольку у них разные степени отображения: \[ \deg_2 \operatorname{id} =1, \qquad \deg_2 \pi  = 0 \] (у тождественного отображения у любой точки ровно одна точка в прообразе и якобиан является единичной матрицей, у отображения в точку прообраз всех точек, кроме одной, пуст). Задача~\ref{Prob:ClosedManifNotContr} решена. \end{proof}
+
+
+
+\begin{problem} \label{Prob:ManDifDimNonHom}
+Доказать, что замкнутые многообразия разных размерностей гомотопически не эквивалентны. 
+\end{problem} 
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ManDifDimNonHom}] 
+ Доказательство от противного. Пусть для многообразий $M^n, N^m$, где $m\not = n$, существуют непрерывные отображения \[f: M^n \to N^m, \qquad  g: N^m \to M^n\] т.,ч. \[g\circ f \sim \operatorname{id}_M, \qquad g\circ f \sim \operatorname{id}_N. \] Пусть $m > n$. Тогда с одной стороны, \[ \deg_2  \operatorname{id}_M  =1.\] С другой стороны \[\deg_2 g\circ f  =0,\]  так как для  любой лежащей в образе точки композиция якобианов $Dg$ и $Df$ будет вырожденным оператором. Действительно, \[ \rk \left( D( g \circ f)\right) = \rk \left(Dg Df \right) \leq \min\left(\rk Dg, \rk Df \right) \leq n<m.\]  Задача~\ref{Prob:ManDifDimNonHom} решена. \end{proof} 
+
+\section{Примеры вычисления степени \\ отображения}
+
+
+\begin{problem}  \label{Prob:MapsCircleHomotDeg}
+Доказать, что два отображения \[f, g : S^1 \to S^1\] гомотопны тогда и только тогда, когда равны их степени. 
+\end{problem} 
+
+
+\textit{Указание:} Вместо отображений $f: S^1 \to S^1$ можно рассматривать квазипериодические функции $\hat{f}: \mathbb{R} \to \mathbb{R}$, удовлетворяющие свойству \[\hat{f}(x + 2 \pi ) = \hat{f}(x) + 2\pi m \] для некоторого  натурального $m \in \mathbb{N}$. Такие квазипериодические функции гомотопны при равных $m$, и гомотопия задаётся отрезком в пространстве функций.
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:MapsCircleHomotDeg}] 
+ Для любого отображения \[f: S^1 \to S^1\] обозначим через \[\hat{f}: \mathbb{R} \to \mathbb{R}\] поднятие отображения $f$ на универсальные накрытия, т.е. отображение, для которого следующая диаграмма коммутативна  \[ \begin{CD}
+\mathbb{R} @>\hat{f}>> \mathbb{R}\\
+@VV\pi V @VV\pi V\\
+S^1 @>f>> S^1
+\end{CD}. \] Через $\pi$ обозначена стандартная проекция $\pi: \mathbb{R} \to S^1  =\mathbb{R}/2\pi \mathbb{Z}$. Отображение $\hat{f}$ определено однозначно с точностью до прибавления константы.
+
+ 
+ Задача будет следовать из следующего утверждения.
+ 
+   \begin{assertion} \label{Asser:S1DegMap} Отображения $f, g : S^1 \to S^1$ гомотопны тогда и только тогда, когда для их поднятий $\hat{f}, \hat{g}: \mathbb{R} \to \mathbb{R}$ выполнено \begin{equation} \label{Eq:S1DegMapDifEnd} \hat{f}(2\pi) - \hat{f}(0) = \hat{g}(2\pi) - \hat{g}(0).\end{equation} Как следствие, степень отображения $f$ равна $k$ тогда и только тогда, когда \[ \hat{f}(2\pi) - \hat{f}(0) = 2\pi k. \] \end{assertion}
+
+ \begin{proof}[Доказательство Утверждения \ref{Asser:S1DegMap}] 
+ 
+ \begin{itemize}
+ 
+ \item  Если отображения $f$ и $g$ гомотопны, то $\hat{f}$ и $\hat{g}$ гомотопны в классе $2\pi$-линейно периодических функций\footnote{Формально, здесь используется теорема о накрывающей гомотопии. Хотя для накрытия окружности прямой утверждение тривиально.}. Разница значений  функций $\hat{f}, \hat{g}$ в точках $0$ и $2\pi$ принадлежит $2\pi \mathbb{Z}$ и следовательно, не меняется при гомотопии.
+ 
+ \item Если выполнено \eqref{Eq:S1DegMapDifEnd}, то гомотопия \[F(x, t) = t \hat{f}(x) + (1-t) \hat{g}(x)\] задаёт гомотопию отображений $f$ и $g$.
+ 
+ \item Для доказательства последнего утверждения достаточно заметить, что отображению \[ z^k : S^1 \to S^1, \qquad  e^{i\varphi} \to e^{ik \varphi} \] соответствует поднятие $x \to k x$, и что отображение $z^k$ имеет степень $k$. Действительно, у каждой (регулярной) точки будет $k$ прообразов, и в каждой точке знак якобиана равен $\operatorname{sgn} k$.
+ 
+ \end{itemize}
+
+Утверждение~\ref{Asser:S1DegMap} доказано. \end{proof} 
+
+
+Задача~\ref{Prob:MapsCircleHomotDeg} решена. \end{proof}
+
+
+
+
+\begin{problem}\label{Prob:DegMapExamples}
+Привести пример отображения 
+\begin{enumerate}
+
+\item $f: S^n \to S^n$, для которого $\deg f = k$. 
+
+\item двумерного тора $\mathbb{T}^2$ в двумерную сферу $S^2$, степень которого равна $k$. 
+
+\item степени $0$, не гомотопного тождественному отображению (т.е. отображению в точку). 
+
+\end{enumerate}
+\end{problem} 
+
+
+\textit{Указание:} Явную формулу для ``обмотки'' одной сферы другой несложно описать в (гипер)сферических координатах.
+
+\begin{proof}[Решение Задачи~\ref{Prob:DegMapExamples}] 
+ \begin{enumerate}
+
+\item Рассмотрим гиперсферические координаты $(\varphi_1, \dots, \varphi_n)$ на сфере $S^n\subset \mathbb{R}^{n+1}$:
+\[{\begin{aligned}x^{1}&=R\cos(\varphi _{1}),\\x^{2}&=R\sin(\varphi _{1})\cos(\varphi _{2}),\\ \dots \\ x^{n}&=R\sin(\varphi _{1})\cdots \sin(\varphi _{n-1})\cos(\varphi _{n}),\\x^{n+1}&=R\sin(\varphi _{1})\cdots \sin(\varphi _{n-1})\sin(\varphi _{n})\,.\end{aligned}}\]
+
+Искомое отображение $f_k: S^n \to S^n$ степени $k$ задаётся в этих координатах формулой  \[ f_k(\varphi_i) = \varphi_i, \quad i=1, \dots, n-1, \] \[ f_k(\varphi_n) = k \varphi_n. \] 
+
+Гиперсферические координаты образуют систему координат почти всюду на сфере $S^n$. Легко видеть, что у точки общего положения в этих координатах будет ровно $k$ прообразов и определитель якобиана отображения всегда одного знака  (он постоянен и равен $k$).
+
+
+
+\item Пусть
+\begin{itemize}
+
+\item   $(\varphi^1, \varphi^2) \pmod{2\pi}$ --- координаты на торе $\mathbb{T}^2$, 
+
+\item а $(\varphi, \psi)$ --- сферические координаты на сфере ($\varphi \pmod{2 \pi}, \phi \in [0, \pi ]$). 
+
+\end{itemize}
+
+Искомое отображение \[f_k : \mathbb{T}^2 \to S^2\] степени $k$ задаётся формулой %\[ f_k\left( \varphi_1, \varphi_2 \right) = \left( k\varphi_1, \frac{\varphi_2}{2} \right)\] 
+\[ \varphi = k \varphi^1, \qquad \phi = \frac{\varphi^2}{2}.  \]  Отображение, очевидно, непрерывно. Сферические координаты являются гладкими координатами почти всюду на сфере. В этих координатах легко видеть, что у точки общего положения будет $k$ точек в прообразе и определитель якобиана отображения всегда одного знака  (он постоянен и равен $\frac{k}{2}$).
+
+\item Подойдёт проекция тора $\mathbb{T}^2 = S^1 \times S^1$ на один из своих сомножителей $S^1 \subset \mathbb{T}^2$: \[ \pi: \mathbb{T}^2 \to \mathbb{T}^2, \qquad (\varphi^1, \varphi^2) \to (\varphi^1, 0). \] Приведём  два доказательства того, что отображение не гомотопно отображению в точку.
+
+\begin{enumerate}
+
+\item Окружность $S^1(\varphi^1) = \left\{ \varphi^2=0 \right\}$ остаётся при отображении $\pi$ на месте. Покажем, что её нельзя стянуть в точку при непрерывной деформации. Представим тор $\mathbb{T}^2$ как фактор плоскости $\mathbb{R}^2 \slash \mathbb{Z}^2$. Любой замкнутый путь $\gamma$ на $\mathbb{T}^2$ поднимается до кривой  на плоскости, идущей из точки $(0,0)$ в точку $(m,n) \in \mathbb{Z}^2$. Поскольку множество $\mathbb{Z}^2$ дискретно, числа $(m,n)$ сохраняются при непрерывной деформации. У стягиваемого пути они равны $(0, 0)$, а  у $S^1(\varphi^1)$ они равны $(1, 0)$, поэтому $S^1(\varphi^1) $ нестягиваемо.
+
+\item Воспользуемся когомологиями де Рама\footnote{См. Раздел~\ref{S:DeRhamCohomology}.}. По теореме~\ref{T:CohomHomot}, если бы $\pi$ было гомотопно отображению в точку, то $[ \pi^* d\varphi^1] = 0$, но $\pi^* d\varphi^1= d \varphi^1$ и класс когомологий формы не ноль, так как её интеграл по окружности $S^1(\varphi^1)$ не равен нулю: \[ \int_{S^1(\varphi^1)} d \varphi^1  = 2\pi \not =0.\] 
+
+\end{enumerate}
+
+\end{enumerate}
+
+Задача~\ref{Prob:DegMapExamples} решена. \end{proof}
+
+
+
+\begin{remark} Отображение, гомотопное отображению в точку, тривиально действует на всех группах (ко)гомологий (и гомотопий), а отображение нулевой степени --- только на старших (ко)гомологиях. \end{remark}
+
+
+\begin{problem} \label{Prob:QuotPolynDeg}
+Вычислить степень отображения \[f: S^2 \to S^2,\] где $S^2$--- это пополненная комплексная плоскость, а \[f(z) = \frac{P(z)}{Q(z)}\] --- (несократимое) отношение полиномов степени $k$ и $l$. 
+\end{problem} 
+
+
+\textit{Ответ в Задаче~\ref{Prob:QuotPolynDeg}:} $\max{(k, l)}$. 
+
+\begin{remark} Ответ в задаче не случаен. Так как функция $f(z)$ продолжается до голоморфного отображения \[\mathbb{CP}^1 \to \mathbb{CP}^1,\]  можно воспользоваться следующим общим соображением:
+
+\begin{enumerate}
+
+
+\item Комплексные многообразия обладают естественной ориентацией. 
+
+\item (Би)голоморные отображения сохраняют эту ориентацию. 
+
+\item Как следствие, степень отображения биголоморфного отображения комплексных многообразий \[f: P_{\mathbb{C}}^n \to Q_{\mathbb{C}}^n\] равна количеству точек в прообразе точки общего положения.
+
+\end{enumerate}
+
+\end{remark}
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:QuotPolynDeg}] 
+ Функция $f(z)$ продолжается до (гладкого) отображения \[\mathbb{CP}^1 \to \mathbb{CP}^1\] по формуле \[ (z : w) \to \left( w^{k+l} P\left(\frac{z}{w}\right) : w^{k+l} Q\left(\frac{z}{w}\right)\right) \]  
+
+Функция $f(z)$ голоморфна \[\frac{\partial f}{\partial \bar{z} }=0,\] поэтому её якобиан во всех регулярных точках положителен\footnote{Это общий факт. Овеществления комплексных многообразий обладают естественной ориентацией и (би)голоморфные отображения сохраняют их.}
+. Действительно, если $f'(z) = a +ib$, то в координтах $(x, y) = (\mathrm{Re} z, \mathrm{Im} z)$ матрица Якоби имеет вид \[ \begin{pmatrix} a & b \\ - b & a \end{pmatrix}. \] 
+
+Остаётся  заметить, что у точки общего положения $w_0 \in \mathbb{C}$ будет $\max{(k, l)}$ прообразов, заданных формулой \[ P(z) - w_0 Q(z) =0. \]    Задача~\ref{Prob:QuotPolynDeg} решена. \end{proof}
+
+
+
+
+
+\section{Степень отображения сферы}
+
+
+
+
+
+\begin{problem} \label{Prob:SphereNoInvHomot} 
+Пусть $f$ и $g$ --- непрерывные отображения пространства $X$ в $n$-мерную сферу $S^n$. Доказать, что если $f(x)$ и $g(x)$ ни для какой точки $x$ не являются диаметрально противоположными на сфере $S^n$, то отображения $f$ и $g$ гомотопны. 
+\end{problem} 
+
+
+
+ 
+\begin{proof}[Решение Задачи~\ref{Prob:SphereNoInvHomot} ]  Представим сферу $S^n$ как единичную сферу в пространстве $\mathbb{R}^{n+1}$ с центром в начале координат. Тогда искомая гомотопия %между отображениями $f$ и $g$
+ задаётся формулой \[ F(x, t) = \frac{ t f(x) + (1-t) g(x)}{\left|\left| t f(x) + (1-t) g(x) \right|\right| }. \] Знаменатель не обращается в ноль, т.к. $f(x) \not = - g(x)$, и, следовательно, векторы $f(x)$ и $g(x)$ либо неколлинеарны, либо совпадают. Задача~\ref{Prob:SphereNoInvHomot} решена.
+\end{proof}
+
+
+\begin{problem} \label{Prob:MapSnNoFixedPointsHomotSym}
+Доказать, что отображение $f: S^n \to S^n$, не имеющее неподвижных точек, гомотопно центральной симметрии на сфере $S^n$. 
+\end{problem} 
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:MapSnNoFixedPointsHomotSym}]  Немедленно следует из задачи \ref{Prob:SphereNoInvHomot}. Задача~\ref{Prob:MapSnNoFixedPointsHomotSym} решена. \end{proof}
+
+
+
+
+\begin{problem}  \label{Prob:SphereInvDeg}
+Пусть $i: S^n \to S^n$ --- центральная симметрия. \begin{enumerate}
+
+\item Вычислить $\deg i$. 
+
+\item Доказать, что при нечётных $n$ отображение $i$ гомотопно тождественному отображению. 
+
+\end{enumerate}
+\end{problem} 
+
+
+
+\textit{Указание:} Нечётномерную сферу можно представить в виде  \[S^{2k-1} = \left\{ (z_0, \dots, z_{k}) \in \mathbb{C}^{k}  \, | \quad \left| z_0\right|^2 + \dots \left| z_{k}\right|^2 = R^2 \right\}.\]
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:SphereInvDeg}]  \begin{enumerate}
+
+\item $\deg i = (-1)^{n+1}$.
+
+  Без ограничения общности, можно считать, что базис касательного пространства \[  e_1, \dots, e_n \in T_x S^n\] задаёт положительную ориентацию сферы $S^n$, тогда и только тогда, когда вместе с вектором внешней нормали $N$ в точке $x$ набор \[N, e_1, \dots, e_n\] задаёт положительную ориентацию $\mathbb{R}^{n+1}$. 
+
+При центральной симметрии вектор внешней нормали $N$ в точке $x$ переходит в вектор внешней нормали $-N$ в точке $i(x) =-x$. Поэтому знак якобиана инволюции $i$ равен знаку определителя отображения \[ (N, e_1, \dots, e_n) \to (-N, -e_1, \dots, -e_n), \] который равен $ (-1)^{n+1}$.
+
+\item Рассмотрим нечётномерную сферу \[S^{2k-1} = \left\{ (z_0, \dots, z_{k}) \in \mathbb{C}^{k}  \, | \quad \left| z_0\right|^2 + \dots \left| z_{k}\right|^2 = R^2 \right\}.\] Тогда гомотопия между тождественным отображением и центральной симметрией задаётся формулой \[ F (z, t) = \left( e^{2 \pi i t} z_0, \dots, e^{2\pi i t} z_k \right), \qquad t\in [0, 1]. \] 
+
+\end{enumerate}
+
+
+Задача~\ref{Prob:SphereInvDeg} решена. \end{proof}
+
+
+
+
+
+\begin{problem} \label{Prob:MapSnNoMapToAntipodal}
+Пусть $f$ --- отображение $n$-мерной сферы \[S^n = \left\{ x \in \mathbb{R}^{n+1} | \, \, ||x ||^2 = 1 \right\}\] в себя такое, что \[f(x) \not = - x\] для всех точек $x \in S^n$. \begin{enumerate} \item Доказать, что $\deg f = 1$. \item Доказать, что если $n$ чётно, то существует точка $x \in S^n$ такая, что $f(x) = x$. \end{enumerate} 
+\end{problem} 
+
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:MapSnNoMapToAntipodal}]  \begin{enumerate}
+
+\item По задаче  \ref{Prob:SphereNoInvHomot} отображение $f$ гомотопно тождественному отображению $\operatorname{id}$.
+
+\item Если бы $f(x) \not = x$, то по задаче  \ref{Prob:SphereNoInvHomot} отображение $f$ было гомотопно инволюции $i(x) =-x$. Но   по задаче  \ref{Prob:SphereInvDeg} при чётном $n$ выполнено $\deg i = -1$. Получаем противоречие с тем, что $f \sim \operatorname{id}$. \end{enumerate}  Задача~\ref{Prob:MapSnNoMapToAntipodal} решена. \end{proof}
+
+
+
+
+
+
+
+\begin{problem} \label{Prob:MapSnOddDegPairAntipodalPoints}
+Пусть отображение $f: S^n \to S^n$ имеет нечётную степень. Доказать, что существует пара диаметрально противоположных точек на сфере $S^n$, которая переходит при отображении $f$ в пару диаметрально противоположных точек.  \end{problem} 
+
+\textit{Указание:} Рассмотреть отображение \begin{equation} \label{Eq:MapSnOddDegPairAntipodalPoints}  g(x) = \frac{f(x) + f(-x)}{\left|\left| f(x) + f(-x)\right|\right|}  \end{equation} и его степень (по модулю $2$).
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:MapSnOddDegPairAntipodalPoints} ]
+ Предположим противное т.е., что \begin{equation} \label{Eq:ImAntiPodNotAntiPod} f(-x) \not = - f(x) .\end{equation} Заметим, что $g(-x) = g(x)$ для отображения~\eqref{Eq:MapSnOddDegPairAntipodalPoints}, поэтому \[ \deg_2 g =0 \] (прообраз точки распадается на пары диаметрально противоположных точек). 
+
+С другой стороны, отображения $f$ и $g$ гомотопны.  Гомотопия задаётся формулой \[ F(x, t) = \frac{t f(x) + (1-t) f(-x)}{\left|\left| t f(x) +(1-t)  f(-x) \right|\right|} , \qquad t \in [0, \frac{1}{2} ]. \] Знаменатель не обращается в ноль, так как выполнено  \eqref{Eq:ImAntiPodNotAntiPod}. Поэтому \[ \deg g = \deg f \not = 0 \pmod 2.\] Получаем противоречие. Задача~\ref{Prob:MapSnOddDegPairAntipodalPoints} решена. \end{proof} 
+
+
+
+\section{Теорема Борсука-Улама}
+
+
+\begin{problem} \label{Prob:EarthTempPres} Доказать, что на поверхности Земли всегда найдутся две диаметрально противоположные точки, в которых давление $P$ и температура $T$ одинаковы (обе функции $P$ и $T$ считаются непрерывными). \end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:EarthTempPres}] 
+ Вначале докажем следующее утверждение.
+\begin{assertion} \label{Asser:S2S1Antipod}
+Не существует нечётного непрерывного отображения $g: S^2 \to S^1$ т.,е. такого отображения, что \[g(-x) = -g(x)\] для всех точек $x \in S^2$.
+\end{assertion}
+
+\begin{proof}[Доказательство Утверждения \ref{Asser:S2S1Antipod}] Рассмотрим ограничение отображения $g$ на экватор $\hat{g}: S^1 \to S^1$. 
+
+\begin{enumerate}
+
+\item С одной стороны, $\deg \hat{g} =0$, т.к. ограничение $g$ на любую полусферу задаёт гомотопию $\hat{g}$ и отображения в точку.
+
+\item С другой стороны, $\deg \hat{g}$ нечётно, т.к. $\hat{g}$ --- нечётное отображение. Действительно, параметризуем $S^1$ стандартным параметром $\varphi \in [0, 2\pi]$. 
+\begin{itemize}
+
+\item Поскольку $\hat{g}(\pi) = - \hat{g}(0)$, половинка окружности $\varphi \in [0, \pi]$ ``намотается'' на образ $n + \frac{1}{2}$ раз. 
+
+\item Поскольку отображение нечётно, вторая половинка окружности $\varphi \in [\pi, 2 \pi]$ тоже ``намотается'' на образ $n + \frac{1}{2}$ раз. 
+
+\item В итоге при обходе всей окружности мы ``обойдём'' образ $2n+1$ раз.
+
+\end{itemize} 
+
+\end{enumerate}
+Утверждение \ref{Asser:S2S1Antipod}  доказано. \end{proof}
+
+
+Если существует отображение $f: S^2 \to \mathbb{R}^2$ т.,ч. $f(-P) \not = f(P)$, то корректно определено отображение $g: S^2 \to S^1$, заданное формулой \[ g(x) = \frac{f(x) - f(-x)}{|f(x) - f(-x) |}. \] Но $g(-x) = -g(x)$, что противоречит утверждению \ref{Asser:S2S1Antipod}.
+
+Задача~\ref{Prob:EarthTempPres} решена. \end{proof}
+
+
+
+
+\begin{remark} Задача \ref{Prob:EarthTempPres} --- это частный случай теоремы Б\'орсука--\'Улама .
+
+
+
+
+\begin{theorem}[Теорема Борсука-Улама] Для любого непрерывного отображения $f: S^n \to \mathbb{R}^n$ существует точка $x \in S^n$ т.,ч. $f(-x) = f(x)$. \end{theorem} 
+
+\end{remark}
+
+
+
+
+\section{Отображение матричных групп}
+
+
+\begin{problem} \label{Prob:DegMapSODegree} Вычислить степень отображения \begin{align*} f_n: \mathrm{SO}(3) & \to \mathrm{SO}(3), \\  f_n(A) & = A^n. \end{align*}\end{problem} 
+
+ \textit{Ответ:} $\deg f_n = n$. 
+
+ \begin{proof}[Решение Задачи~\ref{Prob:DegMapSODegree}] 
+
+
+%\item Введем ориентацию на рассматриваемой матричной группе $ \mathrm{SO}(3)$. Построим на всей группе семейство базисов, задающих ориентацию. Фиксируем произвольный базис $v_1, \dots, v_n$ касательного пространства в единице $T_E  \mathrm{SO}(3)$ и разнесем его на все касательное расслоение при помощи левого действия\footnote{\color{green} Перепроверить, что не правым}. Таким образом в точке $A \in  \mathrm{SO}(3)$ ориентацию $T_A  \mathrm{SO}(3)$ задаёт базис $A v_1, \dots, A v_n$. 
+
+% \item Заметим, что в окрестности любой (невырожденной) матрицы $A_0$ отображение $A \to A^n$ гомотопно отображению $A \to A_0^{n-1} A$. Последнее отображение задаёт диффеоморфизм группы $ \mathrm{SO}(3)$ на себя и сохраняет ориентацию. Таким образом, степень отображения равна количеству точек в прообразе произвольного регулярного значения.
+ 
+ Напомним, что любой элемент группы $ \mathrm{SO}(3)$ --- это поворот вокруг некой оси $l$ на угол $\alpha$.  \begin{enumerate}
+ 
+ \item Для отображения $ A \to A^n$ в прообразе точки общего положения лежит $n$ элементов. Повороту на угол $\alpha$  соответствуют повороты вокруг той же оси на углы $\frac{\alpha}{n} + \frac{2 \pi k}{n},$ где $k =1, \dots, n$.  
+ 
+ \item Знак каждого якобиана совпадает с $\operatorname{sgn} n$. Если мы возьмем на  $ \mathrm{SO}(3)$  локальные координаты, две из которых задают ось $l$ поворота, а последняя --- угол поворота $\alpha$, то в этих координатах отображение просто умножает последнюю координату на $n$ (по модулю $2\pi$). 
+ 
+ \end{enumerate}
+ 
+ 
+% В таким случае элементы $A$ т.,ч. $A^n = A_0$ --- это повороты вокруг оси $l$ на угол $\frac{\alpha}{n} + \frac{2 \pi k}{n},$ где $k =1, \dots, n$.  Их $n$ штук.
+  
+  
+  Задача~\ref{Prob:DegMapSODegree} решена.    \end{proof}
+  
+ 
+
+
+
+
+
+
+\section{Индексы особых точек}
+
+
+
+\begin{definition} Пусть $x$ --- изолированная особая точка векторного поля $v$ на многообразии $M^n$, т.е. \[ \left. v\right|_x = 0, \] и в окрестности точки $x$ нет других особых точек. Рассмотрим достаточно малую сферу $S_{x}(\varepsilon)$ с центром  в точке $x$. Векторное поле задаёт отображение $S^n \to S^n$ по формуле \[ y\to \frac{\left. v \right|_y}{\left| \left| \left. v \right|_y \right| \right| }.\] \textbf{Индекс } векторного поля $v$ в особой точке $x$ --- это степень этого отображения.
+\end{definition}
+
+\begin{problem}  \label{Prob:IndexVectFieldsSindPoints_Ex1}
+Найти особые точки и вычислить их индексы для следующих векторных полей на плоскости: \begin{enumerate} \item $v(x, y ) = (x + 2y, 3x + y) $. \item $v(x, y ) = (x^2 -y^2, 2xy) $\item $v(x, y ) = \mathrm{grad} \, \mathrm{Re} (z^n)$, где $z = x+iy$  и $n \in \mathbb{Z}$.  \end{enumerate} 
+\end{problem} 
+
+
+
+ \textit{Ответ в Задаче~\ref{Prob:IndexVectFieldsSindPoints_Ex1}.} 
+ \begin{enumerate}
+
+\item Особая точка: $(0, 0)$. Индекс: $-1$. 
+
+
+\item Особая точка: $(0, 0)$. Индекс: $2$. 
+
+\item При $n>1$ особая\footnote{При $n=1$ нет особых точек, при $n=0$ поле $v=0$, при $n<0$ начало координат --- полюс.} точка: $(0, 0)$. Индекс: $1-n$. 
+
+%\item Особая точка: $(0, 0)$ --- полюс. Две другие особые точки  $z=1$ и $z=-1$. Индекс: $-1$ и $1$ соответственно. 
+
+\end{enumerate}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:IndexVectFieldsSindPoints_Ex1}] 
+ Нужно посчитать, сколько раз повернётся (против часовой стрелки) векторное поле при обходе вокруг каждой изолированной особой точки (против часовой стрелки).
+
+Иногда полезно посмотреть на картинки векторных полей.
+
+\begin{enumerate}
+
+\item Это частный случай задачи \ref{Prob:IndexLinVect}. 
+
+\textit{Другое решение.} В координатах \[x'=x+2y, \qquad y' = -3x - y\] векторное поле имеет вид \[(x', - y').\] Замена координат положительно ориентирована, поэтому индекс векторных полей в обоих системах координат совпадает.
+
+
+\textit{Третье решение.}\footnote{Это решение достаточно эффективно для вычисления индексов особых точек векторных полей на плоскости.} Рассмотрим, в каких точках векторное поле горизонтально, в каких --- вертикально, и куда при этом направлено векторное поле.
+
+\begin{itemize}
+
+\item Поле горизонтально при $3x+y=0$. На единичной окружности 
+
+\begin{itemize}
+
+\item в точке $\left( \frac{1}{\sqrt{10}}, \frac{-3}{\sqrt{10}} \right)$ поле направлено влево;
+
+\item в точке $\left( \frac{-1}{\sqrt{10}}, \frac{3}{\sqrt{10}} \right)$ поле направлено вправо.
+
+\end{itemize} 
+
+\item Поле вертикально при $x+2y=0$. На единичной окружности 
+
+\begin{itemize}
+
+\item в точке $\left( \frac{2}{\sqrt{5}}, \frac{-1}{\sqrt{5}} \right)$ поле направлено вверх;
+
+\item в точке $\left( \frac{-2}{\sqrt{5}}, \frac{1}{\sqrt{5}} \right)$ поле направлено вниз.
+
+\end{itemize} 
+
+\end{itemize}
+
+
+При обходе против часовой стрелки мы легко находим углы, на которые поворачивается касательный вектор, а именно мы получаем следующую последовательность направлений и углов: \[ \begin{array}{c|c|c|c|c} \rightarrow & \downarrow & \leftarrow & \uparrow & \rightarrow \\  \varphi=0 & \varphi=-\frac{\pi}{2} & \varphi=-\pi & \varphi=-\frac{3\pi}{2} & \varphi=-2\pi. \end{array}  \] Итоговый индекс $\operatorname{ind}_0 v = \frac{-2\pi}{2\pi}=-1$. 
+
+
+\item В координатах \[u=x^2 -y^2, \qquad v = 2xy\] векторное поле имеет вид \[(u, v).\] Якобиан положителен везде, кроме начала координат. Точке $(u,v)$ соответствуют две точки $\pm (x,y)$, где \[ x^2 = \frac{u + \sqrt{u^2 +v^2}}{2}, \qquad y^2 = \frac{-u + \sqrt{u^2 +v^2}}{2}.\] Поэтому в координатах $(u,v)$ нужно дважды обойти начало координат. 
+
+\textit{Другое решение.} На окружности $(r \cos{\varphi}, r \sin{\varphi})$ векторное поле имеет вид $r^2 (\cos{2 \varphi}, \sin{2 \varphi})$.
+
+\item Особые точки векторного поля $ \mathrm{grad} \, \mathrm{Re} f(z)$ для голоморфной функции $f(z)$ --- это точки\footnote{Используем условия Коши-Римана \[{\frac  {\partial u}{\partial x}}={\frac  {\partial v}{\partial y}}, \qquad
+{\displaystyle {\frac {\partial u}{\partial y}}=-{\frac {\partial v}{\partial x}}.} \]}, где $f'(z)=0$.
+
+Для $f(z)=z^n$ при $n>1$ получаем одну особую точку: $z=0$.
+
+В полярных координатах $(\rho, \varphi)$ имеет \[ z^n = \rho^n \cos{n \varphi} + i \rho^n \sin{n \varphi}. \] Получаем \[\mathrm{grad} \, \mathrm{Re} \, z^n = n \rho^{n-1} \cos{n \varphi} \frac{\partial}{\partial \rho} -  n \rho^{n-2} \sin{n \varphi} \frac{\partial}{\partial \varphi}. \] При обходе $\varphi \in [0, 2\pi]$ этот вектор поворачивается $n$ раз по часовой стрелке, но сам базис $\partial_r, \partial_{\varphi}$ поворачивается в декартовых координатах один раз против часовой стрелки. Итого $1-n$.
+
+\end{enumerate}
+
+Задача~\ref{Prob:IndexVectFieldsSindPoints_Ex1} решена.  \end{proof}
+
+
+
+\begin{problem} \label{Prob:IndexLinVect}
+Найти индекс особой точки для линейного векторного поля \[v^i(x^1, \dots, x^n ) = A^i_k x^k\] в $\mathbb{R}^n$, где $A$ --- постоянная невырожденная матрица. \end{problem} 
+
+ \textit{Ответ:} Индекс равен $\pm 1$, знак совпадает c $\operatorname{sgn} \det A$. 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:IndexLinVect}] 
+
+
+\begin{itemize}
+
+\item Особая точка изолирована, т.к. матрица $A$  невырождена. 
+
+\item Поскольку индекс особой точки --- целое число, оно не изменится при гомотопии векторного поля, оставляющего особую точку особой и изолированной. Будем непрерывно менять матрицу $A$ в пространстве невырожденных матриц. 
+
+\item Группа $\mathrm{GL}(n, \mathbb{R})$ невырожденных матриц состоит из двух компонент: матриц с положительным определителем \[ \mathrm{GL}^+(n, \mathbb{R}) = \left\{ A \in \mathrm{Mat}_{n \times n} (\mathbb{R}) | \det A>0 \right\} \]  и матриц с отрицательным определителем \[ \mathrm{GL}^-(n, \mathbb{R}) = \left\{ A \in \mathrm{Mat}_{n \times n} (\mathbb{R}) | \det A<0 \right\}.\]
+
+\item Таким образом гомотопией можно привести матрицу $A$ либо к единичной $E$, либо к симметрии относительно плоскости. Легко видеть, что в первом случае индекс поля равен $1$, а во втором $-1$.
+
+ \end{itemize}
+ 
+ Задача~\ref{Prob:IndexLinVect} решена.    \end{proof}
+  
+    
+

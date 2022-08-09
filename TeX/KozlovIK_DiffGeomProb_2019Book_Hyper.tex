@@ -1,0 +1,608 @@
+\def\short{defined}
+\ifx\short\undefined
+\else
+\mag=1300
+\fi
+
+\documentclass[leqno, 12pt]{book}
+\usepackage[russian]{babel}% for Russian
+\usepackage[cp1251]{inputenc}% for Russian
+\usepackage{amsfonts,amssymb,mathrsfs,amscd,amsmath,amsthm}
+\usepackage{verbatim}
+
+
+\usepackage{cmap}
+
+
+%\def\pgfsysdriver{pgfsys-dvipdfm.def}
+
+\usepackage[mathscr]{eucal}
+%\usepackage[dvips]{graphics}
+\usepackage{graphics}
+%\usepackage[dvips]{graphicx}
+\usepackage{graphicx}
+\usepackage{floatflt}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+%\usepackage[dvipdfmx]{hyperref}
+\usepackage{indentfirst}
+
+\usepackage{url}
+
+\usepackage{mathtools}
+
+\usepackage{manfnt}
+%\usepackage{color}
+
+\usepackage{cite}
+
+\usepackage{tikz} 
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{decorations.markings}
+
+
+
+%\def\pgfsysdriver{pgfsys-dvipdfm.def}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Рисунки %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\ig#1#2#3#4{\begin{figure}[!ht]\begin{center}%
+\includegraphics[height=#2\textheight]{#1.pdf}\caption{#4}\label{#3}%
+\end{center}\end{figure}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{ushort}
+%\usepackage{accents}
+%\usepackage{mnsymbol}
+
+%\ifx\short\undefined
+%\textwidth=510pt
+%\textheight=670pt%
+%\oddsidemargin=0pt%
+%\evensidemargin=0pt
+%\topmargin=-11pt \headsep=14pt \headheight=22pt \voffset=-28pt
+%\hoffset=-30pt
+%\else
+%\textwidth=395pt
+%\topmargin=-50pt
+%\hoffset=-85pt
+%\fi
+
+%\clubpenalty=10000
+%\widowpenalty=10000
+
+
+% \theorembodyfont{\it}
+\def\labelenumi{\rm(\theenumi)}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Утверждения%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\thtext#1{
+  \catcode`@=11
+  \gdef\@thmcountersep{. #1}
+  \catcode`@=12
+}
+
+\def\threst{
+  \catcode`@=11
+  \gdef\@thmcountersep{.}
+  \catcode`@=12
+}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[chapter]
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{assertion}[theorem]{Утверждение}
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{slem}[theorem]{Лемма}
+
+
+
+\theoremstyle{definition}
+\newtheorem{conjection}[theorem]{Гипотеза}
+\newtheorem{example}[theorem]{Пример}
+\newtheorem{counterexamp}[theorem]{Контрпример}
+\newtheorem{problem}[theorem]{Задача}
+\newtheorem{exercise}[theorem]{Упражнение}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{dfnthm}[theorem]{Определения и факты}
+\newtheorem{des}[theorem]{Обозначение}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{agree}[theorem]{Соглашение}
+\newtheorem{notation}[theorem]{Обозначение}
+\newtheorem{constr}[theorem]{Конструкция}
+\newtheorem*{constrWN}{Конструкция}
+
+\newtheorem{convention}[theorem]{Договорённость}
+
+
+\newtheorem {problemstar}{Задача}
+\renewcommand\theproblemstar{\theproblem*} 
+
+
+\newenvironment{exesol}[1][\unskip]{\noindent\textbf{Упражнение #1.}\noindent}
+
+%\newenvironment{exesol}[1]{\trivlist\item[\hskip \labelsep{\bf Упражнение #1.}]}{\endtrivlist}
+\newenvironment{solsol}{\trivlist\item[\hskip \labelsep{\it Решение.}]}{\endtrivlist}
+
+\newenvironment{sol}{\scriptsize\trivlist\item[\hskip \labelsep{\it Решение.}]}{\hfill$\lozenge$\endtrivlist}
+
+\newenvironment{pproof}{\scriptsize\trivlist\item[\hskip \labelsep{\it Доказательство.}]}{\hfill$\square$\endtrivlist}
+
+%\let\sol\comment
+%\let\pproof\proof
+%\let\pproof\comment
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Мои HEADINGs%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \pagestyle{myheadings}
+
+
+%\usepackage{fancyhdr} 
+%\fancyhf{}
+%\cfoot{\thepage}
+\pagestyle{plain}  %numeration at the bottom center
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%   Канонические определение%%%%%%%%%%%%%%%%
+ \catcode`@=11
+ \def\.{.\spacefactor\@m}
+ \catcode`@=12
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Документ%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newdimen\slantmathcorr
+
+\def\overln#1{%assuming that mathslant=0.25
+\setbox0=\hbox{$#1$}
+\overline{\hbox to 0.8\wd0{%
+\vphantom{\hbox{$#1$}}}}
+\hskip-0.85\wd0\hbox{$#1$}
+}
+
+\def\underln#1{%assuming that mathslant=0.25
+\setbox0=\hbox{$#1$}
+\underline{\hbox to 0.8\wd0{%
+\vphantom{\hbox{$#1$}}}}
+\hskip-0.85\wd0\hbox{$#1$}
+}
+
+%%%%%%%%%%%%%%%%%
+\def\C{{\mathbb C}}
+\def\N{{\mathbb N}}
+\def\Q{{\mathbb Q}}
+\def\R{\mathbb R}
+\def\X{{\mathbb X}}
+\def\Y{{\mathbb Y}}
+\def\Z{{\mathbb Z}}
+
+\def\a{\alpha}
+\def\A{\Alpha}
+\def\b{\beta}
+\def\e{\varepsilon}
+\def\dl{\delta}
+\def\D{\Delta}
+\def\g{\gamma}
+\def\G{\Gamma}
+\def\om{\omega}
+\def\Om{\Omega}
+\def\k{\varkappa}
+\def\ll{\lambda}
+\def\r{\rho}
+\def\s{\sigma}
+\def\S{\Sigma}
+\def\t{\tau}
+\def\ThU{\overln{\Theta}}
+\def\ThD{\underln{\Theta}}
+\def\v{\varphi}
+
+\def\0{\emptyset}
+\def\:{\colon}
+\def\<{\langle}
+\def\>{\rangle}
+\def\almost#1{\stackrel{\mbox{\scriptsize п.в.}}{#1}}
+%\def\almostM#1#2{\mathop{#1}_{#2}^{\text{п.в.}}}
+\def\almostM#1#2{\stackrel{\mbox{\scriptsize $#2$-п.в.}}{#1}}
+\def\ang{\angle}
+\def\cc{\circ}
+\def\d{\partial}
+\def\eqae{\almost{=}}
+\def\eqaeM#1{\almostM{=}{#1}}
+\def\equiv{\approx}
+\def\imply{\Rightarrow}
+\def\toH{\xrightarrow{\operatorname{H}}}
+\def\lra{\Leftrightarrow}
+\def\llc{\mathop{\llcorner}}
+\def\n{\nabla}
+\def\osm{\overline{\overline{o}}}
+\def\refitem#1{(\ref{#1})}
+\def\rra{\rightrightarrows}
+\def\rom#1{\emph{#1}}
+\def\({\rom(}
+\def\){\rom)}
+\def\sm{\setminus}
+\def\ss{\subset}
+\def\ssae{\almost{\ss}}
+\def\ssaeM#1{\almostM{\ss}{#1}}
+\def\sp{\supset}
+\def\spae{\almost{\sp}}
+\def\sqcupae{\almost{\sqcup}}
+\def\sqcupaeM#1{\almostM{\sqcup}{#1}}
+\def\toGH{\xrightarrow{\GH}}
+\def\x{\times}
+
+\def\ba{{\bar a}}
+\def\bA{{\bar A}}
+\def\bb{{\bar b}}
+\def\bB{{\bar B}}
+\def\bbo{\bar{\bar{\operatorname{o}}}}
+\def\bc{{\bar c}}
+\def\bcK{{\bar\cK}}
+\def\bd{{\bar d}}
+\def\be{{\bar e}}
+\def\bg{{\bar g}}
+\def\bga{{\bar\gamma}}
+\def\bG{{\bar G}}
+\def\bbG{{\mathbb G}}
+\def\bI{{\bar I}}
+\def\bJ{{\bar J}}
+\def\bla{{\bar\ll}}
+\def\bM{{\bar M}}
+\def\bOm{{\bar\Om}}
+\def\bpi{{\bar\pi}}
+\def\bq{{\bar q}}
+\def\bQ{{\bar Q}}
+\def\bbQ{{\mathbb Q}}
+\def\br{{\bar r}}
+\def\bS{{\bar S}}
+\def\bsg{{\bar\s}}
+\def\bu{{\bar u}}
+\def\bU{{\bar U}}
+\def\bv{\bar v}
+\def\bw{\bar w}
+\def\bx{{\bar x}}
+\def\by{{\bar y}}
+\def\bY{{\bar Y}}
+\def\bz{{\bar z}}
+\def\bZ{{\bar Z}}
+
+\def\arcsh{\operatorname{arcsh}}
+\def\capa{\operatorname{cap}}
+\def\CC{\operatorname{CC}}
+\def\cl{\operatorname{cl}}
+\def\const{\operatorname{const}}
+\def\conv{\operatorname{conv}}
+\def\cov{\operatorname{cov}}
+\def\crit{{\operatorname{crit}}}
+\def\ch{\operatorname{ch}}
+\def\diam{\operatorname{diam}}
+\def\dil{\operatorname{dil}}
+\def\dis{\operatorname{dis}}
+\def\dist{\operatorname{dist}}
+\def\div{\operatorname{div}}
+\def\Flim{\operatorname{F}\!\lim}
+\def\Fliminf{\operatorname{F}\!\liminf}
+\def\Flimsup{\operatorname{F}\!\limsup}
+\def\GH{\operatorname{GH}}
+\def\GHlim{\operatorname{GH-lim}}
+\def\GL{\operatorname{GL}}
+\def\id{\operatorname{id}}
+\def\im{\operatorname{im}}
+\def\Im{\operatorname{Im}}
+\def\Iso{\operatorname{Iso}}
+\def\ln{\operatorname{ln}}
+\def\Int{\operatorname{Int}}
+\def\sn{\operatorname{sn}}
+\def\SN{\operatorname{SN}}
+\def\O{\operatorname{O}}
+\def\opt{{\operatorname{opt}}}
+\def\pack{\operatorname{pack}}
+\def\Re{\operatorname{Re}}
+\def\RP{\operatorname{\R P}}
+\def\sh{\operatorname{sh}}
+\def\sign{\operatorname{sign}}
+\def\SL{\operatorname{SL}}
+\def\smt{\operatorname{smt}}
+\def\SMT{\operatorname{SMT}}
+\def\SO{\operatorname{SO}}
+\def\SU{\operatorname{SU}}
+\def\supp{\operatorname{supp}}
+\def\tg{\operatorname{tg}}
+\def\tanh{\operatorname{th}}
+\def\U{\operatorname{U}}
+\def\vol{\operatorname{vol}}
+
+\def\cA{\mathcal{A}}
+\def\cB{\mathcal{B}}
+\def\cC{\mathcal{C}}
+\def\cD{\mathcal{D}}
+\def\cE{\mathcal{E}}
+\def\cF{\mathcal{F}}
+\def\cH{\mathcal{H}}
+\def\cI{\mathcal{I}}
+\def\cJ{\mathcal{J}}
+\def\cK{\mathcal{K}}
+\def\cL{\mathcal{L}}
+\def\cM{\mathcal{M}}
+\def\cN{\mathcal{N}}
+\def\cP{\mathcal{P}}
+\def\cR{\mathcal{R}}
+\def\cS{\mathcal{S}}
+\def\cT{\mathcal{T}}
+\def\cU{\mathcal{U}}
+\def\cV{\mathcal{V}}
+\def\cX{\mathcal{X}}
+\def\cY{\mathcal{Y}}
+
+\def\td{{\tilde d}}
+\def\tf{{\tilde f}}
+\def\tX{{\tilde X}}
+
+\def\hA{{\widehat A}}
+\def\hd{{\hat d}}
+\def\hhd{{\hat\hat d}}
+\def\hF{{\hat F}}
+
+\def\gM{{\mathfrak M}}
+\def\gR{{\mathfrak R}}
+\def\fM{{\mathfrak M}}
+
+\def\toGHs{\stackrel{\text{GH}^*}\longrightarrow}
+\def\toH{\stackrel{\text{H}}\longrightarrow}
+
+
+
+\newcommand{\Ker}{\mathrm{Ker}\,}
+
+\newcommand{\Ann}{\mathrm{Ann}\,}
+
+\newcommand{\Aut}{\mathrm{Aut}\,}
+
+
+\newcommand{\Imm}{\mathrm{Im}\,}
+
+
+\newcommand{\rk}{\mathrm{rk}\,}
+
+\newcommand\Alt{\operatorname{Alt}}
+
+\newcommand\Sym{\operatorname{Sym}}
+
+\newcommand\grad{\operatorname{grad}}
+
+\newcommand\rot{\operatorname{rot}}
+
+\newcommand\diver{\operatorname{div}}
+
+
+\usepackage{hyperref}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+ \geometry{
+ papersize={140mm, 215mm},
+ left=15mm,
+ right=12mm,
+ top=19mm,
+headsep=5mm,
+bottom=22mm,}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%\usepackage{hyperref}
+
+
+
+
+
+
+
+
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+{МОСКОВСКИЙ ГОСУДАРСТВЕННЫЙ 
+УНИВЕРСИТЕТ \\
+имени М.В.ЛОМОНОСОВА}
+\end{center}
+
+\smallskip
+
+\begin{center}
+{МЕХАНИКО-МАТЕМАТИЧЕСКИЙ ФАКУЛЬТЕТ} 
+\end{center}
+
+\begin{center}
+{КАФЕДРА ДИФФЕРЕНЦИАЛЬНОЙ ГЕОМЕТРИИ И ПРИЛОЖЕНИЙ}
+\end{center}
+
+\vspace{0.1in}
+
+\begin{center}%
+\includegraphics[height=0.3\textheight]{mehmat.pdf}%
+\end{center}
+
+\vspace{0.2in}
+
+\begin{center}
+{\large И.\,К.~Козлов}
+\end{center}
+\begin{center}
+{\large Дифференциальная геометрия в задачах}
+\end{center}
+\vfill
+\begin{center}
+{\large Москва 2019 год}
+\end{center}
+\end{titlepage}
+
+
+\begin{flushleft}
+{\bf УДК 514.7\\
+ББК 22.15}
+\end{flushleft}
+
+\vspace{0.05in}
+
+\begin{flushleft}
+{Рецензенты:\\
+д.ф.-м.н., профессор А.\,О.~Иванов, Мехмат МГУ,\\
+д.ф.-м.н., доцент С.\,В.~Соколов, МФТИ.}
+\end{flushleft}
+
+\vspace{0.05in}
+
+\begin{flushleft}
+{ И.\,К.~Козлов \\
+Дифференциальная геометрия в задачах.}
+\end{flushleft}
+
+\vspace{0.1in}
+
+\begin{center}
+{Учебное издание}
+\end{center}
+
+\smallskip
+
+{\noindent Учебное пособие напечатано по решению Ученого Совета ме\-ха\-ни\-ко-ма\-те\-ма\-ти\-чес\-кого факультета МГУ.}
+
+\vspace{0.1in}
+
+{\noindent М.: Издательство Попечительского совета ме\-ха\-ни\-ко-ма\-те\-ма\-ти\-чес\-кого факультета МГУ, 2019. ---   230 с.}
+
+\vspace{0.1in}
+
+Книга представляет собой конспект семинаров по дифференциальной геометрии и топологии, проводимых автором на механико-математическом факультете МГУ. В этом учебном пособии собраны воедино многие ключевые задачи по дифференциальной геометрии и топологии, решение которых позволит студентам овладеть базовыми техниками дифференциальной геометрии и тензорного анализа. Все задачи снабжены решениями. Учебное пособие рассчитано на студентов, аспирантов и всех интересующихся геометрией. Работа выполнена при поддержке Программы Президента РФ поддержки ведущих научных школ (грант НШ-6399.2018.1, соглашение № 075-02-2018-867).
+
+\vfill
+
+\begin{flushleft}
+{\copyright\ Механико-математический факультет МГУ, 2019 г.\\
+ \copyright\ Козлов Иван Константинович, 2019 г.}
+\end{flushleft}
+
+\begin{flushleft}
+{\bf ISBN 978--5--9500628--3--4}
+\end{flushleft}
+
+\tableofcontents
+
+\vfill\eject
+
+\phantom{a}
+
+\vspace{1in}
+
+\begin{center}
+{\large ПРЕДИСЛОВИЕ}
+\end{center}
+
+
+
+Дифференциальная геометрия и топология --- важный раздел математики, изучение которого необходимо для понимания других обязательных курсов стандартной программы Мехмата МГУ, включая курсы по оптимальному управлению, аналитической механике, основам механики сплошных сред и физике. Эта книга является коротким учебным пособием по проведению семинаров по дифференциальной геометрии, в котором собраны воедино многие ключевые базовые задачи по дифференциальной геометрии и топологии. Данным пособием смогут воспользоваться как студенты, которые захотят получше разобраться в мехматовском курсе, так и преподаватели при подготовке к семинарам по дифференциальной геометрии. Мы признательны кафедре дифференциальной геометрии и приложений, поддержавшей издание этой книги.
+
+\begin{flushright}
+{И.о.\,декана Мехмата МГУ\\
+профессор В.\,Н.~Чубариков}
+\end{flushright}
+
+\begin{flushright}
+{Председатель РИСО  Мехмата МГУ\\ 
+В.\,Б.~Демидович}
+\end{flushright}
+
+% \maketitle
+\def\chaptername{Тема}
+
+
+\input lt01.tex
+\vfill\eject
+\input lt02.tex
+\vfill\eject
+\input lt03.tex
+\vfill\eject
+%
+\input lt04.tex
+\vfill\eject
+\input lt05.tex
+\vfill\eject
+%\input lt05b.tex
+%\vfill\eject
+%
+\input lt06.tex
+\vfill\eject
+\input lt07.tex
+\vfill\eject
+\input lt08.tex
+\vfill\eject
+\input lt09.tex
+\vfill\eject
+\input lt10.tex
+\vfill\eject
+\input lt11.tex
+\vfill\eject
+%
+\input lt12.tex
+\vfill\eject
+\input lt13.tex
+\vfill\eject
+\input lt14.tex
+\vfill\eject
+%
+%\input lt15.tex
+%\vfill\eject
+%
+\input refs.tex
+\vfill\eject
+
+%%%
+
+\thispagestyle{empty}
+\phantom{a}
+
+\vspace{1in}
+
+\begin{center}
+{\bf И.\,К.~Козлов, \\
+Дифференциальная геометрия в задачах}
+\end{center}
+
+\begin{flushleft}
+М.: Издательство Попечительского совета ме\-ха\-ни\-ко-ма\-те\-ма\-тического факультета МГУ, 2019. ---  230  с.
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+Подписано  в печать  с авторского\\
+электронного оригинал--макета   05.04.2019\\
+Бумага офсетная. Печать цифровая.\\
+Формат  $60\times90$ 1/16.  Печ.~л.~ 14,73 \\
+Заказ № 238.   Тираж 100 экз.
+\end{center}
+
+\hrulefill
+
+\begin{center}
+Отпечатано в ППП <<Типография ``Наука''>>\\
+121099, г. Москва, Шубинский пер.,  д.~6
+\end{center}
+
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Конец Документа%%%%%%%%%%%%%%%%%%%%%%%%%%
+

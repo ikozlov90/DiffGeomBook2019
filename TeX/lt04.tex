@@ -1,0 +1,375 @@
+
+
+\part{Тензорные поля}
+
+
+
+\chapter{Векторные поля}
+
+
+
+Мы предполагаем, что читатели знакомы с понятием гладкого многообразия и с базовыми понятиями топологии. Есть довольно много книг, включая \cite{MishFom00,IvTuzh09,IvTuzh11,DNF86,NovTai14,KobNom81,PostSem3,PostSem4,PostSem5Group,PostSem5Riem}, в которых они довольно подробно описываются. 
+
+
+\section[Определение касательного вектора]{Определение касательного \\ вектора}
+
+\begin{itemize}
+
+
+\item \textbf{Касательный вектор} к многообразию можно определить тремя эквивалентными способами: \begin{enumerate}
+
+\item Как набор чисел, меняющийся по определённому закону при замене координат (т.е. как тензор типа $(1,0)$).
+
+\item Как класс эквивалентных кривых.
+
+\item Как дифференциальный оператор на пространстве гладких функций.
+
+
+\end{enumerate}
+
+В разных ситуациях удобно использовать различные определения вектора.
+
+
+\item \textbf{Касательное пространство} $T_p M$ к многообразию $M$ в точке $p$ --- это множество всех касательных векторов в этой точке.
+
+\item \textbf{Векторное поле } --- это семейство (касательных) векторов, компоненты которых гладко зависят от точки.
+
+%(в любых локальных координатах)
+
+%\item  Векторное поле --- это гладкое сечение касательного расслоения. Проще говоря, на многообразии задано векторное поле, если в каждой точке выбран вектор, гладко зависящий от точки.
+
+
+\end{itemize} 
+
+
+\subsection{Вектор как тензор типа $(1,0)$}
+
+\begin{definition} \textbf{Касательный вектор} в точке $p$ гладкого многообразия $M$ --- это отображение, которое сопоставляет каждой системе локальных координат в окрестности точки $p$ набор чисел $\left( v^1, \dots, v^n \right)$, которые при замене координат меняются по следующему закону: \begin{equation} \label{Eq:VectTensLaw}  v^{i'} = \sum_i \frac{\partial x^{i'}}{\partial x^{i}} v^i. \end{equation}
+\end{definition} 
+
+
+\begin{problem} \label{Prob:VectorPolarCoord_Ex1} Рассмотрим вектор $(1,0)$ в точке $(x,y)$  евклидовой плоскости $\mathbb{R}^2$. Найти его компоненты в полярных координатах. \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:VectorPolarCoord_Ex1}.}\footnote{Лучше использовать запись $\cos{\varphi} \frac{\partial}{\partial r}  - \frac{\sin{\varphi}}{r} \frac{\partial}{\partial \varphi}$, чтобы не перепутать, какие компонеты к каким координатам относятся.} $\displaystyle \left(\cos{\varphi}, - \frac{\sin{\varphi}}{r} \right)$.
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:VectorPolarCoord_Ex1}]  Честно применим формулу \eqref{Eq:VectTensLaw}. На плоскости в полярных координатах \[  \displaystyle  \begin{pmatrix} v^r \\v^{\varphi}  \end{pmatrix} = \displaystyle  \begin{pmatrix}  \displaystyle  \frac{\partial r}{\partial x}  & \displaystyle  \frac{\partial r}{\partial y}  \\ \displaystyle  \frac{\partial \varphi}{\partial x} & \displaystyle  \frac{\partial \varphi}{\partial y} \end{pmatrix}  \displaystyle   \begin{pmatrix} v^x \\ v^{y}  \end{pmatrix} = \begin{pmatrix} \displaystyle  \frac{\partial r}{\partial x}  \\ \displaystyle  \frac{\partial \varphi}{\partial x}  \end{pmatrix} .\] Остаётся вспомнить, что \[ \frac{\partial r}{ \partial x} = \cos{\varphi}, \qquad  \frac{\partial \varphi}{ \partial x} = - \frac{\sin{\varphi}}{r}. \] Задача~\ref{Prob:VectorPolarCoord_Ex1} решена. \end{proof}
+
+
+
+
+\subsection{Касательный вектор кривой}
+
+
+
+\begin{definition} Рассмотрим кривые $\gamma(t)$, проходящие через точку $p$ при $t=0$. Будем считать две такие кривые $\gamma_1(t)$ и $\gamma_2(t)$ эквивалентными, если их вектора скорости в точке $p$ равны \[ \left. \frac{d\gamma_1}{dt}\right|_{t=0} = \left. \frac{d \gamma_2}{dt}\right|_{t=0}. \] \textbf{Касательный вектор} в точке $p$ гладкого многообразия $M$ --- это класс эквивалентных кривых, проходящих через эту точку. \end{definition} 
+
+
+
+
+
+\begin{problem} \label{Prob:LieAlgebraSL} Доказать, что касательное пространство $\mathrm{sl}(n, \mathbb{R})$ в единице $E$ к группе $\mathrm{SL}(n, \mathbb{R})$ состоит из матриц\footnote{Поскольку $\operatorname{SL}(n, \mathbb{R})$ --- подмногообразие $\mathrm{Mat }_{n \times n} (\mathbb{R})$, мы можем считать каждое его касательное пространство подпространством соответствующего касательного пространства $\mathrm{Mat }_{n \times n} (\mathbb{R})$. } с нулевым следом \[\mathrm{sl}(n, \mathbb{R}) = \left\{ A \in \mathrm{Mat}_{n\times n} (\mathbb{R}) \,\, | \quad \mathrm{tr } A  =0 \right\}.\] \end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:LieAlgebraSL}] 
+ То, что любой касательный вектор должен удовлетворять этому условию, легко показать, взяв произвольную кривую $X(t)\subset \mathrm{SL }(n, \mathbb{R})$ и продифференцировав тождество \[ \mathrm{det }  X(t) = E. \] Несложно проверить, что \[ \det \left( E + t A +o(t^2) \right)  = \mathrm{tr } A +o(t^2).  \] Размерность этого подпространства совпадает с размерностью подмногообразия \[ \dim \operatorname{sl}\left(n, \mathbb{R}\right) = \dim \operatorname{SL}\left(n, \mathbb{R}\right)=n^2-1,\] поэтому это подпространство и касательное пространство совпадают. Задача~\ref{Prob:LieAlgebraSL} решена. \end{proof}
+
+
+
+\subsection{Векторы как дифференциальные операторы}
+
+
+
+\begin{definition} \label{Def:VectOper} \textbf{Касательное векторное поле} на гладком многообразии $M$ --- это $\mathbb{R}$-линейный\footnote{$\mathbb{R}$-линейность означает, что $v(c_1 f_1 + c_2 f_2) = c_1 v(f_1) + c_2 v(f_2)$ для любых $c_i\in \mathbb{R}, f_i \in C^{\infty}(M)$.} оператор на пространстве гладких функций $\mathrm{C}^{\infty}(M)$: \begin{equation} \label{Eq:VectDiffOper}  \begin{gathered} v: \mathrm{C}^{\infty}(M) \to \mathrm{C}^{\infty}(M), \\ f \to v(f) , \end{gathered} \end{equation}   удовлетворяющий тождеству Лейбница \[ v(fg) = v(f) g + f v(g). \] \end{definition}
+
+
+\begin{remark} Касательный вектор может быть определён аналогично как удовлетворяющее тождеству Лейбница $\mathbb{R}$-линейное  отображение \[ v: \mathrm{C}^{\infty}(M) \to \mathbb{R}. \]  \end{remark}
+
+%  Один вектор $v$ также можно рассматривать как дифференциальный оператор, он сопоставляет каждой функции $f$ число --- производную $f$ вдоль этого вектора $v$ \[ v: \mathrm{C}^{\infty}(M) \to \mathbb{R} \]      
+
+
+
+
+
+
+\begin{problem} \label{Prob:DerivFunc_Ex1} Найти производную функции $f$ в точке $P$ по направлению вектора $\xi$: \[f=x^2y+xz^2 -2, \qquad P=(1,1, -1), \qquad \xi = (1, -2, 4). \] \end{problem}
+
+\textit{Ответ в Задаче~\ref{Prob:DerivFunc_Ex1}.} $\xi(f)(P) = -7$.
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:DerivFunc_Ex1}]   Если векторное поле $v$ в локальных координатах $(x^1, \dots, x^n)$ имеет вид \[\displaystyle v = v^i \frac{\partial}{\partial x^i}, \] то производная функции $f$ вдоль $v$ равна \[ v(f) =  v^i \frac{\partial f}{\partial x^i}. \] В данном случае \[ \xi = (1, -2, 4) =1 \frac{\partial}{\partial x} -2 \frac{\partial}{\partial y} + 4  \frac{\partial}{\partial z}, \] поэтому \begin{gather*} \xi(f) (P) = \left(\frac{\partial f}{\partial x} -2 \frac{\partial f}{\partial y} + 4  \frac{\partial f}{\partial z} \right) (P) = \\=
+\left( (2xy +z^2 ) - 2 (x^2) +4 (2xz)\right) (P) = 3 - 2 -8 = -7. \end{gather*}  Задача~\ref{Prob:DerivFunc_Ex1} решена. \end{proof}
+
+
+
+Покажем, что любое касательное векторное поле в смысле Определения~\ref{Def:VectOper} является линейным дифференциальным оператором.
+
+\begin{problem} \label{Prob:VectOperLinDiff} Доказать, что любой удовлетворяющий тождеству Лейбница линейный оператор \[ \mathrm{C}^{\infty}(M) \to \mathrm{C}^{\infty}(M)\] в локальных координатах $(x^1, \dots, x^n)$ имеет вид \[ v = v^i\frac{\partial}{\partial x^i}.\]\end{problem} 
+
+
+Задача~\ref{Prob:VectOperLinDiff} может быть решена при помощи леммы Адамара. 
+
+\begin{lemma}[Лемма Адамара] \label{L:AdamarLemma}
+Пусть \[{\displaystyle f:U\to \mathbb {R} }\] --- гладкая функция, определённая в выпуклой окрестности $U$ точки $0 \in \mathbb{R}^n$. Тогда существуют такие гладкие функции \[{\displaystyle g_{1},\ldots ,g_{n}:U\to \mathbb {R} },\] что для всех ${\displaystyle x=(x_{1},\ldots ,x_{n})\in U}$ имеет место равенство \[ f(x^1, \dots, x^n ) = f(0) +\sum _{i=1}^{n}x_{i}\,g_{i}(x_{1},\ldots ,x_{n}).\] 
+\end{lemma}
+
+
+%\quad g_{i}(0)={\frac {\partial f}{\partial x_{i}}}(0). \end{gather*}
+
+\begin{proof}[Доказательство Леммы~\ref{L:AdamarLemma}] Лемма Адамара доказывается при помощи формулы Ньютона--Лейбница: \[{\displaystyle f(x)-f(0)=\int _{0}^{1}{\frac {df(tx)}{dt}}\,dt=\int _{0}^{1}\sum _{i=1}^{n}x_{i}\,{\frac {\partial f}{\partial x_{i}}}(tx)\,dt=\sum _{i=1}^{n}x_{i}g_{i}(x),} \] где \[{\displaystyle g_{i}(x):=\int _{0}^{1}{\frac {\partial f}{\partial x_{i}}}(tx)\,dt.} \] Лемма~\ref{L:AdamarLemma} доказана. \end{proof}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:VectOperLinDiff}] Нужно доказать, что в любых локальных координатах $x^i$ существуют такие функции $v^i$, что \[ v(f) =  v^i \frac{\partial f}{\partial x^i}. \] Это возможно, только если \[v^i = v (x^i).\] Остаётся показать, что \[v(f) = v (x^i) \frac{\partial f}{\partial x^i}. \] Без ограничения общности, можно считать, что мы доказываем утверждение в начале координат. Дважды используя лемму Адамара, получаем, что любая функция имеет вид \[ f(x) = f(0) + \sum_i x^i \frac{\partial f}{\partial x^i} (0) + \sum_{i,j}x^i x^j h_{ij} (x). \] Посмотрим, как действует оператор $v$ на каждом из этих слагаемых:
+
+
+ %Нам осталось показать, что   \[  \frac{\partial f}{\partial x^i} = 0  \qquad \Rightarrow \qquad v(f) = 0,\] или что \[ v \left(f(0) + \sum_{i,j}x^i x^j h_{ij} (x) \right) = v \left(f(0) \right) + v\left(\sum_{i,j}x^i x^j h_{ij} (x) \right)= 0.\] 
+
+\begin{itemize}
+
+\item $v(f(0))=0$. Более того, $v(c) = 0$ для любой константы $c \in \mathbb{R}$, так как \[ v(c) = c v(1) = c v(1 \cdot 1) = c (v(1) + v(1) ) = 2 c v(1). \] 
+
+\item Для второго слагаемого по формуле Лейбница \[ v\left( x^i \frac{\partial f}{\partial x^i} (0) \right) = 
+ v\left( x^i \right) \frac{\partial f}{\partial x^i} (0)  + x^i v\left( \frac{\partial f}{\partial x^i} (0) \right). \] При $x^i =0$ второе слагаемое исчезает.
+
+
+\item Производная третьего слагаемого в нуле равна нулю: \[v\left(x^i x^j h_{ij} (x) \right)= v(x^i) x^j h_{ij} (x) +  x^i v\left(x^j h_{ij} (x) \right),\] поскольку в каждом слагаемом будут нулевые сомножители $x^i=0$.
+\end{itemize}
+
+
+В производной выжило только одно слагаемое. Мы получили требуемое равенство: \[v(f)(0) =   v\left( x^i \right) \frac{\partial f}{\partial x^i} (0). \] Задача~\ref{Prob:VectOperLinDiff} решена.  \end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Градиент функции}
+
+
+
+\begin{definition} Пусть $f$ --- гладкая функция на римановом\footnote{\textbf{Риманово многообразие} $(M, g)$ --- это многообразие, на котором задано симметричное положительно определённое тензорное поле типа $(0, 2)$. Иными словами, в каждом касательном пространстве $T_xM$ задано евклидово скалярное произведение, гладко зависящее от точки $x\in M$.} многообразии $(M, g)$. \textbf{Градиент} функции $f$ --- векторное поле $\grad f$, получающееся из дифференциала $df$ поднятием индекса:  \begin{equation} \label{Eq:Grad} \mathrm{grad } f^ i =  g^{ij} \frac{\partial f}{\partial x^j}.\end{equation} \end{definition}
+
+
+\begin{problem} \label{Prob:GradientPolarSpherical} Записать градиент функции $\mathrm{grad} \, f$ в полярных координатах на плоскости $\mathbb{R}^2$ и в сферических координатах в пространстве $\mathbb{R}^3$. \end{problem}
+
+\textit{Ответ в Задаче~\ref{Prob:GradientPolarSpherical}.} На плоскости в полярных координатах  \[ \mathrm{grad} \, f = \frac{\partial f}{\partial r} \frac{\partial }{\partial r} + \frac{1}{r^2} \frac{\partial f}{\partial \varphi} \frac{\partial }{\partial \varphi}. \] В пространстве в сферических координатах\footnote{Где $\theta$ --- угол с осью $z$.} \[ \mathrm{grad} \, f = \frac{\partial f}{\partial r} \frac{\partial }{\partial r} +\frac{1}{r^2 } \frac{\partial f}{\partial \theta} \frac{\partial }{\partial \theta}  + \frac{1}{r^2 \sin^2{\theta}} \frac{\partial f}{\partial \varphi} \frac{\partial }{\partial \varphi}. \] 
+
+\begin{proof}[Решение Задачи~\ref{Prob:GradientPolarSpherical} ]  Нужно применить формулу \eqref{Eq:Grad}. В матричном виде  формула $\eqref{Eq:Grad}$ имеет вид \[ \mathrm{grad } f = G^{-1} \mathrm{d} f,\] где $ \mathrm{grad } f $ и $\mathrm{d} f$ записаны как вектор-столбцы. 
+
+В полярных координатах метрика $ds^2 = dr^2 + r^2 d\varphi^2$, т.е. в координатах $(r, \varphi)$ \[ G= \begin{pmatrix} 1 & 0 \\ 0 & r^2 \end{pmatrix}. \] Обратная матрица имеет вид \[ G^{-1}= \begin{pmatrix} 1 & 0 \\ 0 & \frac{1}{r^2} \end{pmatrix},\] т.е. \[g^{rr} = 1, \qquad  g^{\varphi \varphi }= \frac{1}{r^2} ,\] откуда легко получается ответ. В сферических координатах вычисления аналогичны. Задача~\ref{Prob:GradientPolarSpherical} решена.  \end{proof} 
+
+
+
+\begin{problem} \label{Prob:GradOrthogSurf} Доказать, что для любой гладкой функции $f$ на римановом многообразии $(M, g)$ её градиент $\grad f$ \begin{enumerate} 
+
+\item \label{Item:GradOrthogSurfLevel}  ортогонален её поверхности уровня\footnote{Мы считаем поверхность уровня неособой, т.е. $\grad f \not =0$.} $\left\{ f = \operatorname{const} \right\}$;
+
+\item \label{Item:GradDirecMostGrow} задаёт направление наибольшего роста функции $f$ в соответствующей точке. 
+
+\end{enumerate}
+
+\end{problem} 
+
+
+\textit{Указание.} В п.~\ref{Item:GradOrthogSurfLevel} нужно доказать, что для любого $u \in T_x N$, где \[ N=\left\{ f = \operatorname{const} \right\}, \] выполнено тождество \[ (u, \grad f) = g_{ij} u^i \grad f^j =0.\] 
+В п.~\ref{Item:GradDirecMostGrow} нужно доказать, что среди векторов длины $\left\| \grad f \right\|$, производная функции $f$ вдоль $\grad f$ максимальна: \[ \grad f(f) = \max_{\left\| v\right\| = \left\| \grad f\right\| }  v(f). \]
+
+
+% \[ \left\| v\right\| = \left\| \grad f\right\| \qquad \Rightarrow \qquad v(f) \leq \grad f(f). \]
+
+
+
+%, с одной стороны \[ T_M = T_x N \oplus \langla \grad f \rangle\] \[\grad f \perp T_x N, \] а с другой стороны \[ d_x f \in \Ann(T_xN) \qquad \Leftrightarrow \qquad d_x f\bigr|_{T_x N} =0. \] 
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:GradOrthogSurf}] 
+ 
+ \begin{enumerate}
+ 
+ \item  Действительно, \begin{gather*} g_{ij} u^i \grad f^j = g_{ij} u^i g^{jk} \frac{\partial f}{\partial x^k} = \\ = \delta_i^k  u^i \frac{\partial f}{\partial x^k} =  u^i \frac{\partial f}{\partial x^i} = u(f) =0, \end{gather*} т.к. $u$ --- касательный вектор к поверхности уровня.
+
+\item Из п.~\ref{Item:GradOrthogSurfLevel} следует, что пространство распадается в ортогональную прямую сумму \[\mathbb{R}^n = T_x N \oplus \langle \grad f\rangle. \] Поэтому любой вектор $v$ длины $\left\| v\right\| = \left\| \grad f\right\|$ имеет вид \[ v = \cos {\varphi} \grad f + \sin{\varphi} \, u \] для некоторого вектора $u \in T_x N$. В данном случае  \begin{itemize} 
+
+\item $u(f)=0$, т.к. $u \in T_x N$.
+
+\item $\grad f(f)>0$, т.к. метрика $g_{ij}$ положительно определена: \[\grad f (f)= g^{ij} \frac{\partial f}{\partial x^i}\frac{\partial f}{\partial x^j} \geq 0.\] 
+
+\end{itemize} Поэтому \[ v(f)  = \cos{\varphi} \grad f (f) \leq \grad f (f), \] и равенство достигается только при $\varphi = 0$, т.е. при $ v= \grad f$.  
+
+\end{enumerate}
+
+
+
+%Поэтому в п.~\ref{Item:GradDirecMostGrow} нужно доказать, что\footnote{Направление наибольшего роста функции $f$ совпадает с направлением наибольшего роста её дифференциала $d_x f$.} \[  d_x f\bigr|_{T_x N} =0, \qquad \left(d_x f, \grad f\right) \geq 0. \]
+
+%Функция $f$ возрастаёт вдоль градиента, т.к. метрика $g_{ij}$ положительно определена \[\left(d_x f, \grad f\right) = g^{ij} \frac{\partial f}{\partial x^i}\frac{\partial f}{\partial x^j} \geq 0.\]  
+
+Задача~\ref{Prob:GradOrthogSurf} решена.  \end{proof} 
+
+
+
+
+
+
+
+%\begin{problem} Записать градиент функции в полярных координатах в $\mathbb{R}^2$, а также в сферических координатах в $\mathbb{R}^3$. 
+%Записать в произвольной системе координат производную функции $f$ в направлении вектора градиента функции $g$. \end{problem}
+
+
+%\begin{problem} Показать, что компоненты метрики $ds^2=\sum_{i, j} g_{ij} dx^i dx^j$ на многообразии при замене координат меняются по закону \[ g_{i'j'} = \sum_{i,j} g_{ij} \frac{\partial x^i}{\partial x^{i'}}\frac{\partial x^j}{\partial x^{j'}}, \] а  компоненты $g^{ij}$ обратной матрицы $G^{-1}$ к матрице  $G = \left( g_{ij} \right)$ ---  по закону \[ g^{i'j'} = \sum_{i,j} g^{ij} \frac{\partial x^{i'}}{\partial x^{i}}\frac{\partial x^{j'}}{\partial x^{j}}.\] \end{problem}
+
+%\textit{Указание.} Обратная матрица определена однозначно. Проверить, $g^{ij}$ --- обратная матрица к $g_{ij}$ тогда и только тогда, когда \[ \sum_k g^{ik } g_{k j} = \delta^i_j = \begin{cases} 0, \quad i \not =j \\ 1, \quad i = j \end{cases}, \]  и что это условие сохраняется при замене координат.
+
+
+
+
+
+%\begin{problem} Найти производную функции \[f=\frac{1}{r}, \qquad r= \sqrt{x^2+y^2+z^2}\] по направлению её градиента.  \end{problem}
+
+%%\newpage 
+
+
+
+
+\section{Коммутатор векторных полей}
+
+\begin{definition} \textbf{Коммутатор} векторных полей --- это коммутатор соответствующих дифференциальных операторов, т.е. \[ [u, v](f) := u(v(f)) - v(u(f)). \]  \end{definition}
+
+
+\begin{problem} \label{Prob:VectorCommutator}  Проверить, что коммутатор векторных полей $[u, v]$  --- снова векторное поле, и что в локальных координатах $x^i$ компоненты коммутатора  задаются формулой  \begin{equation} \label{Eq:VectCommComponents} [u, v]^i  = \left( u^j \frac{\partial v^i}{\partial x^j}- v^j \frac{\partial u^i}{\partial x^j} \right). \end{equation} \end{problem}
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:VectorCommutator}] Достаточно проверить, что в каждой системе локальных координат $(x^1, \dots, x^n)$ коммутатор $[u, v]$ задаётся дифференциальным оператором вида \[ w^i \frac{\partial}{\partial x^i},\] и что его компоненты $w^i$ задаются формулой \eqref{Eq:VectCommComponents}. Иными словами, нужно показать, что \[ [u, v] (f)= \left( u^j \frac{\partial v^i}{\partial x^j}- v^j \frac{\partial u^i}{\partial x^j} \right)  \frac{\partial f}{\partial x^i}.  \] Это проверяется явно: \[[u, v] (f) = u^j \frac{\partial }{\partial x^j} \left(v^i \frac{\partial f}{\partial x^i} \right) - v^j \frac{\partial }{\partial x^j} \left(u^i \frac{\partial f}{\partial x^i}  \right). \] При раскрытии скобок слагаемые \[u^j v^i \frac{\partial^2 f}{\partial x^j x^i}, \qquad \text{и} \qquad  - v^j u^i  \frac{\partial^2 f}{\partial x^j x^i} \] сокращаются, и мы получаем требуемое равенство. Задача~\ref{Prob:VectorCommutator} решена.  \end{proof} 
+
+\begin{problem} \label{Prob:Comm_Ex1}
+Вычислить коммутатор векторных полей  \[u= \left(\frac{x}{\sqrt{x^2 + y^2}} ,\frac{y}{\sqrt{x^2 + y^2}}\right), \qquad v= \left(-y, x \right)\] 
+ на плоскости с координатами $x, y$.
+
+\end{problem} 
+
+
+\textit{Указание.}  В полярных координатах \[u= \partial_{r}, \qquad v = \partial_{\varphi}.\]
+
+
+ \textit{Ответ в Задаче~\ref{Prob:Comm_Ex1}.} $[ u, v]=0$
+
+\begin{proof}[Решение Задачи~\ref{Prob:Comm_Ex1}] Коммутатор --- векторное поле, поэтому достаточно доказать равенство $[u, v] =0$ в полярных координатах. Это так, потому что коммутатор базисных векторных полей равен нулю. Задача~\ref{Prob:Comm_Ex1} решена. \end{proof} 
+
+
+\begin{problem} \label{Prob:CommSubMan}
+Пусть $u, v$ --- векторные поля на многообразии $M$, касающиеся подмногообразия $N$. Доказать, что векторное поле $[u, v]$ тоже касается подмногообразия $N$,  и что \[\left[ u \bigr|_N,  v \bigr|_N \right] =  [u, v] \bigr|_N.\] 
+\end{problem} 
+
+\textit{Указание.} Воспользоваться следующим утверждением, характеризующем подмногообразия.
+
+\begin{lemma} \label{L:SubManLocCoord} Если $N^m \subset M^{n+m}$ --- подмногообразие, то для любой точки $x \in N^m$ существуют локальные координаты $\left(x^1, \dots, x^{n+m}\right)$, в которых подмногообразие $N^m$ является подпространством \[ x^{m+1} =\operatorname{const}, \qquad \dots \qquad x^{n+m} = \operatorname{const}.\]  \end{lemma} 
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CommSubMan}] 
+В координатах из Леммы \ref{L:SubManLocCoord} векторные поля $u$  и $v$ в точках подмногообразия $N$ имеют вид \[ u= \left(u^1, \dots, u^m, 0, \dots, 0 \right), \qquad v= \left(v^1, \dots, v^m, 0, \dots, 0 \right).  \]  Посмотрим на выражение  для коммутатора \begin{equation} \label{Eq:TangSubVectCommut} [u, v]^i  = \sum_{j=1}^{n+m} \left( u^j \frac{\partial v^i}{\partial x^j}- v^j \frac{\partial u^i}{\partial x^j} \right).  \end{equation}
+
+\begin{itemize}
+
+\item При $1 \leq i \leq n$ формулы для компонент коммутатора на $M$ и $N$ совпадают: \[ [u, v]^i  = \sum_{j=1}^{m} \left( u^j \frac{\partial v^i}{\partial x^j}- v^j \frac{\partial u^i}{\partial x^j} \right),\]  поскольку по условию \begin{equation} \label{Eq:TangVectTangSubEqZero} u^j = v^j =0, \qquad 1 \leq j \leq n. \end{equation} 
+
+
+\item Пусть $i>m$. Покажем, что \[ [u, v]^i =0,\] это как раз и означает, что коммутатор $[u, v]$ касается $N$. По условию $u^i=v^i=0$ на поверхности $N$: \[ x^{m+1} = \operatorname{const}, \qquad \dots \qquad x^{n+m} = \operatorname{const}.\]  Вектора $\displaystyle \frac{\partial}{\partial x^1}, \dots,\frac{\partial}{\partial x^m}$ являются касательными векторами к этой поверхности. Поэтому \[\frac{\partial u^i}{\partial x^j} = \frac{\partial v^i}{\partial x^j}  =0, \qquad i>m, \quad 1 \leq j \leq m. \] С учетом \eqref{Eq:TangVectTangSubEqZero} все слагаемые в выражении для коммутатора \eqref{Eq:TangSubVectCommut} равны нулю.
+
+\end{itemize} 
+
+Задача~\ref{Prob:CommSubMan} решена. \end{proof}
+
+
+
+\begin{problem} \label{Prob:CommLineraVect} Векторное поле $v_A$ в $\mathbb{R}^n$ с декартовыми координатами $(x^1, \dots, x^n)$ называется линейным, если \[ v_A^i (x^1, \dots, x^n) = A^i_k x^k, \] где $A$--- некоторая постоянная матрица. Доказать, что коммутатор линейных векторных полей есть снова линейное векторное поле, и что 
+\[[v_A, v_B] = - v_{[A,B]}. \] \end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CommLineraVect}] 
+ Доказательство прямым вычислением: \begin{gather*} [v_A, v_B]^i = \left( A^j_k x^k \right) \frac{\partial \left(B^i_l x^l \right)}{\partial x^j} - \left( B^j_k x^k \right) \frac{\partial \left(A^i_l x^l \right)}{\partial x^j}  =\\  = \left( A^j_k B^i_j - B^j_k A^i_j \right) x^k = \left[B, A \right]^i_k x^k. \end{gather*} Задача~\ref{Prob:CommLineraVect} решена.  \end{proof} 
+
+
+
+
+
+
+
+
+\begin{problem}\label{Prob:CommObstTwoVectFields} Рассмотрим векторные поля \[\xi= y \frac{\partial}{\partial x} \qquad \text{и} \qquad \eta= \frac{\partial}{\partial y}\] на плоскости. Существуют ли локальные координаты $(u, v)$ в окрестности точки $x=1, y=1$ такие, что \[\xi=  \frac{\partial}{\partial u}, \qquad \text{и} \qquad \eta= \frac{\partial}{\partial v}.\] Иными словами, можно ли одновременно выпрямить векторные поля $\xi, \eta$ в окрестности точки $x=1, y=1$?
+\end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CommObstTwoVectFields}]  Нет, векторные поля $\xi$ и $\eta$ нельзя выпрямить, потому что их коммутатор не равен нулю \[ \left[y \frac{\partial}{\partial x},  \frac{\partial}{\partial y}\right] = \frac{\partial}{\partial x}\not= 0.\]  Коммутатор --- векторное поле, поэтому его равенство нулю не зависит от выбора координат. Задача~\ref{Prob:CommObstTwoVectFields} решена. 
+ \end{proof} 
+
+\begin{remark} Верен следующий общий факт. 
+
+\begin{theorem} Набор ненулевых векторных полей $v_1, \dots, v_k$ можно одновременно выпрямить в окрестности точки, т.е. можно найти такие локальные координаты $x^1, \dots, x^n$ т.,ч. \[ v_i = \frac{\partial}{\partial x^i}, \qquad  i=1, \dots, k, \] тогда и только тогда, когда эти векторные поля попарно коммутируют \[ [v_i, v_j] = 0.\] \end{theorem} 
+
+\end{remark} 
+
+
+
+
+\begin{problem} \label{Prob:CommJacobiIdentity}
+Доказать, что векторные поля на гладком многообразии $M$ удовлетворяют \textbf{тождеству Якоби }
+\begin{equation} \label{Eq:JacobiVectorField} [u, [v, w]] + [v, [w, u]] + [w, [u, v]] = 0.\end{equation}
+\end{problem} 
+
+\textit{Указание:} Можно доказать более общее утверждение --- тождеству Якоби удовлетворяет множество линейных операторов $\mathrm{End} (V)$ на любом линейном пространстве $V$. 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CommJacobiIdentity}]  Действительно, для любых линейных операторов $A, B, C$ \begin{gather*} [A, [B, C]] = ABC - ACB - BCA + CBA, \\ [B, [C, A]] = BCA - BAC - CAB + ACB, \\  [C, [A, B]] = CAB-  CBA - ABC + BAC.  \end{gather*} Складывая эти выражения, получаем ноль. Векторные поля --- линейные операторы на $C^{\infty}(M)$, поэтому для них тоже выполнено \eqref{Eq:JacobiVectorField}. Задача~\ref{Prob:CommJacobiIdentity} решена.  \end{proof} 
+
+
+%%%%%%%%%%%%%%%%%%%
+%\newpage
+
+
+
+
+
+
+\section{Тензор Нийенхейса}
+
+
+\begin{problem} \label{Prob:MSF8.23NijenTens}  Пусть $A^i_j$ --- тензорное поле типа $(1, 1)$ на многообразии $M$. Доказать, что формула  \begin{equation} \label{Eq:NijenTens} \footnotesize N(X, Y) = A^2\left[X, Y\right] -A\left[AX, Y\right]-A\left[X, A Y\right]+\left[AX, AY\right],\end{equation} где $X, Y$ --- векторные поля на $M$, определяет тензорное поле типа $(1, 2)$.  \end{problem} 
+
+
+\begin{definition} Тензор $N$, заданный формулой \eqref{Eq:NijenTens}, называется \textbf{тензором Нийенхейса} поля эндоморфизмов $A$.  \end{definition} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:MSF8.23NijenTens}] В локальных координатах $(x^1, \dots, x^n)$ на $M$ компоненты тензора $N$ задаются по формуле \begin{equation} \label{Eq:NijenTensLaw} N^k_{ij} = N\left(\partial_i, \partial_j\right)^k. \end{equation} Нужно доказать, что компоненты меняются по тензорному закону: \[ N^{k'}_{i'j'} = \frac{\partial x^{i}}{\partial x^{i'}} \frac{\partial x^{j}}{\partial x^{j'}} \frac{\partial x^{k'}}{\partial x^{k}}  N^k_{ij}. \]  Для этого достаточно доказать следующее утверждение.
+
+\begin{assertion} \label{A:NijenCInftyLin} Отображение $N(X, Y)$, заданное формулой~\eqref{Eq:NijenTens}, является $C^{\infty}(M)$ линейным по $X$ и $Y$, т.е. для любых векторных полей $X_i, Y_j$ \begin{align*} N(X_1 + X_2, Y) =N(X_1, Y) +N(X_2, Y), \\ N(X, Y_1 + Y_2) = N(X, Y_1) + N(X,Y_2),\end{align*} и для любых гладких функций $f$ и $g$ выполнено \begin{equation} \label{Eq:NijenCInftyLin}  N(fX, gY) = f gN(X, Y).\end{equation}  \end{assertion} 
+
+Действительно, формула \eqref{Eq:NijenTensLaw} следует из Утверждения~\ref{A:NijenCInftyLin}, поскольку тогда \[   N\left(\partial_{i'}, \partial_{j'}\right)^{k'} = N\left(\frac{\partial x^{i}}{\partial x^{i'}} \partial_{i}, \frac{\partial x^{j}}{\partial x^{j'}}  \partial_{j}\right)^{k'} =  \frac{\partial x^{i}}{\partial x^{i'}} \frac{\partial x^{j}}{\partial x^{j'}} \frac{\partial x^{k'}}{\partial x^{k}}  N\left(\partial_i, \partial_j\right)^k. \]
+
+
+\begin{proof}[Доказательство Утверждения~\ref{A:NijenCInftyLin}]  Нетривиальной является только формула~\eqref{Eq:NijenCInftyLin}. Для любых функций $f, g$ и любых векторных полей $X, Y$ выполнена следующая формула для коммутатора: \[ [f X, g Y] = fg [ X, Y] + fX(g) Y - g Y(f) X. \] 
+
+Поэтому в данном случае \begin{gather*} A^2[fX, gY] =fgA^2[X, Y] + f X(g) A^2 Y - g Y(f) A^2X,  \\  A[A\left(fX\right), gY] =fgA[AX, Y] + f AX(g) AY - g Y(f) A^2 X, \\ A[fX, A\left(gY\right)] =fgA[X,AY] + f X(g) A^2Y - g AY(f) A X, \\ [A\left( fX\right), A\left(g Y\right)] = f g[AX, AY] + fAX(g) AY - g AY(f) AX.  \end{gather*} Складывая эти равенства с нужными знаками, получаем \eqref{Eq:NijenCInftyLin}. Утверждение~\ref{A:NijenCInftyLin} доказано. \end{proof} 
+
+Задача~\ref{Prob:MSF8.23NijenTens} решена. \end{proof} 
+
+Тензор Нийенхейса $N_J$ естественным образом возникает в задачах о том, является ли поле эндоморфизмов  $J$  \textbf{интегрируемым}, т.е. существуют ли такие локальные координаты, в которых компоненты $J$ постоянны $J^i_j = \operatorname{const}$. Например, хорошо известна следующая Теорема~\ref{Th:NewlanderNirenberg}.
+
+\begin{definition} \textbf{Почти комплексная структура} на многообразии $M$ --- это тензорное поле $J$ типа $(1, 1)$ т.,ч. \[ J^2 = -\operatorname{id}. \]  \end{definition}
+
+\begin{theorem}[Теорема Ньюлендера-Ниренберга] \label{Th:NewlanderNirenberg}
+Почти комплексная структура $J$ интегрируема тогда и только тогда, когда её тензор Нийенхейса $N_J$ равен $0$.
+\end{theorem}
+
+
+\begin{remark} Аналогично решению Задачи~\ref{Prob:MSF8.23NijenTens} можно доказать, что тензор кривизны Римана $R^i_{j, kl}$, заданный формулой  \eqref{Eq:RiemTensInvDef}, является тензором типа $(1, 3)$. Опять же для этого достаточно доказать, что выражение \eqref{Eq:RiemTensInvDef} будет $C^{\infty}(M)$-линейно по всем своим аргументам. \end{remark} 
+
+
+

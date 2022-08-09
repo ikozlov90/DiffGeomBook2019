@@ -1,0 +1,221 @@
+
+\part{Аффинная связность и ковариантная производная}
+
+
+\chapter{Символы Кристоффеля}
+
+
+%\vspace{-2cm}
+
+
+
+Короткое описание понятий аффинной связности и тензора Римана дано в \cite{Miln65}.
+
+
+
+\section{Теоретический материал}
+
+%\vspace{-2cm}
+
+
+ На многообразии задана операция \textbf{ковариантного дифференцирования}, если в любой системе координат $x^1, \dots, x^n$ задан набор функций $\Gamma^i_{jk}(x)$, называемых \textbf{символами Кристоффеля}, которые при замене координат $x'=x'(x)$  преобразуются по формуле\footnote{Символы Кристоффеля --- не тензор.} \begin{equation}  \label{Eq:CristoffSymbCoordChange}  \Gamma^{i'}_{j'k'} = \Gamma^i_{jk} \frac{\partial x^{i'}}{\partial x^i }\frac{\partial x^{j}}{\partial x^{j'} } \frac{\partial x^k}{\partial x^{k'}}  + \frac{\partial x^{i'}}{\partial x^{i}} \frac{\partial^2 x^{i} }{\partial x^{j'} \partial x^{k'} }.\end{equation}
+
+
+В Разделе~\ref{S:CovarDeriv} дано определение ковариантной производной векторного произвольного векторного поля. В этом разделе мы укажем формулы для символов Кристоффеля, для которых ковариантая производная римановой метрики равна нулю. 
+
+\begin{itemize}
+
+	\item \textbf{Символы Кристоффеля} $\Gamma_{ij}^k$ выражаются через метрику \[ds^2 = \sum_{i,j} g_{ij} du^i du^j\] по формуле  \begin{equation} \label{Eq:CristMetr} \Gamma_{ij}^k = \sum_{\alpha} \frac{g^{k \alpha}}{2}\left( \frac{\partial g_{j \alpha}}{\partial u^{i}}  + \frac{\partial g_{\alpha i}}{\partial u^{j}}  -\frac{\partial g_{ij}}{\partial u^{\alpha}} \right), \end{equation} где $g^{ij}$ --- компоненты обратной матрицы $G^{-1}$ к матрице Грамма метрики $G = \left(g_{ij}\right)$.
+
+
+
+\item  Пусть $r(u^1, \dots, u^n)$ --- регулярная поверхность\footnote{Подчеркнем, что формула \eqref{Eq:RegSurfEuclCristSymb} верна для любого $N \geq n$, не только для гиперповерхностей.} $M^n$ в $\mathbb{R}^N$. Разложим вторые производные $r_{ij}$ на тангенциальную и нормальную составляющую к поверхности: \begin{equation} \label{Eq:RegSurfEuclCristSymb}  r_{ij} = \sum_{k} \Gamma_{ij}^k r_k + n_{ij}, \end{equation} где \[n_{ij} \perp T_x M \qquad \Leftrightarrow \qquad (n_{ij}, r_k ) =0 .\]  Коэффициенты $\Gamma_{ij}^k$ в разложении будут \textbf{символами Кристоффеля} поверхности $M^n$. 
+
+
+ 
+\end{itemize}
+
+Формула \eqref{Eq:CristMetr} более общая\footnote{Она годится для любой области с (псевдо)римановой метрикой. }, чем \eqref{Eq:RegSurfEuclCristSymb}, но обычно требует чуть больше вычислений. 
+
+
+
+
+
+
+\section{Вычисление символов Кристоффеля}
+
+
+
+\begin{problem} \label{Prob:CristSurfRevol} Вычислить символы Кристоффеля на поверхности вращения \[r(u, v) = \left(f(u) \cos{v}, f(u) \sin{v}, g(u) \right), \qquad \quad f(u) \geq 0. \]  \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:CristSurfRevol}. } Символы Кристоффеля: \[ \Gamma_{uu}^u = \frac{f' f'' + g' g''}{(f')^2 + (g')^2}, \quad \Gamma_{vv}^u = \frac{-f f'}{(f')^2 + (g')^2}, \quad \Gamma_{uv}^v = \Gamma_{vu}^v = \frac{f'}{f},\] \[\Gamma_{uu}^v = \Gamma_{uv}^u = \Gamma_{vu}^u = \Gamma_{vv}^v =0. \]
+ 
+ 
+ 
+ 
+\begin{proof}[Решение Задачи~\ref{Prob:CristSurfRevol}]   Найдём символы Кристоффеля как коэффициенты в разложения вторых производных $r(u,v)$ по базису $r_u, r_v, N$: 
+%\[ r_{ij} = \sum_{k} \Gamma_{ij}^k r_k + n_{ij}, \]
+\[ r_{ij} = \sum_{k} \Gamma_{ij}^k r_k + q_{ij}N. \]
+%\[ r_{uu} = \Gamma_{uu}^u r_u + \Gamma_{uu}^v r_v + q_{uu} N  \]
+%\[ r_{uv} = \Gamma_{uv}^u r_u + \Gamma_{uv}^v r_v + q_{uv} N  \]
+%\[ r_{vv} = \Gamma_{vv}^u r_u + \Gamma_{vv}^v r_v + q_{vv} N  \]
+
+
+\begin{itemize}
+
+
+\item Находим     %\footnote{Мы уже делали это ранее} 
+   канонические базисные вектора $r_u, r_v$: %и единичный вектор нормали к поверхности $N$
+   \begin{gather*} r_u = \left(f'(u)  \cos{v}, f'(u) \sin{v}, g'(u) \right), \\ r_v = \left( - f(u) \sin{v}, f(u) \cos{v}, 0 \right).\end{gather*}  %\[N = \frac{[r_u, r_v]}{\left| [r_u, r_v] \right|} = \frac{1}{\sqrt{f'^{\, 2} + g'^{\, 2} }} \left( - g' \cos{v}, - g'  \sin{v} ,  f'\right)  \] 
+
+\item Вычисляем вторые производные функции для функции $r(u,v)$: \begin{gather*} r_{uu} = \left(f''  \cos{v}, f'' \sin{v}, g'' \right), \\ r_{uv} = r_{vu}  = \left( - f' \sin{v}, f' \cos{v}, 0 \right), \\ r_{vv} = \left( - f \cos{v}, - f \sin{v}, 0 \right). \end{gather*} 
+
+
+
+\item Разложение вектора по базису ---   стандартная задача по линейной алгебре. Чтобы избавиться от коэффициента при $N$, рассмотрим скалярные произведения векторов $r_{ij}$ с базисными векторами $r_k$.  Например, для вектора $r_{uu}$ получим \begin{equation} \label{Eq:RuuDeriv} \begin{cases} (r_{uu}, r_u) = (r_u, r_u) \Gamma^u_{uu} + (r_u, r_v) \Gamma^v_{uu},  \\ (r_{uu}, r_v) = (r_u, r_v) \Gamma^u_{uu} + (r_v, r_v) \Gamma^v_{uu}.  \end{cases} \end{equation}
+
+\item Из системы уравнений \eqref{Eq:RuuDeriv} находим $\Gamma^u_{uu}$ и  $\Gamma^v_{uu}$. Аналогично находятся остальные символы Кристоффеля.
+
+\item  В общем случае, уравнения на $\Gamma_{ij}^k$ будут иметь вид \[\begin{pmatrix}  \Gamma^1_{ij} \\ \vdots \\ \Gamma^n_{ij} \end{pmatrix} = G^{-1}\begin{pmatrix}  (r_{ij}, r_1) \\ \vdots  \\ (r_{ij}, r_n) \end{pmatrix},  \] где матрица $G$ --- это матрица первой квадратичной формы. Для поверхности вращения она диагональная, поэтому символы Кристоффеля находятся особенно просто. 
+
+
+
+\end{itemize}
+
+Задача~\ref{Prob:CristSurfRevol} решена. \end{proof}
+
+
+
+
+\begin{problem} \label{Prob:CristoffRotatSurfMetr} Найти символы Кристоффеля метрики \[ds^2 = \left((f'(u))^2+(g'(u))^2 \right) du^2 + f^2(u) dv^2 \]\end{problem}
+
+\textit{Ответ в Задаче~\ref{Prob:CristoffRotatSurfMetr}.} Такой же, как и в Задаче \ref{Prob:CristSurfRevol}.
+
+\begin{proof}[Решение Задачи~\ref{Prob:CristoffRotatSurfMetr}]  Применим формулу \eqref{Eq:CristMetr}. Чтобы не запутаться, будем использовать для координат обозначения $u, v$ (а не $1,2$).
+
+
+
+%, выражающую символы Кристоффеля через метрику. \begin{equation} \label{Eq:CristMetr} \Gamma_{ij}^k = \sum_{\alpha} \frac{g^{k \alpha}}{2}\left( \frac{\partial g_{j \alpha}}{\partial u^{i}}  + \frac{\partial g_{\alpha i}}{\partial u^{j}}  -\frac{\partial g_{ij}}{\partial u^{\alpha}} \right) \end{equation} 
+
+
+\begin{itemize}
+
+
+\item В данном случае матрица Грама имеет вид \[G = \left( \begin{matrix} (f'(u))^2+(g'(u))^2 & 0 \\ 0 & f^2(u)  \end{matrix} \right), \] и ненулевые коэффициенты метрики равны \[ g_{uu} =(f'(u))^2+(g'(u))^2, \qquad g_{vv} = f^2(u).  \]
+
+\item Находим обратную матрицу \[ G = \left( \begin{matrix} \left( (f'(u))^2+(g'(u))^2 \right)^{-1} & 0 \\ 0 & f^{-2}(u) \end{matrix} \right). \] Таким образом ненулевые коэффициенты обратной матрицы имеют вид \[ g^{uu} = \frac{1}{\left( (f'(u))^2+(g'(u))^2 \right)}, \qquad g^{vv} = \frac{1}{f^2(u)}.\]
+
+\item Остаётся подставить найденные коэффициенты $g_{ij}$ и $g^{ij}$ в формулу \eqref{Eq:CristMetr}. Для примера сделаем это для коэффициента $\Gamma_{uv}^v$: \begin{gather*}  \Gamma_{uv}^v = \frac{g^{vu }}{2}\left( \frac{\partial g_{v u}}{\partial u}  +\frac{\partial g_{uu }}{\partial v}  -\frac{\partial g_{uv}}{\partial u} \right) +  \\ +  \frac{g^{vv }}{2}\left( \frac{\partial g_{v v}}{\partial u}  + \frac{\partial g_{vu }}{\partial v}  -\frac{\partial g_{uv}}{\partial v} \right) =\\= 0+  \frac{1}{2 f^2(u)} \left( \frac{\partial f^2(u) }{\partial u}  + 0 - 0\right)  =\frac{f'}{f}. \end{gather*}  Многие коэффициенты равны $0$, что упрощает вычисление. Остальные символы Кристоффеля находятся аналогично. \end{itemize} Задача~\ref{Prob:CristoffRotatSurfMetr} решена. \end{proof}
+
+
+
+
+
+
+
+
+
+\section[Некоторые свойства символов Кристоффеля]{Некоторые свойства символов \\ Кристоффеля}
+
+\begin{problem} \label{Prob:DiffCristoffSymbTensor} Доказать, что разность \[\Gamma_{ij}^k - \hat{\Gamma}_{ij}^k\] символов Кристоффеля двух связностей $\nabla$ и $\hat{\nabla}$ образует тензорное поле типа $(1,2)$, и что любое тензорное поле типа $(1,2)$ может быть представлено таким образом.  \end{problem} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:DiffCristoffSymbTensor}] Задача следует из \eqref{Eq:CristoffSymbCoordChange}.
+
+\begin{itemize}
+
+\item Разность $\Gamma_{ij}^k - \hat{\Gamma}_{ij}^k$ --- тензор типа $(1, 2)$, поскольку в формуле \eqref{Eq:CristoffSymbCoordChange} исчезает нетензорное слагаемое: \[\Gamma^{i'}_{j'k'}- \hat{\Gamma}^{i'}_{j'k'} = \left( \Gamma^i_{jk} - \hat{\Gamma}^i_{jk}  \right)\frac{\partial x^{i'}}{\partial x^i }\frac{\partial x^{j}}{\partial x^{j'} } \frac{\partial x^k}{\partial x^{k'}}.  \] 
+
+\item Для любого тензора $T^i_{jk}$ типа $(1, 2)$ сумма $\Gamma^i_{jk}+T^i_{jk}$ --- тоже символы Кристоффеля, потому что при замене координат они меняются по формуле~\eqref{Eq:CristoffSymbCoordChange} \[\Gamma^{i'}_{j'k'} + T^{i'}_{j'k'} = \left( \Gamma^i_{jk} +T^{i}_{jk}\right) \frac{\partial x^{i'}}{\partial x^i }\frac{\partial x^{j}}{\partial x^{j'} } \frac{\partial x^k}{\partial x^{k'}}  + \frac{\partial x^{i'}}{\partial x^{i}} \frac{\partial^2 x^{i} }{\partial x^{j'} \partial x^{k'} }.\] 
+
+\end{itemize} Задача~\ref{Prob:DiffCristoffSymbTensor} решена. \end{proof} 
+
+
+
+\begin{problem}  \label{Prob:CristoffSymbContract} Доказать следующее равенство  \[ \Gamma^i_{ij}=\frac{1}{2} g^{is}\frac{\partial g_{is}}{\partial x^j}=\frac{1}{2g} \frac{\partial g}{\partial x^j} = \frac{\partial \ln \sqrt{|g|}}{\partial x^j}, \] где $g = \textrm{det} \left( g_{ij} \right)$. \end{problem} %Везде в формуле подразумевается суммирование по повторяющимся верхним и нижним индексам. 
+
+\begin{proof}[Решение Задачи~\ref{Prob:CristoffSymbContract} ] По очереди докажем требуемые равенства:
+
+
+\begin{itemize}
+
+\item Первое равенство \[ \Gamma^i_{ij}=\frac{1}{2} g^{is}\frac{\partial g_{is}}{\partial x^j} \]   следует из формулы для символов Кристоффеля \eqref{Eq:CristMetr}. В данном случае \[  \Gamma_{ij}^i =\frac{g^{i \alpha}}{2}\left( \frac{\partial g_{j \alpha}}{\partial x^{i}}  + \frac{\partial g_{\alpha i}}{\partial x^{j}}  -\frac{\partial g_{ij}}{\partial x^{\alpha}} \right) = \frac{g^{i \alpha}}{2} \frac{\partial g_{\alpha i}}{\partial x^{j}}.   \] Слагаемые \[ \frac{g^{i \alpha}}{2} \frac{\partial g_{j \alpha}}{\partial x^{i}} \qquad \text{и} \qquad   -\frac{g^{i \alpha}}{2}\frac{\partial g_{ij}}{\partial x^{\alpha}}   \] сокращаются, т.к. $g_{ij} = g_{ji}$, и  сумма не зависит от обозначения индексов суммирования. 
+
+\item Докажем второе равенство \[\frac{1}{g} \frac{\partial g}{\partial x^j}  =   g^{is}\frac{\partial g_{is}}{\partial x^j}.\]
+Определитель $g =\det\left(g_{ij}\right)$ --- функция от компонент матрицы $g_{ij}$. Поэтому по формуле для производной сложной функции
+\[ \frac{\partial g}{\partial x^j} = \frac{\partial g}{\partial g_{is}} \frac{\partial g_{is}}{\partial x^j}. \] Таким образом остаётся доказать, что \begin{equation} \label{Eq:MetricDetDeriv}  g^{is} = \frac{1}{g}  \frac{\partial g}{\partial g_{is}}. \end{equation} Это комбинация следующих известных утверждений о матрицах.
+
+
+
+
+\begin{assertion} \label{A:MatrxDetInverseFacts} Для любой матрицы \[ A = \left(\begin{matrix} a_{11} & \dots & a_{1n} \\ \vdots & \ddots & \vdots  \\ a_{n1} & \dots & a_{nn} \end{matrix} \right) \] 
+
+
+\begin{enumerate}
+
+\item определитель $\det A$ является многочленом от компонент матрицы $a_{ij}$, при этом \begin{equation} \label{Eq:DetMatrixDeriv}  \frac{\partial \det A}{\partial a_{ij}} = A_{ij}, \end{equation} где $A_{ij}$ --- это алгебраическое дополнение к элементу $a_{ij}$ матрицы $A$;
+
+\item элементы обратной матрицы --- это алгебраические дополнения $A_{ji}$, делённые на определитель: \[{\displaystyle A^{-1}={\frac {1}{\det(A)}}\operatorname {adj} (A)}, \qquad  \text{где } \qquad \operatorname {adj} (A)_{ij} = A_{ji}.\]
+
+\end{enumerate}
+
+\end{assertion} 
+
+
+\begin{proof}[Доказательство Утверждения~\ref{A:MatrxDetInverseFacts}] Формула \eqref{Eq:DetMatrixDeriv} выполнена, потому что определитель можно разложить по строке/столбцу: \[{\displaystyle \det A=\sum _{j=1}^{n}a_{ij}A_{ij}=\sum _{i=1}^{n}a_{ij}A_{ij}}.\] Остальные факты общеизвестны. Утверждение \ref{A:MatrxDetInverseFacts} доказано. \end{proof}
+
+Формула \eqref{Eq:MetricDetDeriv} вытекает из Утверждения \ref{A:MatrxDetInverseFacts}, если учесть, что $g_{ij} =g_{ji}$ (и  поэтому $g^{ji} = g^{ij}$).
+
+
+\item Третье равенство очевидно.
+
+\end{itemize}
+
+
+
+Все равенства доказаны. Задача~\ref{Prob:CristoffSymbContract} решена. \end{proof}
+
+
+
+
+\section[{Символы Кристоффеля для стандартных метрик}]{Символы Кристоффеля для \\ стандартных метрик}
+
+
+
+\begin{enumerate}
+
+
+
+\item Цилиндрическая система координат $(r, \varphi, z)$ в $\mathbb{R}^3$: \[ds^2 = dr^2 + r^2 d\varphi^2 + dz^2. \]
+
+
+Ненулевые символы Кристоффеля: \[ \Gamma_{\varphi \varphi }^r = - r, \qquad \Gamma_{\varphi r}^\varphi = \Gamma_{r \varphi}^\varphi = \frac{1}{r}.\]
+
+Для полярной системы координат $(r, \varphi)$ на плоскости $\mathbb{R}^2$ ответ такой же.
+
+
+
+
+\item Сферическая система координат $(r, \theta, \varphi)$ в $\mathbb{R}^3$: \[ds^2 = dr^2 + r^2 d\theta^2 + r^2 \sin^2{\theta} d\varphi^2. \]
+
+
+Ненулевые символы Кристоффеля: \begin{gather*} \Gamma_{\theta \theta }^r = - r, \qquad \Gamma_{\theta r}^\theta = \Gamma_{r \theta}^\theta = \frac{1}{r},  \\ \Gamma_{\varphi \varphi }^r = - r \sin^2{\theta} , \qquad \Gamma_{\varphi r}^\varphi = \Gamma_{r \varphi}^\varphi = \frac{1}{r}, \\ \Gamma_{\varphi \varphi }^\theta = - \sin{\theta} \cos{\theta} , \qquad \Gamma_{\varphi \theta}^\varphi = \Gamma_{\theta \varphi}^\varphi = \ctg{\theta}.\end{gather*}
+
+\item Полугеодезическая система координат на  плоскости $\mathbb{R}^2$: \[ds^2 = du^2 + B(u, v)dv^2.\]
+
+
+
+
+Ненулевые символы Кристоффеля: \[ \Gamma_{vv}^u = - \frac{B_u }{2 }, \qquad \Gamma_{uv}^v = \Gamma_{vu}^v = \frac{B_u }{2B}, \qquad \Gamma_{vv}^v =  \frac{B_v }{2B}. \]
+
+
+\item Конформная (изотермическая) система координат на  плоскости $\mathbb{R}^2$: \[ds^2 = \lambda(u, v)(du^2+dv^2).\]
+
+Ненулевые символы Кристоффеля: \begin{align*} \Gamma_{uu}^u = \frac{\lambda'_u }{2\lambda }, &\qquad \Gamma_{uv}^u = \Gamma_{vu}^u = \frac{\lambda'_v }{2\lambda }, & \qquad \Gamma_{vv}^u = - \frac{\lambda'_u }{2\lambda }, \\  \Gamma_{uu}^v = -\frac{\lambda'_v }{2\lambda }, & \qquad \Gamma_{uv}^v = \Gamma_{vu}^v = \frac{\lambda'_u }{2\lambda }, & \qquad \Gamma_{vv}^v =  \frac{\lambda'_v }{2\lambda }.  \end{align*}
+
+
+
+
+
+\end{enumerate}
+

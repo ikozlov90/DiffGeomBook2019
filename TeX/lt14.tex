@@ -1,0 +1,68 @@
+
+\appendix
+
+\chapter{Соглашения и договорённости}
+
+
+В различных книгах и статьях в некоторых формулах могут использоваться другие знаки или коэффициенты. 
+
+%Соглашения о знаках:
+
+
+\begin{enumerate}
+
+\item   Операции \textbf{внешнего произведения} и альтернирования связаны следующим образом: \begin{gather*} dx^{i_1} \wedge \dots \wedge dx^{i_k} = k! \, \mathrm{Alt } \left(  dx^{i_1} \otimes \dots \otimes dx^{i_k}\right) =\\= \sum_{ \sigma \in S_k} \mathrm{sgn}(\sigma) dx^{i_{\sigma(1)}} \otimes \dots \otimes dx^{i_{\sigma(k) }}. \end{gather*}
+
+Другими словами, значение внешнего произведения ковекторов $\alpha^i$ на наборе векторов $v_j$ --- это определитель $\mathrm{det} \left(\langle \alpha^i, v_j \rangle \right) $: \[ \alpha^1 \wedge \dots \wedge \alpha^k \left( v_1, \dots, v_k  \right) = \left| \begin{matrix} \langle \alpha^1, v_1 \rangle & \dots &   \langle \alpha^1, v_k \rangle \\ \vdots & \ddots &   \vdots \\ \langle \alpha^k, v_1 \rangle & \dots &   \langle \alpha^k, v_k \rangle   \end{matrix} \right|. \] 
+
+
+
+\item  С другой стороны, \textbf{симметрическое произведение} определяется как \[ e^{i_1} \odot \dots  \odot e^{i_k}= \Sym \left( e^{i_1} \otimes  \dots \otimes e^{i_k} \right),\]  где \[ (\Sym \, T)_{i_1 \dots i_k}  = \sum_{\sigma \in S_k}\frac{1}{k!} T_{i_{\sigma(1)}, \dots, i_{\sigma(k)}}.\]
+
+Как следствие \[T_{1}\odot T_{2}=\operatorname {Sym}(T_{1}\otimes T_{2}).\] 
+
+
+\item  \textbf{Коммутатор  векторных полей} --- это коммутатор соответствующих дифференциальных операторов: \[ [u, v](f) := u(v(f) - v(u(f)). \]  
+
+\item  \textbf{Ориентация} края $\partial M$ согласована с ориентацией $M$ следующим образом:
+
+ \begin{itemize}
+ 
+  \item  если касательные вектора $v_1, \dots, v_{n-1}$ задают положительную ориентацию границы $\partial M$, 
+  
+  \item то  положительную ориентацию $M$ задаёт базис \[N, v_1, \dots, v_{n-1},\] где $N$ --- вектор внешней нормали.
+  
+  \end{itemize}
+  
+  Как следствие, \textbf{формула Стокса} имеет вид \[ \int_{M^n} d \omega = \int_{\partial M^n} \omega.  \] 
+
+\item  \textbf{Символы Кристоффеля} для аффинной связности $\nabla$ в локальных координатах  $(x^1, \dots, x^n)$ определяются как \[ \displaystyle \Gamma^i_{jk} =\left( \nabla_{\frac{\partial}{\partial x^j} }\frac{\partial}{\partial x^k} \right)^i. \] Как следствие, мы получаем следующие формулы:
+
+ \begin{enumerate}
+ 
+  \item \textbf{Ковариантная производная} векторного поля имеет вид \[\left(\nabla_X Y\right)^i = X^j  \left( \frac{\partial Y^i}{\partial x^j} + \Gamma^i_{jk} Y^k \right). \]  
+
+\item \textbf{Тензор кручения} $T_{ij}^k = \Gamma_{ij}^k - \Gamma_{ji}^k$ задаётся формулой \[ T(X,Y)=\nabla _{X}Y-\nabla _{Y}X-[X,Y]. \]
+
+
+\end{enumerate}
+
+
+\item \textbf{Тензор Римана} задаётся формулой  \[R(X,Y)Z=\nabla_X\nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]} Z.\] Компоненты $R^i_{j,kl}$, заданные формулой \[R(X, Y) Z = R^i_{j,kl} X^k Y^l Z^j \frac{\partial}{\partial x^i},\] имеют вид \[  R^{i}_{j, kl} = \frac{\partial \Gamma^{i}_{lj}}{\partial x^k } - \frac{\partial \Gamma^{i}_{kj}}{\partial x^l } +  \Gamma^{i}_{k s}\Gamma^{s}_{lj }   - \Gamma^{i}_{l s}\Gamma^{s}_{ kj }.  \] 
+
+
+\begin{enumerate}
+
+\item \textbf{Тензор Риччи}  \[R_{ij} = R^s_{i, s j}.\] 
+
+
+
+\item \textbf{Скалярная кривизна} \[R = R^i_i = g^{ij} R_{ji}.\] 
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+
+

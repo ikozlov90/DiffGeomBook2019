@@ -1,0 +1,375 @@
+
+
+\chapter{Параллельный перенос и геодезические} \label{S:ParallTransp}
+
+\section{Теоретический материал}
+
+\subsection{Параллельный перенос}
+
+
+ Пусть $M$ --- многообразие с заданной на нём аффинной связностью $\nabla$.  
+
+\begin{definition} Векторное поле $X$ \textbf{параллельно} вдоль кривой $\gamma(t)$ на $M$, если \[\nabla_{\dot{\gamma}(t)} X =0.\] 
+\end{definition}
+
+
+
+
+\begin{itemize}
+
+
+\item В локальных координатах условие параллельности задаётся системой дифференциальных уравнений первого порядка \[ \frac{d X^i}{dt} + \Gamma^i_{jk} \dot{\gamma}^j X^k =0. \]
+
+\item По теореме Пикара-Лефшеца любой касательный вектор $X_{t_0} \in T_{\gamma(t_0)} M$ может быть единственным образом продолжен до параллельного векторного поля $X_t$ вдоль $\gamma(t)$. 
+
+
+\item Говорят, что вектор ${\displaystyle X_{t}\in T_{\gamma (t)}(M)}$ получен в результате \textbf{параллельного переноса} вектора ${\displaystyle X_{t_0}\in T_{\gamma (t_0)}(M)}$.
+
+\end{itemize}
+
+
+\subsection{Геодезические}
+
+
+\begin{definition} Кривая $\gamma(t)$ --- \textbf{геодезическая}, если \[\nabla _{{{\dot  \gamma }}}{\dot  \gamma }=0.\]
+\end{definition} Иными словами, кривая $\gamma(t) =\left( \gamma^1(t), \dots, \gamma^n(t) \right) $ является геодезической тогда и только тогда, когда она удовлетворяет уравнению геодезических \begin{equation} \label{Eq:GeodEq} \frac{d^2 \gamma^i}{dt^2 }  + \sum_{j, k} \Gamma^i_{jk}  \frac{d\gamma^j}{dt}  \frac{d\gamma^k}{dt} =0, \qquad i =1 \dots, n   \end{equation} Отметим, что \eqref{Eq:GeodEq} --- это система из $n$ дифференциальных уравнений второго порядка. В двумерном случае уравнения геодезических имеют следующий вид: \[ \begin{cases} \displaystyle  \ddot{u} + \Gamma^u_{uu} \dot{u}^2 + 2\Gamma^u_{uv} \dot{u} \dot{v}  + \Gamma^u_{vv}  \dot{v}^2 =0, \vspace{5mm} \\  %
+\displaystyle   \ddot{v}  + \Gamma^v_{uu} \dot{u}^2  + 2\Gamma^v_{uv} \dot{u} \dot{v}  + \Gamma^v_{vv} \dot{v}^2 =0. \end{cases} \]
+
+
+
+Из теоремы существования и единственности решения дифферециального уравнения следует, что через любую точку в любом направлении проходит единственная геодезическая.
+
+
+\begin{theorem}\label{cor:ExUnGeod}
+Пусть $M$ --- регулярная гиперповерхность, $P$ --- ее произвольная точка и $v\in{T_PM}$ --- произвольный касательный вектор к $M$ в точке $P$.  Тогда на $M$ существует геодезическая $\gamma(t)$ т.,ч. \[ \gamma(0) =P, \qquad \dot{\gamma}(0) = v.\] Более того, геодезическая $\gamma$ единственна  в том смысле, что любые две такие геодезических совпадают в пересечении областей определения.
+\end{theorem}
+
+
+
+
+\begin{problem} \label{Prob:GeodParamCNatural} Доказать следующие утверждения.
+
+\begin{enumerate}
+
+\item Длина вектора скорости геодезической постоянна. 
+
+\item Если $\gamma(t)$ --- геодезическая, то для любой константы $c\in \mathbb{R}$ кривая $\gamma(ct)$ тоже геодезическая.
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:GeodParamCNatural}]
+
+\begin{enumerate}
+
+\item  Достаточно продифференцировать скалярный квадрат вектора скорости и воспользоваться формулой для разложения вектора ускорения  \[ \frac{d}{dt}\left(\dot{\gamma},\dot{\gamma} \right)  =\nabla_{\dot{\gamma}} \left(\dot{\gamma},\dot{\gamma} \right)   = 2\left( \nabla_{\dot{\gamma}} \dot{\gamma},\dot{\gamma}\right) =0. \]
+
+\item Легко видеть, что \[\nabla_{\dot{\gamma}(ct)} \dot{\gamma}(ct) = c^2  \nabla_{\dot{\gamma}} \dot{\gamma}  =0.\] 
+
+\end{enumerate}
+
+Задача~\ref{Prob:GeodParamCNatural} решена. \end{proof}
+
+
+
+\section{Параллельный перенос.}
+
+
+\begin{problem} \label{Prob:ParallTranspRn} Найти результат параллельного переноса вектора $v$ вдоль кривой $\gamma(t)$ в евклидовом пространстве $\mathbb{R}^n$. \end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ParallTranspRn}]  В $\mathbb{R}^n$ все символы Кристоффеля нулевые $\Gamma^i_{jk}=0$, поэтому любое постоянное векторное поле ковариантно постоянно. Поэтому вектор будет переноситься обычным паралелльным переносом. Задача~\ref{Prob:ParallTranspRn} решена. \end{proof} 
+
+\begin{problem} \label{Prob:ParallTransSphere} Описать явно уравнение параллельного переноса вдоль 
+
+\begin{enumerate}
+
+\item параллели на сфере;
+
+\item меридиана на сфере,
+
+\end{enumerate}
+
+и решить их.
+
+
+\end{problem} 
+
+
+\textit{Ответ в Задаче~\ref{Prob:ParallTransSphere}.} Рассмотрим сферические координаты $(\varphi, \theta)$ на сфере (где $\theta$ --- угол с осью $z$). 
+
+\begin{enumerate}
+
+\item  Для параллели \[ \varphi(t) = t, \qquad \theta(t) = \theta_0 \] уравнения параллельного переноса имеют вид \begin{equation} \label{Eq:ParallTranSphereParal} \begin{cases}\displaystyle \frac{d X^{\theta}}{dt} - \sin{\theta_0}  \cos{\theta_0}  X^{\varphi} =0, \\ \displaystyle \frac{d X^{\varphi}}{dt} + \ctg{\theta_0}  X^{\theta} =0.  \end{cases}  \end{equation} Общее решение этих уравнений \begin{gather*} X^{\theta} = -C_1 \sin{\theta_0} \cos{\left(t \cos{\theta_0 + C_2}\right)}, \\  X^{\varphi} = -C_1 \sin{\left(t \cos{\theta_0 + C_2}\right)}.\end{gather*}
+
+
+\item Для меридиана \[ \varphi(t) = \varphi_0, \qquad \theta(t) = t \] уравнения параллельного переноса имеют вид \begin{equation} \label{Eq:ParallTranSphereMerid} \begin{cases}\displaystyle \frac{d X^{\theta}}{dt} = 0, \\ \displaystyle \frac{d X^{\varphi}}{dt} + \ctg{t} \,  X^{\varphi} =0.  \end{cases}  \end{equation} Общее решение этих уравнения \[X^{\theta} = C_1 \frac{1}{\sin{t}}, \qquad  X^{\varphi} = C_2.\]
+
+
+\end{enumerate}
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ParallTransSphere}] 
+ В обоих случаях нужно честно написать уравнения параллельного переноса  \[ \frac{d X^i}{dt} + \Gamma^i_{jk} \dot{\gamma}^j X^k =0. \] Для сферы (ненулевые) символы Кристоффеля имеют вид \[ \Gamma^{\theta}_{\varphi \varphi} = - \cos{\theta} \sin{\theta}, \qquad  \Gamma^{\varphi}_{\varphi \theta} =  \Gamma^{\varphi}_{ \theta \varphi} = \ctg{\theta}, \] потому что в сферических координатах $\left( \varphi, \theta \right)$ метрика на сфере (единичного радиуса) равна \[ds^2 = d\theta^2 + \sin^2{\theta} d \varphi^2.  \] 
+
+Дифференциальные уравнения \eqref{Eq:ParallTranSphereParal} и \eqref{Eq:ParallTranSphereMerid} решаются стандартными методами. Отметим, что уравнение \eqref{Eq:ParallTranSphereParal} эквивалентно \[  \begin{cases}\displaystyle \ddot{X}^{\varphi}+ \cos^2{\theta_0}  X^{\varphi} =0, \\ \displaystyle X^{\theta} = - \tg{\theta_0} \, \dot{X}^{\varphi}, \end{cases}  \]  а нетривиальная часть уравнения \eqref{Eq:ParallTranSphereMerid} эквивалентна \[ d \ln{X^{\theta}} = d \ln \frac{1}{\sin{t}}. \]
+
+\end{proof}
+
+
+
+\begin{remark} Для меридиана параллельный перенос можно описать, не проводя вычислений:
+
+\begin{itemize}
+
+\item Из соображений симметрии единичный касательный вектор к меридиану при параллельном переносе перейдет в себя (меридиан --- геодезическая, т.е. удовлетворяет уравнению $\nabla_{\dot{\gamma}} \dot{\gamma} =0$).
+
+\item При параллельном переносе на римановом многообразии сохраняется скалярное произведение (и сохраняется ориентация на ориентированном многообразии). Поэтому при параллельном переносе сохраняются углы и длины векторов. 
+
+\item Значит вектор длины $l$, имеющий угол $\alpha$ с параллелью, перейдет в вектор той же длины, имеющий тот же угол.
+
+\end{itemize}
+
+\end{remark}
+
+
+
+
+
+
+
+
+\section{Нахождение геодезических}
+
+
+\begin{problem} \label{Prob:GeodIsom}
+Пусть $F:M\to M$ --- некоторая изометрия, переводящая риманово многообразие $M$ в себя, и регулярная кривая $\gamma\subset M$ совпадает со множеством неподвижных точек изометрии $F$, т.е. $\gamma=\left\{x\in M| F(x)=x \right\}$.  Докажите, что в этом случае кривая $\gamma$ --- геодезическая на $M$.
+\end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:GeodIsom}] 
+
+Через любую точку риманова многообразия в любом направлении проходит единственная геодезическая. Рассмотрим геодезическую $\hat{\gamma}$, проходящую через точку кривой $\gamma(t)$ в направлении её касательного вектора $\dot{\gamma}(t)$. 
+
+Изометрия переводит геодезические в геодезические\footnote{Изометрия сохраняет метрику, а, следовательно, и символы Кристоффеля с уравнениями геодезических.}. Поэтому $F(\hat{\gamma})$ --- тоже геодезическая. С другой стороны, изометрия сохраняет точку геодезической $\gamma(t)$ и её касательный вектор $\dot{\gamma}(t)$. Значит, геодезическая перешла в себя. Все точки геодезической $\hat{\gamma}$ неподвижны, и, значит, $\hat{\gamma} = \gamma$. Задача~\ref{Prob:GeodIsom} решена. \end{proof}
+
+Сечение сферы плоскостью, проходящей через центр сферы, называется \textbf{большой окружностью}\footnote{Иногда используется другой термин --- ``большой круг''}.
+
+\begin{problem} \label{Prob:SphereGeod} Доказать, что геодезические сферы --- это большие окружности и только они.
+\end{problem}
+
+
+%Не существует общего метода решения уравнений геодезических. Фактически единственный способ это сделать --- это найти интеграл или симметрию. 
+
+
+%This differential equation is not very easy to solve in general case. On the other hand use the fact that rotations are isometries of the sphere
+
+Уравнения геодезических --- довольно непростое дифференциальное уравнение. Для его решения на практике обычно нужно либо найти хорошие координаты, либо воспользоваться симметриями многообразия, либо угадать первый интеграл. 
+ 
+  
+
+\begin{proof}[Первое решение Задачи~\ref{Prob:SphereGeod} ] 
+ Попробуем честно решить уравнения геодезических. 
+
+В сферических координатах $(\Theta, \varphi)$ метрика имеет вид $ds^2 = d\Theta^2 + \sin^2{\Theta} d\varphi^2$. Символы Кристоффеля при этом равны \[ \Gamma^{\Theta}_{\varphi \varphi} = - \sin{\Theta} \cos{\Theta}, \qquad  \Gamma^{\varphi}_{\varphi \Theta} =\Gamma^{\varphi}_{\Theta \varphi }  = \ctg{\Theta} \] Получаем уравнения геодезических 
+\[ \begin{cases}   \ddot{\Theta} - \sin{\Theta} \cos{\Theta} \dot{\varphi}^2 = 0 , \\ \ddot{\varphi} +2 \ctg{\Theta} \dot{\varphi} \dot{\Theta} = 0. \end{cases} \]
+Можно (хотя и не так просто) показать, что общее решение уравнений геодезических имеет вид
+\[ \ctg{\Theta} = a \cos{(\varphi - \varphi_0)} \]
+
+Чтобы не возиться с этим уравнением, воспользуемся симметричностью сферы:
+
+\begin{itemize}
+
+\item Угадываем частное решение. Легко видно, что при \[\Theta(0) = \frac{\pi}{2}, \qquad \dot{\Theta}(0) = 0\] геодезическая --- это кривая $\Theta = \frac{\pi}{2}$, т.е. экватор.
+
+\item Вращения задают изометрии сферы. Группа вращений пространства $\mathrm{SO}(3)$  транзитивно действует на сфере (любую точку можно перевести в любую другую). Более того, при помощи вращения можно перевести любой касательный вектор на сфере в любой другой касательный вектор. Поэтому все остальные геодезические получаются из экватора вращениями.  Значит, геодезические --- большие круги и только они.
+
+\end{itemize}
+
+Задача~\ref{Prob:SphereGeod} решена. \end{proof}
+
+
+
+
+\begin{proof}[Второе решение Задачи~\ref{Prob:SphereGeod} ] 
+Можно воспользоваться  Задачей \ref{Prob:GeodIsom}. Каждая большая окружность --- это множество точек сферы, остающихся неподвижными при симметрии относительно соответствующей плоскости, проходящей через начало координат. Задача~\ref{Prob:SphereGeod} решена. \end{proof}
+
+
+
+
+
+
+\begin{problem} \label{Prob:NumGeod2PointsExamples} Привести пример многообразия $M$, у которого
+
+\begin{enumerate}
+
+\item существуют две точки, через которые проходят различные геодезические;
+
+\item существуют две точки, которые нельзя соединить геодезической.
+
+%\item существует трансверсально самопересекающаяся геодезическая. 
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{proof}[Решение  Задачи~\ref{Prob:NumGeod2PointsExamples}]
+
+\begin{enumerate}
+
+\item Можно взять сферу $S^2$ и полюса на ней.
+
+\item Можно взять кольцо на плоскости, и точки, которые нельзя в кольце соединить отрезком.
+
+\end{enumerate}
+
+Задача~\ref{Prob:NumGeod2PointsExamples} решена. \end{proof}
+
+
+
+
+%\begin{problem} Рассмотрим нормальные координаты на стандартной двумерной сфере. Как устроена максимальная область определения нормальной системы координат?  \end{problem}
+
+
+
+\begin{problem} \label{Prob:GeodChainConnect} Доказать, что любые две точки связного многообразия можно соединить ``ломаной'' (т.е. кривой, состоящей из конечного числа отрезков геодезических). %Привести пример связного многообразия, на котором не любые две точки можно соединить геодезической. 
+\end{problem} 
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:GeodChainConnect}]  Любые две достаточно близкие точки можно соединить (кратчайшей) геодезической. Поэтому множество точек $Ox$, куда можно прийти из точки $x \in M$ по ``геодезической ломаной'' --- открытое множество. Связное многообразие не может распасться в дизъюнкное объединение нескольких нетривиальных открытых множеств. Задача~\ref{Prob:GeodChainConnect} решена. \end{proof}
+
+
+
+\section[Геодезические на поверхности Лиувилля]{Геодезические на поверхности \\ Лиувилля}
+
+\begin{problem} \label{Prob:GeodLoiuv} Показать, что на области с метрикой \[ ds^2 = (\varphi(u) + \psi(v)) (du^2 + dv^2) \] (\textbf{поверхность Лиувилля}) геодезические определяются уравнением  \begin{equation} \label{Eq:LiouvGeodEqAns} \frac{du}{\sqrt{\varphi(u) + a}}  \pm \frac{dv}{\sqrt{\psi(v) - a}} = 0, \end{equation} где а --- произвольная постоянная. \end{problem}
+
+\begin{remark} Это ``симметричная'' форма записи выполнения одного из двух уравнений \[\left(\frac{dv}{du} \right)^2= \frac{\psi(v) -a}{\varphi(u) +a }, \qquad \text{ или } \qquad \left(\frac{du}{dv} \right)^2= \frac{\varphi(u) +a }{\psi(v) -a}.    \] \end{remark}
+
+\begin{proof}[Решение Задачи~\ref{Prob:GeodLoiuv}]  Символы Кристоффеля: \begin{align*} \Gamma_{uu}^u = \frac{\varphi '_u }{2(\varphi + \psi)}, & \qquad \Gamma_{uv}^u = \Gamma_{vu}^u = \frac{\psi'_v }{2(\varphi + \psi)}, \\  \Gamma_{vv}^u = - \frac{\varphi '_u }{2(\varphi + \psi)}, & \qquad \Gamma_{uu}^v = -\frac{\psi'_v }{2(\varphi + \psi)}, \\ \Gamma_{vv}^v =  \frac{\psi'_v }{2(\varphi + \psi)}, &\qquad \Gamma_{uv}^v = \Gamma_{vu}^v = \frac{\varphi '_u }{2(\varphi + \psi)}.  \end{align*}
+
+Получаем уравнения геодезических  \begin{equation}  \label{Eq:LiouvGeodEq} \begin{cases} \displaystyle   \ddot{u} + \frac{\varphi' _u }{2(\varphi + \psi)} \dot{u}^2 + \frac{\psi'_v }{\varphi + \psi}  \dot{u} \dot{v}  - \frac{\varphi '_u }{2(\varphi + \psi)}  \dot{v}^2 =0,\vspace{5mm} \\ 
+%
+\displaystyle   \ddot{v}  -\frac{\psi'_v }{2(\varphi + \psi)} \dot{u}^2   + \frac{\varphi '_u }{\varphi + \psi}  \dot{u} \dot{v}  + \frac{\psi'_v }{2(\varphi + \psi)}  \dot{v}^2 =0. \end{cases} \end{equation}
+
+\vspace{5mm} 
+
+Будем считать, что $v = v(u)$ (случай $u=u(v)$ разбирается аналогично и приводит к тому же результату). Вспомним формулу для второго дифференциала: \[ \frac{d^2 v(u) }{dt^2} = \frac{d^2v}{du^2} \left( \frac{d u }{dt} \right)^2+   \frac{dv}{du} \frac{d^2 u }{dt^2}.   \]
+
+Исходя из формулы для второго дифференциала, вычтем из второго уравнения системы \eqref{Eq:LiouvGeodEq} первое уравнение этой системы, помноженное на $\displaystyle \frac{dv}{du} $. Если воспользоваться формулой для производной сложной функции $ \displaystyle \frac{dv}{dt} = \frac{dv}{du}  \frac{du}{dt}, $ то $ \displaystyle \left( \frac{d u }{dt} \right)^2$ удастся вынести за скобки \begin{align*} \displaystyle   \left( \frac{d u }{dt} \right)^2 \left( \frac{d^2v}{du^2} -\frac{\psi'_v }{2(\varphi + \psi)}  + \frac{\varphi '_u }{2(\varphi + \psi)}  \frac{dv}{du} \right. - \\ \left.  - \frac{\psi'_v }{2(\varphi + \psi)}   \left( \frac{dv}{du}  \right)^2  + \frac{\varphi '_u }{2(\varphi + \psi)}   \left( \frac{dv}{du}  \right)^3 \right) =0.\end{align*} Таким образом мы получаем дифференциальное уравнение \begin{equation} \label{Eq:LiouvGeodEqPsiPhi} \displaystyle  2(\varphi + \psi) \frac{d^2v}{du^2} = \psi'_v  - \varphi '_u  \frac{dv}{du}   + \psi'_v \left( \frac{dv}{du}  \right)^2   - \varphi '_u \left( \frac{dv}{du}  \right)^3. \end{equation}
+
+После этого несложно проверить, что уравнение \eqref{Eq:LiouvGeodEqPsiPhi} эквивалентно следующему уравнению \[\frac{d}{du} \left(\frac{\displaystyle  \psi - \varphi \left( \frac{dv}{du} \right)^2 }{\displaystyle 1 + \left( \frac{dv}{du} \right)^2 }\right)  =0. \] Таким образом \begin{equation} \label{Eq:LiouvAnsFinal} \psi - \varphi \left( \frac{dv}{du} \right)^2 = a \left( {\displaystyle 1 + \left( \frac{dv}{du} \right)^2 }  \right),\end{equation}  где $a$ --- некоторая константа. Уравнения \eqref{Eq:LiouvGeodEqAns} --- это другая форма записи равенства \eqref{Eq:LiouvAnsFinal}. Задача~\ref{Prob:GeodLoiuv} решена. \end{proof}
+
+
+
+
+
+%\begin{definition} Многообразие $M$ \textbf{геодезически полно}, если любая геодезическая может быть продолжена неограниченно. \end{definition}
+
+
+%\begin{problem} \label{Prob:CompactManGeodComp} Доказать, что любое компактное многообразие геодезически полно. \end{problem}
+
+
+%\begin{theorem}[Хопф, Ринов] Если связное риманово многообразие М геодезически полно, то любые его две точки можно соединить минимальной\footnote{Т.е. длина геодезической равна расстоянию между этими точками} геодезической. \end{theorem}
+
+
+
+
+%\begin{problem}  Всегда ли через две точки поверхности проходит единственная геодезическая? Привести пример регулярной поверхности, у которой существуют две точки, которые нельзя соединить геодезической. \end{problem}
+
+%\begin{problem}  Доказать, что через каждую точку цилиндра\footnote{Для начала следует доказать это для прямого кругового цилиндра, хотя утверждение верно и в более общем случае.} проходит только одна замкнутая геодезическая.  \end{problem}
+
+
+
+
+%\begin{problem} Описать все метрики вида $e^{\lambda(x,y, z)} (dx^2 + dy^2 + dz^2)$, для которых кривые $\left\{ y = \mathrm{const}, z = \mathrm{const}  \right\}$ являются геодезическими (после подходящей параметризации). \end{problem} 
+
+
+
+%\begin{problem} 	Доказать, что для любой связности $\nabla$ существует симметричная связность $\tilde{\nabla}$ с теми же геодезическими.  \end{problem} 
+
+
+
+
+
+%\section{Простейшие примеры геодезических}
+
+
+
+%\begin{problem} Доказать, что геодезические линии на плоскости --- это прямые и только они.  \end{problem}
+
+
+
+%Доказать, что через каждую точку цилиндра (необязательно прямого кругового) проходит только одна замкнутая геодезическая. 
+
+
+
+%\begin{problem} Найти геодезические линии прямого кругового конуса $x^2+y^2 = z^2$ и прямого кругового цилиндра $x^2 +y^2 = R^2$.\end{problem}
+
+
+%\textit{Указание.} Цилиндр и конус локально изометричны плоскости. На развертке конуса и цилиндра геодезические --- это прямые.
+
+
+
+%\begin{figure}[ht!] \centering         \includegraphics[width=0.5\textwidth]{ConicalNet}         \caption{Развертка конуса}         \label{fig:ConicalNet} \end{figure}
+
+
+
+
+
+
+%\begin{problem}Найти геодезические линии произвольных конических и цилиндрических поверхностей в $\mathbb{R}^3$:\[ \mathbf{r}(s, v) = v \mathbf{\rho}(s) , \qquad \text{и} \qquad \mathbf{r}(s, \lambda) = \mathbf{\rho}(s) + \lambda \mathbf{e}. \] \end{problem}
+
+
+
+
+
+%\begin{problem} Вычислить геодезическую кривизну линии \[u = \sh{v}, 0 \leq v \leq v_0\] на  геликоиде \[ r(u,v) = \left( u \cos{v}, u\sin{v}, hv \right) \] \end{problem}
+
+%\begin{problem}  Найти геодезические кривизны координатных линий поверхности с метрикой\[ ds^2 = E(u, v)du^2 + G(u, v)dv^2.\] \end{problem}
+
+
+
+
+
+
+
+\section{Геодезические на подмногообразиях}
+
+
+
+
+
+\begin{problem} \label{Eq:GeodTangCurve} Говорят, что два подмногообразия $M_1$ и $M_2$ \textbf{касаются вдоль кривой} $\gamma$, если $\gamma \subset M_1 \cap  M_2$ и в каждой точке $P \in \gamma$ у них совпадают касательные плоскости \[ T_P M_1 = T_P M_2. \] Доказать, что если два подмногообразия $M_1, M_2$ риманова многообразия $M$ касаются вдоль некоторой кривой $\gamma$, и $\gamma$ является геодезической на одном из подмногообразий, то $\gamma$ --- геодезическая и на другом подмногообразии: \[ \nabla^{M_1}_{\dot{\gamma}} {\dot{\gamma}} = 0 \qquad \Leftrightarrow \qquad \nabla^{M_2}_{\dot{\gamma}} {\dot{\gamma}} = 0.\]\end{problem}
+
+
+\textit{Указание:} Использовать формулу~\eqref{Eq:CovDerivProj}. 
+
+\begin{proof} [Решение Задачи~\ref{Eq:GeodTangCurve}] Ковариантные производные одновременно обращаются в ноль, потому что они равны:  \[ \nabla^{M_1}_{\dot{\gamma}} {\dot{\gamma}} = \nabla^{M_2}_{\dot{\gamma}} {\dot{\gamma}}.\]  Они равны, т.к. согласно формуле~\eqref{Eq:CovDerivProj}  \[ \nabla^{M_i}_{\dot{\gamma}} {\dot{\gamma}}  = \mathrm{pr }_{TM_i}\, ( \nabla^{M}_{\dot{\gamma}} {\dot{\gamma}}), \]   т.е. они будут проекцией одного и того же вектора $ \nabla^{M}_{\dot{\gamma}} {\dot{\gamma}}$ на одно и то же пространство $T_P M_1 = T_P M_2$.  Задача~\ref{Eq:GeodTangCurve} решена.  \end{proof} 
+
+
+
+
+
+
+\begin{problem} \label{Prob:GeodOnRegSurf} Пусть $M$ --- регулярная поверхность в евлидовом пространстве $\mathbb{R}^N$. Доказать, что кривая $\gamma(t)$ на $M$ является геодезической тогда и только тогда, когда \begin{enumerate}
+
+\item  параметр на ней пропорционален натуральному $t =c s$, 
+
+\item ускорение кривой ортогонально поверхности: \[\ddot{\gamma}(t) \perp T_{\gamma(t)} M.\]
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:GeodOnRegSurf}] Параметр пропорционален натуральному, т.к. связность согласована с метрикой:  \[ \frac{d}{dt} \left(\dot{\gamma}, \dot{\gamma} \right) = 2\left(\nabla_{\dot{\gamma} }\dot{\gamma} , \dot{\gamma} \right) \]
+
+
+Второе условие будет выполнено, так как в евклидовом пространстве \[ \nabla_{\dot{\gamma}} {\dot{\gamma}}  = \mathrm{pr }_{TM}\, (\ddot{\gamma}). \]  Задача~\ref{Prob:GeodOnRegSurf}  решена. \end{proof}
+
+
+
+\begin{corollary}  Любая прямая на регулярной поверхности в евклидовом  пространстве является геодезической. \end{corollary} 
+
+

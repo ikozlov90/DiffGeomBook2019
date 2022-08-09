@@ -1,0 +1,433 @@
+
+\chapter{Симметричные и кососимметричные тензоры} \label{S:SymSkewSymTens}
+
+
+
+\section{Теоретический материал}
+
+
+
+Симметричные и косососимметричные тензоры можно перемножать, и они образуют две очень простые алгебры. 
+
+%\begin{itemize} \item Симметрическая алгебра $S(V)$ коммутативна и изоморфна кольцу многочленов.  \item Внешняя алгебра $\Lambda(V)$ отличается только тем, что умножение косокоммутативно.\end{itemize}
+
+
+\subsection{Симметричные тензоры}
+
+\begin{itemize}
+
+
+%\item Тензор $T_{i_1 \dots i_k}$ называется \textbf{симметричным}\footnote{Более точно --- этот тензор абсолютно симметричен по нижним индексам.}, если для любой перестановки $\sigma \in S_k$ \[ T_{i_{\sigma(1)} \dots i_{\sigma(k)}} = T_{i_1 \dots i_k}. \] 
+
+\item Обозначим через $S^k(V)$ пространство симметричных тензоров типа $(k, 0)$ на линейном пространстве $V$.
+
+
+\item \textbf{Симметрическое произведение} $\odot$ симметричных тензоров $T_1 \in S^{k_1}(V), T_2 \in S^{k_2}(V)$ --- это тензор \[T_{1}\odot T_{2}=\operatorname {Sym}(T_{1}\otimes T_{2}). \] 
+По определению $T_{1}\odot T_{2} \in \operatorname {S}^{{k_{1}+k_{2}}}(V)$.
+
+
+\end{itemize}
+
+\begin{theorem} Прямая сумма всех пространств симметричных тензоров \[ S(V) = \bigoplus_{k =0}^{\infty} S^k (V)\] образует \textbf{симметрическую алгебру} $\left( S(V), \odot \right) $. Это (градуированная\footnote{Алгебра \textbf{градуирована}, если она представлена в виде прямой суммы линейных подпространств $A= \oplus_{i \geq 0}  A_i $ т.,ч. $A_i A_j \subset A_{i+j}$. Пример: любой многочлен является суммой однородных, в данном случае индекс $i$ --- степень однородного многочлена.}) коммутативная алгебра, изоморфная алгебре многочленов от $n = \dim V$  переменных. При этом одночлену $x_{i_1} \dots x_{i_k}$ ставится в соответствие элемент \[ e_{i_1} \odot \dots  \odot e_{i_k}= \Sym \left( e_{i_1} \otimes  \dots \otimes e_{i_k} \right).\] 
+\end{theorem}
+
+
+
+
+\subsection{Внешняя алгебра} \label{SubS:ExteriorAlgebra}
+
+
+\begin{itemize}
+
+
+
+\item Обозначим через $\Lambda^k(V)$ пространство кососимметричных тензоров типа $(k, 0)$ на линейном пространстве $V$.
+
+
+\item \textbf{Внешнее произведение} $\wedge$ кососимметричных тензоров $S \in \Lambda^{p}(V), T \in \Lambda^{q}(V)$ --- это тензор \begin{equation} \label{Eq:WedgeDef} S \wedge T= \frac{(p+q)!}{p!q!} \operatorname {Alt}(S\otimes T).\end{equation} 
+По определению $S \wedge T \in {\Lambda}^{p+q}(V)$.
+
+
+\end{itemize}
+
+
+\begin{theorem} Прямая сумма всех пространств кососимметричных тензоров \[ \Lambda(V) = \bigoplus_{k =0}^{\infty} \Lambda^k (V)\] образует \textbf{внешнюю алгебру} $\left( \Lambda(V), \wedge \right) $. 
+
+\begin{itemize}
+
+\item Это косокоммутативная градуированная алгебра: если $S \in \Lambda^{p}(V), T \in \Lambda^{q}(V)$, то \begin{equation} \label{Eq:WedgeSkewComm}  T \wedge S = (-1)^{pq} S \wedge T. \end{equation}
+
+\item Если $e_1, \dots, e_n$ --- базис пространства $V$, то  элементы \[e_{i_1}\wedge e_{i_2}\wedge\cdots\wedge e_{i_k}, \qquad \text{где} \qquad 1\leq i_1 < i_2 < \cdots < i_k \leq n,\] образуют базис $\Lambda^k (V)$.
+
+\end{itemize}
+
+ \end{theorem}
+
+
+\begin{remark} Формализм для внешней алгебры $\Lambda(V)$ почти такой же, как для алгебры многочленов.  
+
+
+\begin{itemize}
+
+\item Любой элемент $\Lambda(V)$  может быть представлен в виде суммы\footnote{При рассмотрении внешнего произведения нужно писать знак суммы, потому что суммирование идет не по всем наборам индексов, а только по упорядоченным.} \[ A = \sum_{k=0}^{\infty} \left( \sum_{1 \leq i_1 < \dots < i_k \leq n } A^{i_1 \dots i_k} e_{i_1} \wedge \dots \wedge e_{i_k} \right). \]
+
+\item Умножение ассоциативно и дистрибутивно, но не коммутативно, поэтому при раскрытии скобок следует помнить, что \[ e_i \wedge e_j = - e_j \wedge e_i, \]  или, более общо, выполнено \eqref{Eq:WedgeSkewComm}.
+
+\end{itemize}
+
+\end{remark} 
+
+
+
+\begin{remark} Коэффициент в формуле \eqref{Eq:WedgeDef} выбран таким образом, что \begin{gather*} e_{i_1} \wedge \dots \wedge e_{i_k}= k! \, \mathrm{Alt } \left(  e_{i_1} \otimes \dots \otimes e_{i_k}\right) =\\=\sum_{ \sigma \in S_k} \mathrm{sgn}(\sigma) e_{i_{\sigma(1)}} \otimes \dots \otimes e_{i_{\sigma(k) }}. \end{gather*}
+
+Иными словами, значение внешнего произведения набора векторов $v_i$ на наборе ковекторов $\alpha^j$ --- это определитель $\mathrm{det} \left(\langle \alpha^j, v_i \rangle \right) $: \[ v_1 \wedge \dots \wedge v_k \left( \alpha^1, \dots, \alpha^k  \right) = \left| \begin{matrix} \langle \alpha^1, v_1 \rangle & \dots &   \langle \alpha^1, v_k \rangle \\ \vdots & \ddots &   \vdots \\ \langle \alpha^k, v_1 \rangle & \dots &   \langle \alpha^k, v_k \rangle   \end{matrix} \right|. \] 
+\end{remark} 
+
+
+
+\section{Операции $\Sym$ и $\Alt$}
+
+
+
+
+%\begin{problem} Доказать, что перестановка индексов для тензоров типа $(1,1)$ не является тензорной операцией. \end{problem}
+
+
+%\begin{problem} Показать, что операция, которая тензору $T^{i_1 \dots i_p}_{j_1 \dots j_q}$ ставит в соответствие набор чисел $S^{i_1 \dots i_p}_{j_1 \dots j_{q+1}}$ по формуле \[S^{i_1 \dots i_p}_{j_1 \dots j_{q+1}} = \frac{\partial}{\partial x^{j_{q+1}}} T^{i_1 \dots i_p}_{j_1 \dots j_q}\] не является тензорной.%\footnote{На многообразиях вместо частной производной следует брать ковариантную произвоную.}. \end{problem}
+
+
+\begin{problem} \label{Prob:SymSkewTensDim} Найти размерность пространства симметричных и кососиммеричных тензоров типа $(k, 0)$ на $n$-мерном пространстве. \end{problem}
+
+\textit{Ответ в Задаче~\ref{Prob:SymSkewTensDim}.} \begin{itemize}
+
+\item Для кососимметричных тензоров \[\dim \Lambda^k (V^n) = C^k_n.\] Базис образуют внешние произведения \[ e_{i_1} \wedge \dots \wedge e_{i_k} = \sum_{\sigma \in S_k} \mathrm{sgn} (\sigma) e_{i_{\sigma(1)}}\wedge \dots \wedge e_{i_{\sigma(k)}}, \] где $1 \leq i_1 < \dots < i_k \leq n$.
+
+\item Для симметричных тензоров \[\dim S^k(V^n) = C^{k}_{n+k-1}.\] Базис образуют симметрические произведения  \[ e_{i_1} \odot \dots  \odot e_{i_k}= \frac{1}{k!}  \sum_{\sigma \in S_k}e_{i_{\sigma(1)}} \otimes \dots \otimes e_{i_{\sigma(k)}},\] где $1 \leq i_1 \leq \dots \leq i_k \leq n$.
+
+\end{itemize}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:SymSkewTensDim}] 
+ Указанные тензоры образуют базис в соответствующих пространствах. \begin{itemize} 
+
+\item Действительно, любой (косо)симметричный тензор может быть представлен как их линейная комбинация. 
+
+\item Указанные тензоры линейно независимы, так как существуют наборы ковекторов, на которых только один элемент не равен нулю. 
+
+\end{itemize} 
+
+Ничего удивительного в том, что для (косо)симметричного тензора мы можем упорядочить индексы, нет. Задача~\ref{Prob:SymSkewTensDim} решена. \end{proof}
+
+
+
+\begin{remark}  Алгебра симметричных тензоров $S(V)$ изоморфна алгебре многочленов. Напомним, почему количество одночленов степени $k$ от $n$ переменных равно \[ C^{k}_{n+k-1} =C^{n-1}_{n+k-1}.\] Любой одночлен $x_1^{k_1} \dots x_n^{k_n}$ задаётся набором чисел \[k_1, \dots, k_n \geq 0, \qquad k_1 + \dots + k_n = k.\]  
+
+
+Как найти количество способов разбить $k$ единиц на $n$ частей? Взять $n+k-1$ единиц, после чего заменить $n-1$ из них на ``пробелы'' между $n$ числами (если два ``пробела'' стоят подряд, то число между ними полагается равным $0$).
+
+
+\end{remark} 
+
+
+
+
+\begin{problem} \label{Prob:SymSkewSymSum} Доказать, что любой тензор типа $(0,2)$ однозначно представляется в виде суммы симметричного и кососимметричного тензоров.  \end{problem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:SymSkewSymSum}]  Для любой матрицы $A$ \[A  = \frac{A + A^T }{2} + \frac{A - A^T }{2}.\] Задача~\ref{Prob:SymSkewSymSum} решена. \end{proof}
+	
+	
+\begin{problem} \label{Prob:TensHighRankNotSymPlusSkew} Доказать, что для тензоров большего ранга утверждение задачи \eqref{Prob:SymSkewSymSum}, вообще говоря, неверно\footnote{Единственное исключение --- тензоры ранга больше $2$ на одномерном пространстве.}. %Доказать,  что если ранг тензоров $n>2$, то сумма операторов $\Sym$ и $\Alt$ не равна 1. Привести  пример тензора (при п > 2), лежащего в ядрах операторов альтер- альтернирования и симметрирования. 
+      \end{problem}
+      
+      \textit{Указание.} Посчитать размерности подпространств.
+
+\begin{proof}[Решение Задачи~\ref{Prob:TensHighRankNotSymPlusSkew}] 
+Покажем, что сумма размерностей \\ $\dim \Lambda^k(V^n)$ и $\dim S^k (V^n)$ не равна $\dim \mathcal{T}^k_0 (V^n)$:\begin{align*} C^k_n +C^k_{n+k-1} = \frac{n(n-1)\dots (n-k+1)}{k!} + \\ + \frac{n(n+1) \dots (n+k-1)}{k!} \not = n^k \end{align*}  при $k \not = 2$. Заметим, что при $k =2$ достигается равенство, а при $k>1, n>1$ выполнено неравенство \[ \frac{n+k-1}{k} < n,\] поэтому левая часть растет медленее правой. Остаётся разобрать особые случаи: \begin{itemize}
+
+\item При $k=1$ все тензоры одновременно симметричны и кососимметричны: \[\Lambda^1(V^n)=S^1 (V^n)=V^n.\]
+
+\item Если $n=1$ и $k>1$, то ненулевых кососимметричных тензоров нет, и все тензоры симметричны: \[\Lambda^k(V^1)= 0, \qquad \dim S^k (V^1) =1.  \] 
+
+\end{itemize}  Задача~\ref{Prob:TensHighRankNotSymPlusSkew} решена. \end{proof}
+	 
+	 
+\begin{problem} \label{Prob:AltSymTranIndComm}
+Доказать, что операция перестановки индексов коммутирует с операциями альтернирования и симметрирования: \[\operatorname{Sym}\left( T^{\sigma} \right) = \left( \operatorname{Sym} T \right)^{\sigma}, \qquad  \operatorname{Alt}\left( T^{\sigma} \right) = \left( \operatorname{Alt} T \right)^{\sigma}. \] \end{problem} 
+
+      
+
+\begin{proof}[Решение Задачи~\ref{Prob:AltSymTranIndComm}]  Докажем для альтернирования, для симметрирования доказательство аналогично. Пусть $\sigma \in S_k$ --- перестановка индексов, а $T$ --- произвольный тензор типа $(0, k)$. Тогда \begin{gather*} \operatorname{Alt} \left( T^\sigma  \right)_{i_1 \dots i_k} = \frac{1}{k!} \sum_{\tau \in S_k} \operatorname{sgn}  \tau \left(  T^\sigma \right)_{i_{\tau(1)} \dots i_{\tau(k)} }= \\=  \frac{1}{k!} \sum_{\tau \in S_k} \operatorname{sgn}  \tau \, T_{i_{\sigma \tau(1)} \dots i_{\sigma \tau(k)} }.  \end{gather*}  Если обозначить $\zeta = \sigma \tau$, то полученное выражение равно \[ \operatorname{sgn} (\sigma) \frac{1}{k!}  \sum_{\zeta \in S_k} \operatorname{sgn} \zeta \, T_{i_{\zeta(1)} \dots i_{\zeta(k)} } = \operatorname{sgn} (\sigma)  \operatorname{Alt} T_{i_1 \dots i_k } = \left(   \operatorname{Alt} T\right)^\sigma_{i_1 \dots i_k }, \]  что и требовалось доказать. Задача~\ref{Prob:AltSymTranIndComm} решена. \end{proof}
+
+
+\begin{problem} \label{Prob:TwoAltFullPart}     Доказать, что полное альтернирование ``поглощает'' частичное: \[ T_{[[i_1, \dots, i_k], j_1,\dots, j_l ]} =T_{[i_1, \dots, i_k, j_1, \dots, j_l ]}.\] Доказать аналогичное утверждение для симметрирования: \[ T_{((i_1, \dots, i_k), j_1,\dots, j_l )} =T_{(i_1, \dots, i_k, j_1, \dots, j_l )}.\]
+                        \end{problem}
+                        
+     
+\begin{proof}[Решение Задачи~\ref{Prob:TwoAltFullPart}]  Операции полного и частичного альтернирования легко переставить местами, воспользовавшись Задачей  \ref{Prob:AltSymTranIndComm}: \[  T_{[[i_1, \dots, i_k], j_1,\dots, j_l ]} = \operatorname{Alt} \left( \frac{1}{k!} \sum_{\sigma \in S_k} \operatorname{sgn}  \sigma \,  T_{i_{\sigma(1)} \dots i_{\sigma(k)}, j_1 \dots j_l } \right) = \] \[ = \frac{1}{k!} \sum_{\sigma \in S_k} \operatorname{sgn}  \sigma \, \left(  \operatorname{Alt}  T\right)_{i_{\sigma(1)} \dots i_{\sigma(k)}, j_1 \dots j_l } =   \operatorname{Alt}  T_{i_{\sigma(1)} \dots i_{\sigma(k)}, j_1 \dots j_l } .\] Последнее равенство верно, т.к. все слагаемые в сумме равны.  
+
+Для симметризации доказательство аналогично.  Задача~\ref{Prob:TwoAltFullPart} решена. \end{proof}              
+	
+\begin{problem} \label{Prob:SymAltProj} Для операторов симметризации $\Sym$ и альтернирования $\Alt$ доказать, что 
+
+\begin{enumerate}
+
+\item они являются проекторами, т.е. что \[\Sym(\Sym)  = \Sym, \qquad \text{ и } \qquad \Alt(\Alt)  = \Alt;\] 
+
+\item их композиция равна нулю (если ранг тензора больше $1$) \[ \Sym(\Alt) = \Alt(\Sym) = 0.\]
+
+%Доказать,  что если ранг тензоров $n>2$, то сумма операторов $\Sym$ и $\Alt$ не равна 1. Привести  пример тензора (при п > 2), лежащего в ядрах операторов альтер- альтернирования и симметрирования. 
+    
+    \end{enumerate}
+    
+  \end{problem}
+  
+  
+  
+\begin{proof}[Решение Задачи~\ref{Prob:SymAltProj} ]  Все утверждения легко следуют из Задачи \ref{Prob:AltSymTranIndComm}.
+
+\begin{enumerate}
+
+ \item Равенство $ \Alt(\Alt)  = \Alt$ является утверждением Задачи~\ref{Prob:TwoAltFullPart} при $l=0$. Равенство $\Sym(\Sym)  = \Sym$ доказывается аналогично.
+ 
+ \item Оба равенства доказываются аналогично, докажем последнее \[  \Alt(\Sym T)_{i_1 \dots i_k}  =  \frac{1}{k!} \sum_{\sigma \in S_k} \operatorname{sgn}  \sigma \,  \left( \Sym T\right)_{i_{\sigma(1)} \dots i_{\sigma(k)}}  =   \] \[ = \frac{1}{k!} \sum_{\sigma \in S_k} \operatorname{sgn}  \sigma \,  \left( \Sym T\right)_{i_{1} \dots i_{k}}  = 0,  \]  т.к. в группе $S_k$ поровну чётных и нечётных перестановок.
+ 
+  \end{enumerate} Задача~\ref{Prob:SymAltProj} решена.   \end{proof}
+  
+
+ 
+
+\section{Внешнее и симметрическое произведения}
+
+\begin{problem} \label{Prob:SymSkewProduct} 
+Доказать, что для любых симметричных тензоров \[S_i \in S^{k_i} (V), \qquad i = 1, \dots, m\] выполнено равенство \[ S_1 \odot \dots \odot S_m = \Sym\left( S_1 \otimes \dots \otimes S_m \right). \] Аналогично для любых кососимметричных тензоров \[A_i \in \Lambda^{k_i} (V), \qquad i = 1, \dots, m\] выполнено равенство \[ A_1 \wedge \dots \wedge A_m = \frac{\left(k_1 + \dots + k_n \right)!} {k_1 !  \dots  k_n ! } \Alt \left(A_1 \otimes \dots \otimes A_m \right). \] Эти равенства выполнены вне зависимости от расстановки скобок в левой части, и как следствие симметрическое и внешние произведения ассоциативны.
+\end{problem} 
+
+\textit{Указание.} Согласно Задаче \ref{Prob:TwoAltFullPart} \begin{gather*}  \Sym \left( \Sym(A_1) \otimes A_2 \right) = \Sym \left(A_1 \otimes A_2\right),  \\ \Alt \left( \Alt(A_1) \otimes A_2 \right) = \Alt \left(A_1 \otimes A_2\right). \end{gather*} 
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:SymSkewProduct} ] Согласно указанию \begin{gather*} \left( A_1 \wedge A_2 \right) \wedge A_3 = \\= \frac{\left( k_1 + k_2 + k_3 \right) ! } {\left( k_1 + k_2 \right)! k_3 !} \Alt \left( \frac{\left( k_1 + k_2 \right)! }{k_1 ! k_2!} \Alt \left( A_1 \otimes A_2 \right) \otimes A_3 \right) = \\ = \frac{\left( k_1 + k_2 + k_3 \right) ! } {k_1! k_2! k_3!}  \Alt \left( A_1 \otimes A_2 \otimes A_3 \right). \end{gather*}  Аналогично доказываются утверждения для симметричного произведения и большего числа сомножителей. \end{proof}
+
+
+
+%Согласно Задаче \ref{Prob:TwoAltFullPart} \[ \Sym \left( \Sym(S_1) \otimes S_2 \right) = \Sym \left(S_1 \otimes S_2\right). \] Поэтому \[ \left( S_1 \odot S_2 \right) \odot S_3 =  \Sym \left( \Sym \left( S_1 \otimes S_2 \right) \otimes S_3 \right) = \Sym \left( S_1 \otimes S_2 \otimes S_3 \right). \] Для внешнего произведения доказательство аналогично.
+
+
+
+
+\section[Линейные дифференциальные формы]{Линейные дифференциальные \\ формы}
+
+
+
+В этом разделе $k$-формами мы называем кососимметричные тензоры типа $(0,k)$. Подчеркнём, что речь идет о тензорах, а не о тензорных полях. Линейные пространства предполагаются конечномерными.
+
+
+
+\begin{problem} \label{Prob:LinIndepWedgeProd} Доказать, что $1$-формы $\alpha^1, \dots, \alpha^k$ линейно независимы тогда и только тогда, когда \begin{equation} \label{Eq:1FormExterLinInd} \alpha^1 \wedge \dots \wedge \alpha^k \not =0.\end{equation}  \end{problem}
+
+
+
+{\begin{proof}[Решение Задачи~\ref{Prob:LinIndepWedgeProd}] 
+ Если ковектора $\alpha^i$ линейно независимы, то их можно дополнить до базиса $\alpha^1, \dots \alpha^n$ пространства $V^*$. Форма объёма $\alpha^1 \wedge \dots \wedge \alpha^n \not =0$. 
+\end{proof}}
+
+
+%{\color{red} \textit{Решение.} Если $1$-формы линейно зависимы, то $\alpha^1 \wedge \dots \wedge \alpha^k =0.$ Если же они линейно независимы, то их можно дополнить до базиса\footnote{Если пространство $V$ бесконечномерно, то следует перейти от $V$ к конечномерному пространству $V/(\cap \Ker \alpha_i)$. В остальном доказательство аналогично.}  $\alpha^1, \dots \alpha^n$ пространства $V^*$. Внешнее произведение базисных элементов --- это форма объёма, поэтому \[\alpha^1 \wedge \dots \wedge \alpha^n \not =0,\] и тем более выполнено \eqref{Eq:1FormExterLinInd}.}
+
+
+
+
+\begin{problem} \label{Prob:ExtFormDecomp} Доказать, что $p$-форму $\omega$ можно представить в виде \[\omega = \alpha \wedge \theta,\] где $\alpha$ --- ненулевая $1$-форма, тогда и только тогда, когда \[\alpha \wedge \omega  =0.\]  \end{problem}
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:ExtFormDecomp}] 
+  Дополним $\alpha$ до базиса \[e^1 = \alpha, e^2, \dots e^n\] пространства $V^*$. Если $ \alpha \wedge \omega  =0$, то в форме $\omega$ все слагаемые имеют вид $e^{1} \wedge \theta_i $. \end{proof}
+
+
+\begin{problem} \label{Prob:Codim1FormDecomp} Доказать, что любая $(n-1)$-форма в $n$-мерном пространстве разложима (т.е. является внешним произведением $1$-форм.) \end{problem}
+
+\textit{Указание.} Можно воспользоваться Задачей \ref{Prob:ExtFormDecomp}. Любая форма $\eta \in \Lambda^{n-1}(V)$ задаёт линейное отображение \begin{gather*}  L_{\eta} : \Lambda^1 (V) \to \Lambda^n(V) \approx \mathbb{K}, \\ \alpha \to \alpha \wedge \eta. \end{gather*}
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:Codim1FormDecomp}] 
+ Т.к. $L_{\eta}$ --- линейное отображение, \[ \dim \Ker L_{\eta} \geq n -1. \]  Возьмем базис $e^1, \dots, e^n$ т.,ч. $e^2, \dots, e^n \in \Ker L_{\eta}$. Так как любая $(n-1)$-форма имеет вид \[ \eta = \sum_{i} C_i e^1 \wedge \dots \wedge \widehat{ e^i} \wedge  \dots \wedge \dots e^n,\] и базис выбран т.,ч. \[ e^2 \wedge \eta = \dots = e^n \wedge \eta =0, \] форма $\eta$ имеет вид \[ \eta = C_1 e^2 \wedge \dots \wedge e^n.\]  Задача~\ref{Prob:Codim1FormDecomp} решена. \end{proof}
+
+
+
+\begin{problem} \label{Prob:Decom2FormWedge} Доказать, что $2$-форму $\omega$ можно представить в виде \[\omega = \alpha \wedge \beta,\] где $\alpha, \beta$ --- $1$-формы, тогда и только тогда, когда \[\omega \wedge \omega=0.\]  \end{problem}
+
+\textit{Указание.} Воспользоваться следующей теоремой о каноническом виде кососимметричной билинейной формы.
+
+
+\begin{theorem} \label{Th:SkewBilinCanonForm} Для любой кососимметричной билинейной формы $\Omega$ на конечномерном линейном пространстве\footnote{В этой теореме $\operatorname{char} \mathbb{K} \not = 2$, чтобы можно было отличать кососимметричные формы от симметричных.} $V$ существует базис $e_1, \dots, e_n$, в котором матрица $\Omega$ имеет вид %\[ {\begin{bmatrix}{\begin{matrix}0&\lambda _{1}\\-\lambda _{1}&0\end{matrix}}&0&\cdots &0\\0&{\begin{matrix}0&\lambda _{2}\\-\lambda _{2}&0\end{matrix}}&&0\\\vdots &&\ddots &\vdots \\0&0&\cdots &{\begin{matrix}0&\lambda _{r}\\-\lambda _{r}&0\end{matrix}}\\&&&&{\begin{matrix}0\\&\ddots \\&&0\end{matrix}}\end{bmatrix}} \]
+ \begin{equation} \label{Eq:DarbouxGenMat} \left( \begin{matrix} 0 & E_k & 0 \\ -E_k & 0 & 0 \\ 0 & 0 & 0 \end{matrix} \right), \end{equation} где $E_k$ --- единичная $k\times k$ матрица.\end{theorem}
+
+
+\begin{corollary} \label{Cor:SympBasisBlocks} Перенумерацией координат матрицу  \eqref{Eq:DarbouxGenMat} можно привести к виду
+
+ \begin{equation} \left( \begin{array}{cccccc} \begin{array}{cc}0&1\\-1&0\end{array} & & & & &   \\ & \ddots & &  & & \\ & & \begin{array}{cc} 0&1\\-1&0\end{array} &  & &  \\ & & & 0 & & \\ & & &  & \ddots & \\  & & &  & & 0 \end{array} \right). \end{equation} \end{corollary} 
+
+\begin{proof}[Решение Задачи~\ref{Prob:Decom2FormWedge}]  По Следствию~\ref{Cor:SympBasisBlocks} линейную $2$-форму $\omega$ всегда можно привести к виду  \[ \omega = dx^1 \wedge dx^2 + \dots + dx^{2k-1} \wedge dx^{2k}. \]  В этом базисе легко видно, что для $\omega \not =0$ \[\omega \wedge \omega =0 \qquad \Leftrightarrow \qquad \omega = e^1 \wedge e^2.\] Последнее эквивалентно тому, что ранг матрицы равен $2$. Задача~\ref{Prob:Decom2FormWedge} решена. \end{proof}
+
+
+
+
+\section{Форма объёма} \label{S:VolForm}
+
+
+\begin{problem}  \label{Prob:VolumeForm} Пусть $g_{ij}$ --- (невырожденная\footnote{Вырожденной билинейной форме соответствует нулевая форма объёма.}) билинейная форма на вещественном линейном пространстве $V^n$. Доказать, что выражение \begin{equation} \label{Eq:VolumeRealForm} \sqrt{ \left| \operatorname{det} g_{ij} \right| } dx^1\wedge \dots \wedge dx^n \end{equation} меняется как тензор типа $(0, n)$ при замене координат $x^i$ с положительным якобианом\footnote{Якобиан здесь --- определитель матрицы Якоби.}.  \end{problem} 
+ 
+ 
+
+\begin{proof}[Решение Задачи~\ref{Prob:VolumeForm}] 
+ Перейдем от координат $\left( x^i \right)$ к координатам $\left( x^{i'} \right)$ \begin{gather*} \sqrt{ \left| \operatorname{det} g_{i'j'} \right| } dx^{1'}\wedge \dots \wedge dx^{n'}  = \\=\sqrt{ \left| \operatorname{det} g_{ij} \frac{\partial x^i}{\partial x^{i'} }  \frac{\partial x^j}{\partial x^{j'} }  \right| } \left( \frac{\partial x^{1'}}{\partial x^{i_1} } dx^{i_1} \right) \wedge \dots \wedge \left( \frac{\partial x^{n'}}{\partial x^{i_n} } dx^{i_n} \right).  \end{gather*}
+
+\begin{itemize}
+
+\item В подкоренном выражении за скобки выносится модуль определителя матрицы $\left(\displaystyle \frac{\partial x^k}{\partial x^{k'} }\right)$
+
+\[ \sqrt{ \left| \operatorname{det} g_{ij} \frac{\partial x^i}{\partial x^{i'} }  \frac{\partial x^j}{\partial x^{j'} }  \right| }  = \sqrt{ \left| \operatorname{det} g_{ij} \right|} \left| \operatorname{det} \frac{\partial x^k}{\partial x^{k'} }\right|. \]
+
+В матричном виде это утверждение ещё нагляднее. Если $B = C^T B' C$, то \[ \det B = \det \left(C^T B' C \right) = \left( \det C\right)^2 \det B'. \]
+
+
+\item Во внешнем произведении, если упорядочить координаты $x^{i'}$, возникает определитель матрицы $\displaystyle \left(\frac{\partial x^{k'}}{\partial x^{k} }\right)$. 
+
+\begin{gather*} \left( \sum_{\sigma \in S_n } (-1)^{\sigma} \prod_{i=1}^n \frac{\partial x^{i'} }{\partial x^{\sigma{(i)} } }     \right)  dx^{1}  \wedge \dots \wedge dx^{n}= \\=  \operatorname{det} \left(\frac{\partial x^{k'}}{\partial x^{k} }\right)   dx^{1}  \wedge \dots \wedge dx^{n}. \end{gather*}
+
+
+
+\item Если определитель якобиана положительный \[\displaystyle \operatorname{det} \left(\frac{\partial x^{k'}}{\partial x^{k} }\right)>0,\] то полученные два числа сокращаются.
+
+
+\end{itemize}
+
+Задача~\ref{Prob:VolumeForm} решена. \end{proof}
+
+
+
+
+\begin{remark} Утверждение в Задаче \ref{Prob:VolumeForm} специально сформулировано таким образом, чтобы оно было верно как для тензоров на линейных пространствах, так и для тензорных полей на многообразиях. \end{remark} 
+
+\begin{remark} 
+Необычная формулировка Задачи \ref{Prob:VolumeForm} связана с тем, что выражение \eqref{Eq:VolumeRealForm} задаёт не тензор, а \textbf{псевдотензор}. Псевдотензор отличается от тензора наличием знака якобиана в формуле преобразования компонент  \begin{equation} \label{Eq:PseudoTensorLaw}  T^{{i_1'} \dots {i_p}'}_{{j_1}' \dots {j_q}'} = \operatorname{sgn} \left(\operatorname{det} \frac{\partial x^{i'}}{\partial x^i} \right) T^{i_1 \dots i_p}_{j_1 \dots j_q} \frac{\partial x^{{i_1}'}}{\partial x^{i_1}} \dots  \frac{\partial x^{{i_p}'}}{\partial x^{i_p}}  \frac{\partial x^{{j_1}}}{\partial x^{{j_1}'}}\dots  \frac{\partial x^{{j_q}}}{\partial x^{{j_q}'}}.   \end{equation}
+
+
+\end{remark} 
+
+
+\begin{corollary} Если на пространстве $V$ задана ориентация, то форму объёма \eqref{Eq:VolumeRealForm} можно считать тензором.  \end{corollary}
+
+
+
+\section{Оператор двойственности Ходжа}
+
+
+
+
+Пусть $V^n$ --- $n$-мерное вещественное линейное пространство, на котором заданы \begin{enumerate}
+
+\item скалярное произведение\footnote{Т.е. $g$ --- симметричный положительно определённый тензор типа $(0, 2)$.} $g$, 
+ 
+ 
+%\footnote{Т.е. симметричная невырожденная билинейная форма. Иными словами, мы рассматриваем евклидова и псевдоевлидовы пространства.}
+
+\item ориентация. 
+
+\end{enumerate}
+
+\textbf{Оператор двойственности Ходжа}\footnote{Также \textbf{звезда Ходжа} или \textbf{дуальность Ходжа}.} $*$  --- операция, которая отображает (линейные) $k$-формы на $V$ в $(n-k)$-формы:\[ * : \Lambda^k (V^n) \to \Lambda^{n-k}(V^n), \qquad 0 \leq k \leq n \] и которая характеризуется следующим свойством.  Если \\ $e_1, \dots, e_n$ --- положительно ориентированный ортонормированный базис $V$, то \[ * e^1 \wedge \dots \wedge e^k = e^{k+1} \wedge \dots \wedge e^n. \] Переставляя индексы, получаем чуть более общую формулу \begin{equation} \label{Eq:HodgeDualBasic} \begin{gathered} * e^{i_1} \wedge \dots \wedge e^{i_k}  = \\ = \mathrm{sgn }\left( \begin{matrix} \ 1 & \dots & k & k+1 & \dots & n   \\ i_1 & \dots & i_k & j_1 & \dots & j_{n-k} \end{matrix}  \right) e^{j_1} \wedge \dots \wedge e^{j_{n-k}}, \end{gathered} \end{equation}  где индексы $j_1 \dots, j_{n-k}$  дополняют набор индексов $i_1 \dots, i_k$ до полного набора $1, \dots, n$. 
+
+
+\begin{problem} \label{Prob:HodgeProp1} Доказать следующие утверждения.
+
+\begin{enumerate}
+
+\item Для любой $k$-формы $\alpha$ 	 \begin{equation} \label{Eq:HodgeSquare}  *(*\alpha ) = (-1)^{k(n-k)} \alpha.\end{equation} 
+
+\item Для любых $k$-форм $\alpha, \beta$ 	 \begin{equation} \label{Eq:HodgeWedge} \alpha \wedge * \beta =  \beta \wedge * \alpha. \end{equation} 
+
+
+\end{enumerate}
+
+\end{problem} 
+
+
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:HodgeProp1}]  Формулы \eqref{Eq:HodgeSquare} и \eqref{Eq:HodgeWedge}
+линейны по $\alpha$ и $\beta$, поэтому достаточно доказывать их для базисных $k$-форм \begin{equation} \label{Eq:HodgeSquare}  \alpha = e^{i_1} \wedge \dots \wedge e^{i_k} , \qquad \beta =e^{j_1} \wedge \dots \wedge e^{j_k}. \end{equation}
+
+
+\begin{enumerate}
+
+\item  После перенумерации координат можно считать, что базисная $k$-форма имеет вид \[ \alpha = e^{1} \wedge \dots \wedge e^{k}. \]  Остаётся дважды применить формулу \eqref{Eq:HodgeDualBasic}: \begin{gather*} *\left( * \alpha \right) = * \left( e^{k+1} \wedge \dots \wedge e^n \right) =  \\= \operatorname{sgn } (\sigma) e^{1} \wedge \dots \wedge e^{k} =  (-1)^{k(n-k)} \alpha, \end{gather*} где $\sigma = \left( \begin{matrix} \ 1 & \dots & n-k & n-k+1 & \dots & n   \\ k+1 & \dots & n & 1 & \dots & k \end{matrix}  \right)$. 
+
+\item Обозначим индексы базисных форм \eqref{Eq:HodgeSquare} через $I = \left\{ i_1 \dots, i_k \right\}$  и $J = \left\{j_1 \dots, j_{k} \right\}$. Несложно явно проверить, что \begin{equation} \label{Eq:AlphaWedgeHodgeBeta}  \alpha \wedge * \beta  = \beta \wedge * \alpha = \begin{cases} 0, &\qquad  I\not =J, \\  e^1 \wedge \dots \wedge e^n, &\qquad  I= J. \end{cases}\end{equation}
+\end{enumerate}
+
+Задача~\ref{Prob:HodgeProp1} решена.  \end{proof} 
+
+
+
+Дадим теперь инвариантное определение звезды Ходжа, не зависящее от выбора базиса.
+
+\begin{definition} Фиксируем форму объема\footnote{Форма объёма на ориентированном евклидовом пространстве --- это $n$-форма, см. Раздел~\ref{S:VolForm}} на пространстве $(V^n, g)$: \begin{equation} \label{Eq:VolumeForm} \omega = \sqrt{\left| \det  g_{ij} \right|} \, dx^1 \wedge \dots \wedge dx^n.\end{equation}  \textbf{Оператор двойственности Ходжа} отображает $k$-форму $\alpha$ в $(n-k)$-форму $*\alpha$ по формуле: \begin{equation} \label{Eq:HodgeStar} (*\alpha)_{i_{k+1} \dots i_n} = \frac{1}{k!} \omega_{i_1 \dots i_k, i_{k+1} \dots i_n } \alpha^{i_1 \dots i_k}. \end{equation} Здесь $\alpha^{i_1 \dots i_k} $ получается из $\alpha_{i_1 \dots i_k}$ поднятием индексов при помощи скалярного произведения $g$: \[ \alpha^{i_1 \dots i_k}  = g^{i_1 j_1} \dots g^{i_k j_k} \alpha_{j_1 \dots j_k}.\] \end{definition}
+
+
+Звезда Ходжа также может быть определена по следующей формуле \eqref{Eq:WedgeHodgeScalarProd}.
+
+\begin{problem} \label{Prob:WedgeHodgeScalarProd} Продолжим скалярное произведение $g$ с  $V^n$ на $\Lambda^k(V^n)$, на разложимых $k$-формах \[ \alpha =\alpha _{1}\wedge \cdots \wedge \alpha _{k}, \qquad \beta =\beta _{1}\wedge \cdots \wedge \beta _{k}\] положив его равным \begin{equation} \label{Eq:ScalarForms} \left( \alpha, \beta \right) = \det \left(\left( \alpha _{i},\beta _{j}\right) \right).\end{equation} Доказать, что для любых $k$-форм $\alpha$ и $\beta$ \begin{equation} \label{Eq:WedgeHodgeScalarProd} \alpha \wedge * \beta = (\alpha, \beta) \omega.\end{equation} Также доказать, что звезда Ходжа $*$ --- ортогональный  оператор: \begin{equation} \label{Eq:HodgeOrthogonal}  \left( * \alpha, * \beta\right) =  \left(  \alpha,  \beta\right). \end{equation} 
+
+
+ \end{problem} 
+
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:WedgeHodgeScalarProd}] Формулы~\eqref{Eq:WedgeHodgeScalarProd} и \eqref{Eq:HodgeOrthogonal} также линейны по $\alpha$ и $\beta$, поэтому достаточно доказывать их для базисных форм \eqref{Eq:HodgeSquare}. 
+ 
+ \begin{itemize}
+ 
+ \item По формуле~\eqref{Eq:ScalarForms}, если $e^1, \dots, e^n$ --- ортономированный базис в $V^*=\Lambda^1(V)$, то базисные $k$-формы  $e^{i_1} \wedge \dots \wedge e^{i_k}$ образуют ортонормированный базис $\Lambda^k(V)$. 
+ 
+ \item Звезда Ходжа переводит ортонормированный базис в ортонормированный, поэтому выполнено~\eqref{Eq:HodgeOrthogonal}. 
+ 
+ \item Формула~\eqref{Eq:WedgeHodgeScalarProd} следует из формулы \eqref{Eq:AlphaWedgeHodgeBeta}. 
+ 
+ \end{itemize} 
+ 
+ 
+ Задача~\ref{Prob:WedgeHodgeScalarProd} решена. \end{proof} 
+
+
+\begin{problem} \label{Prob:HodgeEucl3DSpace} Выписать явные формулы для оператора $*$ в $\mathbb{R}^3$ (на формах степени $0,1,2,3$)  для случая, когда метрика диагональна. \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:HodgeEucl3DSpace}.} Пусть метрика на $\mathbb{R}^3(x, y, z)$ имеет вид \[ ds^2  = I_x dx^2 + I_y dy^2 + I_z dz^2.\] Тогда форма объема равна \[\omega = \sqrt{|I_x I_y I_z|} dx \wedge dy \wedge dz, \] а звезда Ходжа следующим образом действует на базисных формах %\begin{enumerate} \setcounter{enumi}{-1} \item 
+\begin{align*} * 1 = \omega,   & \quad *  \omega =1, \\
+* dx = \frac{\sqrt{|I_x I_y I_z|} }{I_x} dy \wedge dz, & \quad  * dy = \frac{\sqrt{|I_x I_y I_z|} }{I_y} dx \wedge dz, & \\  * dz = \frac{\sqrt{|I_x I_y I_z|} }{I_z} dx \wedge dy, & \quad
+%$\item $ 
+* \left( dy \wedge dz \right) = \frac{I_x} {\sqrt{|I_x I_y I_z|} } dx, & \\ * \left( dx \wedge dz \right)= \frac{I_y}{\sqrt{|I_x I_y I_z|} } dy, &\quad  * \left( dx \wedge dy \right)= \frac{I_z}{\sqrt{|I_x I_y I_z|} } dz.\end{align*}
+%$.\end{enumerate}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:HodgeEucl3DSpace}] Все формулы можно проверить явно по определению оператора $*$. Заметим, что благодаря тождествам $*1 = \omega$  и \eqref{Eq:HodgeSquare} достаточно описать действие оператора $*$ на $1$-формах. Для примера явно вычислим $*dx$ (двумя способами).
+
+\begin{enumerate}
+
+\item Применим формулу~\eqref{Eq:HodgeStar}. По определению, коэффициент формы объема \[\omega_{123} = \sqrt{|I_x I_y I_z| }.\] После поднятия индекса $dx$ переходит в $\displaystyle  \frac{1}{I_x} \frac{\partial}{\partial x}$. Откуда \[ \left(*dx\right)_{23} =  \frac{\sqrt{|I_x I_y I_z|} }{I_x}.\] 
+
+\item Применим формулу~\eqref{Eq:WedgeHodgeScalarProd}. В данном случае метрика диагональна, поэтому \[ \left( dx, dx\right)  = \frac{1}{I_x}, \qquad \left( dx, dy\right)  = 0, \qquad \left( dx, dz\right)  = 0.\] Отсюда немедленно получаем, что в $*dx$ только коэффициент при $dy \wedge dz$ не равен нулю, и он равен $\frac{\sqrt{|I_x I_y I_z|} }{I_x}$.
+
+\end{enumerate}
+
+Задача~\ref{Prob:HodgeEucl3DSpace} решена. \end{proof}
+
+
+\begin{remark} Оператор двойственности Ходжа можно определить на любом ориентированном римановом многообразии $(M^n, g)$ по формуле~\eqref{Eq:HodgeStar}. Формулы \eqref{Eq:HodgeWedge},  \eqref{Eq:HodgeSquare}, \eqref{Eq:WedgeHodgeScalarProd} и \eqref{Eq:HodgeOrthogonal} останутся выполненными, т.к. они $C^{\infty}(M)$-линейны по $\alpha$ и $\beta$. \end{remark} 
+

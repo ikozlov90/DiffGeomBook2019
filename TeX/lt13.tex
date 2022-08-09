@@ -1,0 +1,546 @@
+
+
+\chapter{Когомологии де Рама} \label{S:DeRhamCohomology}
+
+
+
+Подробнее о связи дифференциальных форм и когомологий см. \cite{BottTu89}.
+
+
+
+
+
+
+%Отметим, что так как любая замкнутая форма точна 
+
+
+%\begin{problem} Доказать, что если \end{problem}
+
+
+%\begin{problem}  Привести пример замкнутой, но не точной $k$-формы на $\mathbb{R}^{k+1} \backslash \left\{ 0\right\}$ \end{problem}
+
+
+
+
+%\[H_{\mathrm {dR} }^{k}(S^{n}\times I^{m})\cong {\begin{cases}\mathbf {R} &{\mbox{if }}k=0,n,\\0&{\mbox{if }}k\neq 0,n.\end{cases}}\]
+
+
+
+%\subsection{Линейная симплектическая геометрия}
+
+	
+
+\section[Определение когомологий де Рама]{Определение когомологий \\ де Рама}
+
+
+(Ко)гомологии --- алгебраические инварианты топологических пространств. 
+
+
+
+\begin{itemize}
+
+\item $k$-форма $\alpha$ \textbf{замкнута}, если $d \alpha =0$
+
+\item $k$-форма $\alpha$ \textbf{точна}, если $ \alpha = d \beta $
+
+
+\item Формы $\alpha_1$ и $\alpha_2$ называются \textbf{когомологичными}, если их разность точна: $\alpha_1 - \alpha_2 = d \beta$. 
+
+\item \textbf{$k$-мерные когомологии} (де Рама) $H^k(M)$ многообразия $M$ --- это классы когомологичных замкнутых $k$-форм на $M$. 
+
+
+
+\end{itemize}
+
+Иными словами, если мы рассмотрим \textbf{цепной комплекс}
+\[ \begin{CD} \Omega ^{0}(M) @>d_0>> \Omega ^{1}(M) @>d_1>> \Omega ^{2}(M) @>d_2>> \Omega ^{3}(M) @>>> \cdots \end{CD} \] то  когомологии де Рама определяются как \[H_{\mathrm {DR} }^{k}(M)=\ker d_{k}/\mathrm {im} \,d_{k-1}.\]
+
+
+
+
+Свойства когомологий:
+
+
+\begin{enumerate}
+
+\item Любое отображение многообразий \[ f: M \to N\] индуцирует отображение когомологий \[ f^*: H^i (M, \mathbb{R}) \to H^i(M, \mathbb{R}).\] При этом \[ [ f^* \alpha ] = f^* [\alpha]  \]  для любой (замкнутой) $k$-формы $\alpha$. 
+
+
+
+\item Когомологии образуют \textbf{градуированное кольцо}. Для когомологий де Рама умножение в когомологиях (так называемое $\smile$-умножение\footnote{англ. cup product} или умножение Колмогорова-Александера) порождается операцией внешнего произведения: \[ [\alpha] \smile [ \beta] := [\alpha \wedge \beta ].\]
+
+
+\end{enumerate}
+
+
+
+Простейшие факты про когомологии:
+
+
+\begin{itemize}
+
+\item Если многообразие $M$ состоит из $N$ компонент связности, то \[{\displaystyle H^{0}(M)\cong \mathbf {R} ^{N}.} \] В частности, если многообразие $M$ связно, то \[H^0(M) \cong \mathbb{R}.\]
+
+Действительно, замкнутые $0$-формы --- это локально-постоянные функции.
+
+
+\item Если $i>n$, то $H^i(M^n) = 0$. Действительно, на $n$-мерном многообразии не существует ненулевых $i$-форм при $i>n$. 
+
+
+
+\end{itemize}
+
+Не столь тривиальный факт про когомологии:
+
+\begin{theorem} 
+
+\begin{itemize}
+
+\item Если $M^n$ --- компактное ориентируемое многообразие, то отображение \[ \omega \to \int_{M^n} \omega \] устанавливает изоморфизм \[H^n (M^n) \cong \mathbb{R}.\]
+
+\item  В противном случае (если $M$ некомпактно или неориентируемо) \[H^n (M^n) \cong 0.\]
+
+\end{itemize}
+
+\end{theorem} 
+
+\subsection{Когомологии и гомотопии}
+
+
+
+\begin{theorem} \label{T:CohomHomot} Если два отображения $f, g: M \to N$ гомотопически эквиалентны, то они индуцируют одинаковые отображения в когомологиях $f^*= g^*$.  \end{theorem}
+
+
+\begin{remark} Для когомологий де Рама утверждение имеет смысл, если $f$ и $g$ --- гладкие. Утверждение верно и для произвольных непрерывных отображений для достаточно хороших классов пространств (например, для многообразий). Нужно только переопределить понятие когомологий: по \textbf{теореме де Рама} \textit{когомологии де Рама изоморфны сингулярным когомологиям} (см., например \cite{Prasolov06Hom}), определённым для произвольного топологического пространства. 
+\end{remark}
+
+
+\begin{corollary} У гомотопически эквивалентных про\-ст\-ранств $X \sim Y$ когомологии совпадают $H^k(X) \cong H^k(Y)$. \end{corollary}
+
+В частности, 
+\[H^{k}(M \times I^{m})\cong H^{k} (M). \]
+
+
+
+\section{Замкнутые и точные формы}
+
+
+
+\begin{problem} \label{Prob:ClosedNotExactForm2D} Привести пример замкнутой, но не точной $1$-формы на $\mathbb{R}^2 \backslash \left\{ 0\right\}$. \end{problem}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:ClosedNotExactForm2D}]  Подойдёт форма $d\varphi$.
+
+%$\varphi$ --- многозначная функция, определённая $\pmod{2 \pi}$. Дифференциал $d\varphi$ корректно определён, т.к. её локальные представители отличаются на константу.
+
+\begin{itemize}
+
+\item $d\varphi$ --- замкнутая форма \[d(d\varphi)=0,\] потому что $d^2=0$, замкнутость --- локальное свойство, и локально мы можем рассматривать $\varphi$ как гладкую (однозначную) функцию.
+
+\item $d\varphi$ --- не точна \[ d \varphi \not = df.\] Приведём два доказательства этого факта.
+
+\begin{enumerate}
+
+\item Пусть $d \varphi = df$. Первообразная $1$-формы определена с точностью до константы. Поэтому локально $f = \varphi + \operatorname{const}$, но $\varphi$ не продолжается до однозначной функции на всём $\mathbb{R}^2\backslash \left\{ 0\right\}$. Получаем противоречие.
+
+\item Интеграл $d \varphi$ по единичной окружности \[S^1 = \left\{ x^2 +y^2 =1\right\}\] не равен нулю: \[ \int_{S^1} d \varphi = 2\pi \not =0.\] Но по формуле Ньютона-Лейбница интеграл от точной $1$-формы по любому замкнутому пути равен нулю \[ \int_{S^1} df = 0. \] Поэтому $d \varphi \not = df$. 
+
+\end{enumerate}
+
+\end{itemize}
+
+Задача~\ref{Prob:ClosedNotExactForm2D} решена. \end{proof}
+
+
+
+
+\begin{problem} \label{Prob:ClosedNotExactForm} Привести пример замкнутой, но не точной $(n-1)$-формы на $\mathbb{R}^{n} \backslash \left\{ 0\right\}$. \end{problem}
+
+\textit{Указание.} $\mathbb{R}^{n} \backslash \left\{ 0\right\} \sim S^{n-1}$.
+
+\begin{proof}[Решение Задачи~\ref{Prob:ClosedNotExactForm}]  Подойдёт форма $\pi^* \omega$, где \[\pi: \mathbb{R}^{n} \backslash \left\{ 0\right\} \to S^{n-1}\] --- это радиальная проекция на единичную сферу $S^{n-1} =\left\{ \sum x_i^2 =1\right\}$, а $\omega$ --- форма объема на $S^{n-1}$.
+
+
+\begin{itemize}
+
+\item Форма $\pi^* \omega$ замкнута, поскольку по Задаче~\ref{Prob:ExtDerFuncCommute} \[ d \pi^* \omega = \pi^* d\omega = \pi^* 0 =0. \] Во втором равенстве $d \omega =0$, так как на $S^{n-1}$ нет нетривиальных $n$-форм.
+
+\item $\pi^* \omega$ --- не точна, потому что её интеграл по $S^{n-1}$ не равен нулю. Пусть $i: S^{n-1} \to \mathbb{R}^n$ --- стандартное вложение сферы. Тогда \[ \int_{S^{n-1}} i^*  \left( \pi^* \omega\right) = \int_{S^{n-1}} \omega>0, \] так как $\omega$ --- форма объёма на $S^{n-1}$. С другой стороны, если бы $\pi^* \omega = d \beta$, то по формуле Стокса и Задаче~\ref{Prob:ExtDerFuncCommute} \[ \int_{S^{n-1}} i^* \left( d \beta \right) = \int_{S^{n-1}} d \left(i^* \beta\right) =0. \] 
+\end{itemize}
+
+Задача~\ref{Prob:ClosedNotExactForm} решена. 
+\end{proof} 
+
+\subsection{Вычисление первых когомологий}
+
+	
+	
+	
+\begin{problem} \label{Prob:Exact1FormPathIntZero}
+Доказать, что $1$-форма $\alpha$ на многообразии  точна тогда и только тогда, когда её интеграл по любому замнутому пути равен нулю.
+\end{problem}
+
+\begin{proof}[Решение Задачи~\ref{Prob:Exact1FormPathIntZero}] 
+
+В одну сторону очевидно: если форма точна $\alpha = dF$, то по формуле Ньютона-Лейбница для любой кривой $\gamma$ с концами $P$ и $Q$ \begin{equation} \label{Eq:Exact1FormPathIntZero_Eq1} \int_{\gamma} \alpha = F(Q) - F(P).\end{equation} И следовательно $\int_{\gamma} \alpha =0$, если кривая замкнута (т.е. если $P =Q$).
+
+В другую сторону. Пусть $\int_{\gamma} \alpha =0$ для любого замкнутого пути $\gamma$. Фиксируем $x_0 \in M$. Положим $f(x_0)=0$ и \[ f(x) = \int_{\gamma} \alpha, \] где $\gamma: [0,1] \to M$ --- это произвольный (кусочно-гладкий) путь с концами $\gamma(0) =x_0, \gamma(1) = x$. 
+
+
+
+
+\begin{itemize}
+
+\item Покажем, что \textit{определение корректно: интегралы по любым двум путям $\gamma_1, \gamma_2$ равны.}  Это так, потому что интеграл по замкнутому пути $\gamma_1 \gamma_2^{-1}$, получающемуся при движении вначале по $\gamma_1$, а потом по $\gamma_2$ в обратную сторону, будет равен нулю:  \[ \int_{\gamma_1 \cup \gamma_2^{-1}} \alpha= \int_{\gamma_1} \alpha - \int_{ \gamma_2} \alpha =0. \]
+
+\item Покажем, что \textit{построенная функция $f(x)$ гладкая.} 
+
+Вначале покажем, что для любого пути $\gamma$ с концами $P$ и $Q$ \begin{equation} \label{Eq:Exact1FormPathIntZero_Eq2} \int_{\gamma} \alpha = f(Q) - f(P).\end{equation} Действительно, рассмотрим произвольный путь $\gamma_0$ из $x_0$ в $P$. Тогда по определению функции $f$ \[ f(Q) - f(P) = \int_{\gamma_0 \cup \gamma} \alpha - \int_{\gamma_0} \alpha =  \int_{\gamma} \alpha.\] 
+
+Далее, фиксируем произвольную точку $y_0$ и рассмотрим её окрестность $U$, гомеоморфную диску $U \approx D^n$. По лемме Пуанкаре любая замкнутая форма на $U$ точна, поэтому $\alpha = dF$ для некоторой гладкой функции $F$. По формуле Ньютона-Лейбница для любого пути $\gamma$ в $U$ выполнены \eqref{Eq:Exact1FormPathIntZero_Eq1} и \eqref{Eq:Exact1FormPathIntZero_Eq2}. Поэтому функции $f$ и $F$  отличаются на константу. Но $F$ --- гладкая функция, поэтому $f$ --- тоже гладкая.
+
+
+
+
+\end{itemize}
+
+Задача~\ref{Prob:Exact1FormPathIntZero} решена.  \end{proof} 
+
+
+\begin{remark} Результат Задачи~\ref{Prob:Exact1FormPathIntZero} можно улучшить. Не обязательно рассматривать все пути.
+
+\begin{itemize}
+
+\item По формуле Стокса \textit{интегралы от замкнутой формы по гомотопичным циклам равны} \[ \gamma_1 \sim \gamma_2 \qquad \Rightarrow \qquad \int_{\gamma_1} \alpha  = \int_{\gamma_2} \alpha. \] 
+
+\item В частности, \textit{когомологии односвязного пространства равны нулю} \[ \pi_1 (M) =\left\{e\right\} \qquad \Rightarrow\qquad H^1(M) = 0. \]
+
+\item  На практике класс $1$-формы $\alpha \in H^1(M)$ определяется её интегралами по некоторому \textit{конечному} числу циклов (например, по порождающим фундаментальной группы). 
+
+\end{itemize}
+
+\end{remark}
+
+
+
+
+
+\begin{problem} \label{Prob:H1PlaneNo2Points} Вычислить первые когомологии плоскости без двух точек $H^1\left(\mathbb{R}^2 \backslash \left\{P, Q\right\}\right)$. \end{problem}
+
+
+\textit{Ответ в Задаче~\ref{Prob:H1PlaneNo2Points}.} \begin{equation} \label{Eq:H1PlaneNo2Points} H^1\left(\mathbb{R}^2 \backslash \left\{P, Q\right\}\right) \cong \mathbb{R}^2. \end{equation} Более того, если $S^1_P, S^1_Q \subset \mathbb{R}^2 \backslash \left\{P, Q\right\}$ --- две окружности с центрами в точках $P$ и $Q$, то отображение \begin{equation} \label{Eq:H1PlaneNo2PointsIntIso} \alpha \to \left( \int_{S^1_P} \alpha, \int_{S^1_Q} \alpha\right), \end{equation} задаёт изоморфизм~\eqref{Eq:H1PlaneNo2Points}.
+
+%\footnote{Соответствующие круги не содержат вторую выкинутую точку плоскости}
+
+\begin{proof}[Решение Задачи~\ref{Prob:H1PlaneNo2Points}] Без ограничения общности, \[ P = \left( -1, 0\right), \qquad Q = \left(1, 0 \right). \]  Рассмотрим гомоморфизм \begin{equation} \label{Eq:H1PlaneNo2PointsHomo}  H^1\left(\mathbb{R}^2 \backslash \left\{P, Q\right\}\right) \to \mathbb{R}^2,\end{equation}  заданный формулой~\eqref{Eq:H1PlaneNo2PointsIntIso}.
+
+
+
+\begin{itemize}
+
+\item \textit{Покажем, что гомоморфизм~\eqref{Eq:H1PlaneNo2PointsHomo} инъективен.} Пусть $\alpha$ ---  замкнутая форма. Нужно показать, что если \begin{equation} \label{Eq:Closed1FormIntPlaneNo2Points}  \int_{S^1_P} \alpha = \int_{S^1_Q} \alpha =0,\end{equation} то форма $\alpha$ точна. Рассмотрим три области в $\mathbb{R}^2 \backslash \left\{P, Q\right\}$: \begin{gather*} U_1 = \left\{x<0 \right\} \backslash \left\{y= 0, -1<x<0 \right\}, \\ U_2=\left\{ -1<x <1 \right\}, \\ U_3 = \left\{x>0 \right\} \backslash \left\{y= 0, 0<x<1 \right\}.  \end{gather*} Все они односвязны (более того, гомеоморфны диску), поэтому $\alpha$  на них точна  \[ \alpha = d F_i,\qquad i =1,2,3.\] Первообразные $F_i$ на областях $U_i$ определены с точностью до константы \[F'_i = F_i + c_i, \qquad c_i= \operatorname{const}.\] На пересечении областей $U_i \cap U_j$ первообразные тоже отличаются на константу  \[dF_i = dF_j \qquad \Rightarrow \qquad F_i- F_j =d_{ij}, \qquad d_{ij}= \operatorname{const}.\]  Благодаря \eqref{Eq:Closed1FormIntPlaneNo2Points} можно подобрать константы $c_i$ т.,ч. $d_{ij}=0$ и функции $F_i$ ``склеятся'' в единую функцию $F$ на $\mathbb{R}^2 \backslash \left\{P, Q\right\}$. По построению $\alpha = dF$.
+
+\item \textit{Покажем, что гомоморфизм~\eqref{Eq:H1PlaneNo2PointsHomo} сюръективен.} Рассмотрим только случай, когда окружности $S^1_P, S^1_Q $ не содержат внутри себя вторую выкинутую точку плоскости (остальные случаи рассматриваются аналогично). Пусть $\left(\rho_1, \varphi_1\right)$ и $\left(\rho_2, \varphi_2\right)$ --- полярные координаты с центрами в точках $P$ и $Q$ соответственно. Тогда 
+\[ \alpha  = c_1 d \varphi_1 + c_2 d \varphi_2, \qquad \Rightarrow \qquad \int_{S^1_P} \alpha =c_1, \qquad  \int_{S^1_Q} \alpha =c_2, \] для любых констант $c_1, c_2 \in \mathbb{R}$.
+
+\end{itemize}
+
+Задача~\ref{Prob:H1PlaneNo2Points} решена.  \end{proof} 
+
+
+
+\begin{remark} Упомянем несколько фактов из алгебраической топологии, проясняющих, почему класс $1$-формы определяется её интегралами по некоторым циклам (подробнее см. \cite{Hatcher11} или \cite{FomenkoFuks}). 
+
+\begin{enumerate}
+
+\item Первая группа гомологий $H^1(X, \mathbb{Z})$ --- это абеленизация фундаментальной группы: \[ H_1(M, \mathbb{Z}) \cong \pi_1(X)/ \left[ \pi_1(X), \pi_1(X)\right].\]
+
+
+\item По формуле универсальных коэффициентов \[ H^1(X; \mathbb{R}) \cong \operatorname{Hom} \left( \left( H_1 (X; \mathbb{Z} \right), \mathbb{R} \right).  \]
+
+\item Когомологии де Рама --- это когомологии с коэффициентами в $\mathbb{R}$: \[H^i_{deRham}(X) \cong H^i(X; \mathbb{R}).  \]
+
+\end{enumerate}
+
+\end{remark}
+
+	
+	
+\section[Когомологии простейших пространств]{Когомологии простейших \\ пространств}
+
+
+
+
+\begin{problem} \label{Prob:CohomCalc1}
+Вычислить группы когомологий следующих пространств:
+
+\begin{enumerate}
+
+\item  евклидова пространства $\mathbb{R}$,
+
+\item окружности $S^1$,
+
+\item двумерного тора $\mathbb{T}^2$,
+
+\item плоскости без $k$ точек $\mathbb{R}^2\backslash\left\{ P_1, \dots, P_k\right\}$.
+
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{remark} Некоторые из этих когомологий мы вычислим при помощи теоремы Майера-Вьеториса\footnote{см. Раздел~\ref{S:MayerViet}}). Во всех случаях первые когомологии также можно посчитать по аналогии с Задачей~\ref{Prob:Exact1FormPathIntZero}. \end{remark}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CohomCalc1}]
+
+\begin{enumerate}
+
+\item Когомологии \textbf{евклидова пространства} $\mathbb{R}^n$:
+
+\[H^{k}(\mathbb{R}^n)\cong {\begin{cases}\mathbb {R}, &{\mbox{если }}k=0, \\0, &{\mbox{если }}k\neq 0.\end{cases}}\]
+
+Это \textbf{лемма Пуанкаре} (\textit{Любая замнутая $k$-форма ($k>0$) на $\mathbb{R}^n$ точна}). 
+
+
+%\begin{lemma}[Лемма Пуанкаре]  \end{lemma} 
+
+
+
+При $n=1$ утверждение тривиально: первообразная $1$-формы --- её интеграл по прямой.
+
+\item Когомологии \textbf{$n$-мерной сферы} $S^n$ (при $n>0$):
+
+\[H^{k}(S^n)\cong {\begin{cases}\mathbb {R}, &{\mbox{если }}k=0,n, \\0, &{\mbox{если }}k\neq 0.\end{cases}}\]
+
+При $n=1$ утверждение элементарно. Рассмотрим накрытие \[\pi: \mathbb{R} \to S^1, \qquad \pi(\varphi)= (\cos{\varphi}, \sin{\varphi}) \in S^1.\]  Первообразная прообраза $\pi^* \alpha$ для $1$-формы $\alpha$  на $S^1$ будет $2\pi$-периодичной функцией тогда и только тогда, когда $\int_{S^1} \alpha  = 0$.
+
+
+\begin{remark} В общем случае утверждение может быть доказано при помощи последовательности Майера-Вьеториса (сфера разбивается на дополнения к полюсам $D^n_1$ и $D^n_2$). Последовательность \eqref{Eq:MVSeq} имеет вид \[ \begin{CD} \cdots @>>>   H^{i-1}(D^n_1)\oplus H^{i-1}(D^n_2) @>>> \\
+@>>> H^{i-1}(D^n_1 \cap D_2^n)@>>> H^{i}(S^n) @>>> \\ @>>> H^{i}(D^n_1)\oplus H^{i}(D^n_2)@>>>  \cdots \end{CD} \] Заметим, что $D^n_i \approx \mathbb{R}^n$ и $D_n^1 \cap D^n_2 \sim S^{n-1}$ (сфера без полюсов гомотопотически эквивалентна пересечению полусфер). Поэтому $ H^{i}(D^n_1)\oplus H^{i}(D^n_2) =0$ при $i\geq 1$ и, так как последовательность точна, \[ H^{i}(S^n) = H^{i-1}(S^{n-1}), \qquad i\geq 2.\] При $i=1, n>1$ получаем \[ H^1(S^n)=0,\] потому что последовательность \[{\tiny \begin{CD} 0 @>>>   H^{0}(S^n) @>>>  H^{0}(D^n_1)\oplus H^{0}(D^n_2) @>>> \\ @>>>  H^{0}(D^n_1 \cap D_2^n)@>>> H^{1}(S^n) @>>> \\ @>>>  H^{1}(D^n_1)\oplus H^{1}(D^n_2)@>>>  \cdots @. \end{CD} } \] точна и имеет вид \[\begin{CD} 0 @>>>   \mathbb{R} @>>>   \mathbb{R}^2 @>>> \mathbb{R} @>>> \\  @>>> H^{1}(S^n) @>>> 0 @>>> \cdots \end{CD} \]  \end{remark}
+
+
+
+
+\item Когомологии \textbf{$n$-мерного тора} $\mathbb{T}^n = \underbrace{\mathbb{T} \times \dots \times \mathbb{T}}_n$: \[ \mathrm{dim } \, H^{k}(\mathbb{T}^{n}) = \left( \begin{matrix} k  \\ n \end{matrix} \right). \]
+
+Если представить тор $\mathbb{T}^n$ как произведение $n$ окружностей с координатами \[\varphi^1, \dots \varphi^n \pmod{ 2 \pi}, \] то \textit{кольцо} когомологий порождается классами $1$-кого\-мо\-логий \[ [ d \varphi^1], \dots, [d \varphi^n].\]  Иными словами, базис $k$-когомологий задают классы форм \[ d \varphi^{i_1} \wedge \dots \wedge d \varphi^{i_k}, \qquad 1 \leq i_1 < \dots <i_k \leq n. \] 
+
+Указанные классы некогомологичны: по формуле Стокса интегралы когомологичных форм по любому (компактному) подмногообразию совпадают --- в то же время формы \[d \varphi^{i_1} \wedge \dots \wedge d \varphi^{i_k}\] являются формами объема для разных $k$-мерных торов \[\mathbb{T}(\varphi^{i_1}) \times \dots \times \mathbb{T}(\varphi^{i_k}).\]
+
+То, что других классов когомологий нет, можно доказать при помощи последовательности Майера-Вьеториса.
+
+\begin{remark} Тор $\mathbb{T}^n$ обладает структурой абелевой группы. Все формы $d \varphi^{i_1} \wedge \dots \wedge d \varphi^{i_k}$  инвариантны относительно этого действия. 
+
+Это общий факт: \textit{когомологии компактной группы Ли совпадают с её эквивариантными когомологиями}. Это так, так как любую форму на компактной группе Ли можно усреднить по действию этой группы. 
+
+\end{remark} 
+
+\item Когомологии \textbf{многообразия, из которого выкинули точку} $M^{n}\backslash \left\{P\right\}$ (при $n \geq 1$). 
+
+
+
+\[H^{k}(M\backslash \left\{P\right\})\cong {\begin{cases} H^{k}(M), &{\mbox{если }}k\not =n-1, n,\\0, &{\mbox{если }}k=n,  \\ H^{n-1} (M), &{\mbox{если }}k=n-1, \\ & \text{ и } M \text{ ---  компактно}, \\ H^{n-1} (M) \oplus \mathbb{R}, &{\mbox{если }}k=n-1, \\ & \text{ и } M \text{ ---  некомпактно}.  \end{cases}}\]
+
+
+Достаточно рассмотреть последовательность Майера-Вьеториса для пары окрестностей $U, V$, где $V$ --- окрестность точки $P$, диффеоморфная диску $D^n$. 
+
+\end{enumerate}
+
+Задача~\ref{Prob:CohomCalc1} решена. \end{proof}
+
+
+
+
+\section{Точные симплектические многообразия}
+
+
+
+
+
+%\begin{definition} \textbf{Симплектическое многообразие} --- это пара $(M, \omega)$, состоящая из многообразия $M$ и замкнутой невырожденной $2$-формы $\omega$ на нем. \end{definition}
+
+
+Дифференциальная $2$-форма $\omega$ \textbf{невырождена}, если её матрица $(\omega_{ij})$ невырождена во всех точках $M$.
+
+
+\begin{problem} \label{Prob:SympVolumeForm} Пусть на многообразии $M$ задана невырожденная $2$-форма \[ \omega = \sum_{i < j} \omega_{ij} dx^i \wedge dx^j.\] Доказать, что 
+
+\begin{enumerate}
+
+\item  размерность $M$ четна \[ \operatorname{dim } \,  M = 2n,\]	
+
+\item справедлива формула \begin{equation} \label{Eq:SympVolumeForm} \underbrace{\omega \wedge \dots \wedge \omega}_{n} = \pm n! \sqrt{\mathrm{det} (\omega_{ij})} dx^1 \wedge \dots \wedge dx^{2n}. \end{equation}
+
+\end{enumerate} \end{problem}
+
+
+\textit{Указание.} Воспользоваться теоремой о каноническом виде линейной симплектической структуры (это частный случай Теоремы~\ref{Th:SkewBilinCanonForm}):
+
+
+\begin{theorem}[Линейная теорема Дарбу] \label{Th:LinearDarboux} Для любой невырожденной линейной $2$-формы $\omega$  на конечномерном векторном пространстве $V$  существуют такие линейные координаты $p^1, \dots, p^n, q^1, \dots, q^n$ на $V$, в которых \begin{equation} \label{Eq:DarbouxForm} \omega = \sum_{i=1}^n dp^i \wedge dq^i. \end{equation}
+\end{theorem}
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:SympVolumeForm}]  Многообразие чётномерно, потому что по Теореме~\ref{Th:LinearDarboux} только на чётномерных линейных пространствах существует невырожденная $2$-форма. Остаётся доказать формулу~\eqref{Eq:SympVolumeForm}.
+
+
+Заметим, что $\underbrace{\omega \wedge \dots \wedge \omega}_{n}$ является $2n$-формой. По Задаче~\ref{Prob:VolumeForm} выражение справа тоже локально можно рассматривать как $2n$-форму. Поэтому достаточно доказать \eqref{Eq:SympVolumeForm} в одной точке $x$ в подходящих координатах. 
+
+Рассмотрим локальные координаты в окрестности точки $x$ и линейной заменой координат приведём форму $\omega$ в точке $x$ к виду \eqref{Eq:DarbouxForm}. Таким образом остаётся доказать формулу~\eqref{Eq:SympVolumeForm} для формы \eqref{Eq:DarbouxForm}, т.е. что \[\underbrace{\omega \wedge \dots \wedge \omega}_{n}= n! dp^1 \wedge dq^1 \wedge \dots \wedge dp^n \wedge dq^n. \] Действительно, все $\omega$ во внешнем произведении должны давать разные сомножители $dp^i \wedge dq^i$. Для $2$-форм внешнее произведение коммутативно, поэтому будет $n!$ одинаковых слагаемых. Формула\eqref{Eq:SympVolumeForm}  доказана. Задача~\ref{Prob:SympVolumeForm} решена. \end{proof}
+
+
+
+\begin{definition} \textbf{ Симплектическое многообразие} $(M^{2n}, \omega)$ --- это многообразие $M^{2n}$ с заданной на нём невырожденной замкнутой $2$-формой $\omega$.
+\end{definition}
+
+%Все симплектические многообразия четномерны: $\dim M = 2n$.
+
+
+Условия на форму $\omega$ можно записать так:
+
+\begin{itemize}
+
+\item $d \omega =0$ (замкнутость),
+
+
+\item  $\underbrace{\omega\wedge \dots \wedge \omega }_n \not =0$ (невырожденность\footnote{Здесь неравенство нулю должно выполняться в каждой точке.}).
+
+\end{itemize}
+
+
+%\begin{definition} Многообразие $M$ называется \textbf{симплектическим}, если на нем задана замкнутая невырожденная $2$-форма $\omega$.  \end{definition}
+
+
+%\begin{remark} Нечетномерных симплектических многообразий не бывает $\mathrm{dim } M = 2n$. Дейстиветльно\end{remark}
+
+
+Симплектическое многообразие $(M^{2n}, \omega)$ будем называть \textbf{точным}, если $\omega = d\alpha$. 
+
+
+%\begin{problem} Доказать, что  \end{problem}
+
+
+\begin{problem} \label{Prob:NoCommpExactSym} Доказать, что не существует точных замкнутых (т.е. компактных и без границы)  симплектических многообразий.  \end{problem}
+
+\textit{Указание}. Воспользоваться формулой Стокса для формы объёма.
+ 
+\begin{proof}[Решение Задачи~\ref{Prob:NoCommpExactSym}] От противного. Пусть $\omega = d\alpha$, тогда \[ \omega \wedge \dots \wedge \omega = d(\alpha \wedge \omega \wedge \dots \wedge \omega). \]
+
+\begin{itemize}
+
+\item С одной стороны, $\underbrace{\omega \wedge \dots \wedge \omega}_{n}$ --- невырожденная форма объёма (см. Задачу \ref{Prob:SympVolumeForm}). Поэтому \[ \int_{M^n} \omega \wedge \dots \wedge \omega >0.\]
+
+\item  С другой стороны, по формуле Стокса \[ \int_{M^n} \omega \wedge \dots \wedge \omega = \int_{M^n} d(\alpha \wedge \omega \wedge \dots \wedge \omega) =0, \] так как у многообразия $M^n$ нет границы (см. Задачу~\ref{Prob:StokesNoBoundary}). 
+
+\end{itemize}
+
+Получаем противоречие. Задача~\ref{Prob:NoCommpExactSym} решена. \end{proof}
+
+
+\begin{remark} Так как на компактном симплектическом многообразии $(M, \omega)$ форма объема задаёт нетривиальный класс когомологий и \[ 0 \not = [ \omega \wedge \dots \wedge \omega  ] = [ \omega ]\smile \dots \smile  [\omega  ] = [ \omega]^n, \]  мы получаем, что \textit{все чётномерные когомологии компактного симплектического многообразия нетривиальны} \[ 0 \not = [ \omega]^k  \in H^{2k} (M, \omega). \] Отсюда, например, немедленно следует, что \textit{среди сфер $S^n$  только на двумерной сфере $S^2$ существует симплектическая структура.} \end{remark}
+
+
+
+
+
+
+
+\section{Теорема Майера--Вьеториса} \label{S:MayerViet}
+
+Следующая теорема предоставляет достаточно эффективный способ вычисления когомологий. 
+
+\begin{definition}Последовательность групп $G_k$ и гомоморфизмов $f_k$ 
+\[ \begin{CD} G_0 @>f_0>> G_1 @>f_1>> G_2 @>f_2>> G_3 @>>> \cdots . \end{CD} \] \textbf{точна}, если $\Ker f_k = \Imm f_{k-1}$.\end{definition}
+
+
+\begin{theorem}[Теорема Майера-Вьеториса]
+Пусть $M = U_1 \cup U_2$, где $U_1, U_2$ --- открытые подмножества многообразия $M$. Тогда короткая точная последовательность коцепей \[\scriptsize\begin{CD} 0 @>>> \Omega^k (M) @>i^*>> \Omega^k(U_1) \oplus \Omega^k(U_2) @>j^*>>  \Omega^k(U_1 \cap U_2) @>>> 0  \end{CD} \] где \[ i^*(\omega) = (\left. \omega\right|_{U_1},  \left. \omega\right|_{U_2}), \qquad j^*(\omega_1, \omega_2) = \left. \left(\omega_1 - \omega_2 \right)\right|_{U_1 \cap U_2}, \] порождает  длинную точную последовательность когомологий:  \begin{equation} \label{Eq:MVSeq} \begin{CD} \cdots  @>>> H^{i}(M)@>i^*>>  H^{i}(U_1)\oplus H^{i}(U_2)@>j^*>>  \\  @>j^*>>H^{i}(U_1 \cap U_2)@>>>  H^{i+1}(M)@>>>  \cdots \end{CD} \end{equation}
+
+\end{theorem}
+
+
+\begin{proof}%Точная последовательность когомологий порождается 
+
+% 0 @>>> \Omega^k (M) @>i^*>> \Omega^k(U_1) \oplus \Omega^k(U_2) @>j^*>>  \Omega^k(U_1 \cap U_2) @>>> 0 
+
+ШАГ 1. Проверим точность короткой последовательности:
+
+\begin{itemize}
+
+\item $\Ker i^*=0$, так как форма $\omega$ однозначно определяется своими ограничениями на $U_1$ и $U_2$. 
+
+\item Покажем, что $\Imm i^* =\Ker j^*$. Очевидно, что $\Imm i^* \subset \Ker j^*$. В другую сторону, если $j^* (\omega_1, \omega_2) =0$, то формы $\omega_1$ и $\omega_2$ совпадают на $U_1 \cap U_2$, и их можно ``склеить'' в форму на всем $M$.  
+
+
+ \item Проверим, что $j^*$ --- сюръективно.  Рассмотрим гладкое разбиение единицы $\left\{ \lambda_1, \lambda_2 \right\}$, подчинённое  покрытию $\left\{ U_1, U_2\right\}$. Тогда \[ \omega = \left.(\lambda_1 \omega )\right|_{U_1}+ \left. ( \lambda_2 \omega ) \right|_{U_2} \] Формы удается корректно ограничить благодаря тому, что $\lambda_i =0$ на $U_j \backslash (U_1 \cap U_2)$. 
+
+\end{itemize}
+
+ШАГ 2. Построим по короткой точной последовательности длинную. Главное --- построить отображение \[H^k(U_1 \cap U_2) \to H^{k+1} (M). \]
+
+
+
+
+
+\begin{itemize}
+
+
+\item Рассмотрим замкнутую форму $\omega \in \Omega^k (U_1 \cap U_2)$.
+
+
+\item Пусть $(\omega_1, \omega_2) \in  \Omega^k(U_1) \oplus \Omega^k(U_2)$ т.,ч. \[ j^ * (\omega_1, \omega_2)  = \omega.\]
+
+
+\item Рассмотрим $(d\omega_1, d \omega_2) \in  \Omega^{k+1}(U_1) \oplus \Omega^{k+1}(U_2)$.
+
+
+\item Заметим, что $j^*(d\omega_1, d \omega_2) =0$, так как $d j^* = j^* d $ и $d \omega =0$.
+
+\item Так как $\Ker j^* = \Imm i^*$, существует форма $\alpha \in  \Omega^{k+1} (M) $ т.,ч. 
+
+ \[ i^* \alpha = (d\omega_1, d \omega_2). \]
+
+
+\item Классу $[\omega] \in H^{k+1} (M) $ соответствует класс $[ \alpha] \in  H^k(U_1 \cap U_2)$. 
+
+\end{itemize}
+
+За построением удобно следить на следующей коммутативной диаграмме:\[\tiny \begin{CD}
+@.  @.  \Omega^k(U_1) \oplus \Omega^k(U_2) @>j^*>>  \Omega^k(U_1 \cap U_2) @>>> 0 \\
+  @. @. @VVdV @VVdV @. \\
+  0 @>>> \Omega^{k+1} (M) @>i^*>> \Omega^{k+1}(U_1) \oplus \Omega^{k+1}(U_2) @>j^*>>  \Omega^{k+1}(U_1 \cap U_2)  @. \\
+\end{CD}\]
+
+
+%where the rows are exact sequences and 0 is the zero object.
+
+ШАГ 3. Проверка корректности построения и точности построенной последовательности --- элементарное упражнение.
+
+\end{proof}
+
+%\newpage
+
+%%%%%%%%%S8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+
+
+
+\chapter{Аффинная связность} \label{S:AffinConn}
+
+
+
+
+\section{Теоретический материал.}
+
+\subsection{Аффинная связность}
+
+
+
+
+Пусть $M$ --- гладкое многообразие, а $\Gamma(TM)$ --- пространство касательных векторных полей на $M$.
+
+
+
+%\begin{definition}  \textbf{Аффинная связность} $\nabla$ на многообразии $M$ --- это  отображение, сопоставляющее любым двум касательным векторным $X, Y$ полям касательное векторное поле $\nabla_X Y$ \begin{gather*} \nabla : \Gamma(TM) \times \Gamma(TM) \to \Gamma(TM), \\ X, Y \to \nabla_X Y\end{gather*} и удовлетворяющее следующим свойствам: \begin{enumerate} \item $\mathrm{C}^{\infty}(M)$-линейность по $Y$: \[\nabla_{g_1 Y_1 + g_2 Y_2} X = g_1 \nabla_{Y_1} X + g_2 \nabla_{Y_2} X\] \item $\mathbb{R}$-линейность по $X$: \[\nabla_{Y} \left( \alpha_1 X_1 + \alpha_2 X_2 \right) = \alpha_1 \nabla_{Y} X_1 + \alpha_2 \nabla_{Y} X_2, \] \item Правило Лейбница: \[\nabla_{Y} (f X) = Y(f) X + f \nabla_Y X, \qquad \text{где} Y(f) = \sum_i Y^i \frac{\partial f}{x^i} \] \end{enumerate}где все указанные свойства выполнены для любых функций $f, g_1, g_2 \in \mathrm{C}^{\infty} (M)$, любых констант $\alpha_1, \alpha_2 \in \mathbb{R}$ и любых векторных полей $X_i, Y_j$.
+
+%сопоставляющее любым двум векторным поля $X$ и $Y$ векторное поле $\nabla_X Y$ и удовлетворяющее следующим свойствам: которое является
+
+\begin{definition}  \textbf{Аффинная связность} $\nabla$ на многообразии $M$ --- это $\mathbb{R}$-билинейное отображение \begin{gather*} \nabla : \Gamma(TM) \times \Gamma(TM) \to \Gamma(TM), \\ X, Y \to \nabla_X Y\end{gather*}   удовлетворяющее  следующим свойствам:
+\begin{enumerate}
+
+\item $C^{\infty} (M)$-линейность по $X$: \[ \nabla_{f X} Y = f \nabla_X Y, \]
+
+%\item $\mathbb{R}$-линейно по $Y$  
+
+\item правило Лейбница по $Y$: \[ \nabla_X (f Y) = X (f) Y + f \nabla_X Y. \]
+
+\end{enumerate}
+
+
+
+Векторное поле $\nabla_X Y$ называется \textbf{ковариантной производной} векторного поля $Y$ вдоль векторного поля $X$.
+
+\end{definition}
+
+%Как обычно, через  $X(f)$ обозначена производная функции $f$ вдоль векторного поля $X$.
+
+
+\begin{remark}
+
+\begin{itemize}
+
+
+
+
+\item В локальных координатах $(x^1, \dots, x^n)$ компоненты ковариантной производной имеют вид \[\left(\nabla_X Y\right)^i = X^j  \left( \frac{\partial Y^i}{\partial x^j} + \Gamma^i_{jk} Y^k \right),  \]  где  \[ \Gamma^i_{jk} = \left( \nabla_{\frac{\partial}{\partial x^j} }\frac{\partial}{\partial x^k}  \right)^i. \]
+
+
+
+\item Ковариантную производную вдоль базисного векторного поля $\displaystyle \frac{\partial}{\partial x^i}$ также обозначают через $\nabla_i$, поэтому \[ \nabla_X Y = X^i \nabla_i Y.\]
+
+
+
+\item Операцию ковариантного дифференцирования удобно распространить на функции на многообразии, положив, по определению, \[\nabla_Y (f) =Y(f) = \sum_i Y^i \frac{\partial f}{\partial x^i}. \] Тогда правило Лейбница можно записать следующим образом \[\nabla_{Y} (f X) = \nabla_Y (f) X + f \nabla_Y X.\]
+
+
+\end{itemize}
+
+
+\end{remark}
+
+
+
+
+
+
+
+
+
+\subsection[Основная теорема римановой геометрии]{Основная теорема римановой \\ геометрии}
+
+ 
+   \begin{definition} Метрический тензор $g$ на многообразии $M$ с аффинной связностью $\nabla$  \textbf{ковариантно постоянен}\footnote{Указанное условие эквивалентно тому, что $\nabla g =0$, см. Раздел~\ref{S:CovarDeriv}.}, если для любых касательных векторных полей $X,Y$  и $Z$
+\[ \nabla_Z \left( X, Y \right) = \left( \nabla_Z X, Y \right)  + \left( X, \nabla_Z Y \right). \] \end{definition}	
+   
+   Также говорят, что \textbf{связность согласована с метрикой}.
+   
+\begin{theorem}[Основная теорема римановой геометрии] Любое риманово (и псевдориманово) многообразие обладает единственной симметричной аффинной связностью, согласованной с метрикой. \end{theorem}
+
+Связность с нулевым кручением, относительно которой метрический тензор ковариантно постоянен, также называют \textbf{связностью Леви-Чивиты}.
+
+
+
+
+
+\section[Ковариантная производная векторных полей]{Ковариантная производная \\ векторных полей}
+
+
+%\begin{problem} На плоскости $\mathbb{R}^2(x,y)$ задана аффинная связность с символами Кристоффеля \[\Gamma^1_{11} =y,  \qquad \Gamma^2_{11} =\Gamma^2_{22} =1\] (остальные символя Кристоффеля равны нулю). Выписать уравнение параллельного переноса вдоль прямой $y=3$. \end{problem}
+
+
+\begin{problem} \label{Prob:CovarDeriv_Ex1} На плоскости с координатами $(x,y)$ задана аффинная связность с символами Кристоффеля  \[\Gamma^1_{11} =y,  \qquad \Gamma^2_{11} =\Gamma^2_{22} =1\]  (остальные символы Кристоффеля равны нулю). Найти ковариантную производную векторного поля \[v = (y, 2y) \quad \text{ вдоль } \quad  \gamma(t)  = \left(t, 2 \right) \quad \text{ в точке } \quad P =(3, 2).\]
+
+\end{problem}
+
+\textit{Ответ в  Задаче~\ref{Prob:CovarDeriv_Ex1}.}  $\left. \nabla_{\dot{\gamma}}{v}\right|_{P} = \left( 4, 2 \right) $.
+
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CovarDeriv_Ex1}]  Компоненты искомого вектора находятся по формулам \[ \nabla_{\dot{\gamma}}{v}^i = \frac{d v^i} {dt} + \Gamma_{jk}^i  \frac{d \gamma^j}{dt} v^k.\]
+
+В данном случае \[\dot{\gamma}(t) = (1, 0), \qquad v(t) = \left( y(t), 2y(t) \right) = \left(2, 4 \right), \] поэтому  
+\[ \nabla_{\dot{\gamma}}{v}^1 =  \frac{d v^1}{dt } + \Gamma^1_{11} v^1 =   \frac{d \, 2}{dt } + y^2  = y^2,\]
+
+\[ \nabla_{\dot{\gamma}}{v}^2 =   \frac{d v^2}{dt } + \Gamma^2_{11} v^1  = \frac{d \,4}{dt } + y  = y.    \]
+
+Остаётся подставить в полученные компоненты координаты точки $P$.  Задача~\ref{Prob:CovarDeriv_Ex1} решена. \end{proof}
+
+
+%\newpage
+%%%%%%%%%%%%%%%S10
+
+
+
+
+
+
+\begin{problem} \label{Prob:CovarDerivProjection} Пусть $\nabla$ --- аффиная связность на многообразии $M$, и пусть 
+
+
+
+
+
+
+\begin{itemize}
+
+\item $Y \in T_P M$ --- касательный вектор в точке $P \in M$,
+
+
+
+
+
+
+\item $\gamma(t)$ -- регулярная кривая на  $M$, т.,ч. \[ \gamma(t_0) = P, \qquad \frac{d \gamma}{dt} (t_0) = Y, \]
+
+
+
+
+
+
+\item $X$ --- касательное векторное поле на $M$, заданное в точках кривой $\gamma(t)$. 
+
+\end{itemize}
+
+
+
+
+
+Доказать, что ковариантная производная $\nabla_{Y}(X)$ в точке $P$ корректно определена и не зависит от продолжения вектора $Y$ и поля $X$ до векторных полей в окрестности точки $P$.
+
+\end{problem}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:CovarDerivProjection} ] Посмотрим на выражение для ковариантной производной \begin{equation} \label{Eq:CovAffDerivCurvCoord} \left(\nabla_{\dot{\gamma}} X\right)^i =\dot{\gamma}^j \left( \frac{\partial X^i}{\partial x^j}  + \Gamma^i_{jk} X^k \right). \end{equation}
+
+\begin{itemize}
+
+\item Первое слагаемое в сумме \eqref{Eq:CovAffDerivCurvCoord}  суть производная $X$ вдоль кривой: \[\frac{d\gamma^j}{dt} \frac{\partial X^i}{\partial x^{j}}   = \frac{d X^i}{dt}. \] 
+
+\item Оставшееся слагаемое в сумме \eqref{Eq:CovAffDerivCurvCoord} зависит только от значений $\dot{\gamma}$ и $X$ в точке кривой.
+
+\end{itemize} Поэтому для вычисления формулы~\eqref{Eq:CovAffDerivCurvCoord} достаточно знать значения $X$ на кривой $\gamma(t)$.   Задача~\ref{Prob:CovarDerivProjection}  решена. \end{proof}
+
+
+
+
+
+\section{Тензор кручения}
+
+
+\begin{definition} \textbf{Тензор кручения} $T$ аффинной связности $\nabla$ --- это тензор типа $(1, 2)$, определённый формулой \[  T^{k}_{{ij}}=\Gamma ^{k}_{{ij}}-\Gamma ^{k}_{{ji}}. \] \end{definition}
+
+
+%\begin{problem} Проверить, что тензор кручения $T$ действительно является тензором типа $(1, 2)$. \end{problem} 
+
+
+%The torsion tensor (sometimes called the Cartan (torsion) tensor) is a vector-valued 2-form defined on vector fields X and Y by
+
+
+%\begin{problem} Доказать, что тензор кручения $T$ связности $\nabla$ определяется формулой  \[ T(X,Y):=\nabla _{X}Y-\nabla _{Y}X-[X,Y]\] где $X, Y$ ---  произвольные касательные векторные поля. \end{problem} 
+
+%
+
+\begin{problem} \label{Prob:TorsTensorDef}  Доказать, что если $T$ --- тензор кручения связности $\nabla$, то для любых касательных векторных полей $X, Y$ \begin{equation} \label{Eq:AffineTorsion} T(X,Y)=\nabla _{X}Y-\nabla _{Y}X-[X,Y].\end{equation} \end{problem} 
+
+
+
+
+
+
+\begin{corollary} Если связность $\nabla$ симметрична, то  \begin{equation} \label{Eq:CommutatorConnection} [X, Y] = \nabla_X Y - \nabla_Y X.\end{equation}
+\end{corollary}
+
+
+
+
+\begin{proof}[Решение Задачи~\ref{Prob:TorsTensorDef}] Формулу легко доказать в локальных координатах: \begin{gather*} \left( \nabla_X Y\right)^i = \frac{\partial Y^i}{\partial x^j} X^j + \Gamma_{jk}^i X^j Y^k , \\ \left( \nabla_Y X\right)^i = \frac{\partial X^i}{\partial x^j} Y^j + \Gamma_{jk}^i Y^j X^k ,\\
+[X, Y] = \frac{\partial Y^i}{\partial x^j}X^j - \frac{\partial X^i}{\partial x^j}Y^j.
+ \end{gather*} Формула \eqref{Eq:AffineTorsion}  теперь легко следует из определения тензора кручения связности:\[ T(X, Y)^i = \left( \Gamma^i_{jk} - \Gamma^i_{kj}  \right)X^j Y^k. \]
+Задача~\ref{Prob:TorsTensorDef}  решена. \end{proof}
+
+
+
+\begin{problem} \label{Prob:NoTorsCommCovarConstVect}Доказать, что на многообразии с симметричной связностью $\nabla$ коммутатор ковариантно постоянных векторных полей равен нулю: \[ \nabla X = \nabla Y =0 \qquad \Rightarrow \qquad [X, Y]=0. \]  
+
+
+\end{problem} 
+
+
+
+ \begin{proof}[Решение Задачи~\ref{Prob:NoTorsCommCovarConstVect}] Это немедленное следствие Задачи~\ref{Prob:TorsTensorDef}. Ковариантная постоянность означает равенство нулю всех ковариантных производных, поскольку \[\left(\nabla_X Y \right)^i= \left(\nabla Y\right)^i_{;j} X^j. \] Поэтому, используя \eqref{Eq:CommutatorConnection}, получаем \[ \nabla X = \nabla Y =0 \quad \Rightarrow \quad \nabla_X Y= \nabla_Y X =0 \quad \Rightarrow \quad [X, Y]=0.\] Задача~\ref{Prob:NoTorsCommCovarConstVect} решена.   \end{proof}
+
